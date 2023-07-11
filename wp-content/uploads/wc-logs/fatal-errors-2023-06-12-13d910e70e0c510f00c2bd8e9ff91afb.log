@@ -1,0 +1,6 @@
+2023-06-12T04:54:03+00:00 CRITICAL Cannot redeclare ai1wm_progress_path() (previously declared in /home/u873455282/domains/evergreenbraindev.com/public_html/ecommerce/wp-content/plugins/all-in-one-wp-migration/deprecated.php:30) in /home/u873455282/domains/evergreenbraindev.com/public_html/ecommerce/wp-content/plugins/All-In-One-WP-Migration-With-Import-master/deprecated.php on line 26
+
+2023-06-12T04:54:04+00:00 CRITICAL Cannot redeclare ai1wm_progress_path() (previously declared in /home/u873455282/domains/evergreenbraindev.com/public_html/ecommerce/wp-content/plugins/all-in-one-wp-migration/deprecated.php:30) in /home/u873455282/domains/evergreenbraindev.com/public_html/ecommerce/wp-content/plugins/All-In-One-WP-Migration-With-Import-master/deprecated.php on line 26
+
+2023-06-12T04:54:05+00:00 CRITICAL Cannot redeclare ai1wm_progress_path() (previously declared in /home/u873455282/domains/evergreenbraindev.com/public_html/ecommerce/wp-content/plugins/all-in-one-wp-migration/deprecated.php:30) in /home/u873455282/domains/evergreenbraindev.com/public_html/ecommerce/wp-content/plugins/All-In-One-WP-Migration-With-Import-master/deprecated.php on line 26
+

@@ -1,0 +1,2 @@
+2023-06-12T05:25:25+00:00 CRITICAL Array and string offset access syntax with curly braces is no longer supported in /home/u873455282/domains/evergreenbraindev.com/public_html/scholarship/wp-content/plugins/beeketing-for-woocommerce/vendor/sentry/sentry/lib/Raven/Client.php on line 326
+
