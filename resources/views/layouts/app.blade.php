@@ -23,6 +23,8 @@
     </div>
     @include("layouts.partials.footer");
     <script src="{{asset('/js/jquery.js')}}"></script>
+    <script src="{{asset('/js/validate.min.js')}}"></script>
+    <script src="{{asset('/js/formvalidate.js')}}"></script>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
 
