@@ -1319,3 +1319,8 @@ img.d-inline-block.align-text-top {
     width: 90%;
 }
     }
+
+.error
+{
+  color:red;
+}
