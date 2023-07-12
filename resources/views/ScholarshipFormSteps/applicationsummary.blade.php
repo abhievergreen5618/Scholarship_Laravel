@@ -11,13 +11,6 @@
                                                 <tbody>
                                                     <tr>
                                                         <td colspan="3">
-                                                            <script type="text/javascript">
-                                                                //<![CDATA[
-                                                                Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ScriptManagerProxy1', 'aspnetForm', [], [], [], 90, 'ctl00');
-                                                                //]]>
-                                                            </script>
-
-
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -285,7 +278,7 @@
                                                     <tr>
                                                         <td colspan="6" class="tdgap" width="42%" align="left">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$btnBackEdit','',true,'','','wait..',true,null,null,null,true,true);return false;" id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary"></span>&nbsp;&nbsp;
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT"  id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary"></span>&nbsp;&nbsp;
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -585,11 +578,11 @@
                                                     <tr>
                                                         <td align="left">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK &amp; EDIT" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$btnBack','',true,'','','',true,null,null,null,true,true);return false;" id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK &amp; EDIT"  id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
                                                         </td>
                                                         <td colspan="2" align="right">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$btnSaveNext','',true,'','','',true,null,null,null,true,true);return false;" id="ctl00_ContentPlaceHolder1_btnSaveNext" class="btn-primary"></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT"  id="ctl00_ContentPlaceHolder1_btnSaveNext" class="btn-primary"></span>
                                                         </td>
                                                     </tr>
                                                 </tbody>

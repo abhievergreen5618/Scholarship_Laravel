@@ -61,13 +61,6 @@
                                         <div id="ctl00_ContentPlaceHolder1_divEducationGrid" class="box-body  table-responsive">
                                             <span id="Anthem_ctl00_ContentPlaceHolder1_lbl_UploadDocDtls__"><span id="ctl00_ContentPlaceHolder1_lbl_UploadDocDtls" style="color:Red;margin-left: 80%"></span></span>
                                             <div class="gridiv">
-                                                <script type="text/javascript">
-                                                    //<![CDATA[
-                                                    Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ScriptManagerProxy1', 'aspnetForm', [], [], [], 90, 'ctl00');
-                                                    //]]>
-                                                </script>
-
-
                                                 <div id="Anthem_ctl00_ContentPlaceHolder1_gvsubject__">
                                                     <div>
                                                         <table class="table" cellspacing="1" cellpadding="1" rules="all" border="1" id="ctl00_ContentPlaceHolder1_gvsubject" style="width:100%;border:1px solid #B0B0B0;border-collapse:collapse; margin:15px 0;">
@@ -91,7 +84,7 @@
                                                                     </td>
                                                                     <td align="center" style="width:100%;">
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus" onchange="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlRStatus','',false,'','','',true,null,null,null,true,true);return false;">
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus" >
                                                                                 <option value="P">Passed</option>
                                                                                 <option value="A">Awaited</option>
                                                                                 <option value="N">Not Applicable</option>
@@ -163,7 +156,7 @@
                                                                     <td align="center">
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="text" value="" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo" class="textbox" onpaste="return false" ondrop="return false"></span>
                                                                     </td>
-                                        
+
 
                                                                 <tr class="dgitem-style" style="background-color:#F8F8F8;">
                                                                     <td align="center" style="width:5%;">
@@ -172,7 +165,7 @@
                                                                     </td>
                                                                     <td align="center" style="width:100%;">
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlRStatus" onchange="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$gvsubject$ctl03$ddlRStatus','',false,'','','',true,null,null,null,true,true);return false;">
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlRStatus" >
                                                                                 <option value="P">Passed</option>
                                                                                 <option selected="selected" value="A">Awaited</option>
                                                                                 <option value="N">Not Applicable</option>
@@ -238,7 +231,7 @@
                                                                     </td>
                                                                     <td align="center" style="width:100%;">
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus" onchange="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlRStatus','',false,'','','',true,null,null,null,true,true);return false;">
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus" >
                                                                                 <option value="P">Passed</option>
                                                                                 <option value="A">Awaited</option>
                                                                                 <option value="N">Not Applicable</option>
@@ -338,7 +331,7 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <td><span><input id="ctl00_ContentPlaceHolder1_rdListYesNo_0" type="radio" name="ctl00$ContentPlaceHolder1$rdListYesNo" value="N" checked="checked"><label for="ctl00_ContentPlaceHolder1_rdListYesNo_0">No</label></span></td>
-                                                                            <td><span><input id="ctl00_ContentPlaceHolder1_rdListYesNo_1" type="radio" name="ctl00$ContentPlaceHolder1$rdListYesNo" value="Y" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$rdListYesNo','1',false,'','','',true,null,null,null,true,true);"><label for="ctl00_ContentPlaceHolder1_rdListYesNo_1">Yes</label></span></td>
+                                                                            <td><span><input id="ctl00_ContentPlaceHolder1_rdListYesNo_1" type="radio" name="ctl00$ContentPlaceHolder1$rdListYesNo" value="Y" ><label for="ctl00_ContentPlaceHolder1_rdListYesNo_1">Yes</label></span></td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -391,7 +384,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="ctl00$ContentPlaceHolder1$UploadImg" id="ctl00_ContentPlaceHolder1_UploadImg" class="uploadfiles" onchange="previewFile()"></span>
+                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="ctl00$ContentPlaceHolder1$UploadImg" id="ctl00_ContentPlaceHolder1_UploadImg" class="uploadfiles"></span>
                                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_hdPath__"><input name="profile_photo" type="text" id="ctl00_ContentPlaceHolder1_hdPath" style="border-width:0px;border-style:None;height:0px;width:0px;"></span><br>
 
 
@@ -441,7 +434,7 @@
 
                                                                     <tr>
                                                                         <td>
-                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="ctl00$ContentPlaceHolder1$UploadSignature" id="ctl00_ContentPlaceHolder1_UploadSignature" class="uploadfiles" onchange="previewFileSign()"></span>
+                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="ctl00$ContentPlaceHolder1$UploadSignature" id="ctl00_ContentPlaceHolder1_UploadSignature" class="uploadfiles"></span>
                                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_hdSigPath__"><input name="sign_photo" type="text" id="ctl00_ContentPlaceHolder1_hdSigPath" style="border-width:0px;border-style:None;height:0px;width:0px;"></span><br>
 
 

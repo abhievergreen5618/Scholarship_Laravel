@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ScholarshipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('form');
+Route::controller(ScholarshipController::class)->group(function () {
+    Route::get('/','index')->name('start');
+    Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
 });

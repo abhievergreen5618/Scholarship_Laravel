@@ -27,11 +27,11 @@
                         <label for="tab6"><i class="fas fa-hand-point-right"></i>Submit Application Form</label>
 
                         <ul>
-                            
-                                    @include("ScholarshipFormSteps.personalinfo");
-                                    @include("ScholarshipFormSteps.educationDocument");
-                                    @include("ScholarshipFormSteps.applicationsummary");
-                                    @include("ScholarshipFormSteps.payment");
+
+                            @include("ScholarshipFormSteps.personalinfo")
+                            @include("ScholarshipFormSteps.educationDocument")
+                            @include("ScholarshipFormSteps.applicationsummary")
+                            @include("ScholarshipFormSteps.payment")
 
                             <li class="tab-content tabend typography">
                                 <div class="typography">
@@ -40,11 +40,11 @@
                                         <div class="tab-pane active" id="tab_6">
                                             <h3><span>Step [5/5] :</span>Submit Reference Number &amp; Application Form</h3>
                                             <div class="box-body table-responsive">
-                                                <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form" width="50%" border="0" cellspacing="5" cellpadding="0">
+                                                <table id="" class="table Eng_hindi_form" width="50%" border="0" cellspacing="5" cellpadding="0">
                                                     <tbody>
                                                         <tr>
                                                             <td colspan="3">
-                                                                <span id="Anthem_ctl00_ContentPlaceHolder1_lblAlertMsg__"><span id="ctl00_ContentPlaceHolder1_lblAlertMsg" style="color:Red;"></span></span>
+                                                                <span id=""><span style="color:Red;"></span></span>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -67,18 +67,12 @@
                     <div class="wr-right" style="display: block">
                         <div>
                             <h4>Steps for Registration</h4>
-
                             <div class="btn-group-vertical">
-
-                                <a href="PA_Comm_PG_UG_Registration_Personalinfo.aspx" class="btn btn-warning btn-block"> Personal
-                                    Information</a>
-                                <a href="PA_Comm_PG_UG_Registration_Education_Doc.aspx" class="btn btn-warning btn-block">
-                                    Education &amp; Document Details</a>
-                                <a href="PA_Comm_PG_UG_ApplicationSummery.aspx" class="btn btn-warning btn-block"> Application
-                                    Summary</a>
-                                <a href="PA_Comm_PG_UG_Registration_Payment.aspx" id="ctl00_paymentid" class="btn btn-warning btn-block"> Payment</a>
-                                <a href="PA_Comm_PG_UG_Registration_SubmitFormAndApp.aspx" class="btn btn-warning btn-block">
-                                    Submit Application Form</a>
+                                <a href="#" class="btn btn-success btn-block py-3 border-dark">Personal Information</a>
+                                <a href="#" class="btn btn-secondary btn-block py-3 border-dark">Education &amp; Document Details</a>
+                                <a href="#" class="btn btn-secondary btn-block py-3 border-dark">Application Summary</a>
+                                <a href="#" class="btn btn-secondary btn-block py-3 border-dark">Payment</a>
+                                <a href="#" class="btn btn-secondary btn-block py-3 border-dark">Submit Application Form</a>
                             </div>
                         </div>
                         <div>

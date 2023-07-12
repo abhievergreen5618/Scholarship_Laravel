@@ -15,13 +15,13 @@
 </head>
 
 <body>
-    @include("layouts.partials.header");
+    @include("layouts.partials.header")
     <div class="topimg">
         <div class="topheader2">
         @yield("content")
         </div>
     </div>
-    @include("layouts.partials.footer");
+    @include("layouts.partials.footer")
     <script src="{{asset('/js/jquery.js')}}"></script>
     <script src="{{asset('/js/validate.min.js')}}"></script>
     <script src="{{asset('/js/formvalidate.js')}}"></script>

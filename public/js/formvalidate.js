@@ -27,6 +27,27 @@ jQuery('#frm').validate({
             required:"Please enter email ID",
             email:"Please enter valid email"
         }
+    },
+    submitHandler : function(form,e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: $(form).attr("action"),
+            dataType: "json",
+            data: $(form).serialize(),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(result) {
+
+            },
+            error : function(xhr, status, error) {
+                if(xhr.status == 422)
+                {
+                    console.log(error);
+                }
+            }
+        });
     }
 })
 
@@ -39,7 +60,7 @@ jQuery('#docform').validate({
         class_max_marks:"required",
         class_percentage:"required",
         class_rollno:"required",
-        
+
         grad_passed:"required",
         grad_board:"required",
         grad_passing_year:"required",
@@ -47,7 +68,7 @@ jQuery('#docform').validate({
         grad_max_marks:"required",
         grad_percentage:"required",
         grad_rollno:"required",
-        
+
         post_grad_passed:"required",
         post_grad_board:"required",
         post_grad_passing_year:"required",
