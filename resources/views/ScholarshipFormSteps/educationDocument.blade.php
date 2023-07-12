@@ -1,4 +1,6 @@
 <li class="tab-content tab-content-2 typography">
+    <form id="docform">
+        @csrf
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_2">
 
@@ -103,8 +105,8 @@
                                                                                 Class 12 or its Equivalent</span></span>
 
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlGraduateExam" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam" class="dropdown1 ">
-                                                                                <option selected="selected" value="0">--Select Class--</option>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="class_passed" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam" class="dropdown1 ">
+                                                                                <option selected="selected" value="">--Select Class--</option>
                                                                                 <option value="3">Class 5</option>
                                                                                 <option value="17">Class 6</option>
                                                                                 <option value="18">Class 7</option>
@@ -122,7 +124,7 @@
                                                                     </td>
                                                                     <td align="center">
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$txtNameofUniver" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver" class="textbox" onpaste="return false" ondrop="return false"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver" class="textbox" onpaste="return false" ondrop="return false"></span>
 
 
 
@@ -130,8 +132,8 @@
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl02$ddlYear" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear">
-                                                                                <option value="0">--Select --</option>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear">
+                                                                                <option value="">--Select --</option>
                                                                                 <option value="1976">1976</option>
 
                                                                                 <option value="2014">2014</option>
@@ -140,7 +142,7 @@
                                                                                 <option value="2017">2017</option>
                                                                                 <option value="2018">2018</option>
                                                                                 <option value="2019">2019</option>
-                                                                                <option selected="selected" value="2020">2020</option>
+                                                                                <option value="2020">2020</option>
                                                                                 <option value="2021">2021</option>
                                                                                 <option value="2022">2022</option>
                                                                                 <option value="2023">2023</option>
@@ -148,20 +150,21 @@
                                                                             </select></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl02$txtCreditMarks" type="text" value="" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="text" value="" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl02$txtMaxMarks" type="text" value="" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks" class="textbox" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="text" value="" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks" class="textbox" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl02$txtCreMarkPercent" type="text" value="" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="text" value="" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl02$txtExamRollNo" type="text" value="" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo" class="textbox" onpaste="return false" ondrop="return false"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="text" value="" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo" class="textbox" onpaste="return false" ondrop="return false"></span>
                                                                     </td>
-                                                                </tr>
+                                        
+
                                                                 <tr class="dgitem-style" style="background-color:#F8F8F8;">
                                                                     <td align="center" style="width:5%;">
                                                                         2
@@ -181,8 +184,8 @@
                                                                                 or its Equivalent</span></span>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_hdfExamPassId__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$hdfExamPassId" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_hdfExamPassId" value="3"></span>
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$ddlGraduateExam" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam" class="dropdown1 ">
-                                                                                <option selected="selected" value="0">--Select Degree--</option>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam__"><select name="grad_passed" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam" class="dropdown1 ">
+                                                                                <option selected="selected" value="">--Select Degree--</option>
                                                                                 <option value="18">B.A</option>
                                                                                 <option value="19">B.Com</option>
                                                                                 <option value="20">B.Sc</option>
@@ -191,12 +194,12 @@
                                                                             </select></span><span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblGradMandatory__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblGradMandatory" style="color:Red;font-size:Medium;">*</span></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$txtNameofUniver" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver" class="textbox" onpaste="return false" ondrop="return false"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="grad_board" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver" class="textbox" onpaste="return false" ondrop="return false"></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlYear__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$ddlYear" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlYear">
-                                                                                <option selected="selected" value="0">--Select --</option>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlYear__"><select name="grad_passing_year" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlYear">
+                                                                                <option selected="selected" value="">--Select --</option>
                                                                                 <option value="1976">1976</option>
 
                                                                                 <option value="2013">2013</option>
@@ -214,18 +217,18 @@
                                                                             </select></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$txtCreditMarks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks__"><input name="grad_marks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$txtMaxMarks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks" class="textbox" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks__"><input name="grad_max_marks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks" class="textbox" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$txtCreMarkPercent" type="text" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent__"><input name="grad_percentage" type="text" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$txtExamRollNo" type="text" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo" class="textbox" onpaste="return false" ondrop="return false"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo__"><input name="grad_rollno" type="text" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo" class="textbox" onpaste="return false" ondrop="return false"></span>
                                                                     </td>
                                                                 </tr>
                                                                 <tr class="dgitem-style" style="background-color:White;">
@@ -248,8 +251,8 @@
                                                                                 or its Equivalent</span></span>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_hdfExamPassId__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$hdfExamPassId" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_hdfExamPassId" value="4"></span>
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlGraduateExam" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam" class="dropdown1 ">
-                                                                                <option selected="selected" value="0">--Select Degree--</option>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="post_grad_passed" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam" class="dropdown1 ">
+                                                                                <option selected="selected" value="">--Select Degree--</option>
                                                                                 <option value="22">M.A</option>
                                                                                 <option value="23">M.Sc</option>
                                                                                 <option value="24">M.Com</option>
@@ -258,12 +261,12 @@
                                                                             </select></span><span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblGradMandatory__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblGradMandatory" style="color:Red;font-size:Medium;">*</span></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$txtNameofUniver" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver" class="textbox" onpaste="return false" ondrop="return false"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver__"><input name="post_grad_board" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver" class="textbox" onpaste="return false" ondrop="return false"></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlYear__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlYear" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlYear">
-                                                                                <option selected="selected" value="0">--Select --</option>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlYear__"><select name="post_grad_passing_year" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlYear">
+                                                                                <option selected="selected" value="">--Select --</option>
 
                                                                                 <option value="2013">2013</option>
                                                                                 <option value="2014">2014</option>
@@ -280,18 +283,18 @@
                                                                             </select></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$txtCreditMarks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks__"><input name="post_grad_marks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$txtMaxMarks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks" class="textbox" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks__"><input name="post_grad_max_marks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks" class="textbox" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$txtCreMarkPercent" type="text" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent__"><input name="post_grad_percentage" type="text" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent" class="textbox" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo__"><input name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$txtExamRollNo" type="text" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo" class="textbox" onpaste="return false" ondrop="return false"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo__"><input name="post_grad_rollno" type="text" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo" class="textbox" onpaste="return false" ondrop="return false"></span>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -383,13 +386,13 @@
                                                                         <td>
 
 
-                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_ImgProfilePic__"><img id="ctl00_ContentPlaceHolder1_ImgProfilePic" src="{{asset('images/imguserr.png')}}" style="height:100px;width:100px;border-width:0px;"></span><span style="color: red">*</span>
+                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_ImgProfilePic__" name="profile_photo"></span><span style="color: red">*</span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
                                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="ctl00$ContentPlaceHolder1$UploadImg" id="ctl00_ContentPlaceHolder1_UploadImg" class="uploadfiles" onchange="previewFile()"></span>
-                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_hdPath__"><input name="ctl00$ContentPlaceHolder1$hdPath" type="text" id="ctl00_ContentPlaceHolder1_hdPath" style="border-width:0px;border-style:None;height:0px;width:0px;"></span><br>
+                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_hdPath__"><input name="profile_photo" type="text" id="ctl00_ContentPlaceHolder1_hdPath" style="border-width:0px;border-style:None;height:0px;width:0px;"></span><br>
 
 
 
@@ -427,7 +430,7 @@
                                                                             <div id="Anthem_ctl00_ContentPlaceHolder1_Panel3__">
                                                                                 <div id="ctl00_ContentPlaceHolder1_Panel3">
 
-                                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ImgSignature__"><img id="ctl00_ContentPlaceHolder1_ImgSignature" src="{{asset('images/sgg.png')}}"></span><span style="color: red">*</span>
+                                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ImgSignature__" name="sign_photo"></span><span style="color: red">*</span>
 
                                                                                 </div>
                                                                             </div>
@@ -439,7 +442,7 @@
                                                                     <tr>
                                                                         <td>
                                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="ctl00$ContentPlaceHolder1$UploadSignature" id="ctl00_ContentPlaceHolder1_UploadSignature" class="uploadfiles" onchange="previewFileSign()"></span>
-                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_hdSigPath__"><input name="ctl00$ContentPlaceHolder1$hdSigPath" type="text" id="ctl00_ContentPlaceHolder1_hdSigPath" style="border-width:0px;border-style:None;height:0px;width:0px;"></span><br>
+                                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_hdSigPath__"><input name="sign_photo" type="text" id="ctl00_ContentPlaceHolder1_hdSigPath" style="border-width:0px;border-style:None;height:0px;width:0px;"></span><br>
 
 
 
@@ -478,10 +481,10 @@
                                                     <tr>
                                                         <td align="left">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$btnBack','',true,'','','',true,null,null,null,true,true);return false;" id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK"  id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
                                                         <td colspan="6" class="tdgap" width="42%" align="left">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="SAVE " onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$btnBackEdit','',true,'','','wait..',true,null,null,null,true,true);return false;" id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary"></span>&nbsp;&nbsp;
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="SAVE "  id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary"></span>&nbsp;&nbsp;
                                                         </td>
                                                         </td>
                                                         <td colspan="2" align="right">
@@ -499,4 +502,5 @@
                                     </div>
 
                                 </div>
+                                                            </form>
                             </li>
