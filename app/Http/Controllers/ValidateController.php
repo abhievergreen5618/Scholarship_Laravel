@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Validator;
 
 class ValidateController extends Controller
 {
     //
     public function validateform(Request $req)
     {
-        $validatedData = $request->validate([
-            'class_passed' => 'required'
+        $validator = Validator::make($request->all(),[
+            'class_passed' => 'required',
+            'class_board' => 'required|string'
         ]);
-        return response()->json(['success' => true]);
+        if($validator->passes())
+        {
+        return response()->json(['success' => 'Added new record.']);
+    }
+    else {
+        return response()->json(['error'=>$validator->errors()->all()]);
+    }
     }
 
 }

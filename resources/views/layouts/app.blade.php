@@ -14,6 +14,7 @@
     @stack("header_extras")
 </head>
 
+
 <body>
     @include("layouts.partials.header");
     <div class="topimg">

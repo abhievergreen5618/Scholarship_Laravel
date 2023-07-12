@@ -1,6 +1,6 @@
 <li class="tab-content tab-content-2 typography">
-    <form id="docform" method="POST" action='validateform'>
-        @csrf
+    <form id="docform" method="POST" action="{{ route('validateform') }}" >
+    {{csrf_field()}}
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_2">
 
@@ -125,8 +125,9 @@
                                                                     </td>
                                                                     <td align="center">
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver" class="textbox" onpaste="return false" ondrop="return false"></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" id="class_board" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver" class="textbox" onpaste="return false" ondrop="return false"></span>
 
+                                                                        <span class = "class_board_err"></span>
 
 
 
@@ -485,7 +486,7 @@
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK"  id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
                                                         <td colspan="6" class="tdgap" width="42%" align="left">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="SAVE "  id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary"></span>&nbsp;&nbsp;
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit"  name="ctl00$ContentPlaceHolder1$btnBackEdit" value="SAVE "  id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary btn"></span>&nbsp;&nbsp;
                                                         </td>
                                                         </td>
                                                         <td colspan="2" align="right">
@@ -505,34 +506,42 @@
                                 </div>
                                                             </form>
                             </li>
-                            
-                              
+                            <script>
+                            $(document).ready(function(){
+                            $("#docform").submit(function(e){
+                              e.preventDefault();
 
-                                <!-- //         $.ajax({
-                                //             url:"validateform",
-                                //             type:"POST",
-                                //             data:{_token:_token,class_passed:class_passed},
-                                //             success:function(data){
-                                //                 console.log(data);
+                            let _token = $("input[name='_token']").val();
+                            let class_passed = $("#class_passed").val();
+                            let class_board = $("#class_board").val();
 
-                                //                 if($.isEmptyObject(data.error))
-                                //                 {
-                                //                     alert(data.success);
-                                //                 }
-                                //                 else{
-                                //                    printErrorMsg(data.error);
-                                //                 }
-                                //             }
-                                //         });
+                                        $.ajax({
+                                          url:"{{ route('validateform') }}",
+                                           method:"POST",
+                                            data:{_token:_token,class_passed:class_passed},
+                                            success:function(data){
+
+                                                if($.isEmptyObject(data.error))
+                                                {
+                                                    alert(data.success);
+                                                }
+                                                else{
+                                                   printErrorMsg(data.error);
+                                                }
+                                            },
+                                            error: function(xhr, textStatus, errorThrown) {
+                                             console.log(xhr.responseText);
+                                        }
+                                        });
 
                                         
-                                //     });
-                                //     function printErrorMsg(msg)
-                                //         {
-                                //             $.each(msg,function(key,value){
-                                //                 console.log(key);
-                                //                 $('.'+key+'_err').text(value);
-                                //             })
-                                //         }
+                                    });
+                                    function printErrorMsg(msg)
+                                        {
+                                            $.each(msg,function(key,value){
+                                                $('.'+key+'_err').text(value);
+                                            });
+                                        }
 
-                                // }); -->
+                                 }); 
+                                </script>
