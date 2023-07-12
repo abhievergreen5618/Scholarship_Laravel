@@ -1,5 +1,6 @@
 <li class="tab-content tab-content-first typography">
     <form id="frm">
+        @csrf
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_1">
                                         <h3><span>Step [1/5] :</span> Personal Information &nbsp;
@@ -73,7 +74,7 @@
                                                         <td class="colon">:</td>
                                                         <td>
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__"><select name="examcentre" id="ctl00_ContentPlaceHolder1_ddlExamCenter" class="dropdownlong">
-                                                                    <option value="0">-- Select Exam Center --</option>
+                                                                    <option value="">-- Select Exam Center --</option>
                                                                     <option value="3">SOLAN</option>
                                                                     <option value="17">SHIMLA</option>
                                                                     <option value="18">DHARAMSHALA</option>
@@ -295,7 +296,7 @@
                                                         <td>
 
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__"><select name="applyingfor" id="ctl00_ContentPlaceHolder1_ddlSportCulturalBoth" class="dropdownlong" onchange="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$ddlSportCulturalBoth','',false,'','','',true,null,null,null,true,true);return false;">
-                                                                    <option value="0">--Please Select --</option>
+                                                                    <option value="">--Please Select --</option>
                                                                     <option value="S">Sport</option>
                                                                     <option value="C">Cultural</option>
                                                                     <option value="B">Both(Sport &amp; Cultural )</option>
@@ -370,7 +371,7 @@
                                                         <td class="colon">:</td>
                                                         <td>
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__"><select name="category" id="ctl00_ContentPlaceHolder1_ddlSportCulturalBoth" class="dropdownlong" onchange="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$ddlSportCulturalBoth','',false,'','','',true,null,null,null,true,true);return false;">
-                                                                    <option value="0">Please Select</option>
+                                                                    <option value="">Please Select</option>
                                                                     <option value="S">OBC</option>
                                                                     <option value="C">General</option>
                                                                     <option value="B">ST</option>
