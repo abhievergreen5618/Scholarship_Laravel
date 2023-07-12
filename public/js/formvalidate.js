@@ -64,3 +64,42 @@ jQuery('#docform').validate({
         class_board:"enter name"
     }
 })
+
+
+
+
+$(document).ready(function(){
+    $("#docform").submit(function(event){
+        event.preventDefault();
+
+        var formData = $(this).serialize();
+
+        // let _token = $("input[name='_token']").val();
+        // let class_passed = $("#class_passed").val();
+        
+
+        $.ajax({
+type: 'POST',
+url: $(this).attr('action'),
+data: formData,
+dataType: 'json',
+success: function(response) {
+// Handle the response
+if (response.success) {
+// Success message
+alert('Form submitted successfully');
+} else {
+// Error message
+alert('Form submission failed');
+}
+},
+error: function(xhr, textStatus, errorThrown) {
+// Handle the error
+console.log(xhr.responseText);
+}
+});
+});
+});
+
+
+

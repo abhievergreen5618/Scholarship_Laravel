@@ -1,5 +1,5 @@
 <li class="tab-content tab-content-2 typography">
-    <form id="docform">
+    <form id="docform" method="POST" action='validateform'>
         @csrf
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_2">
@@ -105,7 +105,7 @@
                                                                                 Class 12 or its Equivalent</span></span>
 
 
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="class_passed" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam" class="dropdown1 ">
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="class_passed" id="class_passed" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam" class="dropdown1 ">
                                                                                 <option selected="selected" value="">--Select Class--</option>
                                                                                 <option value="3">Class 5</option>
                                                                                 <option value="17">Class 6</option>
@@ -117,6 +117,7 @@
                                                                                 <option value="24">Class 12</option>
 
                                                                             </select></span>
+                                                                            <span class = "class_passed_err"></span>
 
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_hdfExamPassId__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl02$hdfExamPassId" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_hdfExamPassId" value="2"></span>
 
@@ -504,3 +505,34 @@
                                 </div>
                                                             </form>
                             </li>
+                            
+                              
+
+                                <!-- //         $.ajax({
+                                //             url:"validateform",
+                                //             type:"POST",
+                                //             data:{_token:_token,class_passed:class_passed},
+                                //             success:function(data){
+                                //                 console.log(data);
+
+                                //                 if($.isEmptyObject(data.error))
+                                //                 {
+                                //                     alert(data.success);
+                                //                 }
+                                //                 else{
+                                //                    printErrorMsg(data.error);
+                                //                 }
+                                //             }
+                                //         });
+
+                                        
+                                //     });
+                                //     function printErrorMsg(msg)
+                                //         {
+                                //             $.each(msg,function(key,value){
+                                //                 console.log(key);
+                                //                 $('.'+key+'_err').text(value);
+                                //             })
+                                //         }
+
+                                // }); -->
