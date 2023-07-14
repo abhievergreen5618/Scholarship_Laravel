@@ -1,5 +1,5 @@
 <li class="tab-content tab-content-first typography">
-    <form id="frm" action="{{route('personalinfosubmit')}}">
+    <form id="frm" action="{{route('personalinfosubmit')}}" enctype="multipart/form-data">
         <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
                 <h3><span>Step [1/5] :</span> Personal Information &nbsp;
@@ -8,9 +8,6 @@
                 <div class="box-body table-responsive">
                     <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
                         <tbody>
-                            <tr>
-                                <td colspan="3"></td>
-                            </tr>
                             <tr>
                                 <td colspan="3"><b><u>Fields marked <span style="color: red">*</span> are mandatory.</u></b></td>
                             </tr>
@@ -36,7 +33,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="" maxlength="50" id="" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -47,7 +44,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtFatherName__"><input name="fathername" type="text" value="" maxlength="50" id="ctl00_ContentPlaceHolder1_txtFatherName" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtFatherName__"><input name="fathername" type="text" value="" maxlength="50" id="fathername" class="textboxlong form-control" style="text-transform: uppercase"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -57,7 +54,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMName__"><input name="mothername" type="text" value="" maxlength="50" id="ctl00_ContentPlaceHolder1_txtMName" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMName__"><input name="mothername" type="text" value="" maxlength="50" id="mothername" class="textboxlong form-control" style="text-transform: uppercase"></span>
                                 </td>
                             </tr>
                             <tr id="ctl00_ContentPlaceHolder1_trExamCenter">
@@ -66,7 +63,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__"><select name="examcentre" id="" class="dropdownlong form-select">
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__"><select name="examcentre" id="examcentre" class="dropdownlong form-select">
                                             <option value="">-- Select Exam Center --</option>
                                             <option value="3">SOLAN</option>
                                             <option value="17">SHIMLA</option>
@@ -95,7 +92,7 @@
                                 <td class="colon">:</td>
                                 <td>
 
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtCAddress__"><textarea name="caddress" rows="5" cols="20" id="ctl00_ContentPlaceHolder1_txtCAddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase"></textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtCAddress__"><textarea name="caddress" rows="5" cols="20" id="caddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase"></textarea></span>
                                 </td>
                             </tr>
                             <tr>
@@ -105,7 +102,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="" maxlength="10" id="ctl00_ContentPlaceHolder1_txtMobileNo" type="text" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="" maxlength="10" id="mobileno" type="text" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -118,7 +115,7 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_chkboxCopyAddress__"><span class="chkbox" style="color: black;"><input id="ctl00_ContentPlaceHolder1_chkboxCopyAddress" type="checkbox" name="ctl00$ContentPlaceHolder1$chkboxCopyAddress" class="form-check-input"><label for="ctl00_ContentPlaceHolder1_chkboxCopyAddress">Same as Correspondence
                                                 Address</label></span></span>
                                     <br>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtPAddress__"><textarea name="paddress" rows="5" cols="20" id="ctl00_ContentPlaceHolder1_txtPAddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase;"></textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtPAddress__"><textarea name="paddress" rows="5" cols="20" id="paddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase;"></textarea></span>
 
 
                                 </td>
@@ -130,7 +127,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtEmail__"><input name="email" type="text" value="" maxlength="50" id="ctl00_ContentPlaceHolder1_txtEmail" class="textboxlong form-control" ondrop="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtEmail__"><input name="email" type="text" value="" maxlength="50" id="email" class="textboxlong form-control" ondrop="return false;"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -140,7 +137,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDob__"><input type="date" id="date" name="date" class="form-control">
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDob__"><input type="date" id="dob" name="dob" class="form-control">
                                 </td>
                             </tr>
                             <tr>
@@ -149,7 +146,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" class="form-control" type="number" value="" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong" onkeypress="return isNumber(event)"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong" onkeypress="return isNumber(event)"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -158,7 +155,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheetmatric" type="text" class="form-control" value="" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheetmatric" type="number" id="hsmarksheetmatric" class="form-control" value="" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
                                 </td>
                             </tr>
 
@@ -168,7 +165,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="text" class="form-control" value="" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="number" id="hsmarksheet"  class="form-control" value="" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
                                 </td>
                             </tr>
 
@@ -248,11 +245,11 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="singlegirlchild" id="indian" value="yes">
+                                        <input class="form-check-input" type="radio" name="singlegirlchild" id="singlegirlchildyes" value="yes">
                                         <label class="form-check-label" for="yes">Yes</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="singlegirlchild" id="no" value="no">
+                                        <input class="form-check-input" type="radio" name="singlegirlchild" id="singlegirlchildno" value="no">
                                         <label class="form-check-label" for="no">No</label>
                                     </div>
                                 </td>
@@ -266,12 +263,12 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__"><select name="applyingfor" id="ctl00_ContentPlaceHolder1_ddlSportCulturalBoth" class="dropdownlong form-control">
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__"><select name="applyingfor" id="applyingfor" class="dropdownlong form-control">
                                             <option value="">--Please Select --</option>
-                                            <option value="S">Sport</option>
-                                            <option value="C">Cultural</option>
-                                            <option value="B">Both(Sport &amp; Cultural )</option>
-                                            <option value="N">Not Applicable</option>
+                                            <option value="Sport">Sport</option>
+                                            <option value="Cultural">Cultural</option>
+                                            <option value="Both">Both(Sport &amp; Cultural )</option>
+                                            <option value="Not Applicable">Not Applicable</option>
                                         </select></span>
                                     <br>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
@@ -301,21 +298,19 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedyes" value="no">
+                                                            <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedyes" value="yes">
                                                             <label class="form-check-label" for="physicallychallengedyes">Yes</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedno" value="no">
                                                             <label class="form-check-label" for="physicallychallengedno">No</label>
                                                         </div>
-                                                        <div id="mytext">
+                                                        <div id="proofofdocuments" style="display: none;">
                                                             <h3 class="hedingss">upload proof of documents</h3>
                                                             <form action="#">
                                                                 <div class="input-group mb-3">
-                                                                    <input type="file" class="form-control" id="inputGroupFile02">
-                                                                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                                                    <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof">
                                                                 </div>
-
                                                             </form>
                                                         </div>
                                                     </td>
@@ -334,12 +329,12 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="category" id="ctl00_ContentPlaceHolder1_ddlSportCulturalBoth" class="dropdownlong form-select">
+                                        <select name="category" id="category" class="dropdownlong form-select">
                                             <option value="">Please Select</option>
-                                            <option value="S">OBC</option>
-                                            <option value="C">General</option>
-                                            <option value="B">ST</option>
-                                            <option value="N">SC</option>
+                                            <option value="OBC">OBC</option>
+                                            <option value="General">General</option>
+                                            <option value="ST">ST</option>
+                                            <option value="SC">SC</option>
                                         </select>
                                     </span>
                                 </td>

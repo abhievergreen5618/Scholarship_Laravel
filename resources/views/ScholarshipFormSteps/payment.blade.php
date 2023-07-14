@@ -21,7 +21,7 @@
                                                                     <table id="ctl00_ContentPlaceHolder1_rdPaymentOption" class="radio" border="0">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td><span><input id="ctl00_ContentPlaceHolder1_rdPaymentOption_0" type="radio" name="ctl00$ContentPlaceHolder1$rdPaymentOption" value="O" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$rdPaymentOption','0',false,'','','',true,null,null,null,true,true);"><label for="ctl00_ContentPlaceHolder1_rdPaymentOption_0">Online</label></span>
+                                                                                <td><span><input id="ctl00_ContentPlaceHolder1_rdPaymentOption_0" type="radio" name="ctl00$ContentPlaceHolder1$rdPaymentOption" value="O"><label for="ctl00_ContentPlaceHolder1_rdPaymentOption_0">Online</label></span>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>

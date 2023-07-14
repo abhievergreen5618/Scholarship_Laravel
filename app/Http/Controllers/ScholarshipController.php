@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,7 +26,7 @@ class ScholarshipController extends Controller
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            "scholarshipname" => "required",
+            // "scholarshipname" => "required",
             "name" => "required",
             "fathername" => "required",
             "mothername" => "required",
@@ -33,16 +34,23 @@ class ScholarshipController extends Controller
             "caddress" => "required",
             "mobileno" => "required",
             "paddress" => "required",
-            "date" => "required",
-            "aadhaarno" => "required",
+            // "dob" => "required",
+            // "aadhaarno" => "required",
             "hsmarksheetmatric" => "required",
             "hsmarksheet" => "required",
-            "nationality" => "required",
-            "singlegirlchild" => "required",
+            // "nationality" => "required",
+            // "singlegirlchild" => "required",
             "applyingfor" => "required",
             "physicallychallenged" => "required",
+            'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
             "category" => "required",
-        ]);
+            "email" => "required|email",
+        ],
+        [
+             "required" => "This field is required.",
+             "required_if" => "This field is required.",
+        ]
+    );
 
         if ($validator->fails()) {
             $errors = [];
@@ -52,6 +60,43 @@ class ScholarshipController extends Controller
             return response()->json([
                 'error' => $errors
             ],422);
+        }
+        else
+        {
+
+            if ($request->hasFile('physicallychallengedproof')) {
+                $image = $request->file('physicallychallengedproof');
+                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images/proofdoc'), $imageName);
+                $request['physicallychallengedproof'] = $imageName;
+            }
+
+            $user = User::create([
+                "name" => $request['scholarshipname'] ?? "",
+                "email" => $request['email'] ?? "",
+                "scholarshipname" => $request['scholarshipname'] ?? "",
+                "fathername" => $request['fathername'],
+                "mothername" => $request['mothername'],
+                "examcentre" => $request['examcentre'],
+                "caddress" => $request['caddress'],
+                "paddress" => $request['paddress'],
+                "dob" => $request['dob'] ?? "",
+                "aadhaarno" => $request['aadhaarno'] ?? "",
+                "hsmarksheetmatric" => $request['hsmarksheetmatric'],
+                "hsmarksheet" => $request['hsmarksheet'],
+                "nationality" =>  $request['nationality'] ?? "",
+                "mobileno" => $request['mobileno'],
+                "gender" => $request['gender'] ?? "",
+                "singlegirlchild" => $request['singlegirlchild'] ?? "",
+                "applyingfor" => $request['applyingfor'],
+                "physicallychallenged" => $request['physicallychallenged'],
+                "category" => $request['category'],
+                "physicallychallengedproof" => $request['physicallychallengedproof'] ?? "",
+            ]);
+
+            return response()->json([
+                'responseid' => encrypt($user->id),
+            ],200);
         }
     }
 
