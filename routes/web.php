@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('form');
 });
 
-Route::post('/',[ValidateController::class,'validateform'])->name('validateform');
+
+Route::post('my-form', [ValidateController::class, 'myformPost'])->name('my.form');

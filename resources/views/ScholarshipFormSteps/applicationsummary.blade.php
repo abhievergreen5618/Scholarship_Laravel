@@ -9,17 +9,7 @@
 
                                             <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
                                                 <tbody>
-                                                    <tr>
-                                                        <td colspan="3">
-                                                            <script type="text/javascript">
-                                                                //<![CDATA[
-                                                                Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ScriptManagerProxy1', 'aspnetForm', [], [], [], 90, 'ctl00');
-                                                                //]]>
-                                                            </script>
-
-
-                                                        </td>
-                                                    </tr>
+                                                   
                                                     <tr>
                                                         <td width="42%" class="vtext">Name of the Course
                                                             <br>

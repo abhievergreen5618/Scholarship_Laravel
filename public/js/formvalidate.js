@@ -33,7 +33,7 @@ jQuery('#frm').validate({
 jQuery('#docform').validate({
     rules:{
         class_passed:"required",
-        // class_board:"required",
+        class_board:"required",
         class_passing_year:"required",
         class_marks:"required",
         class_max_marks:"required",
@@ -60,8 +60,6 @@ jQuery('#docform').validate({
         sign_photo:"required"
     },
     messages:{
-        grad_board:"enter board name",
-        class_board:"enter name"
     }
 })
 
