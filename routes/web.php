@@ -22,5 +22,5 @@ Route::controller(ScholarshipController::class)->group(function () {
 
 
 Route::controller(UserController::class)->group(function () {
-    Route::post('/register','create')->name('register');
+    Route::post('/register','create')->name('register')->withoutMiddleware(['csrf']);
 });
