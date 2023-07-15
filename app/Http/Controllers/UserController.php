@@ -25,27 +25,34 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        dd($request->all());
         $validator = Validator::make($request->all(), [
             "email" => "required|email|unique:users,email",
             "mobileno" => "required",
             "password" => "required",
-        ],
-        [
-             "required" => "This field is required.",
-             "required_if" => "This field is required.",
-        ]
-    );
+            ],
+            [
+                "required" => "This field is required.",
+                "required_if" => "This field is required.",
+            ]
+        );
 
-    if ($validator->fails()) {
-        $errors = [];
-        foreach ($validator->errors()->getMessages() as $index => $error) {
-            $errors[$index] = $error[0];
+        if ($validator->fails()) {
+            $errors = [];
+            foreach ($validator->errors()->getMessages() as $index => $error) {
+                $errors[$index] = $error[0];
+            }
+            return response()->json([
+                'error' => $errors
+            ],422);
         }
-        return response()->json([
-            'error' => $errors
-        ],422);
-    }
+        else
+        {
+            User::create([
+                "email" => $request['email'],
+                "mobileno" => $request['mobileno'],
+                "password" => $request['password'],
+            ]);
+        }
     }
 
     /**
