@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        dd($request);
+        dd($request->all());
         $validator = Validator::make($request->all(), [
             "email" => "required|email|unique:users,email",
             "mobileno" => "required",
