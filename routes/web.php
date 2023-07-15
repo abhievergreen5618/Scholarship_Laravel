@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ScholarshipController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,9 @@ use App\Http\Controllers\ScholarshipController;
 Route::controller(ScholarshipController::class)->group(function () {
     Route::get('/','index')->name('start');
     Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
+});
+
+
+Route::controller(UserController::class)->group(function () {
+    Route::post('/register','create')->name('register');
 });
