@@ -25,6 +25,7 @@ class ScholarshipController extends Controller
      */
     public function create(Request $request)
     {
+        dd($request);
         $validator = Validator::make($request->all(), [
             // "scholarshipname" => "required",
             "name" => "required",
