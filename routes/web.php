@@ -20,7 +20,4 @@ Route::controller(ScholarshipController::class)->group(function () {
     Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
 });
 
-
-Route::controller(UserController::class)->group(function () {
-    Route::post('/register','create')->name('register')->withoutMiddleware(['csrf']);
-});
+Route::post('/register', 'UserController@create')->name('register')->withoutMiddleware(['csrf']);
