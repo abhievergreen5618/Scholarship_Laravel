@@ -21,7 +21,9 @@
                                                                     <table id="ctl00_ContentPlaceHolder1_rdPaymentOption" class="radio" border="0">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td><span><input id="ctl00_ContentPlaceHolder1_rdPaymentOption_0" type="radio" name="ctl00$ContentPlaceHolder1$rdPaymentOption" value="O" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$rdPaymentOption','0',false,'','','',true,null,null,null,true,true);"><label for="ctl00_ContentPlaceHolder1_rdPaymentOption_0">Online</label></span>
+                                                                                <td> <button id="rzp-button1">Pay</button>
+
+
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -77,3 +79,30 @@
                                     </div>
                                 </div>
                             </li>
+                            <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_DAKCbY6lLkH4z8", // Enter the Key ID generated from the Dashboard
+    "amount": "1000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp", //your business name
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+        "name": "name", //your customer's name
+        "email": "email",
+        "contact": "contact" //Provide the customer's phone number for better conversion rates
+    },
+
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
