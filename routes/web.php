@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ScholarshipController;
 use App\Http\Controllers\UserController;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,4 @@ Route::controller(ScholarshipController::class)->group(function () {
     Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
 });
 
-Route::post('/register', 'UserController@create')->name('register')->withoutMiddleware(['csrf']);
+Route::post('/register', 'UserController@create')->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
