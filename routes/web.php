@@ -21,4 +21,4 @@ Route::controller(ScholarshipController::class)->group(function () {
     Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
 });
 
-Route::post('/register', 'UserController@create')->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
+Route::post('/register',[UserController::class,'create'])->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
