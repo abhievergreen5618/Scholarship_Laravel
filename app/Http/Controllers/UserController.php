@@ -32,7 +32,6 @@ class UserController extends Controller
             ],
             [
                 "required" => "This field is required.",
-                "required_if" => "This field is required.",
             ]
         );
 
@@ -42,6 +41,7 @@ class UserController extends Controller
                 $errors[$index] = $error[0];
             }
             return response()->json([
+                'message'  => "!OOPs Something went wrong",
                 'error' => $errors
             ],422);
         }
@@ -52,6 +52,10 @@ class UserController extends Controller
                 "mobileno" => $request['mobileno'],
                 "password" => $request['password'],
             ]);
+            return response()->json([
+                'message' => 'Registered Successfully',
+                'redirecturl' => route("start"),
+            ],200);
         }
     }
 
