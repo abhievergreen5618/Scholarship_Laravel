@@ -56,6 +56,7 @@ class UserController extends Controller
                 'email' => request('email'),
                 'password' => request('password')
             ]);
+            dd($success);
             if($success)
             {
                 return response()->json([
