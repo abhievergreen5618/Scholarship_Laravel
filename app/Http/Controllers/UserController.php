@@ -29,11 +29,13 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             "email" => "required|email|unique:users,email",
-            "mobileno" => "required",
-            "password" => "required",
+            "mobileno" => "required|regex:/^[0-9]{10}$/",
+            "password" => "required|confirmed",
             ],
             [
                 "required" => "This field is required.",
+                "email.email" => "Please enter a valid email address.",
+                "mobileno.regex" => "Please enter a valid 10-digit mobile number.",
             ]
         );
 
@@ -71,6 +73,10 @@ class UserController extends Controller
         }
     }
 
+    public function store(Request $request)
+    {
+        //
+    }
 
 
     /**
