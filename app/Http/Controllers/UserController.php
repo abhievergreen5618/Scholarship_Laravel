@@ -98,7 +98,8 @@ class UserController extends Controller
         else
         {
             $credentials = $request->only('email','password');
-            if (Auth::attempt($credentials)) {
+            $remember = $request->has('rememberme');
+            if (Auth::attempt($credentials,$remember)) {
                 return response()->json([
                     'message' => 'Login Successfully',
                     'redirecturl' => route("start"),
