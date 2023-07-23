@@ -20,5 +20,5 @@ Route::controller(ScholarshipController::class)->group(function () {
     Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
 });
 
-Route::post('/register',[UserController::class,'create'])->name('register');
-Route::post('/login',[UserController::class,'login'])->name('login');
+Route::post('/register',[UserController::class,'create'])->name('register')->withoutMiddleware(['auth']);
+Route::post('/login',[UserController::class,'login'])->name('login')->withoutMiddleware(['auth']);
