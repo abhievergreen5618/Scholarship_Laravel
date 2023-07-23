@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ScholarshipController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 
 /*
