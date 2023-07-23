@@ -41,6 +41,6 @@ class LoginController extends Controller
             Auth::login($newUser);
         }
 
-        return redirect('/dashboard'); // Redirect to your desired route after successful login
+        return redirect('/'); // Redirect to your desired route after successful login
     }
 }
