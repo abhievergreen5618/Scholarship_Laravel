@@ -73,7 +73,7 @@ class UserController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function login(Request $request)
     {
         //
     }
