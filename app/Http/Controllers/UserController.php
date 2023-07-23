@@ -59,7 +59,6 @@ class UserController extends Controller
 
             $credentials = $request->only('email','password');
             if (Auth::attempt($credentials)) {
-                Auth::loginUsingId($user->id, TRUE);
                 return response()->json([
                     'message' => 'Registered Successfully',
                     'redirecturl' => route("start"),
@@ -101,8 +100,9 @@ class UserController extends Controller
             $credentials = $request->only('email','password');
             $remember = $request->has('rememberme');
             if (Auth::attempt($credentials,$remember)) {
-                $user = User::where('email',$request['email'])->first();
-                Auth::loginUsingId($user->id, TRUE);
+                $request->session()->regenerate();
+                // $user = User::where('email',$request['email'])->first();
+                // Auth::loginUsingId($user->id, TRUE);
                 return response()->json([
                     'message' => 'Login Successfully',
                     'redirecturl' => route("start"),
