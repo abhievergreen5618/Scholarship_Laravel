@@ -75,7 +75,42 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "email" => "required|email",
+            "password" => "required",
+            ],
+            [
+                "required" => "This field is required.",
+                "email.email" => "Please enter a valid email address.",
+            ]
+        );
+
+        if ($validator->fails()) {
+            $errors = [];
+            foreach ($validator->errors()->getMessages() as $index => $error) {
+                $errors[$index] = $error[0];
+            }
+            return response()->json([
+                'message'  => "!OOPs Something went wrong",
+                'error' => $errors
+            ],422);
+        }
+        else
+        {
+            $credentials = $request->only('email','password');
+            if (Auth::attempt($credentials)) {
+                return response()->json([
+                    'message' => 'Registered Successfully',
+                    'redirecturl' => route("start"),
+                ],200);
+            }
+            else
+            {
+                return response()->json([
+                    'message'  => "!OOPs Something went wrong"
+                ],422);
+            }
+        }
     }
 
 
