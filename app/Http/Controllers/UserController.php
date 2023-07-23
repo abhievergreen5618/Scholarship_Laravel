@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -52,13 +53,9 @@ class UserController extends Controller
                 "mobileno" => $request['mobileno'],
                 "password" => $request['password'],
             ]);
-            $success = auth()->attempt([
-                'email' => request('email'),
-                'password' => request('password')
-            ]);
-            dd($success);
-            if($success)
-            {
+
+            $credentials = $request->only('email','password');
+            if (Auth::attempt($credentials)) {
                 return response()->json([
                     'message' => 'Registered Successfully',
                     'redirecturl' => route("start"),
