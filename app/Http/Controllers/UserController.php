@@ -52,12 +52,27 @@ class UserController extends Controller
                 "mobileno" => $request['mobileno'],
                 "password" => $request['password'],
             ]);
-            return response()->json([
-                'message' => 'Registered Successfully',
-                'redirecturl' => route("start"),
-            ],200);
+            $success = auth()->attempt([
+                'email' => request('email'),
+                'password' => request('password')
+            ]);
+            if($success)
+            {
+                return response()->json([
+                    'message' => 'Registered Successfully',
+                    'redirecturl' => route("start"),
+                ],200);
+            }
+            else
+            {
+                return response()->json([
+                    'message'  => "!OOPs Something went wrong"
+                ],422);
+            }
         }
     }
+
+
 
     /**
      * Store a newly created resource in storage.
