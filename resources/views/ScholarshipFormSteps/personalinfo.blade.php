@@ -1,6 +1,6 @@
 <li class="tab-content tab-content-first typography">
     <form id="frm" action="{{route('personalinfosubmit')}}" enctype="multipart/form-data">
-        <input type="hidden" value="" name="id">
+        <input type="hidden" value="{{ auth()->user()->id }}" name="id">
         <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
                 <h3><span>Step [1/5] :</span> Personal Information &nbsp;

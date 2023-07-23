@@ -16,11 +16,6 @@ class ScholarshipController extends Controller
      */
     public function index()
     {
-        if (Auth::check()) {
-            $userId = Auth::id();
-            // Use the $userId as needed in your controller logic
-            dd($userId);
-        }
         return view('form');
     }
 
