@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ScholarshipController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 
 /*
@@ -24,6 +25,6 @@ Route::controller(ScholarshipController::class)->group(function () {
 Route::post('/register',[UserController::class,'create'])->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
 Route::post('/login',[UserController::class,'login'])->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
 
-Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
-Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+Route::get('/login/google',[LoginController::class,'redirectToGoogle'])->name('redirectToGoogle');
+Route::get('/login/google/callback',[LoginController::class,'handleGoogleCallback'])->name('handleGoogleCallback');
 
