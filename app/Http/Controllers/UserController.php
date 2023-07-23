@@ -100,13 +100,15 @@ class UserController extends Controller
             $credentials = $request->only('email','password');
             if (Auth::attempt($credentials)) {
                 return response()->json([
-                    'message' => 'Registered Successfully',
+                    'message' => 'Login Successfully',
                     'redirecturl' => route("start"),
                 ],200);
             }
             else
             {
+                $error = ["password"=>"Please enter valid credentials."];
                 return response()->json([
+                    'error' => $error,
                     'message'  => "!OOPs Something went wrong"
                 ],422);
             }
