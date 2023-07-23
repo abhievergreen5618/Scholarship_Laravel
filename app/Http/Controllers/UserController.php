@@ -51,7 +51,7 @@ class UserController extends Controller
         }
         else
         {
-            User::create([
+            $user = User::create([
                 "email" => $request['email'],
                 "mobileno" => $request['mobileno'],
                 "password" => Hash::make($request['password']),
@@ -59,6 +59,7 @@ class UserController extends Controller
 
             $credentials = $request->only('email','password');
             if (Auth::attempt($credentials)) {
+                Auth::login($user);
                 return response()->json([
                     'message' => 'Registered Successfully',
                     'redirecturl' => route("start"),
@@ -100,6 +101,8 @@ class UserController extends Controller
             $credentials = $request->only('email','password');
             $remember = $request->has('rememberme');
             if (Auth::attempt($credentials,$remember)) {
+                $user = User::where('email',$request['email'])->first();
+                Auth::login($user);
                 return response()->json([
                     'message' => 'Login Successfully',
                     'redirecturl' => route("start"),
