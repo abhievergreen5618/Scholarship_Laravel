@@ -23,3 +23,7 @@ Route::controller(ScholarshipController::class)->group(function () {
 
 Route::post('/register',[UserController::class,'create'])->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
 Route::post('/login',[UserController::class,'login'])->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
+
+Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
