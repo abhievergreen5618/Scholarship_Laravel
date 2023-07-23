@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -51,10 +52,11 @@ class UserController extends Controller
             User::create([
                 "email" => $request['email'],
                 "mobileno" => $request['mobileno'],
-                "password" => $request['password'],
+                "password" => Hash::make($request['password']),
             ]);
 
             $credentials = $request->only('email','password');
+            dd($credentials);
             if (Auth::attempt($credentials)) {
                 return response()->json([
                     'message' => 'Registered Successfully',
