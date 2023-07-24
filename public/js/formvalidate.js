@@ -41,7 +41,8 @@ jQuery('#frm').validate({
             formData.append('physicallychallengedproof', imageFile);
             }
         }
-        else {
+        else
+        {
             // Remove the physicallychallengedproof field from the FormData object
             formData.delete('physicallychallengedproof');
         }
