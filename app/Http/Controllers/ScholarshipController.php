@@ -64,14 +64,13 @@ class ScholarshipController extends Controller
         }
         else
         {
-
             if ($request->hasFile('physicallychallengedproof')) {
                 $image = $request->file('physicallychallengedproof');
                 $imageName = time() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('images/proofdoc'), $imageName);
                 $request['physicallychallengedproof'] = $imageName;
             }
-            $user = User::where('id',decrypt($request['id']))->update([
+            User::where('id',decrypt($request['id']))->update([
                 "name" => $request['scholarshipname'] ?? "",
                 "email" => $request['email'] ?? "",
                 "scholarshipname" => $request['scholarshipname'] ?? "",
