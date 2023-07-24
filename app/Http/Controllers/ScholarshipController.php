@@ -95,7 +95,7 @@ class ScholarshipController extends Controller
             ]);
 
             return response()->json([
-                'responseid' => encrypt($user->id),
+                'message' => 'Saved successfully',
             ],200);
         }
     }
