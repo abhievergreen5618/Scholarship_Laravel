@@ -147,7 +147,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong" onkeypress="return isNumber(event)"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong"></span>
                                 </td>
                             </tr>
                             <tr>
