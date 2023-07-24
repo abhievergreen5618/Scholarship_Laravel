@@ -72,7 +72,7 @@ class ScholarshipController extends Controller
                 $request['physicallychallengedproof'] = $imageName;
             }
 
-            $user = User::create([
+            $user = User::where('id',decrypt($request['id']))->update([
                 "name" => $request['scholarshipname'] ?? "",
                 "email" => $request['email'] ?? "",
                 "scholarshipname" => $request['scholarshipname'] ?? "",
@@ -99,6 +99,36 @@ class ScholarshipController extends Controller
                 'responseid' => encrypt($user->id),
             ],200);
         }
+    }
+
+
+    /**Store education data */
+    public function educationInfoStore(Request $request){
+        $validator = Validator::make($request->all(), [
+            "name" => "required",
+        ],
+        [
+             "required" => "This field is required.",
+        ]
+    );
+
+        if ($validator->fails()) {
+            $errors = [];
+            foreach ($validator->errors()->getMessages() as $index => $error) {
+                $errors[$index] = $error[0];
+            }
+            return response()->json([
+                'error' => $errors
+            ],422);
+        }
+        else
+        {
+
+        }
+
+            return response()->json([
+                'responseid' => "1",
+            ],200);
     }
 
     /**

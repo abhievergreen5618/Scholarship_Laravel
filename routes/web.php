@@ -20,6 +20,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 Route::controller(ScholarshipController::class)->group(function () {
     Route::get('/','index')->name('start');
     Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
+    Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
 });
 
 Route::post('/register',[UserController::class,'create'])->name('register')->withoutMiddleware([VerifyCsrfToken::class]);

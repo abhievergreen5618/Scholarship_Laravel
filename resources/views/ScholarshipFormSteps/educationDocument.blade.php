@@ -84,7 +84,7 @@
                                             </td>
                                             <td align="center" style="width:100%;">
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus" class="form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus" class="form-select">
                                                         <option value="P">Passed</option>
                                                         <option value="A">Awaited</option>
                                                         <option value="N">Not Applicable</option>

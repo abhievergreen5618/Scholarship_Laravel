@@ -59,8 +59,9 @@ jQuery('#frm').validate({
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(result) {
-                if(result.hasOwnProperty("responseid"))
+                if(result.hasOwnProperty("message"))
                 {
+                    $("#tab2").trigger('click');
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
                 }
