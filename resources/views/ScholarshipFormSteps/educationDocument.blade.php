@@ -401,8 +401,7 @@
 
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblPPMsg__"><span id="ctl00_ContentPlaceHolder1_lblPPMsg" style="color:Red;"></span></span>
 
-
-
+                                                    <img src="..." class="img-thumbnail" alt="...">
 
 
                                                 </td>
