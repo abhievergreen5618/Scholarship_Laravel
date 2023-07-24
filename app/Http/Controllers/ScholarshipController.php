@@ -71,7 +71,7 @@ class ScholarshipController extends Controller
                 $image->move(public_path('images/proofdoc'), $imageName);
                 $request['physicallychallengedproof'] = $imageName;
             }
-
+            dd(decrypt($request['id']));
             $user = User::where('id',decrypt($request['id']))->update([
                 "name" => $request['scholarshipname'] ?? "",
                 "email" => $request['email'] ?? "",
