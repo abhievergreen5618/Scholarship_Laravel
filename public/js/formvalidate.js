@@ -85,14 +85,15 @@ jQuery('#frm').validate({
 
 jQuery('#docform').validate({
     rules:{
-        class_passed:"required",
-        class_board:"required",
-        class_passing_year:"required",
-        class_marks:"required",
-        class_max_marks:"required",
-        class_percentage:"required",
-        class_rollno:"required",
+        // class_passed:"required",
+        // class_board:"required",
+        // class_passing_year:"required",
+        // class_marks:"required",
+        // class_max_marks:"required",
+        // class_percentage:"required",
+        // class_rollno:"required",
 
+        grad_status:"required",
         grad_passed:"required",
         grad_board:"required",
         grad_passing_year:"required",
@@ -101,6 +102,7 @@ jQuery('#docform').validate({
         grad_percentage:"required",
         grad_rollno:"required",
 
+        post_grad_status:"required",
         post_grad_passed:"required",
         post_grad_board:"required",
         post_grad_passing_year:"required",
@@ -122,36 +124,36 @@ jQuery('#docform').validate({
         var formData = new FormData($(form)[0]);
 
 
-        // $.ajax({
-        //     type: 'POST',
-        //     url: $(form).attr("action"),
-        //     dataType: "json",
-        //     data: formData,
-        //     cache: false,
-        //     contentType: false,
-        //     processData: false,
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     },
-        //     success: function(result) {
-        //         if(result.hasOwnProperty("message"))
-        //         {
-        //             $("#tab2").trigger('click');
-        //             $("#education_details_step").removeClass("btn-secondary");
-        //             $("#education_details_step").addClass("btn-success");
-        //         }
-        //     },
-        //     error : function(xhr, status, error) {
-        //         if(xhr.status == 422)
-        //         {
-        //             $.each(xhr.responseJSON.error,(index,value) => {
-        //                 $("#"+index+"-error").remove();
-        //                 $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
-        //                 $("#"+index).focus();
-        //             });
-        //         }
-        //     }
-        // });
+        $.ajax({
+            type: 'POST',
+            url: $(form).attr("action"),
+            dataType: "json",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(result) {
+                if(result.hasOwnProperty("message"))
+                {
+                    $("#tab2").trigger('click');
+                    $("#education_details_step").removeClass("btn-secondary");
+                    $("#education_details_step").addClass("btn-success");
+                }
+            },
+            error : function(xhr, status, error) {
+                if(xhr.status == 422)
+                {
+                    $.each(xhr.responseJSON.error,(index,value) => {
+                        $("#"+index+"-error").remove();
+                        $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
+                        $("#"+index).focus();
+                    });
+                }
+            }
+        });
     }
 })
 
