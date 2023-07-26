@@ -16,16 +16,19 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::controller(ScholarshipController::class)->group(function () {
-    Route::get('/','index')->name('start');
-    Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
-    Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
+Route::middleware(['auth'])->group(function () {
+    Route::controller(ScholarshipController::class)->group(function () {
+        Route::get('/','index')->name('start');
+        Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
+        Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
+    });
 });
+
+Route::get('/login/google',[LoginController::class,'redirectToGoogle'])->name('redirectToGoogle');
+Route::get('/login/google/callback',[LoginController::class,'handleGoogleCallback'])->name('handleGoogleCallback');
 
 Route::post('/register',[UserController::class,'create'])->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
 Route::post('/login',[UserController::class,'login'])->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
 
-Route::get('/login/google',[LoginController::class,'redirectToGoogle'])->name('redirectToGoogle');
-Route::get('/login/google/callback',[LoginController::class,'handleGoogleCallback'])->name('handleGoogleCallback');
+
 
