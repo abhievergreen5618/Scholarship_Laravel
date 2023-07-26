@@ -22,6 +22,7 @@ $(document).ready(function () {
                 // File size exceeds 20KB, do something (e.g., show an error message)
                 alert("File size exceeds 20KB");
                 $(this).val("");
+                $("#sign_photo_perview").src("http://placehold.it/180");
                 // You can show an error message to the user or handle the case accordingly
             } else {
                  // Create a FileReader object
@@ -49,6 +50,7 @@ $(document).ready(function () {
             if (fileSizeKB > 20) {
                 alert("File size exceeds 20KB");
                 $(this).val("");
+                $("#profile_photo_perview").src("http://placehold.it/180");
             } else {
                 // Create a FileReader object
                 const reader = new FileReader();
