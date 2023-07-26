@@ -31,4 +31,9 @@ Route::post('/register',[UserController::class,'create'])->name('register')->wit
 Route::post('/login',[UserController::class,'login'])->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
 
 
+Route::get('/login',function(){
+    return redirect()->to(env("WORDPRESS_URL")."/login");
+});
+
+
 
