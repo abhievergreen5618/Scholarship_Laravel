@@ -32,6 +32,7 @@ Route::post('/login',[UserController::class,'login'])->name('login')->withoutMid
 
 
 Route::get('/login',function(){
+    dd(env("WORDPRESS_URL")."/login");
     return redirect()->to(env("WORDPRESS_URL")."/login");
 });
 
