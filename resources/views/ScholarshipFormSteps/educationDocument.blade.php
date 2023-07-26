@@ -232,7 +232,7 @@
                                             </td>
                                             <td align="center" style="width:20%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExamPassed">M.A./M.Sc./M.Com
-                                                        or its Equivalent</span></span>
+                                                        or its Equivalent <span style="color:red">*</span></span></span>
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="post_grad_passed" id="post_grad_passed" class="dropdown1 form-control">
                                                         <option selected="selected" value="">--Select Degree--</option>
                                                         <option value="22">M.A</option>
@@ -240,7 +240,7 @@
                                                         <option value="24">M.Com</option>
                                                         <option value="25">Others</option>
 
-                                                    </select></span><span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblGradMandatory__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblGradMandatory" style="color:Red;font-size:Medium;">*</span></span>
+                                                    </select></span>
                                             </td>
                                             <td align="center">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver__"><input name="post_grad_board" type="text" maxlength="50" id="post_grad_board" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
@@ -306,6 +306,7 @@
                                     <strong>तुम कभी विश्वविद्यालय या किसी अन्य संस्था द्वारा कक्षाओं में भाग लेने या
                                         किसी भी परीक्षा में प्रदर्शित होने से निलंबित कर दिया गए? यदि हाँ जानकारी दे
                                     </strong>
+                                    <span style="color:red">*</span>
                                 </td>
                             </tr>
                             <tr>
@@ -358,13 +359,15 @@
 
                                         <br>
 
-                                        Filename<span style="color: red"> max 10 Characters</span> Allowed.</strong></td>
+                                        Filename<span style="color: red"> max 10 Characters</span> Allowed.</strong>
+                                    </td>
                             </tr>
                             <tr>
                                 <td>Upload Your Photograph
                                     <br>
                                     <strong>अपना तस्वीर डाले
                                     </strong>
+                                    <span style="color:red">*</span>
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
@@ -391,6 +394,7 @@
                                     <br>
                                     <strong>अपना हस्ताक्षर डाले
                                     </strong>
+                                    <span style="color:red">*</span>
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
