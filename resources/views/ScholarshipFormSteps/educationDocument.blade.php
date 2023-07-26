@@ -390,7 +390,7 @@
 
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblPPMsg__"><span id="ctl00_ContentPlaceHolder1_lblPPMsg" style="color:Red;"></span></span>
 
-                                                    <img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail" alt="...">
+                                                    <img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="...">
 
 
                                                 </td>
@@ -439,7 +439,7 @@
 
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSSMsg__"><span id="ctl00_ContentPlaceHolder1_lblSSMsg" style="color:Red;"></span></span>
 
-
+                                                    <img id="sign_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="...">
                                                 </td>
                                             </tr>
 
