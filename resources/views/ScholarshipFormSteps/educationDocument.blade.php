@@ -227,7 +227,6 @@
                                                         <option value="P">Passed</option>
                                                         <option value="A">Awaited</option>
                                                         <option value="N">Not Applicable</option>
-                                                        <option selected="selected" value="N">Not Applicable</option>
                                                     </select></span>
                                             </td>
                                             <td align="center" style="width:20%;">
