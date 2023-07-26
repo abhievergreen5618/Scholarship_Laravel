@@ -91,6 +91,7 @@ class ScholarshipController extends Controller
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "physicallychallengedproof" => $request['physicallychallengedproof'] ?? "",
+                "step1_updated_at" => now(),
             ]);
 
             return response()->json([
