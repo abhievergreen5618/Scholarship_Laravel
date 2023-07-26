@@ -67,13 +67,13 @@
                                     <tbody>
                                         <tr class="header-style">
                                             <th scope="col">S.No</th>
-                                            <th scope="col">Result Status</th>
-                                            <th scope="col">Examination Passed</th>
+                                            <th scope="col">Result Status <span style="color:red">*</span></th>
+                                            <th scope="col">Examination Passed <span style="color:red">*</span></th>
                                             <th scope="col">Name of The Board/University <span style="color:red">*</span>
                                             </th>
                                             <th scope="col">Passing Year <span style="color:red">*</span> </th>
                                             <th scope="col">Credits/Marks Obtained <span style="color:red">*</span></th>
-                                            <th scope="col">Maximum Marks(not for the candidate with CGPA)</th>
+                                            <th scope="col">Maximum Marks(not for the candidate with CGPA) <span style="color:red">*</span></th>
                                             <th scope="col">% Marks <span style="color:red">*</span></th>
                                             <th scope="col">Exam. Roll No. <span style="color:red">*</span></th>
                                         </tr>
@@ -168,7 +168,7 @@
                                                     </select></span>
                                             </td>
                                             <td align="center" style="width:20%;">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamPassed">BA./B.Sc./B.Com or its Equivalent</span></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamPassed">BA./B.Sc./B.Com or its Equivalent <span style="color:red">*</span></span></span>
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam__"><select name="grad_passed" id="grad_passed" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Degree--</option>
@@ -177,7 +177,7 @@
                                                         <option value="20">B.Sc</option>
                                                         <option value="21">Other</option>
 
-                                                    </select></span><span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblGradMandatory__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblGradMandatory" style="color:Red;font-size:Medium;">*</span></span>
+                                                    </select></span>
                                             </td>
                                             <td align="center">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="grad_board" type="text" maxlength="50" id="grad_board" class="textbox form-select" onpaste="return false" ondrop="return false"></span>
