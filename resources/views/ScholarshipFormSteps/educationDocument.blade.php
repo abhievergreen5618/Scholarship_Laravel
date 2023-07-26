@@ -415,23 +415,6 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-
-
-
-                                                    <div id="Anthem_ctl00_ContentPlaceHolder1_Panel3__">
-                                                        <div id="ctl00_ContentPlaceHolder1_Panel3">
-
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_ImgSignature__" name="sign_photo"></span><span style="color: red">*</span>
-
-                                                        </div>
-                                                    </div>
-
-
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles"></span>
                                                     <img id="sign_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="...">
                                                 </td>
