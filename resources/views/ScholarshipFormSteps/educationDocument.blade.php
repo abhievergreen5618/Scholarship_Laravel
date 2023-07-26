@@ -1,6 +1,7 @@
 <li class="tab-content tab-content-2 typography">
     <form id="docform" action="{{ route('educationinfosubmit') }}">
         @csrf
+        <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
         <div class="tab-content">
             <div class="tab-pane active" id="tab_2">
 
@@ -320,14 +321,14 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="nationality" id="Nationality1" value="I">
-                                                            <label class="form-check-label" for="Nationality1">Yes</label>
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="I">
+                                                            <label class="form-check-label" for="disqualified/suspendedyes">Yes</label>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="nationality" id="Nationality2" value="O">
-                                                            <label class="form-check-label" for="Nationality2">No</label>
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="O">
+                                                            <label class="form-check-label" for="disqualified/suspendedno">No</label>
                                                         </div>
                                                     </td>
                                                 </tr>
