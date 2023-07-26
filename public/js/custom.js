@@ -9,4 +9,8 @@ $(document).ready(function () {
             $("#paddress").val();
         }
     });
+
+    $("#sign_photo").change(function (e) {
+        console.log($(this).files[0]);
+    });
 });
