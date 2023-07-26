@@ -138,7 +138,7 @@ jQuery('#docform').validate({
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
-                    $("#tab2").trigger('click');
+                    $("#tab3").trigger('click');
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
                 }

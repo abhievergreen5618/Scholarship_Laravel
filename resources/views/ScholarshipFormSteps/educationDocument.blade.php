@@ -80,7 +80,6 @@
                                         <tr class="dgitem-style" style="background-color:White;">
                                             <td align="center" style="width:5%;">
                                                 1
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_hfLowerToHigher_Edu_Order__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl02$hfLowerToHigher_Edu_Order" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_hfLowerToHigher_Edu_Order" value="1"></span>
                                             </td>
                                             <td align="center" style="width:100%;">
 
