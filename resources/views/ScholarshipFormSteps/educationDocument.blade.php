@@ -84,7 +84,7 @@
                                             </td>
                                             <td align="center" style="width:100%;">
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus" class="form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="class_status" id="class_status" class="form-select">
                                                         <option value="P">Passed</option>
                                                         <option value="A">Awaited</option>
                                                         <option value="N">Not Applicable</option>
@@ -98,7 +98,7 @@
                                                         Class 12 or its Equivalent</span></span>
 
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="class_passed" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam" class="dropdown1 form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="class_passed" id="class_passed" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Class--</option>
                                                         <option value="3">Class 5</option>
                                                         <option value="17">Class 6</option>
@@ -111,13 +111,10 @@
 
                                                     </select></span>
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_hdfExamPassId__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl02$hdfExamPassId" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_hdfExamPassId" value="2"></span>
-
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlGraduateExam__"></span><span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblGradMandatory__"></span>
                                             </td>
                                             <td align="center">
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="class_board" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
 
 
 
@@ -125,7 +122,7 @@
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear" class="form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="class_passing_year" class="form-select">
                                                         <option value="">--Select --</option>
                                                         <option value="1976">1976</option>
 
@@ -143,41 +140,37 @@
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="text" value="" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="text" value="" maxlength="6" id="class_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="text" value="" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="text" value="" maxlength="6" id="class_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="text" value="" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="text" value="" maxlength="5" id="class_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="text" value="" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="text" value="" maxlength="15" id="class_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
                                             </td>
 
 
                                         <tr class="dgitem-style" style="background-color:#F8F8F8;">
                                             <td align="center" style="width:5%;">
                                                 2
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_hfLowerToHigher_Edu_Order__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$hfLowerToHigher_Edu_Order" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_hfLowerToHigher_Edu_Order" value="2"></span>
                                             </td>
                                             <td align="center" style="width:100%;">
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlRStatus" class="form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlRStatus__"><select name="grad_status" id="grad_status" class="form-select">
                                                         <option value="P">Passed</option>
                                                         <option selected="selected" value="A">Awaited</option>
                                                         <option value="N">Not Applicable</option>
-
                                                     </select></span>
                                             </td>
                                             <td align="center" style="width:20%;">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamPassed">BA./B.Sc./B.Com
-                                                        or its Equivalent</span></span>
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_hdfExamPassId__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl03$hdfExamPassId" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_hdfExamPassId" value="3"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamPassed">BA./B.Sc./B.Com or its Equivalent</span></span>
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam__"><select name="grad_passed" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam" class="dropdown1 form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam__"><select name="grad_passed" id="grad_passed" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Degree--</option>
                                                         <option value="18">B.A</option>
                                                         <option value="19">B.Com</option>
@@ -187,11 +180,11 @@
                                                     </select></span><span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblGradMandatory__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblGradMandatory" style="color:Red;font-size:Medium;">*</span></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="grad_board" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver" class="textbox form-select" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="grad_board" type="text" maxlength="50" id="grad_board" class="textbox form-select" onpaste="return false" ondrop="return false"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlYear__"><select name="grad_passing_year" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlYear" class="form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlYear__"><select name="grad_passing_year" id="grad_passing_year" class="form-select">
                                                         <option selected="selected" value="">--Select --</option>
                                                         <option value="1976">1976</option>
 
@@ -210,41 +203,37 @@
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks__"><input name="grad_marks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks__"><input name="grad_marks" type="text" maxlength="6" id="grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks__"><input name="grad_max_marks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks__"><input name="grad_max_marks" type="text" maxlength="6" id="grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent__"><input name="grad_percentage" type="text" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent__"><input name="grad_percentage" type="text" maxlength="5" id="grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo__"><input name="grad_rollno" type="text" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo__"><input name="grad_rollno" type="text" maxlength="15" id="grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
                                             </td>
                                         </tr>
                                         <tr class="dgitem-style" style="background-color:White;">
                                             <td align="center" style="width:5%;">
                                                 3
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_hfLowerToHigher_Edu_Order__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$hfLowerToHigher_Edu_Order" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_hfLowerToHigher_Edu_Order" value="3"></span>
                                             </td>
                                             <td align="center" style="width:100%;">
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$ddlRStatus" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus" class="form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="post_grad_status" id="post_grad_status" class="form-select">
                                                         <option value="P">Passed</option>
                                                         <option value="A">Awaited</option>
                                                         <option value="N">Not Applicable</option>
                                                         <option selected="selected" value="N">Not Applicable</option>
-
                                                     </select></span>
                                             </td>
                                             <td align="center" style="width:20%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExamPassed">M.A./M.Sc./M.Com
                                                         or its Equivalent</span></span>
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_hdfExamPassId__"><input type="hidden" name="ctl00$ContentPlaceHolder1$gvsubject$ctl04$hdfExamPassId" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_hdfExamPassId" value="4" class="form-select"></span>
-
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="post_grad_passed" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam" class="dropdown1 form-control">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="post_grad_passed" id="post_grad_passed" class="dropdown1 form-control">
                                                         <option selected="selected" value="">--Select Degree--</option>
                                                         <option value="22">M.A</option>
                                                         <option value="23">M.Sc</option>
@@ -254,11 +243,11 @@
                                                     </select></span><span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblGradMandatory__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblGradMandatory" style="color:Red;font-size:Medium;">*</span></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver__"><input name="post_grad_board" type="text" maxlength="50" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver__"><input name="post_grad_board" type="text" maxlength="50" id="post_grad_board" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlYear__"><select name="post_grad_passing_year" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlYear" class="form-select">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlYear__"><select name="post_grad_passing_year" id="post_grad_passing_year" class="form-select">
                                                         <option selected="selected" value="">--Select --</option>
 
                                                         <option value="2013">2013</option>
@@ -276,18 +265,18 @@
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks__"><input name="post_grad_marks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks__"><input name="post_grad_marks" type="text" maxlength="6" id="post_grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks__"><input name="post_grad_max_marks" type="text" maxlength="6" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks__"><input name="post_grad_max_marks" type="text" maxlength="6" id="post_grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent__"><input name="post_grad_percentage" type="text" maxlength="5" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent__"><input name="post_grad_percentage" type="text" maxlength="5" id="post_grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo__"><input name="post_grad_rollno" type="text" maxlength="15" id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo__"><input name="post_grad_rollno" type="text" maxlength="15" id="post_grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -401,7 +390,7 @@
 
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblPPMsg__"><span id="ctl00_ContentPlaceHolder1_lblPPMsg" style="color:Red;"></span></span>
 
-                                                    <img src="..." class="img-thumbnail" alt="...">
+                                                    <img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail" alt="...">
 
 
                                                 </td>

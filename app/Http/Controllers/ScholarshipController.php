@@ -104,7 +104,22 @@ class ScholarshipController extends Controller
     /**Store education data */
     public function educationInfoStore(Request $request){
         $validator = Validator::make($request->all(), [
-            "name" => "required",
+            "grad_passed" => "required",
+            "grad_board" => "required",
+            "grad_passing_year" => "required",
+            "grad_marks" => "required",
+            "grad_max_marks" => "required",
+            "grad_percentage" => "required",
+            "grad_rollno" => "required",
+            "post_grad_passed" => "required",
+            "post_grad_board" => "required",
+            "post_grad_passing_year" => "required",
+            "post_grad_marks" => "required",
+            "post_grad_max_marks" => "required",
+            "post_grad_percentage" => "required",
+            "post_grad_rollno" => "required",
+            "profile_photo" => "required",
+            "sign_photo" => "required",
         ],
         [
              "required" => "This field is required.",
@@ -122,12 +137,10 @@ class ScholarshipController extends Controller
         }
         else
         {
-
-        }
-
             return response()->json([
                 'responseid' => "1",
             ],200);
+        }
     }
 
     /**
