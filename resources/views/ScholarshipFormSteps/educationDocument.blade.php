@@ -376,23 +376,8 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-
-
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ImgProfilePic__" name="profile_photo"></span><span style="color: red">*</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="ctl00$ContentPlaceHolder1$UploadImg" id="ctl00_ContentPlaceHolder1_UploadImg" class="uploadfiles"></span>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_hdPath__"><input name="profile_photo" type="text" id="ctl00_ContentPlaceHolder1_hdPath" style="border-width:0px;border-style:None;height:0px;width:0px;"></span><br>
-
-
-
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblPPMsg__"><span id="ctl00_ContentPlaceHolder1_lblPPMsg" style="color:Red;"></span></span>
-
-                                                    <img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="...">
-
-
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="profile_photo" id="profile_photo" class="uploadfiles"></span>
+                                                    <div><img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -415,7 +400,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles">
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles"></span>
                                                     <div><img id="sign_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>
