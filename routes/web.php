@@ -35,5 +35,9 @@ Route::get('/login',function(){
     return redirect()->to(env("WORDPRESS_URL")."/login");
 });
 
+Route::get('/register',function(){
+    return redirect()->to(env("WORDPRESS_URL")."/register");
+});
+
 
 
