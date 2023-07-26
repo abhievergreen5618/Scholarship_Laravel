@@ -20,12 +20,21 @@ $(document).ready(function () {
             var fileSizeKB = file.size / 1024;
             if (fileSizeKB > 20) {
                 // File size exceeds 20KB, do something (e.g., show an error message)
-                console.log("File size exceeds 20KB");
+                alert("File size exceeds 20KB");
+                $(this).val("");
                 // You can show an error message to the user or handle the case accordingly
             } else {
-                // File size is within the limit, proceed with your logic
-                console.log("File size is within the limit");
-                // You can proceed with your logic here, e.g., upload the file or process it further
+                 // Create a FileReader object
+                    const reader = new FileReader();
+
+                    // Set up the FileReader's `onload` event handler
+                    reader.onload = function(event) {
+                    const profilePhotoPreview = document.getElementById('sign_photo_perview');
+                    profilePhotoPreview.src = event.target.result;
+                    };
+
+                    // Read the file as a data URL, triggering the `onload` event when done
+                    reader.readAsDataURL(file);
             }
         }
     });
@@ -38,13 +47,20 @@ $(document).ready(function () {
             // Check the file size in KB
             var fileSizeKB = file.size / 1024;
             if (fileSizeKB > 20) {
-                // File size exceeds 20KB, do something (e.g., show an error message)
-                console.log("File size exceeds 20KB");
-                // You can show an error message to the user or handle the case accordingly
+                alert("File size exceeds 20KB");
+                $(this).val("");
             } else {
-                // File size is within the limit, proceed with your logic
-                console.log("File size is within the limit");
-                // You can proceed with your logic here, e.g., upload the file or process it further
+                // Create a FileReader object
+                const reader = new FileReader();
+
+                // Set up the FileReader's `onload` event handler
+                reader.onload = function(event) {
+                const profilePhotoPreview = document.getElementById('profile_photo_perview');
+                profilePhotoPreview.src = event.target.result;
+                };
+
+                // Read the file as a data URL, triggering the `onload` event when done
+                reader.readAsDataURL(file);
             }
         }
     });
