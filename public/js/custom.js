@@ -11,9 +11,9 @@ $(document).ready(function () {
     });
 
     $("#sign_photo").change(function (e) {
-        console.log($(this).files[0]);
+        console.log($(this).files);
     });
     $("#profile_photo").change(function (e) {
-        console.log($(this).files[0]);
+        console.log($(this).files);
     });
 });
