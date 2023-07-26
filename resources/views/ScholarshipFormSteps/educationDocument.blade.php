@@ -432,13 +432,7 @@
 
                                             <tr>
                                                 <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="ctl00$ContentPlaceHolder1$UploadSignature" id="ctl00_ContentPlaceHolder1_UploadSignature" class="uploadfiles"></span>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_hdSigPath__"><input name="sign_photo" type="text" id="ctl00_ContentPlaceHolder1_hdSigPath" style="border-width:0px;border-style:None;height:0px;width:0px;"></span><br>
-
-
-
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblSSMsg__"><span id="ctl00_ContentPlaceHolder1_lblSSMsg" style="color:Red;"></span></span>
-
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles"></span>
                                                     <img id="sign_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="...">
                                                 </td>
                                             </tr>
