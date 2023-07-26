@@ -416,7 +416,7 @@
                                             <tr>
                                                 <td>
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles">
-                                                    <img id="sign_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></span>
+                                                    <div><img id="sign_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>
 
