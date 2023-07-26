@@ -13,4 +13,7 @@ $(document).ready(function () {
     $("#sign_photo").change(function (e) {
         console.log($(this).files[0]);
     });
+    $("#profile_photo").change(function (e) {
+        console.log($(this).files[0]);
+    });
 });
