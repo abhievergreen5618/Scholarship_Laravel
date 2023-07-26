@@ -1,5 +1,5 @@
 <li class="tab-content tab-content-2 typography">
-    <form id="docform">
+    <form id="docform" action="{{ route('educationinfosubmit') }}">
         @csrf
         <div class="tab-content">
             <div class="tab-pane active" id="tab_2">
