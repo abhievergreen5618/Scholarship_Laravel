@@ -100,14 +100,14 @@
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="class_passed" id="class_passed" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Class--</option>
-                                                        <option value="3">Class 5</option>
-                                                        <option value="17">Class 6</option>
-                                                        <option value="18">Class 7</option>
-                                                        <option value="19">Class 8</option>
-                                                        <option value="20">Class 9</option>
-                                                        <option value="21">Class 10</option>
-                                                        <option value="24">Class 11</option>
-                                                        <option value="24">Class 12</option>
+                                                        <option value="5">Class 5</option>
+                                                        <option value="6">Class 6</option>
+                                                        <option value="7">Class 7</option>
+                                                        <option value="8">Class 8</option>
+                                                        <option value="9">Class 9</option>
+                                                        <option value="10">Class 10</option>
+                                                        <option value="11">Class 11</option>
+                                                        <option value="12">Class 12</option>
 
                                                     </select></span>
 
