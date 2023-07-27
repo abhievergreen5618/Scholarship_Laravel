@@ -11,7 +11,7 @@
 
                     <!-- tabs -->
                     <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
-                        <input type="radio" name="pcss3t" id="tab1" class="tab-content-first" checked>
+                        <input type="radio" name="pcss3t" id="tab1" class="tab-content-first" {{auth()->user()->step1_updated_at}}checked>
                         <label for="tab1"><i class="fas fa-hand-point-right"></i>Personal Information
 </label>
 
