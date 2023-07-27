@@ -156,7 +156,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheetmatric" type="number" id="hsmarksheetmatric" class="form-control" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->hsmarksheetmatric}} @endif" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheetmatric" type="text" id="hsmarksheetmatric" class="form-control" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->hsmarksheetmatric}} @endif" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
                                 </td>
                             </tr>
 
@@ -166,7 +166,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="number" id="hsmarksheet"  class="form-control" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->hsmarksheet}} @endif" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="text" id="hsmarksheet"  class="form-control" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->hsmarksheet}} @endif" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
                                 </td>
                             </tr>
 
