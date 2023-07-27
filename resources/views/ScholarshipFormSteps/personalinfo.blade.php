@@ -34,7 +34,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->name}} @endif" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
                                 </td>
                             </tr>
                             <tr>
