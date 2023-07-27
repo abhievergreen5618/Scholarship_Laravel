@@ -66,7 +66,7 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__"><select name="examcentre" id="examcentre" class="dropdownlong form-select">
                                             <option value="">-- Select Exam Center --</option>
-                                            <option value="3"  @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "3" ? 'selected' : ''}} @endif>SOLAN</option>
+                                            <option value="3" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "3" ? 'selected' : ''}} @endif>SOLAN</option>
                                             <option value="17" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "17" ? 'selected' : ''}} @endif>SHIMLA</option>
                                             <option value="18" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "18" ? 'selected' : ''}} @endif>DHARAMSHALA</option>
                                             <option value="19" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "19" ? 'selected' : ''}} @endif>UNA</option>
@@ -166,7 +166,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="text" id="hsmarksheet"  class="form-control" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->hsmarksheet}} @endif" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="text" id="hsmarksheet" class="form-control" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->hsmarksheet}} @endif" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
                                 </td>
                             </tr>
 
@@ -193,7 +193,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="nationality" id="Nationality2" value="O"  @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->nationality == "O" ? 'checked' : ''}} @endif>
+                                                            <input class="form-check-input" type="radio" name="nationality" id="Nationality2" value="O" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->nationality == "O" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="Nationality2">Other</label>
                                                         </div>
                                                     </td>
@@ -312,8 +312,11 @@
                                                             <form action="#">
                                                                 <div class="input-group mb-3">
                                                                     <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof">
+                                                                    <div><img id="profile_photo_perview" src="{{assets('/images/proofdoc/'+auth()->user()->physicallychallengedproof)}}" class="img-thumbnail mt-2" alt="..."></div>
                                                                 </div>
                                                             </form>
+
+
                                                         </div>
                                                     </td>
 
@@ -332,8 +335,7 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="category" id="category" class="dropdownlong form-select">
-
-                                            <option value="" >Please Select</option>
+                                            <option value="">Please Select</option>
                                             <option value="OBC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "OBC" ? 'checked' : ''}} @endif>OBC</option>
                                             <option value="General" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "General" ? 'checked' : ''}} @endif>General</option>
                                             <option value="ST" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "ST" ? 'checked' : ''}} @endif>ST</option>
