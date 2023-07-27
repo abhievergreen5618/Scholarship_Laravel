@@ -62,7 +62,7 @@ jQuery('#frm').validate({
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
-                    $("#tab2").attr('disabled',true);
+                    $("#tab2").attr('disabled',false);
                     $("#tab2").trigger('click');
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
@@ -139,7 +139,7 @@ jQuery('#docform').validate({
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
-                    $("#tab3").attr('disabled',true);
+                    $("#tab3").attr('disabled',false);
                     $("#tab3").trigger('click');
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
