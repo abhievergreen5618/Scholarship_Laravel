@@ -216,13 +216,13 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="M">
+                                                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="M" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->gender == "M" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="gender1">Male</label>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="F">
+                                                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="F" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->gender == "F" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="gender2">Female</label>
                                                         </div>
                                                     </td>
@@ -246,11 +246,11 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="singlegirlchild" id="singlegirlchildyes" value="yes">
+                                        <input class="form-check-input" type="radio" name="singlegirlchild" id="singlegirlchildyes" value="yes" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->singlegirlchild == "yes" ? 'checked' : ''}} @endif>
                                         <label class="form-check-label" for="yes">Yes</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="singlegirlchild" id="singlegirlchildno" value="no">
+                                        <input class="form-check-input" type="radio" name="singlegirlchild" id="singlegirlchildno" value="no" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->singlegirlchild == "no" ? 'checked' : ''}} @endif>
                                         <label class="form-check-label" for="no">No</label>
                                     </div>
                                 </td>
@@ -266,10 +266,10 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__"><select name="applyingfor" id="applyingfor" class="dropdownlong form-control">
                                             <option value="">--Please Select --</option>
-                                            <option value="Sport">Sport</option>
-                                            <option value="Cultural">Cultural</option>
-                                            <option value="Both">Both(Sport &amp; Cultural )</option>
-                                            <option value="Not Applicable">Not Applicable</option>
+                                            <option value="Sport" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingfor == "Sport" ? 'selected' : ''}} @endif>Sport</option>
+                                            <option value="Cultural" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingfor == "Cultural" ? 'selected' : ''}} @endif>Cultural</option>
+                                            <option value="Both" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingfor == "Both" ? 'selected' : ''}} @endif>Both(Sport &amp; Cultural )</option>
+                                            <option value="Not Applicable" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingfor == "Not Applicable" ? 'selected' : ''}} @endif>Not Applicable</option>
                                         </select></span>
                                     <br>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
