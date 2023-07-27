@@ -22,8 +22,8 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
                                         <select name="scholarshipname" id="scholarshipname" class="dropdownlong form-select">
                                             <option value=""> Please Select </option>
-                                            <option value="3">open scholarships </option>
-                                            <option value="17"> vidyabharti scholarship</option>
+                                            <option value="3" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->scholarshipname == "3" ? 'selected' : ''}} @endif>open scholarships </option>
+                                            <option value="17" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->scholarshipname == "17" ? 'selected' : ''}}> vidyabharti scholarship</option>
                                         </select>
                                     </span>
                                 </td>
