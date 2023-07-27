@@ -138,7 +138,10 @@ class ScholarshipController extends Controller
         else
         {
 
-            dd($request->all());
+            $id=decrypt(($request->id));
+            dd($id);
+
+            // dd($request->all());
             // if ($request->hasFile('physicallychallengedproof')) {
             //     $image = $request->file('physicallychallengedproof');
             //     $imageName = time() . '.' . $image->getClientOriginalExtension();
