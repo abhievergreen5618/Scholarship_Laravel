@@ -90,7 +90,7 @@ class ScholarshipController extends Controller
                 "applyingfor" => $request['applyingfor'],
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
-                "physicallychallengedproof" => $request['physicallychallengedproof'] ?? "",
+                "physicallychallengedproof" => $imageName ?? "",
                 "step1_updated_at" => now(),
             ]);
 
