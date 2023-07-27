@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string("exam_roll_no");
             $table->string("disqualified/suspended");
             $table->string("disqualified/suspended_details");
+            $table->string("type");
             // Add a foreign key constraint
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Optional: add this if you want cascading delete
             $table->timestamps();
