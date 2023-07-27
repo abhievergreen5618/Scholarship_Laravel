@@ -12,19 +12,24 @@
                     <!-- tabs -->
                     <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
                         <input type="radio" name="pcss3t" id="tab1" class="tab-content-first" >
-                        <label for="tab1"><i class="fas fa-hand-point-right"></i>Personal Information</label>
+                        <label for="tab1"><i class="fas fa-hand-point-right"></i>Personal Information <i class="fa fa-lock" aria-hidden="true"></i>
+</label>
 
                         <input type="radio" name="pcss3t" id="tab2" class="tab-content-2" checked>
-                        <label for="tab2"><i class="fas fa-hand-point-right"></i>Education & Document Details</label>
+                        <label for="tab2"><i class="fas fa-hand-point-right"></i>Education & Document Details <i class="fa fa-lock" aria-hidden="true"></i>
+</label>
 
                         <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                        <label for="tab3"><i class="fas fa-hand-point-right"></i>Application Summary</label>
+                        <label for="tab3"><i class="fas fa-hand-point-right"></i>Application Summary <i class="fa fa-lock" aria-hidden="true"></i>
+</label>
 
                         <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                        <label for="tab5"><i class="fas fa-hand-point-right"></i>Payment</label>
+                        <label for="tab5"><i class="fas fa-hand-point-right"></i>Payment <i class="fa fa-lock" aria-hidden="true"></i>
+</label>
 
                         <input type="radio" name="pcss3t" id="tab6" class="tabend">
-                        <label for="tab6"><i class="fas fa-hand-point-right"></i>Submit Application Form</label>
+                        <label for="tab6"><i class="fas fa-hand-point-right"></i>Submit Application Form <i class="fa fa-lock" aria-hidden="true"></i>
+</label>
 
                         <ul>
                             @include("ScholarshipFormSteps.personalinfo")
