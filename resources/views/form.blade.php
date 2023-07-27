@@ -70,10 +70,10 @@
                             <h4>Steps for Registration</h4>
                             <div class="btn-group-vertical">
                                 <a href="#" class="btn btn-success btn-block py-3 border-dark" id="personal_information_step">Personal Information</a>
-                                <a href="#" class="btn btn-secondary btn-block py-3 border-dark" id="education_details_step">Education &amp; Document Details</a>
-                                <a href="#" class="btn btn-secondary btn-block py-3 border-dark" id="application_summary_step">Application Summary</a>
-                                <a href="#" class="btn btn-secondary btn-block py-3 border-dark" id="payment_step">Payment</a>
-                                <a href="#" class="btn btn-secondary btn-block py-3 border-dark" id="submit_information_form">Submit Application Form</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step1_updated_at) && empty(auth()->user()->step2_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="education_details_step">Education &amp; Document Details</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="application_summary_step">Application Summary</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step4_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="payment_step">Payment</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step5_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="submit_information_form">Submit Application Form</a>
                             </div>
                         </div>
                         <div>
