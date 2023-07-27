@@ -186,48 +186,6 @@ class ScholarshipController extends Controller
                     'type'=>'post_graduation',
                  ]);
 
-                //  EducationDetails::create([
-                //     'user_id'=> $user_id,
-                //     'resultstatus'=>$request['class_status'],
-                //     'examination_passed'=>$request['class_passed'],
-                //     'name_of_the_board_university'=>$request['class_board'],
-                //     'passing_year'=>$request['class_passing_year'],
-                //     'credits_marks_Obtained'=>$request['class_marks'],
-                //     'maximum_marks'=>$request['class_max_marks'],
-                //     'percentage_marks'=>$request['class_percentage'],
-                //     'exam_roll_no'=>$request['class_rollno'],
-                //     'disqualified/suspended'=>$request['disqualified/suspended'],
-                //     'disqualified/suspended_details'=>$request['disqualified/suspended'],
-                //     'type'=>'High School Level',
-                //  ]);
-                //  EducationDetails::create([
-                //     'user_id'=> $user_id,
-                //     'resultstatus'=>$request['grad_status'],
-                //     'examination_passed'=>$request['grad_passed'],
-                //     'name_of_the_board_university'=>$request['grad_board'],
-                //     'passing_year'=>$request['grad_passing_year'],
-                //     'credits_marks_Obtained'=>$request['grad_marks'],
-                //     'maximum_marks'=>$request['grad_max_marks'],
-                //     'percentage_marks'=>$request['grad_percentage'],
-                //     'exam_roll_no'=>$request['grad_rollno'],
-                //     'disqualified/suspended'=>$request['disqualified/suspended'],
-                //     'disqualified/suspended_details'=>$request['disqualified/suspended'],
-                //     'type'=>'Graduation Level',
-                //  ]);
-                //  EducationDetails::create([
-                //     'user_id'=> $user_id,
-                //     'resultstatus'=>$request['post_grad_status'],
-                //     'examination_passed'=>$request['post_grad_passed'],
-                //     'name_of_the_board_university'=>$request['post_grad_board'],
-                //     'passing_year'=>$request['post_grad_passing_year'],
-                //     'credits_marks_Obtained'=>$request['post_grad_marks'],
-                //     'maximum_marks'=>$request['post_grad_max_marks'],
-                //     'percentage_marks'=>$request['post_grad_percentage'],
-                //     'exam_roll_no'=>$request['post_grad_rollno'],
-                //     'disqualified/suspended'=>$request['disqualified/suspended'],
-                //     'disqualified/suspended_details'=>$request['disqualified/suspended'],
-                //     'type'=>'Post Graduation Level',
-                //  ]);
 
             if ($request->hasFile('profile_photo')) {
                 $image = $request->file('profile_photo');
