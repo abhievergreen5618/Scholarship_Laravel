@@ -315,8 +315,9 @@
                                                                 </div>
                                                             </form>
 
+                                                            @if(!empty(auth()->user()->step1_updated_at))
                                                             <div><img id="profile_photo_perview" src="{{ asset('public/images/proofdoc/'.auth()->user()->physicallychallengedproof) }}" class="img-thumbnail mt-2" alt="..."></div>
-
+                                                            @endif
                                                         </div>
                                                     </td>
 
