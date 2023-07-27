@@ -17,7 +17,17 @@ class ScholarshipController extends Controller
      */
     public function index()
     {
-        return view('form');
+        if(!empty(Auth::user()->step2_updated_at))
+        {
+            $step2data = EducationDetails::where('id',Auth::user()->id)->get();
+            return view('form')->with([
+                "step2data" => $step2data
+            ]);
+        }
+        else
+        {
+            return view('form');
+        }
     }
 
     /**
