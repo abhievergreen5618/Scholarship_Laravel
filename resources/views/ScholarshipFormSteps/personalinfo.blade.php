@@ -147,7 +147,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->aadhaarno}} @endif" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="text" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->aadhaarno}} @endif" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong"></span>
                                 </td>
                             </tr>
                             <tr>
