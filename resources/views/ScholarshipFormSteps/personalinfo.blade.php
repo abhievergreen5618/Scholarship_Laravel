@@ -138,7 +138,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDob__"><input type="date" value='@if(!empty(auth()->user()->step1_updated_at)) {{\Carbon\Carbon::parse(auth()->user()->dob)->format("d-m-Y")}} @endif' id="dob" name="dob" class="form-control">
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDob__"><input type="date" value='@if(!empty(auth()->user()->step1_updated_at)) {{\Carbon\Carbon::parse(auth()->user()->dob)->format("Y-m-d")}} @endif' id="dob" name="dob" class="form-control">
                                 </td>
                             </tr>
                             <tr>
