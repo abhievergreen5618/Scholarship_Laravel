@@ -137,35 +137,26 @@ class ScholarshipController extends Controller
         }
         else
         {
-            if ($request->hasFile('physicallychallengedproof')) {
-                $image = $request->file('physicallychallengedproof');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images/proofdoc'), $imageName);
-                $request['physicallychallengedproof'] = $imageName;
-            }
-            User::where('id',decrypt($request['id']))->update([
-                "name" => $request['scholarshipname'] ?? "",
-                "email" => $request['email'] ?? "",
-                "scholarshipname" => $request['scholarshipname'] ?? "",
-                "fathername" => $request['fathername'],
-                "mothername" => $request['mothername'],
-                "examcentre" => $request['examcentre'],
-                "caddress" => $request['caddress'],
-                "paddress" => $request['paddress'],
-                "dob" => $request['dob'] ?? "",
-                "aadhaarno" => $request['aadhaarno'] ?? "",
-                "hsmarksheetmatric" => $request['hsmarksheetmatric'],
-                "hsmarksheet" => $request['hsmarksheet'],
-                "nationality" =>  $request['nationality'] ?? "",
-                "mobileno" => $request['mobileno'],
-                "gender" => $request['gender'] ?? "",
-                "singlegirlchild" => $request['singlegirlchild'] ?? "",
-                "applyingfor" => $request['applyingfor'],
-                "physicallychallenged" => $request['physicallychallenged'],
-                "category" => $request['category'],
-                "physicallychallengedproof" => $request['physicallychallengedproof'] ?? "",
-                "step2_updated_at" => now(),
-            ]);
+            // if ($request->hasFile('physicallychallengedproof')) {
+            //     $image = $request->file('physicallychallengedproof');
+            //     $imageName = time() . '.' . $image->getClientOriginalExtension();
+            //     $image->move(public_path('images/proofdoc'), $imageName);
+            //     $request['physicallychallengedproof'] = $imageName;
+            // }
+
+            // User::where('id',decrypt($request['id']))->update([
+            //     "resultstatus" => $request['resultstatus'] ?? "",
+            //     "examination_passed" => $request['email'] ?? "",
+            //     "name_of_the_board_university" => $request['scholarshipname'] ?? "",
+            //     "passing_year" => $request['fathername'],
+            //     "credits_marks_Obtained" => $request['mothername'],
+            //     "maximum_marks" => $request['examcentre'],
+            //     "percentage_marks" => $request['caddress'],
+            //     "exam_roll_no" => $request['paddress'],
+            //     "disqualified/suspended" => $request['dob'] ?? "",
+            //     "disqualified/suspended_details" => $request['aadhaarno'] ?? "",
+            //     "step2_updated_at" => now(),
+            // ]);
 
             return response()->json([
                 'message' => 'Saved successfully',
