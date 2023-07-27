@@ -142,6 +142,7 @@ jQuery('#docform').validate({
                 {
                     $("#tab3").attr('disabled',false);
                     $("#tab3").trigger('click');
+                    $('[for="tab3"]').find("[data-icon='lock']").remove();
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
                 }
