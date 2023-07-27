@@ -1,7 +1,7 @@
 <li class="tab-content tab-content-2 typography">
     <form id="docform" action="{{ route('educationinfosubmit') }}">
         @csrf
-        <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
+        <input type="hidden" value="{{ auth()->user()->id) }}" name="id">
         <div class="tab-content">
             <div class="tab-pane active" id="tab_2">
 
