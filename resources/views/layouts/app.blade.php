@@ -7,7 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/fontawesome.min.css" integrity="sha512-IejtbqJqhyw0pAfIGrqsO/+9McIyWp3zwz9Y0oKOpsSo9XHOCWwPcS6ezTpdDG5ZIkmMdvkkd1eq7C56fRqYxg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -23,6 +22,7 @@
         </div>
     </div>
     @include("layouts.partials.footer")
+    <script src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
     <script src="{{asset('/js/jquery.js')}}"></script>
     <script src="{{asset('/js/validate.min.js')}}"></script>
     <script src="{{asset('/js/formvalidate.js')}}"></script>
