@@ -264,7 +264,8 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__"><select name="applyingfor" id="applyingfor" class="dropdownlong form-control">
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
+                                        <select name="applyingfor" id="applyingfor" class="dropdownlong form-control">
                                             <option value="">--Please Select --</option>
                                             <option value="Sport" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingfor == "Sport" ? 'selected' : ''}} @endif>Sport</option>
                                             <option value="Cultural" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingfor == "Cultural" ? 'selected' : ''}} @endif>Cultural</option>
@@ -335,7 +336,7 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="category" id="category" class="dropdownlong form-select">
+                                        <select name="category" id="category" class="dropdownlong form-control">
                                             <option value="">Please Select</option>
                                             <option value="OBC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "OBC" ? 'checked' : ''}} @endif>OBC</option>
                                             <option value="General" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "General" ? 'checked' : ''}} @endif>General</option>
@@ -343,6 +344,8 @@
                                             <option value="SC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "SC" ? 'checked' : ''}} @endif>SC</option>
                                         </select>
                                     </span>
+                                    <br>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
                                 </td>
                             </tr>
                             <tr>
