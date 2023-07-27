@@ -19,7 +19,7 @@ class ScholarshipController extends Controller
     {
         if(!empty(Auth::user()->step2_updated_at))
         {
-            $step2data = EducationDetails::where('id',Auth::user()->id)->get();
+            $step2data = EducationDetails::where('userid',Auth::user()->id)->get();
             dd($step2data);
             return view('form')->with([
                 "step2data" => $step2data
