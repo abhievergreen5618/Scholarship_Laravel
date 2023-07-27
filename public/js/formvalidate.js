@@ -64,6 +64,7 @@ jQuery('#frm').validate({
                 {
                     $("#tab2").attr('disabled',false);
                     $("#tab2").trigger('click');
+                    $('[for="tab2"]').find("[data-icon='lock']").remove();
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
                 }

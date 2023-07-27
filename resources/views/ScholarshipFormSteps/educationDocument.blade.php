@@ -286,11 +286,6 @@
                     </div>
                 </div>
 
-
-
-
-
-
                 <div class="box-body table-responsive">
 
                     <table id="ctl00_ContentPlaceHolder1_Table2" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
