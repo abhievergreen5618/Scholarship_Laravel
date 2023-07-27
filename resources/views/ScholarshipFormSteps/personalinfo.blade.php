@@ -312,10 +312,10 @@
                                                             <form action="#">
                                                                 <div class="input-group mb-3">
                                                                     <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof">
-                                                                    <div><img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></div>
                                                                 </div>
                                                             </form>
 
+                                                            <div><img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></div>
 
                                                         </div>
                                                     </td>
