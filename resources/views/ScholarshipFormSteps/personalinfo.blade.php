@@ -23,7 +23,7 @@
                                         <select name="scholarshipname" id="scholarshipname" class="dropdownlong form-select">
                                             <option value=""> Please Select </option>
                                             <option value="3" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->scholarshipname == "3" ? 'selected' : ''}} @endif>open scholarships </option>
-                                            <option value="17" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->scholarshipname == "17" ? 'selected' : ''}}> vidyabharti scholarship</option>
+                                            <option value="17" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->scholarshipname == "17" ? 'selected' : ''}} @endif> vidyabharti scholarship</option>
                                         </select>
                                     </span>
                                 </td>
