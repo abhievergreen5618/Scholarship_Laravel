@@ -312,7 +312,7 @@
                                                             <form action="#">
                                                                 <div class="input-group mb-3">
                                                                     <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof">
-                                                                    <div><img id="profile_photo_perview" src="{{asset('/images/proofdoc/'+auth()->user()->physicallychallengedproof)}}" class="img-thumbnail mt-2" alt="..."></div>
+                                                                    <div><img id="profile_photo_perview" src="{{asset('/images/proofdoc/auth()->user()->physicallychallengedproof')}}" class="img-thumbnail mt-2" alt="..."></div>
                                                                 </div>
                                                             </form>
 
