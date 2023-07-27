@@ -239,7 +239,7 @@ class ScholarshipController extends Controller
                 $sign_photo = time() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('images/proofdoc'), $sign_photo);
             }
-            User::where('id',$user_id)->update([
+            User::where('id',decrypt($request['id']))->update([
                 "photo"=>$imageName,
                 "signature"=>$sign_photo,
                 "step2_updated_at" => now(),
