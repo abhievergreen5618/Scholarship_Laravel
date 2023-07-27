@@ -187,21 +187,21 @@ class ScholarshipController extends Controller
                  ]);
 
 
-            if ($request->hasFile('profile_photo')) {
-                $image = $request->file('profile_photo');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images/proofdoc'), $imageName);
-            }
-            if ($request->hasFile('sign_photo')) {
-                $image = $request->file('sign_photo');
-                $sign_photo = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images/proofdoc'), $sign_photo);
-            }
-            User::where('id',decrypt($request['id']))->update([
-                "photo"=>$imageName,
-                "signature"=>$sign_photo,
-                "step2_updated_at" => now(),
-            ]);
+            // if ($request->hasFile('profile_photo')) {
+            //     $image = $request->file('profile_photo');
+            //     $imageName = time() . '.' . $image->getClientOriginalExtension();
+            //     $image->move(public_path('images/proofdoc'), $imageName);
+            // }
+            // if ($request->hasFile('sign_photo')) {
+            //     $image = $request->file('sign_photo');
+            //     $sign_photo = time() . '.' . $image->getClientOriginalExtension();
+            //     $image->move(public_path('images/proofdoc'), $sign_photo);
+            // }
+            // User::where('id',decrypt($request['id']))->update([
+            //     "photo"=>$imageName,
+            //     "signature"=>$sign_photo,
+            //     "step2_updated_at" => now(),
+            // ]);
 
             return response()->json([
                 'message' => 'Saved successfully',
