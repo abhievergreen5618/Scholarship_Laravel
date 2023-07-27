@@ -84,9 +84,9 @@
                                             </td>
                                             <td align="center" style="width:100%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="class_status" id="class_status" class="form-select">
-                                                        <option value="P" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] = 'P' ? 'selected' : ''}}>Passed</option>
-                                                        <option value="A" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] = 'A' ? 'selected' : ''}}>Awaited</option>
-                                                        <option value="N" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] = 'N' ? 'selected' : ''}}>Not Applicable</option>
+                                                        <option value="P" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'P' ? 'selected' : ''}}>Passed</option>
+                                                        <option value="A" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'A' ? 'selected' : ''}}>Awaited</option>
+                                                        <option value="N" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'N' ? 'selected' : ''}}>Not Applicable</option>
 
 
                                                     </select></span>
@@ -99,14 +99,14 @@
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="class_passed" id="class_passed" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Class--</option>
-                                                        <option value="5" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '5' ? 'selected' : ''}}>Class 5</option>
-                                                        <option value="6" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '6' ? 'selected' : ''}}>Class 6</option>
-                                                        <option value="7" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '7' ? 'selected' : ''}}>Class 7</option>
-                                                        <option value="8" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '8' ? 'selected' : ''}}>Class 8</option>
-                                                        <option value="9" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '9' ? 'selected' : ''}}>Class 9</option>
-                                                        <option value="10" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '10' ? 'selected' : ''}}>Class 10</option>
-                                                        <option value="11" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '11' ? 'selected' : ''}}>Class 11</option>
-                                                        <option value="12" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '12' ? 'selected' : ''}}>Class 12</option>
+                                                        <option value="5" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] == '5' ? 'selected' : ''}}>Class 5</option>
+                                                        <option value="6" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] == '6' ? 'selected' : ''}}>Class 6</option>
+                                                        <option value="7" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] == '7' ? 'selected' : ''}}>Class 7</option>
+                                                        <option value="8" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] == '8' ? 'selected' : ''}}>Class 8</option>
+                                                        <option value="9" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] == '9' ? 'selected' : ''}}>Class 9</option>
+                                                        <option value="10" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] == '10' ? 'selected' : ''}}>Class 10</option>
+                                                        <option value="11" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] == '11' ? 'selected' : ''}}>Class 11</option>
+                                                        <option value="12" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] == '12' ? 'selected' : ''}}>Class 12</option>
 
                                                     </select></span>
 
