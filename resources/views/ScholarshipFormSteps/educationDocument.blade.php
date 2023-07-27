@@ -84,9 +84,9 @@
                                             </td>
                                             <td align="center" style="width:100%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="class_status" id="class_status" class="form-select">
-                                                        <option value="P" {{isset($step2data['class_status']) && $step2data['class_status'] = 'P' ? 'selected' : ''}}>Passed</option>
-                                                        <option value="A" {{isset($step2data['class_status']) && $step2data['class_status'] = 'A' ? 'selected' : ''}}>Awaited</option>
-                                                        <option value="N" {{isset($step2data['class_status']) && $step2data['class_status'] = 'N' ? 'selected' : ''}}>Not Applicable</option>
+                                                        <option value="P" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] = 'P' ? 'selected' : ''}}>Passed</option>
+                                                        <option value="A" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] = 'A' ? 'selected' : ''}}>Awaited</option>
+                                                        <option value="N" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] = 'N' ? 'selected' : ''}}>Not Applicable</option>
 
 
                                                     </select></span>
@@ -99,21 +99,21 @@
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="class_passed" id="class_passed" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Class--</option>
-                                                        <option value="5" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '5' ? 'selected' : ''}}>Class 5</option>
-                                                        <option value="6" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '6' ? 'selected' : ''}}>Class 6</option>
-                                                        <option value="7" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '7' ? 'selected' : ''}}>Class 7</option>
-                                                        <option value="8" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '8' ? 'selected' : ''}}>Class 8</option>
-                                                        <option value="9" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '9' ? 'selected' : ''}}>Class 9</option>
-                                                        <option value="10" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '10' ? 'selected' : ''}}>Class 10</option>
-                                                        <option value="11" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '11' ? 'selected' : ''}}>Class 11</option>
-                                                        <option value="12" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '12' ? 'selected' : ''}}>Class 12</option>
+                                                        <option value="5" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '5' ? 'selected' : ''}}>Class 5</option>
+                                                        <option value="6" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '6' ? 'selected' : ''}}>Class 6</option>
+                                                        <option value="7" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '7' ? 'selected' : ''}}>Class 7</option>
+                                                        <option value="8" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '8' ? 'selected' : ''}}>Class 8</option>
+                                                        <option value="9" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '9' ? 'selected' : ''}}>Class 9</option>
+                                                        <option value="10" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '10' ? 'selected' : ''}}>Class 10</option>
+                                                        <option value="11" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '11' ? 'selected' : ''}}>Class 11</option>
+                                                        <option value="12" {{isset($step2schooldata['examination_passed']) && $step2schooldata['examination_passed'] = '12' ? 'selected' : ''}}>Class 12</option>
 
                                                     </select></span>
 
                                             </td>
                                             <td align="center">
 
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="class_board" class="textbox form-control" onpaste="return false" ondrop="return false" value="{{isset($step2data['class_board']) ? $step2data['class_board'] : '' }}"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="class_board" class="textbox form-control" onpaste="return false" ondrop="return false" value="{{isset($step2schooldata['name_of_the_board_university']) ? $step2schooldata['class_board'] : '' }}"></span>
 
 
 
@@ -123,33 +123,33 @@
                                             <td align="center">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="class_passing_year" class="form-select">
                                                         <option value="">--Select --</option>
-                                                        <option value="1976" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '1976' ? 'selected' : ''}}>1976</option>
-                                                        <option value="2014" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2014' ? 'selected' : ''}}>2014</option>
-                                                        <option value="2015" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2015' ? 'selected' : ''}}>2015</option>
-                                                        <option value="2016" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2016' ? 'selected' : ''}}>2016</option>
-                                                        <option value="2017" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2017' ? 'selected' : ''}}>2017</option>
-                                                        <option value="2018" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2018' ? 'selected' : ''}}>2018</option>
-                                                        <option value="2019" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2019' ? 'selected' : ''}}>2019</option>
-                                                        <option value="2020" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2020' ? 'selected' : ''}}>2020</option>
-                                                        <option value="2021" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2021' ? 'selected' : ''}}>2021</option>
-                                                        <option value="2022" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2022' ? 'selected' : ''}}>2022</option>
-                                                        <option value="2023" {{isset($step2data['class_passed']) && $step2data['class_passed'] = '2023' ? 'selected' : ''}}>2023</option>
+                                                        <option value="1976" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '1976' ? 'selected' : ''}}>1976</option>
+                                                        <option value="2014" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2014' ? 'selected' : ''}}>2014</option>
+                                                        <option value="2015" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2015' ? 'selected' : ''}}>2015</option>
+                                                        <option value="2016" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2016' ? 'selected' : ''}}>2016</option>
+                                                        <option value="2017" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2017' ? 'selected' : ''}}>2017</option>
+                                                        <option value="2018" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2018' ? 'selected' : ''}}>2018</option>
+                                                        <option value="2019" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2019' ? 'selected' : ''}}>2019</option>
+                                                        <option value="2020" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2020' ? 'selected' : ''}}>2020</option>
+                                                        <option value="2021" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2021' ? 'selected' : ''}}>2021</option>
+                                                        <option value="2022" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2022' ? 'selected' : ''}}>2022</option>
+                                                        <option value="2023" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2023' ? 'selected' : ''}}>2023</option>
 
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="text" value="" maxlength="6" id="class_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;" value="{{isset($step2data['class_board']) ? $step2data['class_board'] : '' }}"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="number" maxlength="6" id="class_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;" value="{{isset($step2schooldata['credits_marks_Obtained']) ? $step2schooldata['credits_marks_Obtained'] : '' }}"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="text" value="" maxlength="6" id="class_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;" value="{{isset($step2data['class_max_marks']) ? $step2data['class_max_marks'] : '' }}"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="number" maxlength="6" id="class_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;" value="{{isset($step2schooldata['maximum_marks']) ? $step2schooldata['maximum_marks'] : '' }}"></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="text" value="" maxlength="5" id="class_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;" value="{{isset($step2data['class_percentage']) ? $step2data['class_percentage'] : '' }}"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="number" maxlength="5" id="class_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;" value="{{isset($step2schooldata['percentage_marks']) ? $step2schooldata['percentage_marks'] : '' }}"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="text" value="" maxlength="15" id="class_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"  value="{{isset($step2data['class_rollno']) ? $step2data['class_rollno'] : '' }}"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="number" maxlength="15" id="class_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"  value="{{isset($step2schooldata['exam_roll_no']) ? $step2schooldata['exam_roll_no'] : '' }}"></span>
                                             </td>
 
 
