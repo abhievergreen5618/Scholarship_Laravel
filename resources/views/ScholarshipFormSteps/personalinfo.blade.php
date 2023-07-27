@@ -315,7 +315,7 @@
                                                                 </div>
                                                             </form>
 
-                                                            <div><img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></div>
+                                                            <div><img id="profile_photo_perview" src="{{ asset('images/proofdoc/' . auth()->user()->physicallychallengedproof) }}" class="img-thumbnail mt-2" alt="..."></div>
 
                                                         </div>
                                                     </td>
