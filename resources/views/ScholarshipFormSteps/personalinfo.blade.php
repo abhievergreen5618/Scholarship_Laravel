@@ -45,7 +45,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtFatherName__"><input name="fathername" type="text" value="" maxlength="50" id="fathername" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtFatherName__"><input name="fathername" type="text" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->fathername}} @endif" maxlength="50" id="fathername" class="textboxlong form-control" style="text-transform: uppercase"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -55,7 +55,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMName__"><input name="mothername" type="text" value="" maxlength="50" id="mothername" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMName__"><input name="mothername" type="text" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mothername}} @endif" maxlength="50" id="mothername" class="textboxlong form-control" style="text-transform: uppercase"></span>
                                 </td>
                             </tr>
                             <tr id="ctl00_ContentPlaceHolder1_trExamCenter">
@@ -66,21 +66,21 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__"><select name="examcentre" id="examcentre" class="dropdownlong form-select">
                                             <option value="">-- Select Exam Center --</option>
-                                            <option value="3">SOLAN</option>
-                                            <option value="17">SHIMLA</option>
-                                            <option value="18">DHARAMSHALA</option>
-                                            <option value="19">UNA</option>
-                                            <option value="20">HAMIRPUR</option>
-                                            <option value="21">PALAMPUR</option>
-                                            <option value="24">MANDI</option>
-                                            <option value="33">AMB (UNA)</option>
-                                            <option value="34">BILASPUR</option>
-                                            <option value="35">CHAMBA</option>
-                                            <option value="36">KANGRA</option>
-                                            <option value="37">KULLU</option>
-                                            <option value="38">NAHAN</option>
-                                            <option value="39">RAMPUR</option>
-                                            <option value="40">SUNDER NAGAR</option>
+                                            <option value="3"  @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "3" ? 'selected' : ''}} @endif>SOLAN</option>
+                                            <option value="17" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "17" ? 'selected' : ''}} @endif>SHIMLA</option>
+                                            <option value="18" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "18" ? 'selected' : ''}} @endif>DHARAMSHALA</option>
+                                            <option value="19" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "19" ? 'selected' : ''}} @endif>UNA</option>
+                                            <option value="20" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "20" ? 'selected' : ''}} @endif>HAMIRPUR</option>
+                                            <option value="21" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "21" ? 'selected' : ''}} @endif>PALAMPUR</option>
+                                            <option value="24" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "24" ? 'selected' : ''}} @endif>MANDI</option>
+                                            <option value="33" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "33" ? 'selected' : ''}} @endif>AMB (UNA)</option>
+                                            <option value="34" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "34" ? 'selected' : ''}} @endif>BILASPUR</option>
+                                            <option value="35" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "35" ? 'selected' : ''}} @endif>CHAMBA</option>
+                                            <option value="36" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "36" ? 'selected' : ''}} @endif>KANGRA</option>
+                                            <option value="37" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "37" ? 'selected' : ''}} @endif>KULLU</option>
+                                            <option value="38" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "38" ? 'selected' : ''}} @endif>NAHAN</option>
+                                            <option value="39" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "39" ? 'selected' : ''}} @endif>RAMPUR</option>
+                                            <option value="40" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "40" ? 'selected' : ''}} @endif>SUNDER NAGAR</option>
 
                                         </select></span>
                                 </td>
@@ -93,7 +93,7 @@
                                 <td class="colon">:</td>
                                 <td>
 
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtCAddress__"><textarea name="caddress" rows="5" cols="20" id="caddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase"></textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtCAddress__"><textarea name="caddress" rows="5" cols="20" id="caddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase">@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->caddress}} @endif</textarea></span>
                                 </td>
                             </tr>
                             <tr>
@@ -103,7 +103,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="" maxlength="10" id="mobileno" type="text" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mobileno}} @endif" maxlength="10" id="mobileno" type="text" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -116,7 +116,7 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_chkboxCopyAddress__"><span class="chkbox" style="color: black;"><input id="ctl00_ContentPlaceHolder1_chkboxCopyAddress" type="checkbox" name="ctl00$ContentPlaceHolder1$chkboxCopyAddress" class="form-check-input"><label for="ctl00_ContentPlaceHolder1_chkboxCopyAddress">Same as Correspondence
                                                 Address</label></span></span>
                                     <br>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtPAddress__"><textarea name="paddress" rows="5" cols="20" id="paddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase;"></textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtPAddress__"><textarea name="paddress" rows="5" cols="20" id="paddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase;">@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->paddress}} @endif</textarea></span>
 
 
                                 </td>
@@ -128,7 +128,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtEmail__"><input name="email" type="text" value="" maxlength="50" id="email" class="textboxlong form-control" ondrop="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtEmail__"><input name="email" type="text" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->email}} @endif" maxlength="50" id="email" class="textboxlong form-control" ondrop="return false;"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -138,7 +138,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDob__"><input type="date" id="dob" name="dob" class="form-control">
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDob__"><input type="date" value='@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->dob}} @endif' id="dob" name="dob" class="form-control">
                                 </td>
                             </tr>
                             <tr>
@@ -147,7 +147,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->aadhaarno}} @endif" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -156,7 +156,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheetmatric" type="number" id="hsmarksheetmatric" class="form-control" value="" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheetmatric" type="number" id="hsmarksheetmatric" class="form-control" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->hsmarksheetmatric}} @endif" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
                                 </td>
                             </tr>
 
@@ -166,7 +166,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="number" id="hsmarksheet"  class="form-control" value="" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="number" id="hsmarksheet"  class="form-control" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->hsmarksheet}} @endif" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
                                 </td>
                             </tr>
 
@@ -187,13 +187,13 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="nationality" id="Nationality1" value="I">
+                                                            <input class="form-check-input" type="radio" name="nationality" id="Nationality1" value="I" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->nationality == "I" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="Nationality1">Indian</label>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="nationality" id="Nationality2" value="O">
+                                                            <input class="form-check-input" type="radio" name="nationality" id="Nationality2" value="O"  @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->nationality == "O" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="Nationality2">Other</label>
                                                         </div>
                                                     </td>
