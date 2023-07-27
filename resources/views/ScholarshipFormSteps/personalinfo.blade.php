@@ -299,15 +299,16 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedyes" value="yes">
+                                                            <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedyes" value="yes" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->physicallychallenged == "yes" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="physicallychallengedyes">Yes</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedno" value="no">
+                                                            <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedno" value="no" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->physicallychallenged == "on" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="physicallychallengedno">No</label>
                                                         </div>
                                                         <div id="proofofdocuments" style="display: none;">
                                                             <h3 class="hedingss">upload proof of documents</h3>
+
                                                             <form action="#">
                                                                 <div class="input-group mb-3">
                                                                     <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof">
@@ -332,10 +333,10 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="category" id="category" class="dropdownlong form-select">
                                             <option value="">Please Select</option>
-                                            <option value="OBC">OBC</option>
-                                            <option value="General">General</option>
-                                            <option value="ST">ST</option>
-                                            <option value="SC">SC</option>
+                                            <option value="OBC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "OBC" ? 'checked' : ''}} @endif>OBC</option>
+                                            <option value="General" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "General" ? 'checked' : ''}} @endif>General</option>
+                                            <option value="ST" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "ST" ? 'checked' : ''}} @endif>ST</option>
+                                            <option value="SC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "SC" ? 'checked' : ''}} @endif>SC</option>
                                         </select>
                                     </span>
                                 </td>
