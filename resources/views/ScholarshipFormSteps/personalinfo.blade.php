@@ -303,7 +303,7 @@
                                                             <label class="form-check-label" for="physicallychallengedyes">Yes</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedno" value="no" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->physicallychallenged == "on" ? 'checked' : ''}} @endif>
+                                                            <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedno" value="no" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->physicallychallenged == "no" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="physicallychallengedno">No</label>
                                                         </div>
                                                         <div id="proofofdocuments" style="display: none;">
@@ -332,7 +332,7 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="category" id="category" class="dropdownlong form-select">
-                                            <option value="">Please Select</option>
+                                            <!-- <option value="" >Please Select</option> -->
                                             <option value="OBC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "OBC" ? 'checked' : ''}} @endif>OBC</option>
                                             <option value="General" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "General" ? 'checked' : ''}} @endif>General</option>
                                             <option value="ST" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "ST" ? 'checked' : ''}} @endif>ST</option>
