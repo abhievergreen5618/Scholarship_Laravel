@@ -84,9 +84,9 @@
                                             </td>
                                             <td align="center" style="width:100%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="class_status" id="class_status" class="form-select">
-                                                        <option value="P" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'P' ? 'selected' : ''}}>Passed</option>
-                                                        <option value="A" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'A' ? 'selected' : ''}}>Awaited</option>
-                                                        <option value="N" {{isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'N' ? 'selected' : ''}}>Not Applicable</option>
+                                                        <option value="P" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'P') ? 'selected' : ''}}>Passed</option>
+                                                        <option value="A" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'A') ? 'selected' : ''}}>Awaited</option>
+                                                        <option value="N" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'N') ? 'selected' : ''}}>Not Applicable</option>
 
 
                                                     </select></span>
