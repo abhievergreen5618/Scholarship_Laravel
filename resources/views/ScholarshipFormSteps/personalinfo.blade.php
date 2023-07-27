@@ -338,10 +338,10 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlCategory__">
                                         <select name="category" id="category" class="dropdownlong form-control">
                                             <option value="">Please Select</option>
-                                            <option value="OBC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "OBC" ? 'checked' : ''}} @endif>OBC</option>
-                                            <option value="General" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "General" ? 'checked' : ''}} @endif>General</option>
-                                            <option value="ST" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "ST" ? 'checked' : ''}} @endif>ST</option>
-                                            <option value="SC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "SC" ? 'checked' : ''}} @endif>SC</option>
+                                            <option value="OBC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "OBC" ? 'selected' : ''}} @endif>OBC</option>
+                                            <option value="General" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "General" ? 'selected' : ''}} @endif>General</option>
+                                            <option value="ST" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "ST" ? 'selected' : ''}} @endif>ST</option>
+                                            <option value="SC" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->category == "SC" ? 'selected' : ''}} @endif>SC</option>
                                         </select>
                                     </span>
                                     <br>
