@@ -69,6 +69,7 @@ class LoginController extends Controller
                 $newUser=User::create([
                     'name'=>$user->name,
                     'email'=>$user->email,
+                    'facebook_id'=>$user->id,
                 ]);
                 Auth::login($newUser);
             }
