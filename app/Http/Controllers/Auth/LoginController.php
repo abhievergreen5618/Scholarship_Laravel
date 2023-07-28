@@ -22,7 +22,7 @@ class LoginController extends Controller
         try {
             $user = Socialite::driver('google')->user();
         } catch (\Exception $e) {
-            return redirect('/login')->with('error', 'Google login failed.');
+            return redirect(route("login"))->with('error', 'Google login failed.');
         }
 
         // Check if the user exists in your database
@@ -42,7 +42,7 @@ class LoginController extends Controller
             Auth::login($newUser);
         }
 
-        return redirect('/'); // Redirect to your desired route after successful login
+        return redirect(route("start")); // Redirect to your desired route after successful login
     }
 
     public function redirectFacebook()
@@ -62,7 +62,7 @@ class LoginController extends Controller
             if($finduser)
             {
                 Auth::login($finduser);
-                return redirect('/');
+                return redirect(route("start"));
             }
             else
             {
@@ -73,11 +73,12 @@ class LoginController extends Controller
                 ]);
                 Auth::login($newUser);
             }
-            return redirect('/');
+            return redirect(route("start"));
         }
         catch(Exception $e)
         {
-            dd($e->getMessage());
+            // dd($e->getMessage());
+            return redirect(route("login"))->with('error', 'Google login failed.');
         }
     }
 }
