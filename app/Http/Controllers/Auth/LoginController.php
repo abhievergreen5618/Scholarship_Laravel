@@ -58,7 +58,6 @@ class LoginController extends Controller
             $user = Socialite::driver('facebook')->user();
 
             $finduser = User::where('facebook_id',$user->id)->first();
-            dd($user->id);
             if($finduser)
             {
                 Auth::login($finduser);
