@@ -123,17 +123,17 @@
                                             <td align="center">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="class_passing_year" class="form-select">
                                                         <option value="">--Select --</option>
-                                                        <option value="1976" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '1976' ? 'selected' : ''}}>1976</option>
-                                                        <option value="2014" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2014' ? 'selected' : ''}}>2014</option>
-                                                        <option value="2015" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2015' ? 'selected' : ''}}>2015</option>
-                                                        <option value="2016" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2016' ? 'selected' : ''}}>2016</option>
-                                                        <option value="2017" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2017' ? 'selected' : ''}}>2017</option>
-                                                        <option value="2018" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2018' ? 'selected' : ''}}>2018</option>
-                                                        <option value="2019" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2019' ? 'selected' : ''}}>2019</option>
-                                                        <option value="2020" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2020' ? 'selected' : ''}}>2020</option>
-                                                        <option value="2021" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2021' ? 'selected' : ''}}>2021</option>
-                                                        <option value="2022" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2022' ? 'selected' : ''}}>2022</option>
-                                                        <option value="2023" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] = '2023' ? 'selected' : ''}}>2023</option>
+                                                        <option value="1976" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '1976' ? 'selected' : ''}}>1976</option>
+                                                        <option value="2014" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2014' ? 'selected' : ''}}>2014</option>
+                                                        <option value="2015" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2015' ? 'selected' : ''}}>2015</option>
+                                                        <option value="2016" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2016' ? 'selected' : ''}}>2016</option>
+                                                        <option value="2017" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2017' ? 'selected' : ''}}>2017</option>
+                                                        <option value="2018" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2018' ? 'selected' : ''}}>2018</option>
+                                                        <option value="2019" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2019' ? 'selected' : ''}}>2019</option>
+                                                        <option value="2020" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2020' ? 'selected' : ''}}>2020</option>
+                                                        <option value="2021" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2021' ? 'selected' : ''}}>2021</option>
+                                                        <option value="2022" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2022' ? 'selected' : ''}}>2022</option>
+                                                        <option value="2023" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2023' ? 'selected' : ''}}>2023</option>
 
                                                     </select></span>
                                             </td>
