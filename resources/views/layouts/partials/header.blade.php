@@ -25,7 +25,7 @@
             </ul>
 
             <div class="btn-group">
-                <a type="button" class="btn btn-primary">Register</a>
+                <a href="{{route('logout')}}" class="btn btn-primary">Logout</a>
             </div>
 
         </div>

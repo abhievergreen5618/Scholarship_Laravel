@@ -76,8 +76,19 @@ class LoginController extends Controller
         }
         catch(Exception $e)
         {
-            dd($e->getMessage());
-            // return redirect(route("login"))->with('error', 'Google login failed.');
+            // dd($e->getMessage());
+            return redirect(route("login"))->with('error', 'Google login failed.');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->to(env("WORDPRESS_URL")."/login");
     }
 }

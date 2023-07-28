@@ -24,6 +24,8 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
 Route::get('/login/google',[LoginController::class,'redirectToGoogle'])->name('redirectToGoogle');
 Route::get('/login/google/callback',[LoginController::class,'handleGoogleCallback'])->name('handleGoogleCallback');
 
