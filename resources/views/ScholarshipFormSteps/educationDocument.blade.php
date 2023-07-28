@@ -223,8 +223,8 @@
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="post_grad_status" id="post_grad_status" class="form-select">
                                                         <option value="P" {{(isset($step2postgraduationdata['resultstatus']) && $step2postgraduationdata['resultstatus'] == 'P') ? 'selected' : ''}}>Passed</option>
-                                                        <option value="A" {{(isset($step2postgraduationdata['resultstatus']) && $step2postgraduationdata['resultstatus'] == 'P') ? 'selected' : ''}}>Awaited</option>
-                                                        <option value="N" {{(isset($step2postgraduationdata['resultstatus']) && $step2postgraduationdata['resultstatus'] == 'P') ? 'selected' : ''}}>Not Applicable</option>
+                                                        <option value="A" {{(isset($step2postgraduationdata['resultstatus']) && $step2postgraduationdata['resultstatus'] == 'A') ? 'selected' : ''}}>Awaited</option>
+                                                        <option value="N" {{(isset($step2postgraduationdata['resultstatus']) && $step2postgraduationdata['resultstatus'] == 'N') ? 'selected' : ''}}>Not Applicable</option>
                                                     </select></span>
                                             </td>
                                             <td align="center" style="width:20%;">
