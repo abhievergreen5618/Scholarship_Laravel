@@ -178,7 +178,7 @@
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="grad_board" type="text" value="{{isset($step2graduationdata['examination_passed']) ? $step2graduationdata['step2graduationdata'] : '' }}" maxlength="50" id="grad_board" class="textbox form-select" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="grad_board" type="text" value="{{isset($step2graduationdata['name_of_the_board_university']) ? $step2graduationdata['name_of_the_board_university'] : '' }}" maxlength="50" id="grad_board" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
 
                                             </td>
                                             <td align="center">
