@@ -307,7 +307,7 @@
                                                             <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedno" value="no" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->physicallychallenged == "no" ? 'checked' : ''}} @endif>
                                                             <label class="form-check-label" for="physicallychallengedno">No</label>
                                                         </div>
-                                                        <div id="proofofdocuments" style="display: none;">
+                                                        <div id="proofofdocuments" {{ !empty(auth()->user()->physicallychallenged == "yes") ? 'style="display: none;"' : ''}}>
                                                             <h3 class="hedingss">upload proof of documents</h3>
 
                                                             <form action="#">
