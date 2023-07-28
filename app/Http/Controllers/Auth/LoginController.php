@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -42,5 +43,40 @@ class LoginController extends Controller
         }
 
         return redirect('/'); // Redirect to your desired route after successful login
+    }
+
+    public function redirectFacebook()
+    {
+
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function facebookCallback()
+    {
+        try
+        {
+            $user = Socialite::driver('facebook')->user();
+
+            $finduser = User::where('facebook_id',$user->id)->first();
+
+            if($finduser)
+            {
+                Auth::login($finduser);
+                return redirect('/');
+            }
+            else
+            {
+                $newUser=User::create([
+                    'name'=>$user->name,
+                    'email'=>$user->email,
+                ]);
+                Auth::login($newUser);
+            }
+            return redirect('/');
+        }
+        catch(Exception $e)
+        {
+            dd($e->getMessage());
+        }
     }
 }

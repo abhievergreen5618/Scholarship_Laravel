@@ -40,4 +40,6 @@ Route::get('/register',function(){
 });
 
 
+Route::get('/login/facebook',[LoginController::class,'redirectFacebook'])->name('redirectToFacebook');
 
+Route::get('/login/facebook/callback',[LoginController::class,'facebookCallback'])->name('handleFacebookCallback');
