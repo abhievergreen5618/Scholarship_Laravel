@@ -160,9 +160,9 @@
                                             <td align="center" style="width:100%;">
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlRStatus__"><select name="grad_status" id="grad_status" class="form-select">
-                                                        <option value="P" {{isset($step2data['grad_status']) && $step2data['grad_status'] = 'P' ? 'selected' : ''}}>Passed</option>
-                                                        <option value="A" {{isset($step2data['grad_status']) && $step2data['grad_status'] = 'A' ? 'selected' : ''}}>Awaited</option>
-                                                        <option value="N" {{isset($step2data['grad_status']) && $step2data['grad_status'] = 'N' ? 'selected' : ''}}>Not Applicable</option>
+                                                        <option value="P" {{isset($step2graduationdata['resultstatus']) && $step2graduationdata['resultstatus'] == 'P' ? 'selected' : ''}}>Passed</option>
+                                                        <option value="A" {{isset($step2graduationdata['resultstatus']) && $step2graduationdata['resultstatus'] == 'A' ? 'selected' : ''}}>Awaited</option>
+                                                        <option value="N" {{isset($step2graduationdata['resultstatus']) && $step2graduationdata['resultstatus'] == 'N' ? 'selected' : ''}}>Not Applicable</option>
                                                     </select></span>
                                             </td>
                                             <td align="center" style="width:20%;">
@@ -170,49 +170,49 @@
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlGraduateExam__"><select name="grad_passed" id="grad_passed" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Degree--</option>
-                                                        <option value="18" {{isset($step2data['grad_passed']) && $step2data['grad_passed'] = '18' ? 'selected' : ''}}>B.A</option>
-                                                        <option value="19" {{isset($step2data['grad_passed']) && $step2data['grad_passed'] = '19' ? 'selected' : ''}}>B.Com</option>
-                                                        <option value="20" {{isset($step2data['grad_passed']) && $step2data['grad_passed'] = '20' ? 'selected' : ''}}>B.Sc</option>
-                                                        <option value="21" {{isset($step2data['grad_passed']) && $step2data['grad_passed'] = '21' ? 'selected' : ''}}>Other</option>
+                                                        <option value="18" {{isset($step2graduationdata['examination_passed']) && $step2graduationdata['examination_passed'] == '18' ? 'selected' : ''}}>B.A</option>
+                                                        <option value="19" {{isset($step2graduationdata['examination_passed']) && $step2graduationdata['examination_passed'] == '19' ? 'selected' : ''}}>B.Com</option>
+                                                        <option value="20" {{isset($step2graduationdata['examination_passed']) && $step2graduationdata['examination_passed'] == '20' ? 'selected' : ''}}>B.Sc</option>
+                                                        <option value="21" {{isset($step2graduationdata['examination_passed']) && $step2graduationdata['examination_passed'] == '21' ? 'selected' : ''}}>Other</option>
 
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="grad_board" type="text" maxlength="50" id="grad_board" class="textbox form-select" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="grad_board" type="text" value="{{isset($step2graduationdata['examination_passed']) ? $step2graduationdata['step2graduationdata'] : '' }}" maxlength="50" id="grad_board" class="textbox form-select" onpaste="return false" ondrop="return false"></span>
 
                                             </td>
                                             <td align="center">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_ddlYear__"><select name="grad_passing_year" id="grad_passing_year" class="form-select">
                                                         <option selected="selected" value="">--Select --</option>
-                                                        <option value="1976" >1976</option>
+                                                        <option value="1976"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '1976' ? 'selected' : ''}}>1976</option>
 
-                                                        <option value="2013">2013</option>
-                                                        <option value="2014">2014</option>
-                                                        <option value="2015">2015</option>
-                                                        <option value="2016">2016</option>
-                                                        <option value="2017">2017</option>
-                                                        <option value="2018">2018</option>
-                                                        <option value="2019">2019</option>
-                                                        <option value="2020">2020</option>
-                                                        <option value="2021">2021</option>
-                                                        <option value="2022">2022</option>
-                                                        <option value="2023">2023</option>
+                                                        <option value="2013"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2013' ? 'selected' : ''}}>2013</option>
+                                                        <option value="2014"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2014' ? 'selected' : ''}}>2014</option>
+                                                        <option value="2015"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2015' ? 'selected' : ''}}>2015</option>
+                                                        <option value="2016"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2016' ? 'selected' : ''}}>2016</option>
+                                                        <option value="2017"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2017' ? 'selected' : ''}}>2017</option>
+                                                        <option value="2018"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2018' ? 'selected' : ''}}>2018</option>
+                                                        <option value="2019"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2019' ? 'selected' : ''}}>2019</option>
+                                                        <option value="2020"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2020' ? 'selected' : ''}}>2020</option>
+                                                        <option value="2021"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2021' ? 'selected' : ''}}>2021</option>
+                                                        <option value="2022"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2022' ? 'selected' : ''}}>2022</option>
+                                                        <option value="2023"  {{isset($step2graduationdata['passing_year']) && $step2graduationdata['passing_year'] == '2023' ? 'selected' : ''}}>2023</option>
 
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks__"><input name="grad_marks" type="number" maxlength="6" id="grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks__"><input name="grad_marks" type="number"  value="{{isset($step2graduationdata['credits_marks_Obtained']) ? $step2graduationdata['credits_marks_Obtained'] : ''}}" maxlength="6" id="grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks__"><input name="grad_max_marks" type="number" maxlength="6" id="grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks__"><input name="grad_max_marks" type="number" value="{{isset($step2graduationdata['maximum_marks']) ? $step2graduationdata['maximum_marks'] : ''}}" maxlength="6" id="grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent__"><input name="grad_percentage" type="number" maxlength="5" id="grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent__"><input name="grad_percentage" type="number" value="{{isset($step2graduationdata['percentage_marks']) ? $step2graduationdata['percentage_marks'] : ''}}" maxlength="5" id="grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo__"><input name="grad_rollno" type="number" maxlength="15" id="grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo__"><input name="grad_rollno" type="number" value="{{isset($step2graduationdata['exam_roll_no']) ? $step2graduationdata['exam_roll_no'] : ''}}" maxlength="15" id="grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
                                             </td>
                                         </tr>
                                         <tr class="dgitem-style" style="background-color:White;">
@@ -222,9 +222,9 @@
                                             <td align="center" style="width:100%;">
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="post_grad_status" id="post_grad_status" class="form-select">
-                                                        <option value="P">Passed</option>
-                                                        <option value="A">Awaited</option>
-                                                        <option value="N">Not Applicable</option>
+                                                        <option value="P" {{(isset($step2postgraduationdata['resultstatus']) && $step2postgraduationdata['resultstatus'] == 'P') ? 'selected' : ''}}>Passed</option>
+                                                        <option value="A" {{(isset($step2postgraduationdata['resultstatus']) && $step2postgraduationdata['resultstatus'] == 'P') ? 'selected' : ''}}>Awaited</option>
+                                                        <option value="N" {{(isset($step2postgraduationdata['resultstatus']) && $step2postgraduationdata['resultstatus'] == 'P') ? 'selected' : ''}}>Not Applicable</option>
                                                     </select></span>
                                             </td>
                                             <td align="center" style="width:20%;">
@@ -232,10 +232,10 @@
                                                         or its Equivalent <span style="color:red">*</span></span></span>
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="post_grad_passed" id="post_grad_passed" class="dropdown1 form-control">
                                                         <option selected="selected" value="">--Select Degree--</option>
-                                                        <option value="22">M.A</option>
-                                                        <option value="23">M.Sc</option>
-                                                        <option value="24">M.Com</option>
-                                                        <option value="25">Others</option>
+                                                        <option value="22"  {{(isset($step2postgraduationdata['examination_passed']) && $step2postgraduationdata['examination_passed'] == '22') ? 'selected' : ''}}>M.A</option>
+                                                        <option value="23"  {{(isset($step2postgraduationdata['examination_passed']) && $step2postgraduationdata['examination_passed'] == '23') ? 'selected' : ''}}>M.Sc</option>
+                                                        <option value="24"  {{(isset($step2postgraduationdata['examination_passed']) && $step2postgraduationdata['examination_passed'] == '24') ? 'selected' : ''}}>M.Com</option>
+                                                        <option value="25"  {{(isset($step2postgraduationdata['examination_passed']) && $step2postgraduationdata['examination_passed'] == '25') ? 'selected' : ''}}>Others</option>
 
                                                     </select></span>
                                             </td>
@@ -247,33 +247,33 @@
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlYear__"><select name="post_grad_passing_year" id="post_grad_passing_year" class="form-select">
                                                         <option selected="selected" value="">--Select --</option>
 
-                                                        <option value="2013">2013</option>
-                                                        <option value="2014">2014</option>
-                                                        <option value="2015">2015</option>
-                                                        <option value="2016">2016</option>
-                                                        <option value="2017">2017</option>
-                                                        <option value="2018">2018</option>
-                                                        <option value="2019">2019</option>
-                                                        <option value="2020">2020</option>
-                                                        <option value="2021">2021</option>
-                                                        <option value="2022">2022</option>
-                                                        <option value="2023">2023</option>
+                                                        <option value="2013" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2013' ? 'selected' : ''}}>2013</option>
+                                                        <option value="2014" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2014' ? 'selected' : ''}}>2014</option>
+                                                        <option value="2015" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2015' ? 'selected' : ''}}>2015</option>
+                                                        <option value="2016" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2016' ? 'selected' : ''}}>2016</option>
+                                                        <option value="2017" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2017' ? 'selected' : ''}}>2017</option>
+                                                        <option value="2018" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2018' ? 'selected' : ''}}>2018</option>
+                                                        <option value="2019" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2019' ? 'selected' : ''}}>2019</option>
+                                                        <option value="2020" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2020' ? 'selected' : ''}}>2020</option>
+                                                        <option value="2021" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2021' ? 'selected' : ''}}>2021</option>
+                                                        <option value="2022" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2022' ? 'selected' : ''}}>2022</option>
+                                                        <option value="2023" {{isset($step2postgraduationdata['passing_year']) && $step2postgraduationdata['passing_year'] == '2023' ? 'selected' : ''}}>2023</option>
 
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks__"><input name="post_grad_marks" type="number" maxlength="6" id="post_grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks__"><input name="post_grad_marks" type="number" maxlength="6" id="post_grad_marks" value="{{isset($step2postgraduationdata['credits_marks_Obtained']) ? $step2postgraduationdata['credits_marks_Obtained'] : ''}}" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks__"><input name="post_grad_max_marks" type="number" maxlength="6" id="post_grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks__"><input name="post_grad_max_marks" type="number" maxlength="6" id="post_grad_max_marks" value="{{isset($step2postgraduationdata['maximum_marks']) ? $step2postgraduationdata['maximum_marks'] : ''}}" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent__"><input name="post_grad_percentage" type="number" maxlength="5" id="post_grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent__"><input name="post_grad_percentage" type="number" maxlength="5" id="post_grad_percentage" value="{{isset($step2postgraduationdata['percentage_marks']) ? $step2postgraduationdata['percentage_marks'] : ''}}" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo__"><input name="post_grad_rollno" type="number" maxlength="15" id="post_grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo__"><input name="post_grad_rollno" type="number" maxlength="15" id="post_grad_rollno" value="{{isset($step2postgraduationdata['exam_roll_no']) ? $step2postgraduationdata['exam_roll_no'] : ''}}" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -314,13 +314,13 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="I">
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="Y" {{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y") ? 'checked' : ''}}>
                                                             <label class="form-check-label" for="disqualified/suspendedyes">Yes</label>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="O">
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="N" {{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "N") ? 'checked' : ''}}>
                                                             <label class="form-check-label" for="disqualified/suspendedno">No</label>
                                                         </div>
                                                     </td>
@@ -338,7 +338,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="ctl00$ContentPlaceHolder1$txtDetails" rows="2" cols="20" id="ctl00_ContentPlaceHolder1_txtDetails" disabled="disabled" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;"></textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="ctl00$ContentPlaceHolder1$txtDetails" rows="2" cols="20" id="ctl00_ContentPlaceHolder1_txtDetails" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;">{{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y") ? $step2postgraduationdata['disqualified/suspended_details'] : ''}}</textarea></span>
                                 </td>
                             </tr>
                             <tr>
@@ -372,7 +372,7 @@
                                             <tr>
                                                 <td>
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="profile_photo" id="profile_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
-                                                    <div><img id="profile_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></div>
+                                                    <div><img id="profile_photo_perview" src="{{ (!empty(auth()->user()->photo) ? asset('public/images/proofdoc/'.auth()->user()->photo) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -397,7 +397,7 @@
                                             <tr>
                                                 <td>
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
-                                                    <div><img id="sign_photo_perview" src="http://placehold.it/180" class="img-thumbnail mt-2" alt="..."></div>
+                                                    <div><img id="sign_photo_perview" src="{{ (!empty(auth()->user()->signature) ? asset('public/images/proofdoc/'.auth()->user()->signature) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>
 
