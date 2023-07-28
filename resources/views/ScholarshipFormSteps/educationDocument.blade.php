@@ -201,18 +201,18 @@
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks__"><input name="grad_marks" type="text" maxlength="6" id="grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreditMarks__"><input name="grad_marks" type="number" maxlength="6" id="grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks__"><input name="grad_max_marks" type="text" maxlength="6" id="grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtMaxMarks__"><input name="grad_max_marks" type="number" maxlength="6" id="grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent__"><input name="grad_percentage" type="text" maxlength="5" id="grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtCreMarkPercent__"><input name="grad_percentage" type="number" maxlength="5" id="grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo__"><input name="grad_rollno" type="text" maxlength="15" id="grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtExamRollNo__"><input name="grad_rollno" type="number" maxlength="15" id="grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
                                             </td>
                                         </tr>
                                         <tr class="dgitem-style" style="background-color:White;">
@@ -262,18 +262,18 @@
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks__"><input name="post_grad_marks" type="text" maxlength="6" id="post_grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreditMarks__"><input name="post_grad_marks" type="number" maxlength="6" id="post_grad_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks__"><input name="post_grad_max_marks" type="text" maxlength="6" id="post_grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtMaxMarks__"><input name="post_grad_max_marks" type="number" maxlength="6" id="post_grad_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;"></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent__"><input name="post_grad_percentage" type="text" maxlength="5" id="post_grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtCreMarkPercent__"><input name="post_grad_percentage" type="number" maxlength="5" id="post_grad_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo__"><input name="post_grad_rollno" type="text" maxlength="15" id="post_grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtExamRollNo__"><input name="post_grad_rollno" type="number" maxlength="15" id="post_grad_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
                                             </td>
                                         </tr>
                                     </tbody>
