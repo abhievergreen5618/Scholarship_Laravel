@@ -317,7 +317,7 @@
                                                             </form>
 
                                                             @if(!empty(auth()->user()->physicallychallenged == "yes"))
-                                                            <div><img id="profile_photo_perview" src="{{ asset('public/images/proofdoc/'.auth()->user()->physicallychallengedproof) }}" class="img-thumbnail mt-2" alt="..."></div>
+                                                            <div><img id="physicallychallengedproof_photo_perview" src="{{ asset('public/images/proofdoc/'.auth()->user()->physicallychallengedproof) }}" class="img-thumbnail mt-2" alt="..."></div>
                                                             @endif
                                                         </div>
                                                     </td>
