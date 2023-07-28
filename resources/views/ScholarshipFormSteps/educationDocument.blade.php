@@ -240,7 +240,7 @@
                                                     </select></span>
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver__"><input name="post_grad_board" type="text" maxlength="50" id="post_grad_board" class="textbox form-control" onpaste="return false" ondrop="return false"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_txtNameofUniver__"><input name="post_grad_board" type="text" maxlength="50" id="post_grad_board" class="textbox form-control" onpaste="return false" ondrop="return false" value="{{isset($step2postgraduationdata['name_of_the_board_university']) ? $step2postgraduationdata['name_of_the_board_university'] : '' }}"></span>
 
                                             </td>
                                             <td align="center">
