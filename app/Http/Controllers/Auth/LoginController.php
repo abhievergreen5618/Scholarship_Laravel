@@ -21,7 +21,6 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            dd($user);
         } catch (\Exception $e) {
             return redirect(route("login"))->with('error', 'Google login failed.');
         }
