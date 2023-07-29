@@ -141,7 +141,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblNationality__"><span id="ctl00_ContentPlaceHolder1_lblNationality">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->hsmarksheetmatric : ''}}</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblNationality__"><span id="ctl00_ContentPlaceHolder1_lblNationality">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->nationality : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
