@@ -172,19 +172,22 @@
         "name": "Scholarship", //your business name
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
+        // Make sure this code is inside the script block or a JavaScript file.
         "handler": function(response) {
             if (response.hasOwnProperty("razorpay_payment_id")) {
                 $.ajax({
                     type: 'POST',
                     url: $("#payment").data("paymenturl"),
                     dataType: "json",
-                    data: response,
+                    data: JSON.stringify(response), // Convert the response object to JSON format
                     contentType: "application/json",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(result) {
                         if (result.hasOwnProperty("message")) {
+                            // Handle the success response from the server here
+                            // For example, enable a tab, change button styles, etc.
                             $("#tab6").attr('disabled', false);
                             $("#tab6").trigger('click');
                             $('[for="tab6"]').find("[data-icon='lock']").remove();
@@ -192,7 +195,10 @@
                             $("#submit_information_form").addClass("btn-success");
                         }
                     },
-                    error: function(xhr, status, error) {}
+                    error: function(xhr, status, error) {
+                        // Handle errors, if any, during the Ajax request
+                        // You can display an error message or take appropriate action
+                    }
                 });
             }
         },
