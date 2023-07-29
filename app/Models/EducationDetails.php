@@ -26,7 +26,7 @@ class EducationDetails extends Model
     protected function getresultStatusAttribute()
     {
         $resultstatus = $this->attributes['resultstatus'];
-
+        dd($resultstatus);
         switch ($resultstatus) {
             case 'P':
                 $resultstatus = "Passed";
