@@ -23,26 +23,30 @@ class EducationDetails extends Model
         'type'
     ];
 
-    protected function resultStatussummary()
-    {
-        $resultstatus = $this->attributes['resultstatus'];
-        switch ($resultstatus) {
-            case 'P':
-                $resultstatus = "Passed";
-                break;
-            case 'A':
-                $resultstatus = "Awaited";
-                break;
-            case 'N':
-                $resultstatus = "Not Applicable";
-                break;
-            default:
-                // Add a default case to handle situations where examcenter_id doesn't match any case
-                $resultstatus = "Unknown resultstatus";
-                break;
-        }
+        // Define the list of attributes that should be appended to the model
+        protected $appends = ['resultStatusSummary'];
 
-        return $resultstatus;
+        // Method to get the modified result status summary attribute
+        public function getResultStatusSummaryAttribute()
+        {
+            $resultStatus = $this->attributes['resultstatus'];
+
+            switch ($resultStatus) {
+                case 'P':
+                    $resultStatus = "Passed";
+                    break;
+                case 'A':
+                    $resultStatus = "Awaited";
+                    break;
+                case 'N':
+                    $resultStatus = "Not Applicable";
+                    break;
+                default:
+                    $resultStatus = "Unknown result status";
+                    break;
+            }
+
+            return $resultStatus;
     }
 
 

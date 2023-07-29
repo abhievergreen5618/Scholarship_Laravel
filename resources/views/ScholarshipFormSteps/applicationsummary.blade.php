@@ -341,11 +341,11 @@
                                                                         3
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus"><b>{{(isset($step2postgraduationdata['resultStatussummary'])) ? $step2postgraduationdata->resultStatussummary() : ''}}</b></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus"><b>{{(isset($step2postgraduationdata['resultStatusSummary'])) ? $step2postgraduationdata['resultStatusSummary'] : ''}}</b></span></span>
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed">{{(isset($step2postgraduationdata['examination_passed'])) ? $step2postgraduationdata->examinationPassedsummary(): ''}}</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed">{{(isset($step2postgraduationdata['examination_passed'])) ? $step2postgraduationdata['examination_passed'] : ''}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 
