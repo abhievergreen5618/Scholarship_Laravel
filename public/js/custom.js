@@ -17,6 +17,7 @@ $(document).ready(function () {
         }
         else
         {
+            $("#details").val("");
             $("#details").attr("disabled",true);
         }
     });
