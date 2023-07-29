@@ -68,7 +68,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function examCenter()
+    protected function examCenter()
     {
         // $examCenterId = $this->getAttribute('examcenter');
         $examCenterId = 3;
