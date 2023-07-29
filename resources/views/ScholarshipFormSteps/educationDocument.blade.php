@@ -309,13 +309,13 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="Y" {{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y" ? 'checked' : ''}}>
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="yes" {{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "yes" ? 'checked' : ''}}>
                                                             <label class="form-check-label" for="disqualified/suspendedyes">Yes</label>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="N" {{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "N" ? 'checked' : ''}}>
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="no" {{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "no" ? 'checked' : ''}}>
                                                             <label class="form-check-label" for="disqualified/suspendedno">No</label>
                                                         </div>
                                                     </td>
