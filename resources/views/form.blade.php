@@ -23,8 +23,8 @@
                         <label for="tab3"><i class="fas fa-hand-point-right"></i>Application Summary @if(empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab5" class="tab-content-last" {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step4_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
-                        <label for="tab5"><i class="fas fa-hand-point-right"></i>Payment @if(empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
+                        <input type="radio" name="pcss3t" id="tab5" class="tab-content-last" {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step4_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
+                        <label for="tab5"><i class="fas fa-hand-point-right"></i>Payment @if(empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step3_updated_at) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
                         <input type="radio" name="pcss3t" id="tab6" class="tabend" {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step5_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
@@ -191,6 +191,10 @@
                             $("#tab6").attr('disabled', false);
                             $("#tab6").trigger('click');
                             $('[for="tab6"]').find("[data-icon='lock']").remove();
+
+                            $("#tab5").attr('disabled',true);
+                            $('[for="tab5"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+
                             $("#submit_information_form").removeClass("btn-secondary");
                             $("#submit_information_form").addClass("btn-success");
                         }
