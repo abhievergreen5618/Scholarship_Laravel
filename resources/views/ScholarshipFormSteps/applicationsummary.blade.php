@@ -421,7 +421,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td width="48%">
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualiOrSus__"><span id="ctl00_ContentPlaceHolder1_lblDisqualiOrSus">No</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualiOrSus__"><span id="ctl00_ContentPlaceHolder1_lblDisqualiOrSus">{{isset($step2graduationdata['disqualified/suspended']) ? step2graduationdata['disqualified/suspended'] : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -432,7 +432,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualifDtls__"><span id="ctl00_ContentPlaceHolder1_lblDisqualifDtls"></span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualifDtls__"><span id="ctl00_ContentPlaceHolder1_lblDisqualifDtls">{{isset($step2graduationdata['disqualified/suspended_details']) ? step2graduationdata['disqualified/suspended_details'] : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
