@@ -265,38 +265,36 @@
                                                                         1
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus">Passed</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus">{{(isset($step2schooldata['resultstatus'])) ? $step2schooldata['resultstatus'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed">+2 or its
-                                                                                Equivalent</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed">{{(isset($step2schooldata['examination_passed'])) ? $step2schooldata['examination_passed'] : ''}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName">CENTRAL
-                                                                                BOARD OF SECONDARY EDUCATION</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName">{{(isset($step2schooldata['name_of_the_board_university'])) ? $step2schooldata['name_of_the_board_university'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear">2020</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear">{{(isset($step2schooldata['passing_year'])) ? $step2schooldata['passing_year'] : ''}}</span></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks">307.00</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks">{{(isset($step2schooldata['passing_year'])) ? $step2schooldata['passing_year'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks">500.00</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks">{{(isset($step2schooldata['maximum_marks'])) ? $step2schooldata['maximum_marks'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks">61.40</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks">{{(isset($step2schooldata['percentage_marks'])) ? $step2schooldata['percentage_marks'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo">17707513</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo">{{(isset($step2schooldata['exam_roll_no'])) ? $step2schooldata['exam_roll_no'] : ''}}</span></span>
 
                                                                     </td>
                                                                 </tr>
@@ -305,37 +303,36 @@
                                                                         2
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus"><b>Awaited</b></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus"><b>{{(isset($step2graduationdata['resultstatus'])) ? $step2graduationdata['resultstatus'] : 'Not Applicable'}}</b></span></span>
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed">BA./B.Sc./B.Com
-                                                                                or its Equivalent</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed">{{(isset($step2graduationdata['examination_passed'])) ? $step2graduationdata['examination_passed'] : 'Not Applicable'}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblUniversityName__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblUniversityName"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblUniversityName__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblUniversityName">{{(isset($step2graduationdata['name_of_the_board_university'])) ? $step2graduationdata['name_of_the_board_university'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblYear__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblYear"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblYear__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblYear">{{(isset($step2graduationdata['passing_year'])) ? $step2graduationdata['passing_year'] : ''}}</span></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblCreditObtainMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblCreditObtainMarks"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblCreditObtainMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblCreditObtainMarks">{{(isset($step2graduationdata['credits_marks_Obtained'])) ? $step2graduationdata['credits_marks_Obtained'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblMaxMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblMaxMarks"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblMaxMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblMaxMarks">{{(isset($step2graduationdata['maximum_marks'])) ? $step2graduationdata['maximum_marks'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblCreditMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblCreditMarks"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblCreditMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblCreditMarks">{{(isset($step2graduationdata['percentage_marks'])) ? $step2graduationdata['percentage_marks'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamRollNo__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamRollNo"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamRollNo__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExamRollNo">{{(isset($step2graduationdata['exam_roll_no'])) ? $step2graduationdata['exam_roll_no'] : ''}}</span></span>
 
                                                                     </td>
                                                                 </tr>
@@ -344,38 +341,36 @@
                                                                         3
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus"><b>Not
-                                                                                    Applicable</b></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus"><b>{{(isset($step2postgraduationdata['resultstatus'])) ? $step2postgraduationdata['resultstatus'] : 'Not Applicable'}}</b></span></span>
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed">M.A./M.Sc./M.Com
-                                                                                or its Equivalent</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed">{{(isset($step2postgraduationdata['examination_passed'])) ? $step2postgraduationdata['examination_passed'] : ''}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblUniversityName__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblUniversityName"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblUniversityName__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblUniversityName">{{(isset($step2postgraduationdata['name_of_the_board_university'])) ? $step2postgraduationdata['name_of_the_board_university'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblYear__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblYear"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblYear__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblYear">{{(isset($step2postgraduationdata['passing_year'])) ? $step2postgraduationdata['passing_year'] : ''}}</span></span>
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblCreditObtainMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblCreditObtainMarks"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblCreditObtainMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblCreditObtainMarks">{{(isset($step2postgraduationdata['credits_marks_Obtained'])) ? $step2postgraduationdata['credits_marks_Obtained'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblMaxMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblMaxMarks"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblMaxMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblMaxMarks">{{(isset($step2postgraduationdata['maximum_marks'])) ? $step2postgraduationdata['maximum_marks'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblCreditMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblCreditMarks"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblCreditMarks__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblCreditMarks">{{(isset($step2postgraduationdata['percentage_marks'])) ? $step2postgraduationdata['percentage_marks'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExamRollNo__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExamRollNo"></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExamRollNo__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExamRollNo">{{(isset($step2postgraduationdata['exam_roll_no'])) ? $step2postgraduationdata['exam_roll_no'] : ''}}</span></span>
 
                                                                     </td>
                                                                 </tr>
