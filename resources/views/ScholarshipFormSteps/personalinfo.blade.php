@@ -128,7 +128,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtEmail__"><input name="email" type="text" value="@if(!empty(auth()->user()->step1_updated_at)){{auth()->user()->email}}@endif" maxlength="50" id="email" class="textboxlong form-control" ondrop="return false;"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtEmail__"><input name="email" type="text" value="{{auth()->user()->email}}" readonly maxlength="50" id="email" class="textboxlong form-control" ondrop="return false;"></span>
                                 </td>
                             </tr>
                             <tr>
