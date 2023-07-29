@@ -72,6 +72,8 @@ class User extends Authenticatable
     {
         $examCenterId = $this->getAttribute('examcenter');
 
+        dd($examCenterId);
+
         switch ($examCenterId) {
             case 3:
                 $examCenter = "Solan";
@@ -123,8 +125,6 @@ class User extends Authenticatable
                 $examCenter = "Unknown Exam Center";
                 break;
         }
-
-        dd($examCenter);
 
         return $examCenter;
     }
