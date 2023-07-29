@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EducationDetails;
+use App\Models\PaymentsDetails;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -252,9 +253,18 @@ class ScholarshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function savepaymentdetails(Request $request)
     {
-        //
+        User::where('id',Auth::id())->update([
+            "step4_updated_at" => now(),
+        ]);
+        PaymentsDetails::create([
+            "razorpay_id" => $request['razorpay_payment_id'],
+            "user_id" => Auth::id(),
+        ]);
+        return response()->json([
+            'message' => 'Saved successfully',
+        ],200);
     }
 
     /**

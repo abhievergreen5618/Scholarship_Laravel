@@ -1,7 +1,9 @@
 @extends("layouts.app")
 
 @section("content")
-<div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}" data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}" data-razorpaykey="{{env('RAZORPAY_KEY')}}">
+<div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}"
+ data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}"
+  data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-paymenturl="{{route('savepaymentdetails')}}">
     <div class="container-fluid">
         <div class="row">
 
@@ -173,31 +175,33 @@
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
         "handler": function(response) {
-            console.log(response);
-            $.ajax({
-                type: 'POST',
-                url: $(this).data("action"),
-                dataType: "json",
-                cache: false,
-                contentType: false,
-                processData: false,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(result) {
-                    if(result.hasOwnProperty("message"))
-                    {
-                        $("#tab5").attr('disabled',false);
-                        $("#tab5").trigger('click');
-                        $('[for="tab5"]').find("[data-icon='lock']").remove();
-                        $("#payment_step").removeClass("btn-secondary");
-                        $("#payment_step").addClass("btn-success");
+            if(response.hasOwnProperty("razorpay_payment_id"))
+            {
+                    $.ajax({
+                    type: 'POST',
+                    url: $("#payment").data("paymenturl"),
+                    dataType: "json",
+                    data : response,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(result) {
+                        if(result.hasOwnProperty("message"))
+                        {
+                            $("#tab6").attr('disabled',false);
+                            $("#tab6").trigger('click');
+                            $('[for="tab6"]').find("[data-icon='lock']").remove();
+                            $("#submit_information_form").removeClass("btn-secondary");
+                            $("#submit_information_form").addClass("btn-success");
+                        }
+                    },
+                    error : function(xhr, status, error) {
                     }
-                },
-                error : function(xhr, status, error) {
-
-                }
-            });
+                });
+            }
         },
         "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
             "name": $("#payment").data("username"), //your customer's name

@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
         Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
+        Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
     });
 });
 
