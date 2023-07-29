@@ -309,13 +309,13 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="yes" {{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "yes" ? 'checked' : ''}}>
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="yes" {{isset($step2graduationdata['disqualified/suspended']) && $step2graduationdata['disqualified/suspended'] == "yes" ? 'checked' : ''}}>
                                                             <label class="form-check-label" for="disqualified/suspendedyes">Yes</label>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="no" {{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "no" ? 'checked' : ''}}>
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="no" {{isset($step2graduationdata['disqualified/suspended']) && $step2graduationdata['disqualified/suspended'] == "no" ? 'checked' : ''}}>
                                                             <label class="form-check-label" for="disqualified/suspendedno">No</label>
                                                         </div>
                                                     </td>
@@ -333,7 +333,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="details" rows="2" cols="20" id="details" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;">{{isset($step2postgraduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y" ? $step2postgraduationdata['disqualified/suspended_details'] : ''}}</textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="details" rows="2" cols="20" id="details" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;">{{isset($step2graduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y" ? $step2graduationdata['disqualified/suspended_details'] : ''}}</textarea></span>
                                 </td>
                             </tr>
                             <tr>
