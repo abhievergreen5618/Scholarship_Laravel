@@ -10,7 +10,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#disqualified/suspendedyes").click(function (e) {
+    $("#disqualified-suspendedyes").click(function (e) {
         if($(this).is(':checked'))
         {
             $("#details").attr("disabled",false);
