@@ -265,7 +265,7 @@
                                                                         1
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus">{{(isset($step2schooldata['resultstatus'])) ? $step2schooldata['resultstatus'] : ''}}</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus">{{(isset($step2schooldata['resultStatusSummary'])) ? $step2schooldata['resultStatusSummary'] : ''}}</span></span>
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
@@ -303,7 +303,7 @@
                                                                         2
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus"><b>{{(isset($step2graduationdata['resultstatus'])) ? $step2graduationdata['resultstatus'] : ''}}</b></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus"><b>{{(isset($step2graduationdata['resultStatusSummary'])) ? $step2graduationdata['resultStatusSummary'] : ''}}</b></span></span>
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
