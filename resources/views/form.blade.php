@@ -174,13 +174,11 @@
         "image": "https://example.com/your_logo",
         "handler": function(response) {
             if (response.hasOwnProperty("razorpay_payment_id")) {
-                var data = [];
-                data["razorpay_payment_id"] = response.razorpay_payment_id;
                 $.ajax({
                     type: 'POST',
                     url: $("#payment").data("paymenturl"),
                     dataType: "json",
-                    data: data,
+                    data: response,
                     cache: false,
                     contentType: false,
                     processData: false,
