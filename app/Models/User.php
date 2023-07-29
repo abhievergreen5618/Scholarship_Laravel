@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use PhpParser\Node\Stmt\Switch_;
 
 class User extends Authenticatable
 {
@@ -69,7 +70,56 @@ class User extends Authenticatable
 
     public function examCenter()
     {
-        dd("test");
-        return $this->belongsTo(ExamCenter::class, 'examcenter_id', 'id');
+        $examCenterId = $this->getAttribute('examcenter');
+
+        switch ($examCenterId) {
+            case 3:
+                $examCenter = "Solan";
+                break;
+            case 17:
+                $examCenter = "SHIMLA";
+                break;
+            case 18:
+                $examCenter = "DHARAMSHALA";
+                break;
+            case 19:
+                $examCenter = "UNA";
+                break;
+            case 20:
+                $examCenter = "HAMIRPUR";
+                break;
+            case 21:
+                $examCenter = "PALAMPUR";
+                break;
+            case 24:
+                $examCenter = "MANDI";
+                break;
+            case 33:
+                $examCenter = "AMB (UNA)";
+                break;
+            case 34:
+                $examCenter = "BILASPUR";
+                break;
+            case 35:
+                $examCenter = "CHAMBA";
+                break;
+            case 36:
+                $examCenter = "KANGRA";
+                break;
+            case 37:
+                $examCenter = "KULLU";
+                break;
+            case 38:
+                $examCenter = "NAHAN";
+                break;
+            case 39:
+                $examCenter = "RAMPUR";
+                break;
+            case 40:
+                $examCenter = "SUNDER NAGAR";
+                break;
+        }
+
+        return $examCenter;
     }
 }
