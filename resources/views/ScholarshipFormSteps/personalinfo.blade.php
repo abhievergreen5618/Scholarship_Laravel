@@ -93,7 +93,7 @@
                                 <td class="colon">:</td>
                                 <td>
 
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtCAddress__"><textarea name="caddress" rows="5" cols="20" id="caddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase">@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->caddress}} @endif</textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtCAddress__"><textarea name="caddress" rows="5" cols="20" id="caddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase">{{!empty(auth()->user()->step1_updated_at) ? auth()->user()->caddress : ''}}</textarea></span>
                                 </td>
                             </tr>
                             <tr>

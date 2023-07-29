@@ -66,4 +66,11 @@ $(document).ready(function () {
             }
         }
     });
+
+    $("#backstep1").click(function(){
+        $("#tab1").trigger('click');
+    });
+    $("#backstep2").click(function(){
+        $("#tab2").trigger('click');
+    });
 });
