@@ -154,21 +154,6 @@
                                                         </td>
                                                     </tr>
 
-                                                    <tr id="ctl00_ContentPlaceHolder1_trChildofHPBonafideNO">
-
-                                                    </tr>
-                                                    <tr id="ctl00_ContentPlaceHolder1_trChildofHPBonafideSubNO">
-
-                                                    </tr>
-                                                    <tr id="ctl00_ContentPlaceHolder1_trtrChildofHPBonafideYES">
-
-                                                    </tr>
-                                                    <tr id="ctl00_ContentPlaceHolder1_trtrtrChildofHPBonafideSubYES">
-
-                                                    </tr>
-                                                    <tr id="ctl00_ContentPlaceHolder1_trbonafied_mbbsbd">
-
-                                                    </tr>
                                                     <tr id="ctl00_ContentPlaceHolder1_tr2">
                                                         <td class="vtext"><span id="ctl00_ContentPlaceHolder1_span51">You are applying
                                                                 for?</span><br>
@@ -211,47 +196,13 @@
                                                         </td>
                                                     </tr>
 
-                                                    <tr id="ctl00_ContentPlaceHolder1_trStream">
-                                                        <td class="vtext">Stream (As per norms)
-                                                            <br>
-                                                            <strong>स्ट्रीम (मानदंड के अनुसार)</strong>
-                                                        </td>
-                                                        <td class="colon">:</td>
-                                                        <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblstream__"><span id="ctl00_ContentPlaceHolder1_lblstream">Commerce</span></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr id="ctl00_ContentPlaceHolder1_trServiceCandidateDepartment">
-                                                        <td class="vtext">Name of the department.
-                                                            <br>
-                                                            <strong>विभाग का नाम | </strong>
-                                                        </td>
-                                                        <td class="colon">:</td>
-                                                        <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblServiceCandidateDepartment__"><span id="ctl00_ContentPlaceHolder1_lblServiceCandidateDepartment"></span></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr id="ctl00_ContentPlaceHolder1_tr1">
-                                                        <td colspan="4">
-                                                            <div id="Anthem_ctl00_ContentPlaceHolder1_pnlmarksgrid__"></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-
-                                                    </tr>
-                                                    <tr>
-
-                                                    </tr>
-                                                    <tr>
-
-                                                    </tr>
                                                     <tr>
                                                         <td class="vtext">Select your Category<br>
                                                             <strong>अपनी श्रेणी का चयन करें</strong>
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            &nbsp;<span id="Anthem_ctl00_ContentPlaceHolder1_lblCategoryName__"><span id="ctl00_ContentPlaceHolder1_lblCategoryName">General-Open</span></span>
+                                                            &nbsp;<span id="Anthem_ctl00_ContentPlaceHolder1_lblCategoryName__"><span id="ctl00_ContentPlaceHolder1_lblCategoryName">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->category : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
