@@ -147,4 +147,24 @@ class User extends Authenticatable
 
         return $nationality;
     }
+
+    protected function getgenderAttribute()
+    {
+        $gendercode = $this->attributes['gender'];
+
+        switch ($gendercode) {
+            case 'M':
+                $gender = "Male";
+                break;
+            case 'F':
+                $gender = "Female";
+                break;
+            default:
+                // Add a default case to handle situations where examcenter_id doesn't match any case
+                $gender = "Unknown Gender";
+                break;
+        }
+
+        return $gender;
+    }
 }

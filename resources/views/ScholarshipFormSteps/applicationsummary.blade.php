@@ -150,7 +150,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblGender__"><span id="ctl00_ContentPlaceHolder1_lblGender">Female</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblGender__"><span id="ctl00_ContentPlaceHolder1_lblGender">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->gender : ''}}</span></span>
                                                         </td>
                                                     </tr>
 
