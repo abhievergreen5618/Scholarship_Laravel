@@ -178,10 +178,8 @@
                     type: 'POST',
                     url: $("#payment").data("paymenturl"),
                     dataType: "json",
-                    data: JSON.stringify(response),
-                    cache: false,
-                    contentType: false,
-                    processData: false,
+                    data: response,
+                    contentType: "application/json",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
