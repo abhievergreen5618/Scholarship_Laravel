@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-<div class="secttionform mt-5">
+<div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}" data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}" data-razorpaykey="{{env('RAZORPAY_KEY')}}">
     <div class="container-fluid">
         <div class="row">
 
@@ -161,3 +161,57 @@
     </div>
 </div>
 @endsection
+
+@push("footer_extras")
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": $("#payment").data("razorpaykey"), // Enter the Key ID generated from the Dashboard
+        "amount": "10000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Scholarship", //your business name
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "handler": function(response) {
+            console.log(response);
+            $.ajax({
+                type: 'POST',
+                url: $(this).data("action"),
+                dataType: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(result) {
+                    if(result.hasOwnProperty("message"))
+                    {
+                        $("#tab5").attr('disabled',false);
+                        $("#tab5").trigger('click');
+                        $('[for="tab5"]').find("[data-icon='lock']").remove();
+                        $("#payment_step").removeClass("btn-secondary");
+                        $("#payment_step").addClass("btn-success");
+                    }
+                },
+                error : function(xhr, status, error) {
+
+                }
+            });
+        },
+        "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+            "name": $("#payment").data("username"), //your customer's name
+            "email": $("#payment").data("email"),
+            "contact": $("#payment").data("contact") //Provide the customer's phone number for better conversion rates
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button1').onclick = function(e) {
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+@endpush
