@@ -255,7 +255,6 @@ class ScholarshipController extends Controller
      */
     public function savepaymentdetails(Request $request)
     {
-        dd($request->all());
         User::where('id',Auth::id())->update([
             "step4_updated_at" => now(),
         ]);
