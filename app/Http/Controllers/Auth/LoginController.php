@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 
 class LoginController extends Controller
@@ -34,8 +35,11 @@ class LoginController extends Controller
         } else {
             // If the user doesn't exist, create a new user in the database and log them in
             $newUser = User::create([
+                'social_id' => $user->id,
                 'name' => $user->getName(),
                 'email' => $user->getEmail(),
+                'social_type' => 'google',  // the social login is using google
+                'password' => Hash::make('12345678'),
                 // Add other necessary fields as per your user model
             ]);
 
@@ -66,9 +70,11 @@ class LoginController extends Controller
             else
             {
                 $newUser=User::create([
-                    'name'=>$user->name,
-                    'email'=>$user->email,
-                    'facebook_id'=>$user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'social_id'=>$user->id,
+                    'social_type' => 'facebook',
+                    'password' => Hash::make('12345678'),
                 ]);
                 Auth::login($newUser);
             }

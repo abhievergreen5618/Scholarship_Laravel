@@ -44,7 +44,8 @@ class User extends Authenticatable
         'step3_updated_at',
         'step4_updated_at',
         'step5_updated_at',
-        'facebook_id',
+        'social_id',
+        'social_type',
     ];
 
     /**
