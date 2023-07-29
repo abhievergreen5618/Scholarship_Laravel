@@ -118,6 +118,10 @@ class User extends Authenticatable
             case 40:
                 $examCenter = "SUNDER NAGAR";
                 break;
+            default:
+                // Add a default case to handle situations where examcenter_id doesn't match any case
+                $examCenter = "Unknown Exam Center";
+                break;
         }
 
         return $examCenter;
