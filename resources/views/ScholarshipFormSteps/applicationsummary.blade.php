@@ -303,11 +303,11 @@
                                                                         2
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus"><b>{{(isset($step2graduationdata['resultstatus'])) ? $step2graduationdata['resultstatus'] : 'Not Applicable'}}</b></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblRStatus"><b>{{(isset($step2graduationdata['resultstatus'])) ? $step2graduationdata['resultstatus'] : ''}}</b></span></span>
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed">{{(isset($step2graduationdata['examination_passed'])) ? $step2graduationdata['examination_passed'] : 'Not Applicable'}}</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed">{{(isset($step2graduationdata['examination_passed'])) ? $step2graduationdata['examination_passed'] : ''}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 
@@ -341,7 +341,7 @@
                                                                         3
                                                                     </td>
                                                                     <td align="center">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus"><b>{{(isset($step2postgraduationdata['resultstatus'])) ? $step2postgraduationdata['resultstatus'] : 'Not Applicable'}}</b></span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblRStatus"><b>{{(isset($step2postgraduationdata['resultstatus'])) ? $step2postgraduationdata['resultstatus'] : ''}}</b></span></span>
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
