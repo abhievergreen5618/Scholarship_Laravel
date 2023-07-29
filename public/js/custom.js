@@ -11,7 +11,7 @@ $(document).ready(function () {
     });
 
     $("[name='disqualified/suspended']").click(function (e) {
-        if($(this).is(':checked'))
+        if($(this).is(':checked') && $(this).attr("value") == "yes")
         {
             $("#details").attr("disabled",false);
         }
