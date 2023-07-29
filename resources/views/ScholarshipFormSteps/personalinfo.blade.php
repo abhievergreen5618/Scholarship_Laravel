@@ -116,7 +116,7 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_chkboxCopyAddress__"><span class="chkbox" style="color: black;"><input id="ctl00_ContentPlaceHolder1_chkboxCopyAddress" type="checkbox" name="ctl00$ContentPlaceHolder1$chkboxCopyAddress" class="form-check-input"><label for="ctl00_ContentPlaceHolder1_chkboxCopyAddress">Same as Correspondence
                                                 Address</label></span></span>
                                     <br>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtPAddress__"><textarea name="paddress" rows="5" cols="20" id="paddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase;">@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->paddress}} @endif</textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtPAddress__"><textarea name="paddress" rows="5" cols="20" id="paddress" class="textboxmultiline form-control" onkeypress="if (this.value.length > 199) { return false; }" style="text-transform: uppercase;">{{!empty(auth()->user()->step1_updated_at) ? auth()->user()->paddress : ''}} @endif</textarea></span>
 
 
                                 </td>
