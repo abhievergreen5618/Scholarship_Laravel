@@ -173,6 +173,7 @@
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
         "handler": function(response) {
+            console.log(response);
             if (response.hasOwnProperty("razorpay_payment_id")) {
                 var data = {"razorpay_payment_id":response.razorpay_payment_id};
                 console.log(data);
