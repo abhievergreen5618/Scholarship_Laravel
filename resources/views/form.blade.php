@@ -178,7 +178,7 @@
                     type: 'POST',
                     url: $("#payment").data("paymenturl"),
                     dataType: "json",
-                    data: response,
+                    data: JSON.stringify(response),
                     cache: false,
                     contentType: false,
                     processData: false,
