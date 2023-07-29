@@ -80,29 +80,29 @@
                                 </div>
                             </li>
                             <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-var options = {
-    "key": "rzp_test_DAKCbY6lLkH4z8", // Enter the Key ID generated from the Dashboard
-    "amount": "10000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "INR",
-    "name": "Scholarship", //your business name
-    "description": "Test Transaction",
-    "image": "https://example.com/your_logo",
+                            <script>
+                            var options = {
+                                "key": "rzp_test_DAKCbY6lLkH4z8", // Enter the Key ID generated from the Dashboard
+                                "amount": "10000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                                "currency": "INR",
+                                "name": "Scholarship", //your business name
+                                "description": "Test Transaction",
+                                "image": "https://example.com/your_logo",
 
-    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
-    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-        "name": "name", //your customer's name
-        "email": "email",
-        "contact": "contact" //Provide the customer's phone number for better conversion rates
-    },
+                                "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+                                "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+                                    "name": "name", //your customer's name
+                                    "email": "email",
+                                    "contact": "contact" //Provide the customer's phone number for better conversion rates
+                                },
 
-    "theme": {
-        "color": "#3399cc"
-    }
-};
-var rzp1 = new Razorpay(options);
-document.getElementById('rzp-button1').onclick = function(e){
-    rzp1.open();
-    e.preventDefault();
-}
-</script>
+                                "theme": {
+                                    "color": "#3399cc"
+                                }
+                            };
+                            var rzp1 = new Razorpay(options);
+                            document.getElementById('rzp-button1').onclick = function(e){
+                                rzp1.open();
+                                e.preventDefault();
+                            }
+                            </script>

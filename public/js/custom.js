@@ -88,9 +88,9 @@ $(document).ready(function () {
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
-                    $("#tab4").attr('disabled',false);
-                    $("#tab4").trigger('click');
-                    $('[for="tab4"]').find("[data-icon='lock']").remove();
+                    $("#tab5").attr('disabled',false);
+                    $("#tab5").trigger('click');
+                    $('[for="tab5"]').find("[data-icon='lock']").remove();
                     $("#payment_step").removeClass("btn-secondary");
                     $("#payment_step").addClass("btn-success");
                 }
