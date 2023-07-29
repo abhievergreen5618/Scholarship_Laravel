@@ -167,4 +167,24 @@ class User extends Authenticatable
 
         return $gender;
     }
+
+    protected function getscholarshipNameAttribute()
+    {
+        $scholarshipname = $this->attributes['scholarshipname'];
+
+        switch ($scholarshipname) {
+            case '3':
+                $scholarshipname = "open scholarships ";
+                break;
+            case '17':
+                $scholarshipname = "vidyabharti scholarship";
+                break;
+            default:
+                // Add a default case to handle situations where examcenter_id doesn't match any case
+                $scholarshipname = "Unknown scholarship";
+                break;
+        }
+
+        return $scholarshipname;
+    }
 }
