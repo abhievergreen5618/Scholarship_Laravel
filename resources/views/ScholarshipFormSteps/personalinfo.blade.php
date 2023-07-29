@@ -103,7 +103,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mobileno}} @endif" maxlength="10" id="mobileno" type="text" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mobileno}} @endif" maxlength="10" id="mobileno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
                                 </td>
                             </tr>
                             <tr>
