@@ -173,32 +173,31 @@
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
         "handler": function(response) {
-            console.log(response);
             if (response.hasOwnProperty("razorpay_payment_id")) {
-                var data = {"razorpay_payment_id":response.razorpay_payment_id};
-                console.log(data);
-                // $.ajax({
-                //     type: 'POST',
-                //     url: $("#payment").data("paymenturl"),
-                //     dataType: "json",
-                //     data: data,
-                //     cache: false,
-                //     contentType: false,
-                //     processData: false,
-                //     headers: {
-                //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                //     },
-                //     success: function(result) {
-                //         if (result.hasOwnProperty("message")) {
-                //             $("#tab6").attr('disabled', false);
-                //             $("#tab6").trigger('click');
-                //             $('[for="tab6"]').find("[data-icon='lock']").remove();
-                //             $("#submit_information_form").removeClass("btn-secondary");
-                //             $("#submit_information_form").addClass("btn-success");
-                //         }
-                //     },
-                //     error: function(xhr, status, error) {}
-                // });
+                var data = [];
+                data["razorpay_payment_id"] = response.razorpay_payment_id;
+                $.ajax({
+                    type: 'POST',
+                    url: $("#payment").data("paymenturl"),
+                    dataType: "json",
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(result) {
+                        if (result.hasOwnProperty("message")) {
+                            $("#tab6").attr('disabled', false);
+                            $("#tab6").trigger('click');
+                            $('[for="tab6"]').find("[data-icon='lock']").remove();
+                            $("#submit_information_form").removeClass("btn-secondary");
+                            $("#submit_information_form").addClass("btn-success");
+                        }
+                    },
+                    error: function(xhr, status, error) {}
+                });
             }
         },
         "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
