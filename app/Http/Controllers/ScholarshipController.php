@@ -236,6 +236,16 @@ class ScholarshipController extends Controller
         //
     }
 
+    public function applicationsummarysubmit(Request $request)
+    {
+        User::where('id',Auth::id())->update([
+            "step3_updated_at" => now(),
+        ]);
+        return response()->json([
+            'message' => 'Saved successfully',
+        ],200);
+    }
+
     /**
      * Display the specified resource.
      *

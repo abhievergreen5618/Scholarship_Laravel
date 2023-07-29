@@ -526,7 +526,7 @@
                                                         </td>
                                                         <td colspan="2" align="right">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT"  id="savestep3" class="btn-primary"></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT" data-action="{{route('applicationsummarysubmit')}}" id="savestep3" class="btn-primary"></span>
                                                         </td>
                                                     </tr>
                                                 </tbody>
