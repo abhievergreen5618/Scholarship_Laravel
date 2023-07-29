@@ -345,7 +345,7 @@
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed">{{(isset($step2postgraduationdata['examinationPassedsummary'])) ? $step2postgraduationdata['examinationPassedsummary'] : ''}}</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed">{{(isset($step2postgraduationdata['examination_passed'])) ? $step2postgraduationdata->examinationPassedsummary(): ''}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 
