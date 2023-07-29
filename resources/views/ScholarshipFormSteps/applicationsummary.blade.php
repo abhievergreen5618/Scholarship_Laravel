@@ -20,7 +20,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->scholarshipname : ''}}</b></span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->scholarshipnamesummary : ''}}</b></span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -141,7 +141,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblNationality__"><span id="ctl00_ContentPlaceHolder1_lblNationality">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->nationality : ''}}</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblNationality__"><span id="ctl00_ContentPlaceHolder1_lblNationality">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->nationalitySummary : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -150,7 +150,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblGender__"><span id="ctl00_ContentPlaceHolder1_lblGender">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->gender : ''}}</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblGender__"><span id="ctl00_ContentPlaceHolder1_lblGender">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->genderSummary : ''}}</span></span>
                                                         </td>
                                                     </tr>
 

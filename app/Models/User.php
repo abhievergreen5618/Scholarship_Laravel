@@ -68,6 +68,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = ['ExamCenterName','scholarshipNameSummary','nationalitySummary','genderSummary'];
+
     protected function getExamCenterNameAttribute()
     {
         $examCenterId = $this->attributes['examcentre'];
@@ -128,7 +130,7 @@ class User extends Authenticatable
         return $examCenter;
     }
 
-    protected function getnationalityAttribute()
+    protected function getnationalitySummaryAttribute()
     {
         $nationalitycode = $this->attributes['nationality'];
 
@@ -148,7 +150,7 @@ class User extends Authenticatable
         return $nationality;
     }
 
-    protected function getgenderAttribute()
+    protected function getgenderSummaryAttribute()
     {
         $gendercode = $this->attributes['gender'];
 
@@ -168,7 +170,7 @@ class User extends Authenticatable
         return $gender;
     }
 
-    protected function getscholarshipNameAttribute()
+    protected function getscholarshipNameSummaryAttribute()
     {
         $scholarshipname = $this->attributes['scholarshipname'];
 
