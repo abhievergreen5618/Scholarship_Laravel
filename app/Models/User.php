@@ -70,9 +70,8 @@ class User extends Authenticatable
 
     public function examCenter()
     {
-        $examCenterId = $this->getAttribute('examcenter');
-
-        dd($examCenterId);
+        // $examCenterId = $this->getAttribute('examcenter');
+        $examCenterId = 3;
 
         switch ($examCenterId) {
             case 3:
