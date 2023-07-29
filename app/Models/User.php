@@ -124,6 +124,8 @@ class User extends Authenticatable
                 break;
         }
 
+        dd($examCenter);
+
         return $examCenter;
     }
 }
