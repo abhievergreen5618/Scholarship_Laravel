@@ -29,7 +29,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblName__"><span id="ctl00_ContentPlaceHolder1_lblName">RATNA SHARMA</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblName__"><span id="ctl00_ContentPlaceHolder1_lblName">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->name : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -39,7 +39,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblFName__"><span id="ctl00_ContentPlaceHolder1_lblFName">LEELA DHAR</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblFName__"><span id="ctl00_ContentPlaceHolder1_lblFName">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->fathername : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -49,7 +49,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblMName__"><span id="ctl00_ContentPlaceHolder1_lblMName">RAKSHA DEVI</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblMName__"><span id="ctl00_ContentPlaceHolder1_lblMName">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->mothername : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr id="ctl00_ContentPlaceHolder1_trExamCenter">
@@ -58,7 +58,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            &nbsp;<span id="Anthem_ctl00_ContentPlaceHolder1_lblExamCname__"><span id="ctl00_ContentPlaceHolder1_lblExamCname">KULLU</span></span>
+                                                            &nbsp;<span id="Anthem_ctl00_ContentPlaceHolder1_lblExamCname__"><span id="ctl00_ContentPlaceHolder1_lblExamCname">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->examCenter : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
