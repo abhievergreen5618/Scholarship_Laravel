@@ -70,6 +70,7 @@ class User extends Authenticatable
 
     protected function examCenter()
     {
+        dd($value);
         // $examCenterId = $this->getAttribute('examcenter');
         $examCenterId = 3;
 
