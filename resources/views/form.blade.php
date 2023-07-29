@@ -11,15 +11,15 @@
 
                     <!-- tabs -->
                     <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
-                        <input type="radio" name="pcss3t" id="tab1" class="tab-content-first" {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab1" class="tab-content-first" {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}} {{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
                         <label for="tab1"><i class="fas fa-hand-point-right"></i>Personal Information @if(!empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab2" class="tab-content-2" {{!empty(auth()->user()->step1_updated_at) && empty(auth()->user()->step2_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step1_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab2" class="tab-content-2" {{!empty(auth()->user()->step1_updated_at) && empty(auth()->user()->step2_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step1_updated_at) || empty(auth()->user()->step3_updated_at)? 'disabled' : ''}}>
                         <label for="tab2"><i class="fas fa-hand-point-right"></i>Education & Document Details @if(empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-3" {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step2_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-3" {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step2_updated_at) || empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
                         <label for="tab3"><i class="fas fa-hand-point-right"></i>Application Summary @if(empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
