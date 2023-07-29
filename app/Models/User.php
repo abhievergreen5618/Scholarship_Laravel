@@ -127,4 +127,24 @@ class User extends Authenticatable
 
         return $examCenter;
     }
+
+    protected function getnationalityAttribute()
+    {
+        $nationalitycode = $this->attributes['nationality'];
+
+        switch ($nationalitycode) {
+            case 'I':
+                $nationality = "Indian";
+                break;
+            case 'O':
+                $nationality = "Others";
+                break;
+            default:
+                // Add a default case to handle situations where examcenter_id doesn't match any case
+                $examCenter = "Unknown Nationality";
+                break;
+        }
+
+        return $nationality;
+    }
 }

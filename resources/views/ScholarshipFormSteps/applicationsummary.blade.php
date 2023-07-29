@@ -69,8 +69,7 @@
                                                         <td class="colon">:</td>
                                                         <td>
                                                             <div style="width: 350px; word-wrap: break-word;">
-                                                                <span id="Anthem_ctl00_ContentPlaceHolder1_lblCAddress__"><span id="ctl00_ContentPlaceHolder1_lblCAddress">VILLAGE PATAHRA POST BAZAHARA TEH
-                                                                        SAINJ DISTT KULLU (HP) 175134</span></span>
+                                                                <span id="Anthem_ctl00_ContentPlaceHolder1_lblCAddress__"><span id="ctl00_ContentPlaceHolder1_lblCAddress">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->caddress : ''}}</span></span>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -81,7 +80,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblMobileNo__"><span id="ctl00_ContentPlaceHolder1_lblMobileNo">7876065989</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblMobileNo__"><span id="ctl00_ContentPlaceHolder1_lblMobileNo">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->mobileno : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -92,8 +91,7 @@
                                                         <td class="colon">:</td>
                                                         <td>
                                                             <div style="width: 350px; word-wrap: break-word;">
-                                                                <span id="Anthem_ctl00_ContentPlaceHolder1_lblPAddress__"><span id="ctl00_ContentPlaceHolder1_lblPAddress">VILLAGE PATAHRA POST BAZAHARA TEH
-                                                                        SAINJ DISTT KULLU (HP) 175134</span></span>
+                                                                <span id="Anthem_ctl00_ContentPlaceHolder1_lblPAddress__"><span id="ctl00_ContentPlaceHolder1_lblPAddress">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->paddress : ''}}</span></span>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -104,7 +102,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblEmailId__"><span id="ctl00_ContentPlaceHolder1_lblEmailId">ratnasharma928@gmail.com</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblEmailId__"><span id="ctl00_ContentPlaceHolder1_lblEmailId">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->email : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -114,7 +112,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblDob__"><span id="ctl00_ContentPlaceHolder1_lblDob">24/01/2002</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblDob__"><span id="ctl00_ContentPlaceHolder1_lblDob">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->dob : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -123,7 +121,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblAadhaarNo__"><span id="ctl00_ContentPlaceHolder1_lblAadhaarNo">416470942157</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblAadhaarNo__"><span id="ctl00_ContentPlaceHolder1_lblAadhaarNo">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->aadhaarno : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr id="ctl00_ContentPlaceHolder1_trhpumarkseetno">
@@ -134,7 +132,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblhighschoolmarksheetno__"><span id="ctl00_ContentPlaceHolder1_lblhighschoolmarksheetno">1302143</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblhighschoolmarksheetno__"><span id="ctl00_ContentPlaceHolder1_lblhighschoolmarksheetno">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->hsmarksheetmatric : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -143,7 +141,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblNationality__"><span id="ctl00_ContentPlaceHolder1_lblNationality">Indian</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblNationality__"><span id="ctl00_ContentPlaceHolder1_lblNationality">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->hsmarksheetmatric : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
