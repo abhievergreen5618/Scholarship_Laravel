@@ -269,7 +269,7 @@
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed">{{(isset($step2schooldata['examination_passed'])) ? $step2schooldata['examination_passed'] : ''}}</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed">{{(isset($step2schooldata['examinationPassedSummary'])) ? $step2schooldata['examinationPassedSummary'] : ''}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 
@@ -307,7 +307,7 @@
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed">{{(isset($step2graduationdata['examination_passed'])) ? $step2graduationdata['examination_passed'] : ''}}</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmPassed">{{(isset($step2graduationdata['examinationPassedSummary'])) ? $step2graduationdata['examinationPassedSummary'] : ''}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl03_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 
@@ -345,7 +345,7 @@
 
                                                                     </td>
                                                                     <td align="center" style="width:20%;">
-                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed">{{(isset($step2postgraduationdata['examination_passed'])) ? $step2postgraduationdata['examination_passed'] : ''}}</span></span>
+                                                                        <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmPassed">{{(isset($step2postgraduationdata['examinationPassedSummary'])) ? $step2postgraduationdata['examinationPassedSummary'] : ''}}</span></span>
                                                                         <br>
                                                                         <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmpassedDegree__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl04_lblExmpassedDegree" style="font-weight:bold;"></span></span>
 

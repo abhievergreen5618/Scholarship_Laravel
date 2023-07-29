@@ -24,7 +24,7 @@ class EducationDetails extends Model
     ];
 
         // Define the list of attributes that should be appended to the model
-        protected $appends = ['resultStatusSummary'];
+        protected $appends = ['resultStatusSummary','examinationPassedSummary'];
 
         // Method to get the modified result status summary attribute
         public function getResultStatusSummaryAttribute()
