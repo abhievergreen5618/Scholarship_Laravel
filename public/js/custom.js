@@ -10,6 +10,17 @@ $(document).ready(function () {
         }
     });
 
+    $("#disqualified/suspendedyes").click(function (e) {
+        if($(this).is(':checked'))
+        {
+            $("#details").attr("disabled",false);
+        }
+        else
+        {
+            $("#details").attr("disabled",true);
+        }
+    });
+
     $("#sign_photo").change(function (e) {
         // Get the selected file
         var file = e.target.files[0];
