@@ -26,7 +26,6 @@ class EducationDetails extends Model
     protected function resultStatussummary()
     {
         $resultstatus = $this->attributes['resultstatus'];
-        dd($resultstatus);
         switch ($resultstatus) {
             case 'P':
                 $resultstatus = "Passed";
@@ -47,7 +46,7 @@ class EducationDetails extends Model
     }
 
 
-    protected function getexaminationPassedAttribute()
+    protected function examinationPassedsummary()
     {
         $examination_passed = $this->attributes['examination_passed'];
 
