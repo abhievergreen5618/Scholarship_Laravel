@@ -227,7 +227,7 @@
                                                     <tr>
                                                         <td colspan="6" class="tdgap" width="42%" align="left">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT"  id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary"></span>&nbsp;&nbsp;
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT" style="float: right!important;" id="backstep1" class="btn-primary"></span>&nbsp;&nbsp;
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -522,11 +522,11 @@
                                                     <tr>
                                                         <td align="left">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK &amp; EDIT"  id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="button" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK &amp; EDIT"  id="backstep2" class="btn-primary"></span>
                                                         </td>
                                                         <td colspan="2" align="right">
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT"  id="ctl00_ContentPlaceHolder1_btnSaveNext" class="btn-primary"></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT"  id="savestep3" class="btn-primary"></span>
                                                         </td>
                                                     </tr>
                                                 </tbody>

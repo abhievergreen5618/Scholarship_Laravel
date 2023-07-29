@@ -73,4 +73,39 @@ $(document).ready(function () {
     $("#backstep2").click(function(){
         $("#tab2").trigger('click');
     });
+
+    $("#savestep3").click(function(){
+        $.ajax({
+            type: 'POST',
+            url: $(form).attr("action"),
+            dataType: "json",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(result) {
+                if(result.hasOwnProperty("message"))
+                {
+                    $("#tab2").attr('disabled',false);
+                    $("#tab2").trigger('click');
+                    $('[for="tab2"]').find("[data-icon='lock']").remove();
+                    $("#education_details_step").removeClass("btn-secondary");
+                    $("#education_details_step").addClass("btn-success");
+                }
+            },
+            error : function(xhr, status, error) {
+                if(xhr.status == 422)
+                {
+                    $.each(xhr.responseJSON.error,(index,value) => {
+                        $("#"+index+"-error").remove();
+                        $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
+                        $("#"+index).focus();
+                    });
+                }
+            }
+        });
+    });
 });
