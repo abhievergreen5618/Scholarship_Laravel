@@ -9,7 +9,8 @@ jQuery('#frm').validate({
         caddress:"required",
         mobileno:{
             required:true,
-            maxlength:10
+            maxlength:10,
+            minlength:10
         },
         paddress:"required",
         email:{
