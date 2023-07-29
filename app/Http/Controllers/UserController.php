@@ -34,7 +34,7 @@ class UserController extends Controller
             "password" => "required|confirmed",
             ],
             [
-                "required" => "Field is required.",
+                "required" => "This field is required.",
                 "email.email" => "Please enter a valid email address.",
                 "mobileno.regex" => "Please enter a valid 10-digit mobile number.",
             ]
@@ -81,7 +81,7 @@ class UserController extends Controller
             "password" => "required",
             ],
             [
-                "required" => "Field is required.",
+                "required" => "This field is required.",
                 "email.email" => "Please enter a valid email address.",
             ]
         );

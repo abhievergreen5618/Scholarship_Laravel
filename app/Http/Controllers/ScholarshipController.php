@@ -63,8 +63,8 @@ class ScholarshipController extends Controller
             "email" => "required|email",
         ],
         [
-             "required" => "Field is required.",
-             "required_if" => "Field is required.",
+             "required" => "This field is required.",
+             "required_if" => "This field is required.",
         ]
     );
 
@@ -137,8 +137,8 @@ class ScholarshipController extends Controller
             'details' => 'required_if:disqualified/suspended,yes',
         ],
         [
-             "required" => "Field is required.",
-             "required_if" => "Field is required.",
+             "required" => "This field is required.",
+             "required_if" => "This field is required.",
         ]
     );
 

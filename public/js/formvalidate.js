@@ -116,10 +116,6 @@ jQuery('#docform').validate({
         profile_photo:"required",
         sign_photo:"required"
     },
-    messages:{
-        grad_board:"enter board name",
-        class_board:"enter name"
-    },
     submitHandler : function(form,e) {
         e.preventDefault();
         // Create a new FormData object
