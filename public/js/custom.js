@@ -88,6 +88,12 @@ $(document).ready(function () {
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
+                    $("#tab1").attr('disabled',true);
+                    $("#tab2").attr('disabled',true);
+                    $('[for="tab1"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+                    $('[for="tab2"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+                    $('[for="tab3"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+
                     $("#tab5").attr('disabled',false);
                     $("#tab5").trigger('click');
                     $('[for="tab5"]').find("[data-icon='lock']").remove();
