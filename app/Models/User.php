@@ -68,11 +68,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected function examCenter()
+    protected function getExamCenterNameAttribute()
     {
-        dd($value);
+        $examCenterId = $this->attributes['examcenter'];
+        dd($examCenterId);
         // $examCenterId = $this->getAttribute('examcenter');
-        $examCenterId = 3;
 
         switch ($examCenterId) {
             case 3:
