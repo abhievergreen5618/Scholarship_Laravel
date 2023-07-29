@@ -58,7 +58,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            &nbsp;<span id="Anthem_ctl00_ContentPlaceHolder1_lblExamCname__"><span id="ctl00_ContentPlaceHolder1_lblExamCname">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->examCenter : ''}}</span></span>
+                                                            &nbsp;<span id="Anthem_ctl00_ContentPlaceHolder1_lblExamCname__"><span id="ctl00_ContentPlaceHolder1_lblExamCname">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->examcenter : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
