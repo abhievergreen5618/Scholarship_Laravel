@@ -189,7 +189,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblsinglegirlchild__"><span id="ctl00_ContentPlaceHolder1_lblsinglegirlchild">{{(!empty(auth()->user()->step2_updated_at)) ? ucFirst(auth()->user()->physicallychallenged) : ''}}</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblsinglegirlchild__"><span id="ctl00_ContentPlaceHolder1_lblsinglegirlchild">{{(!empty(auth()->user()->step2_updated_at)) ? ucFirst(auth()->user()->singlegirlchild) : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr id="ctl00_ContentPlaceHolder1_trphysicallychallnged">
@@ -206,7 +206,7 @@
                                                         <td class="colon">:</td>
                                                         <td>
 
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblphysicallychallenged__"><span id="ctl00_ContentPlaceHolder1_lblphysicallychallenged">No</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblphysicallychallenged__"><span id="ctl00_ContentPlaceHolder1_lblphysicallychallenged">{{(!empty(auth()->user()->step2_updated_at)) ? ucFirst(auth()->user()->physicallychallenged) : ''}}</span></span>
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_lblphysicallychalleengePer__"></span>
                                                         </td>
                                                     </tr>
