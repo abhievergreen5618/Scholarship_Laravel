@@ -29,7 +29,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblName__"><span id="ctl00_ContentPlaceHolder1_lblName">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->name : ''}}</span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblName__"><span id="ctl00_ContentPlaceHolder1_lblName">{{(!empty(auth()->user()->step2_updated_at)) ? strtoupper(auth()->user()->name) : ''}}</span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
