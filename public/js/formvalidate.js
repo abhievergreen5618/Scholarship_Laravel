@@ -27,6 +27,10 @@ jQuery('#frm').validate({
         email:{
             required:"Please enter email ID",
             email:"Please enter valid email"
+        },
+        mobileno:{
+            maxlength:"Please enter valid mobile number.",
+            minlength:"Please enter valid mobile number."
         }
     },
     submitHandler : function(form,e) {
