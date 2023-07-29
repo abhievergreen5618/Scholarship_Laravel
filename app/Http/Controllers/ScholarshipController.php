@@ -86,8 +86,6 @@ class ScholarshipController extends Controller
                 $request['physicallychallengedproof'] = $imageName;
             }
             User::where('id',decrypt($request['id']))->update([
-                "name" => $request['scholarshipname'] ?? "",
-                "email" => $request['email'] ?? "",
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "fathername" => $request['fathername'],
                 "mothername" => $request['mothername'],
