@@ -50,7 +50,7 @@ class EducationDetails extends Model
     }
 
 
-    protected function examinationPassedsummary()
+    protected function getexaminationPassedSummaryAttribute()
     {
 
         $examination_passed = $this->attributes['examination_passed'];
