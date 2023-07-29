@@ -333,7 +333,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="details" rows="2" cols="20" id="details" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;">{{isset($step2graduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y" ? $step2graduationdata['disqualified/suspended_details'] : ''}}</textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="details" rows="2" cols="20" id="details" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;" disabled>{{isset($step2graduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y" ? $step2graduationdata['disqualified/suspended_details'] : ''}}</textarea></span>
                                 </td>
                             </tr>
                             <tr>

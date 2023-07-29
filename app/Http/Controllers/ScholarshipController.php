@@ -166,7 +166,7 @@ class ScholarshipController extends Controller
                     'percentage_marks'=>$request['class_percentage'],
                     'exam_roll_no'=>$request['class_rollno'],
                     'disqualified/suspended'=>$request['disqualified/suspended'],
-                    'disqualified/suspended_details'=>$request['details'],
+                    'disqualified/suspended_details'=>$request['details'] ?? "",
                     'type'=>'school',
                  ]);
 
@@ -182,7 +182,7 @@ class ScholarshipController extends Controller
                     'percentage_marks'=>$request['grad_percentage'],
                     'exam_roll_no'=>$request['grad_rollno'],
                     'disqualified/suspended'=>$request['disqualified/suspended'],
-                    'disqualified/suspended_details'=>$request['details'],
+                    'disqualified/suspended_details'=>$request['details'] ?? "",
                     'type'=>'graduation',
                  ]);
 
@@ -198,7 +198,7 @@ class ScholarshipController extends Controller
                     'percentage_marks'=>$request['post_grad_percentage'],
                     'exam_roll_no'=>$request['post_grad_rollno'],
                     'disqualified/suspended'=>$request['disqualified/suspended'],
-                    'disqualified/suspended_details'=>$request['details'],
+                    'disqualified/suspended_details'=>$request['details'] ?? "",
                     'type'=>'post_graduation',
                  ]);
 
