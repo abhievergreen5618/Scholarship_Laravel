@@ -66,4 +66,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function examCenter()
+    {
+        dd("test");
+        return $this->belongsTo(ExamCenter::class, 'examcenter_id', 'id');
+    }
 }
