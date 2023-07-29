@@ -455,7 +455,7 @@
                                                                             <div id="Anthem_ctl00_ContentPlaceHolder1_pnl2__">
                                                                                 <div id="ctl00_ContentPlaceHolder1_pnl2">
 
-                                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ImgProfilePic__"><img id="ctl00_ContentPlaceHolder1_ImgProfilePic" src="{{asset('images/sgg.png')}}" style="height:100px;width:100px;border-width:0px;"></span>
+                                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ImgProfilePic__"><img id="ctl00_ContentPlaceHolder1_ImgProfilePic" src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" style="height:100px;width:100px;border-width:0px;"></span>
 
 
                                                                                 </div>
@@ -489,7 +489,7 @@
                                                                             <div id="Anthem_ctl00_ContentPlaceHolder1_Panel3__">
                                                                                 <div id="ctl00_ContentPlaceHolder1_Panel3">
 
-                                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ImgSignature__"><img id="ctl00_ContentPlaceHolder1_ImgSignature" src="{{asset('images/sgg.png')}}" style="height:50px;width:200px;border-width:0px;"></span>
+                                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ImgSignature__"><img id="ctl00_ContentPlaceHolder1_ImgSignature" src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : ''}}" style="height:50px;width:200px;border-width:0px;"></span>
 
                                                                                 </div>
                                                                             </div>
