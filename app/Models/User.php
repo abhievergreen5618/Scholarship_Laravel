@@ -70,8 +70,7 @@ class User extends Authenticatable
 
     protected function getExamCenterNameAttribute()
     {
-        dd($this->attributes);
-        $examCenterId = $this->attributes['examcenter'];
+        $examCenterId = $this->attributes['examcentre'];
         // $examCenterId = $this->getAttribute('examcenter');
 
         switch ($examCenterId) {
