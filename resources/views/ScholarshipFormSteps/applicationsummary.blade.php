@@ -20,7 +20,7 @@
                                                         </td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->name : ''}}</b></span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->scholarshipname : ''}}</b></span></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
