@@ -54,7 +54,6 @@ class EducationDetails extends Model
     {
 
         $examination_passed = $this->attributes['examination_passed'];
-        dd($examination_passed);
         switch ($examination_passed) {
             case 18:
                 $examination_passed = "B.A";
