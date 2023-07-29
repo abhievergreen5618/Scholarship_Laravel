@@ -133,6 +133,8 @@ class ScholarshipController extends Controller
             "post_grad_rollno" => "required",
             "profile_photo" => "required",
             "sign_photo" => "required",
+            "disqualified/suspended" => "required",
+            'details' => 'required_if:disqualified/suspended,yes',
         ],
         [
              "required" => "This field is required.",
