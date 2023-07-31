@@ -4,10 +4,8 @@
 <div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}" data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}" data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-paymenturl="{{route('savepaymentdetails')}}">
     <div class="container-fluid">
         <div class="row">
-
             <div class="col-md-10">
                 <div class="page">
-
 
                     <!-- tabs -->
                     <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
