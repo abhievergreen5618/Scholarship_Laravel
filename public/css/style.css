@@ -1352,3 +1352,7 @@ input#grad_percentage {
 input#post_grad_percentage {
     padding-right: 5px;
 }
+
+.pcss3t > ul, .pcss3t > ul > li {
+    height: 1850px!important;
+}
