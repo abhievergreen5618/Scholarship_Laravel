@@ -256,8 +256,12 @@ class ScholarshipController extends Controller
      */
     public function savepaymentdetails(Request $request)
     {
+        // The reference number will be the auto-incrementing primary key (id)
+        $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);
+
         User::where('id',Auth::id())->update([
             "step4_updated_at" => now(),
+            "reference_number" => $referenceNumber,
         ]);
         PaymentsDetails::create([
             "razorpay_id" => $request['razorpay_payment_id'],

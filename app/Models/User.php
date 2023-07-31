@@ -47,6 +47,7 @@ class User extends Authenticatable
         'step5_updated_at',
         'social_id',
         'social_type',
+        'reference_number',
     ];
 
     /**
