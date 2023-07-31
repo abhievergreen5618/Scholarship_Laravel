@@ -88,6 +88,7 @@ class ScholarshipController extends Controller
             }
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
+                "name" => $request['name'] ?? "",
                 "fathername" => $request['fathername'],
                 "mothername" => $request['mothername'],
                 "examcentre" => $request['examcentre'],
