@@ -102,6 +102,7 @@ $(document).ready(function () {
                 {
                     $("#tab1").attr('disabled',true);
                     $("#tab2").attr('disabled',true);
+                    $("#tab3").attr('disabled',true);
                     $('[for="tab1"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
                     $('[for="tab2"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
                     $('[for="tab3"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
