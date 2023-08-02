@@ -48,8 +48,8 @@ Route::get('/login/facebook',[LoginController::class,'redirectFacebook'])->name(
 
 Route::get('/login/facebook/callback',[LoginController::class,'facebookCallback'])->name('handleFacebookCallback');
 
-Route::middleware(['auth'])->group(function () {
-    Route::controller(ScholarshipController::class)->group(['prefix' => 'admin'],function () {
-        Route::get('/dashboard','index')->name('admin.dashboard');
-        });
-});
+// Route::middleware(['auth'])->group(function () {
+//     Route::controller(ScholarshipController::class)->group(['prefix' => 'admin'],function () {
+//         Route::get('/dashboard','index')->name('admin.dashboard');
+//         });
+// });
