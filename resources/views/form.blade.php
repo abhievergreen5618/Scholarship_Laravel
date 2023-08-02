@@ -54,10 +54,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="42%" class="vtext">Name of the Course
-                                                            <br>
-                                                            <strong>पाठ्यक्रम का नाम</strong>
-                                                        </td>
+                                                        <td width="42%" class="vtext"><strong>Reference Number</strong></td>
                                                         <td class="colon">:</td>
                                                         <td>
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->reference_number : ''}}</b></span></span>
