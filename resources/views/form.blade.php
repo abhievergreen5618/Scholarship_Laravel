@@ -9,7 +9,7 @@
 
                     <!-- tabs -->
                     <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
-                        <input type="radio" name="pcss3t" id="tab1" class="tab-content-first" {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}} {{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab1" class="{{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}tab-content-first" {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}} {{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
                         <label for="tab1"><i class="fas fa-hand-point-right"></i>Personal Information @if(!empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
