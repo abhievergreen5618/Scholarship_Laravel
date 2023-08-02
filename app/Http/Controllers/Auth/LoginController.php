@@ -82,8 +82,8 @@ class LoginController extends Controller
         }
         catch(Exception $e)
         {
-            // dd($e->getMessage());
-            return redirect(route("login"))->with('error', 'Google login failed.');
+            dd($e->getMessage());
+            // return redirect(route("login"))->with('error', 'Google login failed.');
         }
     }
 
