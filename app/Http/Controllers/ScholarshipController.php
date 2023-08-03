@@ -23,7 +23,7 @@ class ScholarshipController extends Controller
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
             $step2graduationdata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'graduation'])->first();
             $step2postgraduationdata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'post_graduation'])->first();
-            return view('form')->with([
+            return view('student.form')->with([
                 "step2schooldata" => $step2schooldata,
                 "step2graduationdata" => $step2graduationdata,
                 "step2postgraduationdata" => $step2postgraduationdata
