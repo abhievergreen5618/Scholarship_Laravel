@@ -60,3 +60,4 @@ Route::get('/dashboard',function()
 {
     return view('content');
 });
+

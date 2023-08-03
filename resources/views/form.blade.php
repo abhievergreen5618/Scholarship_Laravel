@@ -9,7 +9,7 @@
 
                     <!-- tabs -->
                     <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
-                        <input type="radio" name="pcss3t" id="tab1" class="tab-content-first" {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}} {{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab1" class="{{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}tab-content-first" {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}} {{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
                         <label for="tab1"><i class="fas fa-hand-point-right"></i>Personal Information @if(!empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
@@ -54,13 +54,10 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="42%" class="vtext">Name of the Course
-                                                            <br>
-                                                            <strong>पाठ्यक्रम का नाम</strong>
-                                                        </td>
+                                                        <td width="42%" class="vtext"><strong>Reference Number</strong></td>
                                                         <td class="colon">:</td>
                                                         <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->scholarshipnamesummary : ''}}</b></span></span>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->reference_number : ''}}</b></span></span>
                                                         </td>
                                                     </tr>
                                                     </tbody>

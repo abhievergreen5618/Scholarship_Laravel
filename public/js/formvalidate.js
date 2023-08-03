@@ -72,6 +72,7 @@ jQuery('#frm').validate({
                     $('[for="tab2"]').find("[data-icon='lock']").remove();
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
                 }
             },
             error : function(xhr, status, error) {
@@ -146,6 +147,8 @@ jQuery('#docform').validate({
                     $('[for="tab3"]').find("[data-icon='lock']").remove();
                     $("#application_summary_step").removeClass("btn-secondary");
                     $("#application_summary_step").addClass("btn-success");
+                    debugger;
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
                     location.reload();
                 }
             },

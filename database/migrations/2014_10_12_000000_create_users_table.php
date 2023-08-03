@@ -42,12 +42,12 @@ return new class extends Migration
             $table->string('physicallychallengedproof')->nullable();
             $table->string('photo')->nullable();
             $table->string('signature')->nullable();
+            $table->string('reference_number')->nullable();
             $table->timestamp('step1_updated_at')->nullable();
             $table->timestamp('step2_updated_at')->nullable();
             $table->timestamp('step3_updated_at')->nullable();
             $table->timestamp('step4_updated_at')->nullable();
             $table->timestamp('step5_updated_at')->nullable();
-            $table->timestamp('reference_number')->nullable();
             $table->timestamps();
         });
     }
