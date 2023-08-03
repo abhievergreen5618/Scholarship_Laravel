@@ -31,7 +31,7 @@
 
                         <ul>
                             @include("student.FormSteps.personalinfo")
-                            @include("student.FormSteps.Document")
+                            @include("student.FormSteps.educationDocument")
                             @include("student.FormSteps.applicationsummary")
                             @include("student.FormSteps.payment")
 
