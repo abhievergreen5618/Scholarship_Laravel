@@ -48,6 +48,7 @@ return new class extends Migration
             $table->timestamp('step3_updated_at')->nullable();
             $table->timestamp('step4_updated_at')->nullable();
             $table->timestamp('step5_updated_at')->nullable();
+            $table->string('role')->default("student")->nullable();
             $table->timestamps();
         });
     }
