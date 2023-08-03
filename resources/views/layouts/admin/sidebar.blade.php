@@ -42,7 +42,7 @@
           </li>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-graduation-cap"></i>
               <p>
                 Students
                 <i class="right fas fa-angle-left"></i>
