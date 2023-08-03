@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 
 class LoginController extends Controller
@@ -96,5 +97,96 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->to(env("WORDPRESS_URL")."/login");
+    }
+
+    public function create(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            "email" => "required|email|unique:users,email",
+            "mobileno" => "required|regex:/^[0-9]{10}$/",
+            "password" => "required|confirmed",
+            ],
+            [
+                "required" => "This field is required.",
+                "email.email" => "Please enter a valid email address.",
+                "mobileno.regex" => "Please enter a valid 10-digit mobile number.",
+            ]
+        );
+
+        if ($validator->fails()) {
+            $errors = [];
+            foreach ($validator->errors()->getMessages() as $index => $error) {
+                $errors[$index] = $error[0];
+            }
+            return response()->json([
+                'message'  => "!OOPs Something went wrong",
+                'error' => $errors
+            ],422);
+        }
+        else
+        {
+            User::create([
+                "email" => $request['email'],
+                "mobileno" => $request['mobileno'],
+                "password" => Hash::make($request['password']),
+            ]);
+
+            $credentials = $request->only('email','password');
+            if (Auth::attempt($credentials)) {
+                return response()->json([
+                    'message' => 'Registered Successfully',
+                    'redirecturl' => route("start"),
+                ],200);
+            }
+            else
+            {
+                return response()->json([
+                    'message'  => "!OOPs Something went wrong"
+                ],422);
+            }
+        }
+    }
+
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            "email" => "required|email",
+            "password" => "required",
+            ],
+            [
+                "required" => "This field is required.",
+                "email.email" => "Please enter a valid email address.",
+            ]
+        );
+
+        if ($validator->fails()) {
+            $errors = [];
+            foreach ($validator->errors()->getMessages() as $index => $error) {
+                $errors[$index] = $error[0];
+            }
+            return response()->json([
+                'message'  => "!OOPs Something went wrong",
+                'error' => $errors
+            ],422);
+        }
+        else
+        {
+            $credentials = $request->only('email','password');
+            $remember = $request->has('rememberme');
+            if (Auth::attempt($credentials,$remember)) {
+                return response()->json([
+                    'message' => 'Login Successfully',
+                    'redirecturl' => route("start"),
+                ],200);
+            }
+            else
+            {
+                $error = ["password"=>"Please enter valid credentials."];
+                return response()->json([
+                    'error' => $error,
+                    'message'  => "!OOPs Something went wrong"
+                ],422);
+            }
+        }
     }
 }

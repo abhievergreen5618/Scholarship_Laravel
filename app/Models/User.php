@@ -144,11 +144,12 @@ class User extends Authenticatable
                 break;
             default:
                 // Add a default case to handle situations where examcenter_id doesn't match any case
-                $examCenter = "Unknown Nationality";
+                $nationality = "Unknown Nationality";
                 break;
         }
 
         return $nationality;
+
     }
 
     protected function getgenderSummaryAttribute()

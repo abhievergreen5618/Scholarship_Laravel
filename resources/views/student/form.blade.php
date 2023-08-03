@@ -30,10 +30,10 @@
                         </label>
 
                         <ul>
-                            @include("ScholarshipFormSteps.personalinfo")
-                            @include("ScholarshipFormSteps.educationDocument")
-                            @include("ScholarshipFormSteps.applicationsummary")
-                            @include("ScholarshipFormSteps.payment")
+                            @include("student.FormSteps.personalinfo")
+                            @include("student.FormStepseducation.Document")
+                            @include("student.FormSteps.applicationsummary")
+                            @include("student.FormSteps.payment")
 
                             <li class="tab-content tabend typography">
                                 <div class="typography">

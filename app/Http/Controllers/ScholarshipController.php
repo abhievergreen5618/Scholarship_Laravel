@@ -31,7 +31,7 @@ class ScholarshipController extends Controller
         }
         else
         {
-            return view('form');
+            return view('student.form');
         }
     }
 
