@@ -65,7 +65,7 @@
           </li>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-graduation-cap"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 Subjects
                 <i class="right fas fa-angle-left"></i>
