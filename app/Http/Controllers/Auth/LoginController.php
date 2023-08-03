@@ -176,7 +176,7 @@ class LoginController extends Controller
             if (Auth::attempt($credentials,$remember)) {
                 return response()->json([
                     'message' => 'Login Successfully',
-                    'redirecturl' => route("start"),
+                    'redirecturl' => Auth::user()->role == "admin" ? route("admin.dashboard") : route("start"),
                 ],200);
             }
             else
