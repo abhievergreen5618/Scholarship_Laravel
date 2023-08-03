@@ -50,9 +50,13 @@ Route::get('/login/facebook',[LoginController::class,'redirectFacebook'])->name(
 Route::get('/login/facebook/callback',[LoginController::class,'facebookCallback'])->name('handleFacebookCallback');
 
 // Route::middleware(['auth'])->group(function () {
-    Route::controller(AdminController::class)->group(function () {
-        Route::get('/dashboard','index')->name('admin.dashboard');
-        });
+    // Route::controller(AdminController::class)->group(function () {
+    //     Route::get('/','index')->name('admin.dashboard');
+    //     });
 // });
 
 
+Route::get('/dashboard',function()
+{
+    return view('content');
+});
