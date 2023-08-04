@@ -108,6 +108,8 @@ class ScholarshipController extends Controller
                 "physicallychallengedproof" => $imageName ?? "",
                 "step1_updated_at" => now(),
             ]);
+            $states = \DB::table('state_model')->orderBy('name','ASC')->get();
+                $data['state_model'] = $states;
 
             return response()->json([
                 'message' => 'Saved successfully',
@@ -116,17 +118,17 @@ class ScholarshipController extends Controller
     }
 
 
-    public function state()
-    {
-        $data['states']=StateModel::get(["name","id"]);
-        return ($data);
-    }
+    // public function state()
+    // {
+    //     $data['states']=StateModel::get(["name","id"]);
+    //     return ($data);
+    // }
 
-    public function fetchDistrict(Request $request)
-    {
-        $data['district']=DistrictModel::where("statecode",$request->statecode)->get(["name","id"]);
-        return response()->json($data);
-    }
+    // public function fetchDistrict(Request $request)
+    // {
+    //     $data['district']=DistrictModel::where("statecode",$request->statecode)->get(["name","id"]);
+    //     return response()->json($data);
+    // }
 
 
     /**Store education data */
