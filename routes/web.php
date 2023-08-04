@@ -53,5 +53,3 @@ Route::controller(LoginController::class)->group(function(){
     });
 });
 
-Route::post('api/states', [ScholarshipController::class, 'State']);
-Route::post('api/fetch-district', [ScholarshipController::class, 'fetchDistrict']);

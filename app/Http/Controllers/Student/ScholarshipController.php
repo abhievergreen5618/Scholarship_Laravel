@@ -109,10 +109,8 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
 
-                $data['states'] = StateModel::get("name", "code");
-                return response()->json($data);
-       
-
+                // $data['states'] = StateModel::get("name", "code");
+                // return response()->json($data);
 
             return response()->json([
                 'message' => 'Saved successfully',
