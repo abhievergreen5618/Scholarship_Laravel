@@ -412,31 +412,4 @@
     </form>
 </li>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
-<script>
- $(document).ready(function () {
 
-    $('#state-dropdown').on('change',fuction()
-    {
-        var idState = this.value;
-        $("#district-dropdown").html('');
-        $.ajax({
-            url:"((url('personalinfosubmit')}}",
-            type:"POST",
-            data:{
-                state_id:idState,
-                _token: '{{csrf_token()}}'
-            },
-            dataType:'json',
-            success:function(res){
-                $('#district-dropdown').html('<option value="">-- SELECT DISTRICT --</option>');
-                $.each(res.district,function (key,value){
-                    $("#district-dropdown").append('<option value="' +value .id + '">' + value.name + '</option>');
-                });
-            }
-        });
-    });
- });
-
-    </script>
