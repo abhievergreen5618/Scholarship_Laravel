@@ -113,7 +113,6 @@ class ScholarshipController extends Controller
                 return $data;
                 
             return response()->json([
-                'data' => $data['state_models'],
                 'message' => 'Saved successfully',
             ],200)->with($data);
         }
