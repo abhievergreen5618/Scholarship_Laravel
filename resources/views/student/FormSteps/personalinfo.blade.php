@@ -96,11 +96,13 @@
                                 <div class="form-group mb-3">
                                 <select  id="state-dropdown" name="statedropdown" class="form-control">
                             <option value="">-- Select State --</option>
-                            @foreach ($states as $data)
-                            <option value="{{$data->id}}">
-                                {{$data->name}}
+                           @if(!empty($states))
+                            @foreach ($states as $state)
+                            <option value="{{$state->id}}">
+                                {{$state->name}}
                             </option>
                             @endforeach
+                            @endif
                         </select>
 
                         </div>
