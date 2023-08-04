@@ -108,8 +108,8 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-            $states = StateModel::table('state_model')->orderBy('name','ASC')->get();
-                $data['state_model'] = $states;
+            $states = StateModel::table('state_models')->orderBy('name','ASC')->get();
+                $data['state_models'] = $states;
                 return $data;
                 
             return response()->json([
