@@ -57,7 +57,7 @@
               </li>
               <li class="nav-item">
                 <a href="./index2.html" class="nav-link">
-                  <i class="fas fa-eye nav-icon"></i>
+                  <i class="fas fa-list nav-icon"></i>
                   <p>View All Students</p>
                 </a>
               </li>
@@ -80,7 +80,7 @@
               </li>
               <li class="nav-item">
                 <a href="./index2.html" class="nav-link">
-                  <i class="fas fa-eye nav-icon"></i>
+                  <i class="fas fa-list nav-icon"></i>
                   <p>View All Classes</p>
                 </a>
               </li>
