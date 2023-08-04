@@ -115,7 +115,7 @@ class ScholarshipController extends Controller
                 
             return response()->json([
                 'message' => 'Saved successfully',
-            ],200);
+            ],200)->with($data);
         }
     }
 
