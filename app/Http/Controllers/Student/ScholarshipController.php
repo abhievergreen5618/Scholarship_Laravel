@@ -11,6 +11,7 @@ use App\Models\PaymentsDetails;
 use App\Models\User;
 use App\Models\StateModel;
 use App\Models\DistrictModel;
+use Illuminate\Support\Facades\DB;
 
 class ScholarshipController extends Controller
 {
@@ -108,10 +109,12 @@ class ScholarshipController extends Controller
                 "physicallychallengedproof" => $imageName ?? "",
                 "step1_updated_at" => now(),
             ]);
+            
+            $states = DB::table('state_models')->get();
+                $data['state_model'] = $states;
 
-                // $data['states'] = StateModel::get("name", "code");
-                // return response()->json($data);
-
+                return $data;
+                
             return response()->json([
                 'message' => 'Saved successfully',
             ],200);
