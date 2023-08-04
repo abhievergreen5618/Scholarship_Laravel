@@ -8,7 +8,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form id="inspection-type-form" action="{{route('admin.create.createinspectiontype')}}" method="POST">
+        <form id="inspection-type-form" action="" method="POST">
             @csrf
             @isset($data)
                 <input type="hidden" name="id" value="{{encrypt($data->id)}}">
