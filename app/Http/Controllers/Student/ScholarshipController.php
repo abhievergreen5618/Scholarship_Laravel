@@ -111,7 +111,7 @@ class ScholarshipController extends Controller
             $states = StateModel::orderBy('name')->get();
                 $data['state_models'] = $states;
                 console.log($data);
-                // return $data;
+                return $data;
                 
             return response()->json([
                 'message' => 'Saved successfully',
