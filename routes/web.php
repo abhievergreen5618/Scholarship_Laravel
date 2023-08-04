@@ -5,6 +5,7 @@ use App\Http\Controllers\Student\ScholarshipController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,11 @@ Route::middleware(['auth'])->group(function () {
     // Admin Routes
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard','index')->name('admin.dashboard');
+    });
+
+
+    Route::controller(ClassController::class)->group(function () {
+        Route::get('/addclass','create')->name('admin.classes');
     });
 });
 
