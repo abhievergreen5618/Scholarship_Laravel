@@ -97,16 +97,11 @@
                                 <select  id="state-dropdown" name="statedropdown" class="form-control">
                             <option value="">-- Select State --</option>
                            @if(!empty($states))
-                            <!-- @foreach ($states as $state)
+                            @foreach ($states as $state)
                             <option value="{{$state->id}}">
                                 {{$state->name}}
                             </option>
-                            @endforeach -->
-
-                            @foreach(App\Models\StateModel::orderBy('name')->get() as $key => $value)
-                            <option value="{{$value->id }}">{{ $value->name }}</option>
                             @endforeach
-
                             @endif
                         </select>
 
