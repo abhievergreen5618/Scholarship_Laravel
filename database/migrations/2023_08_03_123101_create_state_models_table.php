@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('state_models', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('code', 2);
+            $table->string('code', 2)->unique();
             $table->timestamps();
         });
     }

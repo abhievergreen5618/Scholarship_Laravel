@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('district_models', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('statecode', 2)->unique();
+            $table->string('statecode', 2);
             $table->timestamps();
         });
     }
