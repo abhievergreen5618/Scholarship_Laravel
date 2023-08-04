@@ -111,7 +111,7 @@ class ScholarshipController extends Controller
             ]);
             
             $states = DB::table('state_models')->get();
-                $data['state_model'] = $states;
+                $data['state_models'] = $states;
 
                 return $data;
                 
