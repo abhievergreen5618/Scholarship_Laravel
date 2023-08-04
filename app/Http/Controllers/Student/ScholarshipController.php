@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\EducationDetails;
 use App\Models\PaymentsDetails;
 use App\Models\User;
+use App\Models\StateModel;
+use App\Models\DistrictModel;
 
 class ScholarshipController extends Controller
 {
@@ -44,6 +46,7 @@ class ScholarshipController extends Controller
             "fathername" => "required",
             "mothername" => "required",
             "examcentre" => "required",
+            "statedropdown" => "required",
             "caddress" => "required",
             "mobileno" => "required",
             "paddress" => "required",
@@ -88,6 +91,7 @@ class ScholarshipController extends Controller
                 "fathername" => $request['fathername'],
                 "mothername" => $request['mothername'],
                 "examcentre" => $request['examcentre'],
+                "statedropdown" => $request['statedropdown'],
                 "caddress" => $request['caddress'],
                 "paddress" => $request['paddress'],
                 "dob" => $request['dob'] ?? "",
@@ -109,6 +113,19 @@ class ScholarshipController extends Controller
                 'message' => 'Saved successfully',
             ],200);
         }
+    }
+
+
+    public function state()
+    {
+        $data['states']=StateModel::get(["name","id"]);
+        return ($data);
+    }
+
+    public function fetchDistrict(Request $request)
+    {
+        $data['district']=DistrictModel::where("statecode",$request->statecode)->get(["name","id"]);
+        return response()->json($data);
     }
 
 

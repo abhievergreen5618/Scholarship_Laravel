@@ -85,6 +85,35 @@
                                         </select></span>
                                 </td>
                             </tr>
+<!------------------------------------------------->
+<tr id="ctl00_ContentPlaceHolder1_trExamCenter">
+                                <td class="vtext">Examination Centre for Entrance Test <span style="color: red">*</span><br>
+                                    <strong>प्रवेश परीक्षा के लिए परीक्षा केन्द्र</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                
+                                <div class="form-group mb-3">
+                                <select  id="state-dropdown" name="statedropdown" class="form-control">
+                            <option value="">-- Select State --</option>
+                            @foreach ($states as $data)
+                            <option value="{{$data->id}}">
+                                {{$data->name}}
+                            </option>
+                            @endforeach
+                        </select>
+
+                        </div>
+
+                        <div class="form-group">
+                        <select id="district-dropdown" class="form-control">
+                        </select>
+                    </div>
+
+                                </td>
+                            </tr>
+<!-------------------------------------------------->
+
                             <tr>
                                 <td class="vtext">Address for Correspondence (IN CAPITAL LETTERS) <span style="color: red">*</span>
                                     <br>
@@ -380,3 +409,32 @@
         <button type="submit" class="btn btn-warning">Save</button>
     </form>
 </li>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+<script>
+ $(document).ready(function () {
+
+    $('#state-dropdown').on('change',fuction()
+    {
+        var idState = this.value;
+        $("#district-dropdown").html('');
+        $.ajax({
+            url:"((url('personalinfosubmit')}}",
+            type:"POST",
+            data:{
+                state_id:idState,
+                _token: '{{csrf_token()}}'
+            },
+            dataType:'json',
+            success:function(res){
+                $('#district-dropdown').html('<option value="">-- SELECT DISTRICT --</option>');
+                $.each(res.district,function (key,value){
+                    $("#district-dropdown").append('<option value="' +value .id + '">' + value.name + '</option>');
+                });
+            }
+        });
+    });
+ });
+
+    </script>
