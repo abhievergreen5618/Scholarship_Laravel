@@ -73,7 +73,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="{{route('admin.classes')}}" class="nav-link active">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Add Class</p>
                 </a>
