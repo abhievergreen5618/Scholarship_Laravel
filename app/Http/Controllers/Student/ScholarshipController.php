@@ -110,10 +110,10 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-            $states = DB::table('state_models')->get();
+            $states = DB::table('state_models')->get(["name"]);
                 $data['state_models'] = $states;
-            dd($data);
-                // return $data;
+
+                return $data;
                 
             return response()->json([
                 'message' => 'Saved successfully',
@@ -121,18 +121,6 @@ class ScholarshipController extends Controller
         }
     }
 
-
-    // public function state()
-    // {
-    //     $data['states']=StateModel::get(["name","id"]);
-    //     return ($data);
-    // }
-
-    // public function fetchDistrict(Request $request)
-    // {
-    //     $data['district']=DistrictModel::where("statecode",$request->statecode)->get(["name","id"]);
-    //     return response()->json($data);
-    // }
 
 
     /**Store education data */
