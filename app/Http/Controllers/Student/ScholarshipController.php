@@ -11,6 +11,7 @@ use App\Models\PaymentsDetails;
 use App\Models\User;
 use App\Models\StateModel;
 use App\Models\DistrictModel;
+use Illuminate\Support\Facades\DB;
 
 class ScholarshipController extends Controller
 {
@@ -108,13 +109,13 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-            $states = StateModel::orderBy('name')->get();
+            $states = DB::table('state_models')->orderBy('name','ASC')->get();
                 $data['state_models'] = $states;
                 return $data;
                 
             return response()->json([
                 'message' => 'Saved successfully',
-            ],200)->with($data);
+            ],200);
         }
     }
 
