@@ -99,7 +99,7 @@
                            @if(!empty($data))
                             @foreach ($data as $state)
                             <option value="{{ $state->id }}">
-                                {{$state->name}}
+                                {{ $state->name }}
                             </option>
                             @endforeach
                             @endif
