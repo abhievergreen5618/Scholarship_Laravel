@@ -110,13 +110,12 @@ class ScholarshipController extends Controller
             
             $states = StateModel::orderBy('name')->get();
                 $data['state_models'] = $states;
-                console.log($data);
-                return $data['state_models'];
+                return $data;
                 
             return response()->json([
                 'data' => $data['state_models'],
                 'message' => 'Saved successfully',
-            ],200);
+            ],200)->with($data);
         }
     }
 
