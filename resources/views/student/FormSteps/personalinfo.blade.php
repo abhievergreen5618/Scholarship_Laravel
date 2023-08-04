@@ -97,7 +97,7 @@
                                 <select  id="state-dropdown" name="statedropdown" class="form-control">
                             <option value="">-- Select State --</option>
 
-                            @foreach ($data[state_models] as $state)
+                            @foreach ($data as $state)
                             <option value="{{ $state->id }}">
                                 {{ $state->name }}
                             </option>
