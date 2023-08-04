@@ -109,9 +109,7 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-            $states = DB::table('state_models')->orderBy('name','ASC')->get();
-                $data['state_models'] = $states;
-                
+            $states = StateModel::orderBy('name')->get();    
             return response()->json([
                 'message' => 'Saved successfully',
             ],200)->with('states',$data);
