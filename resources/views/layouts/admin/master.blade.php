@@ -22,13 +22,15 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        @include('layouts.admin.header')
-        @include('layouts.admin.sidebar')
-        @yield('content')
-        @include('layouts.admin.footer')
+    <div class="content-wrapper" style="min-height: 214px;">
+        <div class="container-fluid mt-2">
+            @include('layouts.admin.header')
+            @include('layouts.admin.sidebar')
+            @yield('content')
+            @include('layouts.admin.footer')
+        </div>
     </div>
-        @stack("footer_extras")
+    @stack("footer_extras")
 </body>
 
 </html>
