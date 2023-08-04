@@ -11,7 +11,6 @@ use App\Models\PaymentsDetails;
 use App\Models\User;
 use App\Models\StateModel;
 use App\Models\DistrictModel;
-use Illuminate\Support\Facades\DB;
 
 class ScholarshipController extends Controller
 {
@@ -92,7 +91,6 @@ class ScholarshipController extends Controller
                 "fathername" => $request['fathername'],
                 "mothername" => $request['mothername'],
                 "examcentre" => $request['examcentre'],
-                "statedropdown" => $request['statedropdown'],
                 "caddress" => $request['caddress'],
                 "paddress" => $request['paddress'],
                 "dob" => $request['dob'] ?? "",
@@ -110,9 +108,8 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-            $states = DB::table('state_models')->get(["name"]);
-                $data['state_models'] = $states;
-
+            $states = StateModel::table('state_model')->orderBy('name','ASC')->get();
+                $data['state_model'] = $states;
                 return $data;
                 
             return response()->json([
@@ -121,6 +118,18 @@ class ScholarshipController extends Controller
         }
     }
 
+
+    // public function state()
+    // {
+    //     $data['states']=StateModel::get(["name","id"]);
+    //     return ($data);
+    // }
+
+    // public function fetchDistrict(Request $request)
+    // {
+    //     $data['district']=DistrictModel::where("statecode",$request->statecode)->get(["name","id"]);
+    //     return response()->json($data);
+    // }
 
 
     /**Store education data */

@@ -86,7 +86,7 @@
                                 </td>
                             </tr>
 <!------------------------------------------------->
-<tr id="ctl00_ContentPlaceHolder1_trExamCenter">
+                    <tr id="ctl00_ContentPlaceHolder1_trExamCenter">
                                 <td class="vtext">Examination Centre for Entrance Test <span style="color: red">*</span><br>
                                     <strong>प्रवेश परीक्षा के लिए परीक्षा केन्द्र</strong>
                                 </td>
