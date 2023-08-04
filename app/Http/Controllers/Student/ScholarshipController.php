@@ -108,11 +108,12 @@ class ScholarshipController extends Controller
                 "physicallychallengedproof" => $imageName ?? "",
                 "step1_updated_at" => now(),
             ]);
-            
-            $states = DB::table('state_model')->orderBy('name','ASC')->get();
-                $data['state_model'] = $states;
 
-                return view($data);
+                $data['states'] = StateModel::get("name", "code");
+                return response()->json($data);
+       
+
+
             return response()->json([
                 'message' => 'Saved successfully',
             ],200);
