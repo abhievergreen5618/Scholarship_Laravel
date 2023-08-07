@@ -17,20 +17,23 @@ class ScholarshipController extends Controller
 {
     public function index()
     {
+        $states = DB::table('state_models')->orderBy('name')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
             $step2graduationdata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'graduation'])->first();
             $step2postgraduationdata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'post_graduation'])->first();
+            
             return view('student.form')->with([
                 "step2schooldata" => $step2schooldata,
                 "step2graduationdata" => $step2graduationdata,
-                "step2postgraduationdata" => $step2postgraduationdata
+                "step2postgraduationdata" => $step2postgraduationdata,
+                "states" => $states
             ]);
         }
         else
         {
-            return view('student.form');
+            return view('student.form')->with(['states'=>$states]);
         }
     }
 
@@ -110,26 +113,12 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-            $states = DB::table('state_models')->orderBy('name')->get();    
+               
             return response()->json([
                 'message' => 'Saved successfully',
-            ],200)->with('states',$states);
+            ],200);
         }
     }
-
-
-    // public function state()
-    // {
-    //     $data['states']=StateModel::get(["name","id"]);
-    //     return ($data);
-    // }
-
-    // public function fetchDistrict(Request $request)
-    // {
-    //     $data['district']=DistrictModel::where("statecode",$request->statecode)->get(["name","id"]);
-    //     return response()->json($data);
-    // }
-
 
     /**Store education data */
     public function educationInfoStore(Request $request){
