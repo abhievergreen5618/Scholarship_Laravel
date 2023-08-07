@@ -92,6 +92,7 @@ class ScholarshipController extends Controller
                 "fathername" => $request['fathername'],
                 "mothername" => $request['mothername'],
                 "examcentre" => $request['examcentre'],
+                "statedropdown" => $request['statedropdown'],
                 "caddress" => $request['caddress'],
                 "paddress" => $request['paddress'],
                 "dob" => $request['dob'] ?? "",
