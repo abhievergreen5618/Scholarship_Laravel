@@ -18,7 +18,7 @@ class ScholarshipController extends Controller
     public function index()
     {
         $states = StateModel::orderBy('name')->get();
-        $statecodes = StateModel::pluck('statecode')->toArray();
+        $statecodes = DistrictModel::pluck('statecode')->toArray();
         $districts = DistrictModel::whereIn(['statecode'],$statecodes)->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
