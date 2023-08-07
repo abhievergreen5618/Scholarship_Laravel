@@ -30,7 +30,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
     });
 
-    Route::get('/',[ScholarshipController::class,'getDistricts']);
 
     // Admin Routes
     Route::controller(DashboardController::class)->group(function () {
@@ -40,7 +39,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(ClassController::class)->group(function () {
         Route::get('/addclass','create')->name('admin.classes');
-        Route::post('/createclass','store')->name('admin.class.store');
     });
 });
 
