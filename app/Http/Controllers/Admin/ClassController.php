@@ -39,12 +39,7 @@ class ClassController extends Controller
         dd($request->all());
     }
 
-    public function messages()
-    {
-        return [
-            'required.*' => 'This field is required',
-        ];
-    }
+
 
     public function show($id)
     {
