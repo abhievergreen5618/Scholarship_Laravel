@@ -122,11 +122,11 @@ $(document).ready(function () {
 });
 
 
-var employeetable = $('#employeetable').DataTable({
+var classtable = $('#classtable').DataTable({
     "processing": true,
     "serverSide": true,
     "ajax": {
-        "url": "employee-details",
+        "url": "classdetails",
         "type": "POST",
         'beforeSend': function (request) {
             request.setRequestHeader("X-CSRF-TOKEN", jQuery('meta[name="csrf-token"]').attr('content'));
