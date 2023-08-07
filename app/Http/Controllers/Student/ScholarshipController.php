@@ -29,7 +29,8 @@ class ScholarshipController extends Controller
                 "step2schooldata" => $step2schooldata,
                 "step2graduationdata" => $step2graduationdata,
                 "step2postgraduationdata" => $step2postgraduationdata,
-                "states" => $states
+                "states" => $states,
+                "districts" => $districts
             ]);
         }
         else
