@@ -31,11 +31,6 @@
                     <div class="form-group mb-2">
                         <label for="exampleInputEmail1">{{ __('Description') }}</label>
                         <textarea class="form-control @error('description') {{ 'is-invalid' }} @enderror" id="description" name="description" rows="3" placeholder="Enter ...">{{@old('name',$data->description)}}</textarea>
-                        @error('description')
-                        <div>
-                            <label class="error fail-alert  mt-1">{{ $message }}</label>
-                        </div>
-                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="">{{ __('Status') }}</label>
