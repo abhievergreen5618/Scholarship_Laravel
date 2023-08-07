@@ -19,8 +19,8 @@
                         <label>Select</label>
                         <select class="form-control">
                             <option>Select Class</option>
-                            @for($i=1;$i<=12:$i++)
-                                {{$i}}
+                            @for($i=1;$i<=12;$i++)
+                                <option value="{{$i}}">{{$i}}</option>
                             @endfor
                         </select>
                     </div>
