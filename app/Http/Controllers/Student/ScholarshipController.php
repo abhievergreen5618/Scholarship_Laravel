@@ -17,10 +17,16 @@ class ScholarshipController extends Controller
 {
     public function index()
     {
-        $states = StateModel::orderBy(['name' => 'asc',
-        'code' => 'asc'])->get();
-        $statecode = $states->pluck('statecode')->toArray();
-        $districts = DistrictModel::where(['statecode',$statecode]) ->orderBy('statecode', 'asc')->get();
+        $states = StateModel::orderBy([
+            'name' => 'asc',
+            'code' => 'asc'
+        ])->get();
+        
+        $statecodes = $states->pluck('statecode')->toArray();
+        
+        $districts = DistrictModel::whereIn('statecode', $statecodes)
+                                  ->orderBy('statecode', 'asc')
+                                  ->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
