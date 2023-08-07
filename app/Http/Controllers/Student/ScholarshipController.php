@@ -92,6 +92,7 @@ class ScholarshipController extends Controller
                 "fathername" => $request['fathername'],
                 "mothername" => $request['mothername'],
                 "examcentre" => $request['examcentre'],
+                "statedropdown" => $request['statedropdown'],
                 "caddress" => $request['caddress'],
                 "paddress" => $request['paddress'],
                 "dob" => $request['dob'] ?? "",
@@ -109,10 +110,10 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-            $states = StateModel::orderBy('name')->get();    
+            $states = DB::table('state_models')->orderBy('name')->get();    
             return response()->json([
                 'message' => 'Saved successfully',
-            ],200)->with('states',$data);
+            ],200)->with('states',$states);
         }
     }
 
