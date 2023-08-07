@@ -79,7 +79,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="{{route('admin.class.index')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>View All Classes</p>
                 </a>

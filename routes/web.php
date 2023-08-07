@@ -38,8 +38,11 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::controller(ClassController::class)->group(function () {
+        Route::get('/getclass','index')->name('admin.class.index');
         Route::get('/addclass','create')->name('admin.classes');
         Route::post('/createclass','store')->name('admin.class.store');
+        Route::post('/classdetails', 'display')->name('admin.class.details');
+        Route::get('/classupdate', 'update')->name('admin.class.edit');
     });
 });
 
