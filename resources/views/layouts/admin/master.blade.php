@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminltenew.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('adminlte/dist/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     @stack("header_extras")
 </head>
 
