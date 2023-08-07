@@ -25,7 +25,7 @@ class ClassController extends Controller
         //    dd($request->all());
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
-            $data = ClassModel::latest()->get(['id','class','description','status']);
+            $data = ClassModel::latest()->get(['class','description','status']);
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
