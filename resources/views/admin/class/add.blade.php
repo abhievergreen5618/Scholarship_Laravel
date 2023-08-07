@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label>Class</label>
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
-                            <option>Select Class</option>
+                            <option value="">Select Class</option>
                             @for($i=1;$i<=12;$i++) <option value="{{$i}}">{{$i}}</option>
                                 @endfor
                         </select>
