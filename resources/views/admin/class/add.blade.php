@@ -53,10 +53,10 @@
                         </div>
                         @enderror
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
-                    </div>
                 </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
             </div>
         </form>
     </div>
