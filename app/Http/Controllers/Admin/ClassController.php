@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClassRequest;
+use App\Models\ClassModel;
 
 class ClassController extends Controller
 {
@@ -36,7 +37,11 @@ class ClassController extends Controller
      */
     public function store(ClassRequest $request)
     {
-
+        ClassModel::create([
+            "class" => $request->class,
+            "description" => $request->description,
+            "status" => $request->status,
+        ]);
     }
 
 
