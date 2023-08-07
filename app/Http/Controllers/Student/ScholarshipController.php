@@ -19,7 +19,7 @@ class ScholarshipController extends Controller
     {
         $states = StateModel::orderBy('name','code')->get();
         $statecode = $states->pluck('statecode')->toArray();
-        $districts = DistrictModel::where(['statecode',$statecode])->get();
+        $districts = DistrictModel::where(['statecode',$statecode]) ->orderBy('statecode', 'asc')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
