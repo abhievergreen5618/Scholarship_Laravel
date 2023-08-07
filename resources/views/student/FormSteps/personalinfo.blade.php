@@ -420,7 +420,7 @@
             var state_code = this.value;
             $("#district-dropdown").html('');
                 $.ajax({
-                    url:"{{ url('/') }}",
+                    url:"{{ url('/personalinfosubmit') }}",
                     type:"POST",
                     data:{
                         statecode : state_code,
