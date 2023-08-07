@@ -411,26 +411,28 @@
         <button type="submit" class="btn btn-warning">Save</button>
     </form>
 </li>
-
+<script src="{{ asset('js/jquery.js') }}"></script>
 <script>
     $(document).ready(function()
     {
         $('#state-dropdown').on('change',function()
         {
-            var statecode = $(this).val();
-            if(statecode){
+            var state_code = this.value;
+            $("#district-dropdown").html('');
                 $.ajax({
-                    url:'',
+                    url:"{{ url('/') }}",
                     type:"GET",
-                    data:{"_token":"{{ csrf_token() }}"},
+                    data:{
+                        statecode : state_code,
+                        _token:"{{ csrf_token() }}"
+                    },
                     datatype:"json",
-                    success:function(data)
+                    success:function(res)
                     {
                         if(data){
-                            $('#district-dropdown').empty();
-                            $('#district-dropdown').append('<option hidden>-- Select District --</option>');
-                            $.each(data, function(key, district){
-                                $('select[name="district"]').append('<option value="'+key+'">' +district.name+ '</option>');
+                            $('#district-dropdown').html('<option value="">-- Select District --</option>');
+                            $.each(res.districts, function(key, value){
+                                $('#district-dropdown').append('<option value="'+ value.id +'">' +value.name+ '</option>');
                             });
                         }
                         else {
@@ -438,7 +440,6 @@
                         }
                     }
                 });
-            }
         });
     });
 </script>
