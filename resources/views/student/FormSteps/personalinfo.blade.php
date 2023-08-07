@@ -430,7 +430,7 @@
                     datatype:"json",
                     success:function(res)
                     {
-                        if(data){
+                        if(res.districts){
                             $('#district-dropdown').html('<option value="">-- Select District --</option>');
                             $.each(res.districts, function(key, value){
                                 $('#district-dropdown').append('<option value="'+ value.id +'">' +value.name+ '</option>');

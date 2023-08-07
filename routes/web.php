@@ -39,7 +39,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(ClassController::class)->group(function () {
         Route::get('/addclass','create')->name('admin.classes');
-        Route::post('/createclass','store')->name('admin.class.store');
     });
 });
 

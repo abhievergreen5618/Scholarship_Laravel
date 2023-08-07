@@ -18,8 +18,7 @@ class ScholarshipController extends Controller
     public function index()
     {
         $states = StateModel::orderBy('name')->get();
-        $statecodes = StateModel::pluck('statecode')->toArray();
-        $districts = DistrictModel::whereIn(['statecode'],$statecodes)->get();
+        $districts = DistrictModel::pluck('statecode')->toArray();
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
@@ -30,7 +29,8 @@ class ScholarshipController extends Controller
                 "step2schooldata" => $step2schooldata,
                 "step2graduationdata" => $step2graduationdata,
                 "step2postgraduationdata" => $step2postgraduationdata,
-                "states" => $states
+                "states" => $states,
+                "districts" => $districts
             ]);
         }
         else
@@ -38,6 +38,16 @@ class ScholarshipController extends Controller
             return view('student.form')->with(['states'=>$states],['districts'=>$districts]);
         }
     }
+
+    public function getDistricts(Request $request)
+{
+    $statecode = $request->input('statecode');
+
+    // Fetch districts based on the statecode
+    $districts = DistrictModel::where('statecode', $statecode)->get();
+
+    return response()->json(['districts' => $districts]);
+}
 
     /**
      * Show the form for creating a new resource.
