@@ -17,7 +17,8 @@ class ScholarshipController extends Controller
 {
     public function index()
     {
-        $states = DB::table('state_models')->orderBy('name')->get();
+        $states = StateModel::orderBy('name')->get();
+        $districts = DistrictModel::orderBy('statecode')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
@@ -33,7 +34,7 @@ class ScholarshipController extends Controller
         }
         else
         {
-            return view('student.form')->with(['states'=>$states]);
+            return view('student.form')->with(['states'=>$states],['districts'=>$districts]);
         }
     }
 

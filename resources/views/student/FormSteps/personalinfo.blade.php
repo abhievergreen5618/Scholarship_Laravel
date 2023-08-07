@@ -412,4 +412,34 @@
     </form>
 </li>
 
+<script>
+    $(document).ready(function()
+    {
+        $('#state-dropdown').on('change',function()
+        {
+            var statecode = $(this).val();
+            if(statecode){
+                $.ajax({
+                    url:'',
+                    type:"GET",
+                    data:{"_token":"{{ csrf_token() }}"},
+                    datatype:"json",
+                    success:function(data)
+                    {
+                        if(data){
+                            $('#district-dropdown').empty();
+                            $('#district-dropdown').append('<option hidden>-- Select District --</option>');
+                            $.each(data, function(key, district){
+                                $('select[name="district"]').append('<option value="'+key+'">' +district.name+ '</option>');
+                            });
+                        }
+                        else {
+                            $('#district-dropdown').empty();
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
 
