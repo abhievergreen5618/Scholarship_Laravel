@@ -33,7 +33,8 @@ class ClassRequest extends FormRequest
     public function messages()
     {
         return [
-            'required.*' => 'This field is required',
+            'required.class' => 'This field is required',
+            'required.status' => 'This field is required',
         ];
     }
 }
