@@ -36,7 +36,7 @@ class ClassController extends Controller
      */
     public function store(ClassRequest $request)
     {
-        dd($request->all());
+
     }
 
 
