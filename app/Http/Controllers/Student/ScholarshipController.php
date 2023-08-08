@@ -45,7 +45,7 @@ class ScholarshipController extends Controller
             return response()->json(['message' => 'No districts found for the given state code.']);
         }
 
-        return view('student.form')->with(['districts'=>$districts]);
+        return response()->json($districts);
     } catch (\Exception $e) {
         return response()->json(['error' => $e->getMessage()]);
     }
