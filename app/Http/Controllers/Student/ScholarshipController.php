@@ -115,7 +115,7 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-        $districts = DistrictModel::where('statecode')->get();
+        $districts = DistrictModel::where('statecode',$request->$statecode)->get();
                
             return response()->json([
                 'message' => 'Saved successfully',
