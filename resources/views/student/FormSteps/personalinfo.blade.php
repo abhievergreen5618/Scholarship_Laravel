@@ -436,6 +436,7 @@
                 $('select[name="district-dropdown"]').empty();
             }
         });
+        
     });
 </script>
 
