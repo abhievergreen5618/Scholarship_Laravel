@@ -18,6 +18,9 @@ class ScholarshipController extends Controller
     public function index()
     {
         $states = StateModel::orderBy('name')->get();
+        dd($states);
+        $districts = DistrictModel::where('statecode')->get();
+        dd($districts);
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
@@ -28,15 +31,17 @@ class ScholarshipController extends Controller
                 "step2schooldata" => $step2schooldata,
                 "step2graduationdata" => $step2graduationdata,
                 "step2postgraduationdata" => $step2postgraduationdata,
-                "states" => $states
+                "states" => $states,
+                "districts" => $districts
             ]);
         }
         else
         {
-            return view('student.form')->with(['states'=>$states]);
+            return view('student.form')->with(['states'=>$states],['districts'=>$districts]);
         }
     }
 
+   
 
     /**
      * Show the form for creating a new resource.
@@ -69,8 +74,7 @@ class ScholarshipController extends Controller
         ],
         [
              "required" => "This field is required.",
-             "required_if
-             " => "This field is required.",
+             "required_if" => "This field is required.",
         ]
     );
 
@@ -81,7 +85,7 @@ class ScholarshipController extends Controller
             }
             return response()->json([
                 'error' => $errors
-            ],422)->with(['districts'=>$districts]);
+            ],422);
         }
         else
         {
@@ -115,7 +119,6 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
             
-        $districts = DistrictModel::where('statecode',$request->$statecode)->get();
                
             return response()->json([
                 'message' => 'Saved successfully',
