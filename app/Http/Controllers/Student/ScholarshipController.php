@@ -15,9 +15,23 @@ use Illuminate\Support\Facades\DB;
 
 class ScholarshipController extends Controller
 {
-    public function index()
+    public function index( $statecode = null )
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
+
+
+        try {
+            $districts = DistrictModel::where('statecode', $statecode)->pluck('name');
+            dd($districts);
+            if ($districts->isEmpty()) {
+                return response()->json(['message' => 'No districts found for the given state code.']);
+            }
+            return view('student.form')->with(['districts'=>$districts]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+
+
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
@@ -37,19 +51,6 @@ class ScholarshipController extends Controller
         }
     }
 
-   public function getDistricts($statecode)
-   {
-    try {
-        $districts = DistrictModel::where('statecode', $statecode)->pluck('name');
-        dd($districts);
-        if ($districts->isEmpty()) {
-            return response()->json(['message' => 'No districts found for the given state code.']);
-        }
-        return view('student.form')->with(['districts'=>$districts]);
-    } catch (\Exception $e) {
-        return response()->json(['error' => $e->getMessage()]);
-    }
-   }
 
     /**
      * Show the form for creating a new resource.
