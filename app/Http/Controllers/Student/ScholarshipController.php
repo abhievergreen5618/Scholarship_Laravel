@@ -15,10 +15,14 @@ use Illuminate\Support\Facades\DB;
 
 class ScholarshipController extends Controller
 {
-    public function index($statecode)
+    public function index( $statecode = null )
     {
         $states = StateModel::orderBy('name')->get();
-        $districts = DistrictModel::where('statecode',$statecode)->pluck('name');
+        if($statecode != null){
+            $districts = DB::table("district_models")->where("statecode",$statecode)->pluck('name');
+
+            return json_encode(['states'=>$states, 'districts'=>$districts]);
+        }
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
@@ -29,13 +33,12 @@ class ScholarshipController extends Controller
                 "step2schooldata" => $step2schooldata,
                 "step2graduationdata" => $step2graduationdata,
                 "step2postgraduationdata" => $step2postgraduationdata,
-                "states" => $states,
-                "districts" => $districts
+                "states" => $states
             ]);
         }
         else
         {
-            return view('student.form')->with(['states'=>$states],['districts'=>$districts]);
+            return view('student.form')->with(['states'=>$states]);
         }
     }
 
