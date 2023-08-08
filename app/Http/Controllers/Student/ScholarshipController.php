@@ -17,7 +17,7 @@ class ScholarshipController extends Controller
 {
     public function index()
     {
-        $states = StateModel::orderBy('name')->get();
+        $states = StateModel::orderBy('name','code')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
