@@ -25,7 +25,7 @@ class ScholarshipController extends Controller
         }
         else 
         {
-            return view('student.form')->with(['states'=>$states],['districts'=>$districts]);
+            return view('student.form')->with(['states'=>$states]);
         }
         if(!empty(Auth::user()->step2_updated_at))
         {
