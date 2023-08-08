@@ -422,13 +422,14 @@
             console.log(stateCode);
             if(stateCode){
                 $.ajax({
-                    url: '/',
+                    url: '/get-districts/' + stateCode,
                     type:"GET",
                     datatype:"json",
                     success:function(data){
                         $('#district-dropdown').empty();
                         $.each(data,function(key,value){
                             $('#district-dropdown').append('<option value="'+key +'">'+ value +'</option>');
+
                         });
                     }
                 });
