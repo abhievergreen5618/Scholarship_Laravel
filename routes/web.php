@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
         Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
-        Route::get('/get-districts/{statecode}','getDistricts');
+        Route::get('/get-districts/{stateCode}','getDistricts');
     });
 
 
