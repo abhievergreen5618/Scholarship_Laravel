@@ -39,15 +39,6 @@ class ScholarshipController extends Controller
         }
     }
 
-    public function getDistricts(Request $request)
-{
-    $statecode = $request->input('statecode');
-
-    // Fetch districts based on the statecode
-    $districts = DistrictModel::where('statecode', $statecode)->get();
-
-    return response()->json(['districts' => $districts]);
-}
 
     /**
      * Show the form for creating a new resource.
