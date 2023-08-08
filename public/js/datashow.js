@@ -3,11 +3,11 @@ $(document).ready(function () {
         $(this).alert('close');
     });
     //employee-list with the DataTables
-    var employeetable = $('#employeetable').DataTable({
+    var classtable = $('#classtable').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "employee-details",
+            "url": "class-details",
             "type": "POST",
             'beforeSend': function (request) {
                 request.setRequestHeader("X-CSRF-TOKEN", jQuery('meta[name="csrf-token"]').attr('content'));
@@ -17,32 +17,14 @@ $(document).ready(function () {
             { "className": "dt-center", "targets": "_all" }
         ],
         "columns": [
-            // {
-            //     "data": "created_at",
-            // },
-            // {
-            //     "data": "id",
-            // },
             {
                 "data": "name",
             },
             {
-                "data": "email",
+                "data": "description",
             },
             {
-                "data": "company_phonenumber",
-            },
-            // {
-            //     "data": "company_address",
-            // },
-            {
-                "data": "city",
-            },
-            {
-                "data": "state",
-            },
-            {
-                "data": "zip_code",
+                "data": "status",
             },
             {
                 "data": "action",
