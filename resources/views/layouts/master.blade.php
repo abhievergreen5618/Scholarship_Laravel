@@ -35,6 +35,7 @@
     </div>
     @include('layouts.partials.admin.footer')
     <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('js/datashow.js')}}"></script>
 
     @stack("footer_extras")
 </body>
