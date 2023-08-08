@@ -418,22 +418,23 @@
     {
         $('#state-dropdown').on('change',function()
         {
-            var stateCode = this.value;
-            console.log(stateCode);
-            if(stateCode){
+            var stateID = this.value;
+            console.log(stateID);
+            if(stateID){
                 $.ajax({
-                    url: '/get-districts/' + stateCode,
+                    url: '/get-districts/' + stateID,
                     type:"GET",
                     datatype:"json",
                     success:function(data){
-                        $('select[name="district-dropdown"]').empty();
+                        $('#district-dropdown').empty();
                         $.each(data,function(key,value){
-                            $('select[name="district-dropdown"]').append('<option value="'+key +'">'+ value +'</option>');
+                            $('#district-dropdown').append('<option value="'+key +'">'+ value +'</option>');
+                            
                         });
                     }
                 });
             }else {
-                $('select[name="district-dropdown"]').empty();
+                $('#district-dropdown').empty();
             }
         });
         
