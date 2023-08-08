@@ -422,7 +422,7 @@
             console.log(stateCode);
             if(stateCode){
                 $.ajax({
-                    url: '/' + stateCode,
+                    url: '/',
                     type:"GET",
                     datatype:"json",
                     success:function(data){
