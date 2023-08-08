@@ -22,7 +22,7 @@ class ScholarshipController extends Controller
 
         try {
             $districts = DistrictModel::where('statecode', $statecode)->pluck('name');
-            dd($districts);
+            
             if ($districts->isEmpty()) {
                 return response()->json(['message' => 'No districts found for the given state code.']);
             }
