@@ -44,7 +44,6 @@ class ScholarshipController extends Controller
         if ($districts->isEmpty()) {
             return response()->json(['message' => 'No districts found for the given state code.']);
         }
-
         return response()->json($districts);
     } catch (\Exception $e) {
         return response()->json(['error' => $e->getMessage()]);
