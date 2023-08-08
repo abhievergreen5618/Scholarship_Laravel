@@ -422,7 +422,7 @@
             console.log(stateCode);
             if(stateCode){
                 $.ajax({
-                    url: '/get-districts/' + stateCode,
+                    url: '/' + stateCode,
                     type:"GET",
                     datatype:"json",
                     success:function(data){
