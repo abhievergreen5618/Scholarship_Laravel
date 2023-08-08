@@ -418,11 +418,11 @@
     {
         $('#state-dropdown').on('change',function()
         {
-            var stateID = this.value;
-            console.log(stateID);
-            if(stateID){
+            var stateCode = this.value;
+            console.log(stateCode);
+            if(stateCode){
                 $.ajax({
-                    url: '/get-districts/' + stateID,
+                    url: '/get-districts/' + stateCode,
                     type:"GET",
                     datatype:"json",
                     success:function(data){
