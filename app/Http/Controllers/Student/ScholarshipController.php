@@ -19,7 +19,7 @@ class ScholarshipController extends Controller
     {
         $states = StateModel::orderBy('name')->get();
         if($statecode != null){
-            $districts = DB::table("district_models")->where("statecode",$statecode)->pluck('name');
+            $districts = DistrictModel::where("statecode",$statecode)->pluck('name');
 
             return json_encode(['states'=>$states, 'districts'=>$districts]);
         }
