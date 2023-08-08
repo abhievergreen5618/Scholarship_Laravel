@@ -421,7 +421,7 @@
             var stateCode = $(this).val();
             if(stateCode){
                 $.ajax({
-                    url: '/' + stateCode,
+                    url: '/get-districts/' + stateCode,
                     type:"GET",
                     datatype:"json",
                     success:function(data){
