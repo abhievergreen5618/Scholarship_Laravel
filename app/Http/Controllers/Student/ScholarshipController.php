@@ -18,7 +18,6 @@ class ScholarshipController extends Controller
     public function index()
     {
         $states = StateModel::orderBy('name')->get();
-        dd($states);
         $districts = DistrictModel::where('statecode')->get();
         dd($districts);
         if(!empty(Auth::user()->step2_updated_at))

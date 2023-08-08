@@ -108,7 +108,7 @@
                         </div>
 
                         <div class="form-group">
-                        <select id="district-dropdown" class="form-control">
+                        <select id="district-dropdown" name="district-dropdown" class="form-control">
                         </select>
                     </div>
 
@@ -420,7 +420,7 @@
             var stateCode = $(this).val();
             if(stateCode){
                 $.ajax({
-                    url: '',
+                    url: '/',
                     type:"GET",
                     datatype:"json",
                     success:function(data){
