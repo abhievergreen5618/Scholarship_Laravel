@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
     });
 
+    Route::get('/get-districts/{statecode}','ScholarshipController@getDistricts');
 
     // Admin Routes
     Route::controller(DashboardController::class)->group(function () {
