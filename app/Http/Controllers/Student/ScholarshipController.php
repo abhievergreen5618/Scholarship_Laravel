@@ -37,10 +37,10 @@ class ScholarshipController extends Controller
         }
     }
 
-   public function getDistricts($id)
+   public function getDistricts($statecode)
    {
     try {
-        $districts = DistrictModel::where('id', $id)->pluck('name');
+        $districts = DistrictModel::where('statecode', $statecode)->pluck('name');
         dd($districts);
         if ($districts->isEmpty()) {
             return response()->json(['message' => 'No districts found for the given state code.']);
