@@ -419,6 +419,7 @@
         $('select[name="statedropdown"]').on('change',function()
         {
             var stateCode = $(this).val();
+            dd(stateCode);
             if(stateCode){
                 $.ajax({
                     url: '/get-districts/' + stateCode,
