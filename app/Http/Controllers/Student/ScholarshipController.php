@@ -39,7 +39,7 @@ class ScholarshipController extends Controller
 
    public function getDistricts($statecode)
    {
-    $districts = DistrictModel::where('statecode',$statecode)->pluck('name','id');
+    $districts = DistrictModel::orderBy('statecode',$statecode)->pluck('name','id');
     dd($districts);
     return response()->json($districts);
    }
