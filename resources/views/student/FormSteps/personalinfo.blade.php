@@ -429,7 +429,6 @@
                         $('#district-dropdown').empty();
                         $.each(data,function(key,value){
                             $('#district-dropdown').append('<option value="'+key +'">'+ value +'</option>');
-                            
                         });
                     }
                 });
