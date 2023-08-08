@@ -29,7 +29,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
     });
-    Route::get('/get-districts/{stateCode}', 'ScholarshipController@getDistricts');
 
 
     // Admin Routes
