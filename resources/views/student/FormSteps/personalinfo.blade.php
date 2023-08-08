@@ -416,7 +416,7 @@
 <script>
     $(document).ready(function()
     {
-        $('select[name="statedropdown"]').on('change',function()
+        $('#state-dropdown').on('change',function()
         {
             var stateCode = this.value;
             if(stateCode){
