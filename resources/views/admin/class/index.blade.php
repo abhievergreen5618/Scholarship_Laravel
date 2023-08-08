@@ -32,8 +32,6 @@
                                     <table id="inspectiontable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Created At</th>
-                                                <th>Sno</th>
                                                 <th>Name</th>
                                                 <th>Description</th>
                                                 <th>Status</th>
