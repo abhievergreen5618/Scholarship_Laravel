@@ -81,7 +81,7 @@ class ScholarshipController extends Controller
             }
             return response()->json([
                 'error' => $errors
-            ],422)->with(['districts'=>$districts]);
+            ],422);
         }
         else
         {
@@ -119,7 +119,7 @@ class ScholarshipController extends Controller
                
             return response()->json([
                 'message' => 'Saved successfully',
-            ],200);
+            ],200)->with(['districts'=>$districts]);
         }
     }
 
