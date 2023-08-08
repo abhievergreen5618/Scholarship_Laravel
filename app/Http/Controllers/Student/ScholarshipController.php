@@ -19,17 +19,16 @@ class ScholarshipController extends Controller
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
 
-
-        try {
-            $districts = DistrictModel::where('statecode', $statecode)->pluck('name');
+        // try {
+        //     $districts = DistrictModel::where('statecode', $statecode)->pluck('name');
             
-            if ($districts->isEmpty()) {
-                return response()->json(['message' => 'No districts found for the given state code.']);
-            }
-            return view('student.form')->with(['districts'=>$districts]);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()]);
-        }
+        //     if ($districts->isEmpty()) {
+        //         return response()->json(['message' => 'No districts found for the given state code.']);
+        //     }
+        //     return view('student.form')->with(['districts'=>$districts]);
+        // } catch (\Exception $e) {
+        //     return response()->json(['error' => $e->getMessage()]);
+        // }
 
 
         if(!empty(Auth::user()->step2_updated_at))
