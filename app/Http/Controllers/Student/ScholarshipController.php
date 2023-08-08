@@ -18,6 +18,7 @@ class ScholarshipController extends Controller
     public function index( $statecode = null )
     {
         $states = StateModel::orderBy('name')->get();
+        dd($states);
         if($statecode != null){
             $districts = DistrictModel::where("statecode",$statecode)->pluck('name');
 
