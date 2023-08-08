@@ -415,31 +415,24 @@
 <script>
     $(document).ready(function()
     {
-        $('#state-dropdown').on('change',function()
+        $('select[name="statedropdown"]').on('change',function()
         {
-            var state_code = this.value;
-            $("#district-dropdown").html('');
+            var stateCode = $(this).val();
+            if(stateCode){
                 $.ajax({
-                    url:"{{ url('/personalinfosubmit') }}",
-                    type:"POST",
-                    data:{
-                        statecode : state_code,
-                        _token:"{{ csrf_token() }}"
-                    },
+                    url: '',
+                    type:"GET",
                     datatype:"json",
-                    success:function(res)
-                    {
-                        if(res.districts){
-                            $('#district-dropdown').html('<option value="">-- Select District --</option>');
-                            $.each(res.districts, function(key, value){
-                                $('#district-dropdown').append('<option value="'+ value.id +'">' +value.name+ '</option>');
-                            });
-                        }
-                        else {
-                            $('#district-dropdown').empty();
-                        }
+                    success:function(data){
+                        $('select[name="district-dropdown"]').empty();
+                        $.each(data,function(key,value){
+                            $('select[name="district-dropdown"]').append('<option value="'+key +'">'+ value +'</option>');
+                        });
                     }
                 });
+            }else {
+                $('select[name="district-dropdown"]').empty();
+            }
         });
     });
 </script>
