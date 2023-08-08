@@ -29,7 +29,7 @@
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="inspectiontable" class="table table-bordered table-striped">
+                                    <table id="classtable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
