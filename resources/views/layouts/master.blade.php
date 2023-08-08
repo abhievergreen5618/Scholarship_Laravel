@@ -28,7 +28,7 @@
     @include('layouts.admin.header')
     @include('layouts.admin.sidebar')
     <div class="content-wrapper" style="min-height: 214px;">
-        <div class="container-fluid mt-2">
+        <div class="container-fluid">
             @yield('content')
         </div>
     </div>
