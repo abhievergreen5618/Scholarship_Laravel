@@ -39,9 +39,17 @@ class ScholarshipController extends Controller
 
    public function getDistricts($statecode)
    {
-    $districts = DistrictModel::where('statecode',$statecode)->pluck('name','id');
-    dd($districts);
-    return response()->json($districts);
+    try {
+        $districts = DistrictModel::where('statecode', $statecode)->pluck('name', 'id');
+
+        if ($districts->isEmpty()) {
+            return response()->json(['message' => 'No districts found for the given state code.']);
+        }
+
+        return response()->json($districts);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()]);
+    }
    }
 
     /**
