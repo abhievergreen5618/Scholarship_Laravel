@@ -420,7 +420,7 @@
             var stateCode = $(this).val();
             if(stateCode){
                 $.ajax({
-                    url: '/',
+                    url: '/get-districts/' + stateCode,
                     type:"GET",
                     datatype:"json",
                     success:function(data){
