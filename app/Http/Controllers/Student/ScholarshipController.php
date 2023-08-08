@@ -23,6 +23,10 @@ class ScholarshipController extends Controller
 
             return json_encode(['states'=>$states, 'districts'=>$districts]);
         }
+        else 
+        {
+            return view('student.form')->with(['states'=>$states],['districts'=>$districts]);
+        }
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
