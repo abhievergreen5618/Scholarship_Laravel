@@ -42,29 +42,6 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-graduation-cap"></i>
-              <p>
-                Students
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="fas fa-plus  nav-icon"></i>
-                  <p>Add Students</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fas fa-list nav-icon"></i>
-                  <p>View All Students</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Classes
@@ -82,6 +59,29 @@
                 <a href="{{route('admin.class.index')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>View All Classes</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Subjects
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.subject.add')}}" class="nav-link active">
+                  <i class="fas fa-plus  nav-icon"></i>
+                  <p>Add Subject</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.subjects.index')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>View All Subjects</p>
                 </a>
               </li>
             </ul>

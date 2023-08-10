@@ -18,7 +18,7 @@ $(document).ready(function () {
         ],
         "columns": [
             {
-                "data": "name",
+                "data": "class",
             },
             {
                 "data": "description",

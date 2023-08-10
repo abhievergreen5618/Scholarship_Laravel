@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClassController;
+use App\Http\Controllers\Admin\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,17 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/addclass','create')->name('admin.classes');
         Route::post('/createclass','store')->name('admin.class.store');
         Route::post('/classdetails', 'display')->name('admin.class.details');
-        Route::get('/classupdate', 'update')->name('admin.class.edit');
+        Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');
+        Route::post('/classupdate', 'update')->name('admin.class.update');
+    });
+
+    Route::controller(SubjectController::class)->group(function () {
+        Route::get('/subjectslist','index')->name('admin.subjects.index');
+        Route::get('/addsubject','create')->name('admin.subject.add');
+        Route::post('/createsubject','store')->name('admin.subject.store');
+        Route::post('/subjectsdetails', 'display')->name('admin.subjects.details');
+        Route::get('/subjectsedit/{id}', 'edit')->name('admin.subject.edit');
+        Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
     });
 });
 

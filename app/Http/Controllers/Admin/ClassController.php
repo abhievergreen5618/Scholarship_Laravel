@@ -16,16 +16,14 @@ class ClassController extends Controller
      */
     public function index()
     {
-        //
         return view('admin.class.index');
     }
 
     public function display(Request $request)
     {
-        //    dd($request->all());
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
-            $data = ClassModel::latest()->get(['class','description','status']);
+            $data = ClassModel::latest()->get(['id','class','description','status']);
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
@@ -33,7 +31,7 @@ class ClassController extends Controller
                     $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete'><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
                     return $btn;
                 })
-                ->rawColumns(['id', 'action'])
+                ->rawColumns(['action'])
                 ->make(true);
         }
     }
@@ -60,7 +58,7 @@ class ClassController extends Controller
             "description" => $request->description,
             "status" => $request->status,
         ]);
-        return redirect(route('admin.class.index'));
+        return redirect(route('admin.class.index'))->with("msg", "Class Created Successfully");
     }
 
 
@@ -78,7 +76,10 @@ class ClassController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = ClassModel::where("id",decrypt($id))->first();
+        return view('admin.class.add')->with([
+            "data"=>$data
+        ]);
     }
 
     /**
@@ -88,9 +89,14 @@ class ClassController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClassRequest $request)
     {
-        //
+        ClassModel::where("id",decrypt($request['id']))->update([
+            "class" => $request->class,
+            "description" => $request->description,
+            "status" => $request->status,
+        ]);
+        return redirect(route('admin.class.index'))->with("msg", "Class Updated Successfully");
     }
 
     /**
