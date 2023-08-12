@@ -20,43 +20,43 @@ use App\Http\Controllers\Admin\SubjectController;
 */
 
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
-//     // Student Routes
-//     Route::controller(ScholarshipController::class)->group(function () {
-//         Route::get('/','index')->name('start');
-//         Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
-//         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
-//         Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
-//         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
-//         Route::get('/get-districts/{stateCode}','getDistricts');
-//     });
-
-
-//     // Admin Routes
-//     Route::controller(DashboardController::class)->group(function () {
-//         Route::get('/dashboard','index')->name('admin.dashboard');
-//     });
+    // Student Routes
+    Route::controller(ScholarshipController::class)->group(function () {
+        Route::get('/','index')->name('start');
+        Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
+        Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
+        Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
+        Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
+        Route::get('/get-districts/{stateCode}','getDistricts');
+    });
 
 
-//     Route::controller(ClassController::class)->group(function () {
-//         Route::get('/classlist','index')->name('admin.class.index');
-//         Route::get('/addclass','create')->name('admin.classes');
-//         Route::post('/createclass','store')->name('admin.class.store');
-//         Route::post('/classdetails', 'display')->name('admin.class.details');
-//         Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');
-//         Route::post('/classupdate', 'update')->name('admin.class.update');
-//     });
+    // Admin Routes
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('/dashboard','index')->name('admin.dashboard');
+    });
 
-//     Route::controller(SubjectController::class)->group(function () {
-//         Route::get('/subjectslist','index')->name('admin.subjects.index');
-//         Route::get('/addsubject','create')->name('admin.subject.add');
-//         Route::post('/createsubject','store')->name('admin.subject.store');
-//         Route::post('/subjectsdetails', 'display')->name('admin.subjects.details');
-//         Route::get('/subjectsedit/{id}', 'edit')->name('admin.subject.edit');
-//         Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
-//     });
-// });
+
+    Route::controller(ClassController::class)->group(function () {
+        Route::get('/classlist','index')->name('admin.class.index');
+        Route::get('/addclass','create')->name('admin.classes');
+        Route::post('/createclass','store')->name('admin.class.store');
+        Route::post('/classdetails', 'display')->name('admin.class.details');
+        Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');
+        Route::post('/classupdate', 'update')->name('admin.class.update');
+    });
+
+    Route::controller(SubjectController::class)->group(function () {
+        Route::get('/subjectslist','index')->name('admin.subjects.index');
+        Route::get('/addsubject','create')->name('admin.subject.add');
+        Route::post('/createsubject','store')->name('admin.subject.store');
+        Route::post('/subjectsdetails', 'display')->name('admin.subjects.details');
+        Route::get('/subjectsedit/{id}', 'edit')->name('admin.subject.edit');
+        Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
+    });
+});
 
 
 Route::controller(LoginController::class)->group(function(){
