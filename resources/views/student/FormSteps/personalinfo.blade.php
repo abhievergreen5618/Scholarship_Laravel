@@ -419,8 +419,8 @@
     {
         $('#state-dropdown').on('change',function()
         {
-            let stateCode = this.value;
-            console.log(stateCode);
+            let stateCode = $(this).data('code');
+            console.log(data);
                 $.ajax({
                     url: 'districtslist',
                     type:'POST',
