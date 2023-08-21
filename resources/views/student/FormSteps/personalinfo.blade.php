@@ -98,7 +98,7 @@
                             <option value="">-- Select State --</option>
                             @if(!empty($states))
                             @foreach ($states as $state)
-                            <option value="{{ $state->id }}">
+                            <option value="{{ $state->code }}">
                                 {{ $state->name }}
                             </option>
                             @endforeach

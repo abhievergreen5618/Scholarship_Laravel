@@ -38,9 +38,9 @@ class ScholarshipController extends Controller
     }
 
    public function getDistricts(Request $request)
-   {
+   { 
         $stateCode=$request->post('stateCode');
-        $districts=DistrictModel::where('id',$stateCode)
+        $districts=DistrictModel::where('statecode',$stateCode)
         ->orderBy('name','asc')->get();
         echo $districts;
         $html='<option value="">-- Select District --</option>';
