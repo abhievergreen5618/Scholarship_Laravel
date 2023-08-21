@@ -43,6 +43,9 @@ class ScholarshipController extends Controller
         $districts=DistrictModel::where('name',$stateCode)
         ->orderBy('name','asc')->get();
         $html='<option value="">-- Select District --</option>';
+        if($districts){
+            echo "empty";
+        }
         foreach($districts as $districtlist){
             $html.='<option value="'.$districtlist->id.'">'.$districtlist->name.'</option>';
         }
