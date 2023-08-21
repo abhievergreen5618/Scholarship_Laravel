@@ -420,7 +420,7 @@
         $('#state-dropdown').on('change',function()
         {
             let stateCode = this.value;
-            console.log(stateCode);
+            $("#district-dropdown").html(' ');
                 $.ajax({
                     url: 'districtslist',
                     type:'POST',
