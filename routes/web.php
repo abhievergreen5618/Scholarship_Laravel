@@ -29,9 +29,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
         Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
-        Route::post('/districtslist','getDistricts');
     });
 
+    Route::post('/districtslist',[ScholarshipController::class,'getDistricts']);
 
     // Admin Routes
     Route::controller(DashboardController::class)->group(function () {
