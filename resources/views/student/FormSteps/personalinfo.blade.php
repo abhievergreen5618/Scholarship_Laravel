@@ -420,22 +420,15 @@
         {
             var stateCode = this.value;
             console.log(stateCode);
-            if(stateCode){
                 $.ajax({
-                    url: '/get-districts/' + stateCode,
-                    type:"GET",
-                    datatype:"json",
-                    success:function(data){
-                        $('#district-dropdown').empty();
-                        $.each(data,function(key,value){
-                            $('#district-dropdown').append('<option value="'+key +'">'+ value +'</option>');
-
-                        });
+                    url: '/get-districts/',
+                    type:"POST",
+                    data:'stateCode='+stateCode+
+                    '&_token={{csrf_token()}}',
+                    success:function(result){
+                        $('#district-dropdown').html(result)
                     }
                 });
-            }else {
-                $('#district-dropdown').empty();
-            }
         });
         
     });
