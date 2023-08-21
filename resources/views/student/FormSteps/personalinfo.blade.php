@@ -421,7 +421,7 @@
             let stateCode = this.value;
             console.log(stateCode);
                 $.ajax({
-                    url: '/districtslist',
+                    url: 'districtslist',
                     type:'POST',
                     data:'stateCode='+stateCode+
                     '&_token={{csrf_token()}}',
