@@ -418,11 +418,11 @@
     {
         $('#state-dropdown').on('change',function()
         {
-            var stateCode = this.value;
+            let stateCode = this.value;
             console.log(stateCode);
                 $.ajax({
-                    url: '/get-districts',
-                    type:"POST",
+                    url: '/districtslist',
+                    type:'POST',
                     data:'stateCode='+stateCode+
                     '&_token={{csrf_token()}}',
                     success:function(result){
