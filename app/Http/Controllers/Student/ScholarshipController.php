@@ -42,14 +42,12 @@ class ScholarshipController extends Controller
         $stateCode=$request->post('stateCode');
         $districts=DistrictModel::where('name',$stateCode)
         ->orderBy('name','asc')->get();
-        $html='<option value="">-- Select District --</option>';
-        if($districts){
-            echo "empty";
-        }
-        foreach($districts as $districtlist){
-            $html.='<option value="'.$districtlist->id.'">'.$districtlist->name.'</option>';
-        }
-        echo $html;
+        echo $districts;
+        // $html='<option value="">-- Select District --</option>';
+        // foreach($districts as $districtlist){
+        //     $html.='<option value="'.$districtlist->id.'">'.$districtlist->name.'</option>';
+        // }
+        // echo $html;
    }
 
     /**
