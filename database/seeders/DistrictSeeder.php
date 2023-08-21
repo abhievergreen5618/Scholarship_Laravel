@@ -16,9 +16,9 @@ class DistrictSeeder extends Seeder
     public function run()
     {
         $districts = [
-            ['name' => 'Kullu', 'statecode' => '9'],
-            ['name' => 'Mandi', 'statecode' => '9'],
-            ['name' => 'Bilaspur', 'statecode' => '9'],
+            ['name' => 'Kullu', 'statecode' => 'HP'],
+            ['name' => 'Mandi', 'statecode' => 'HP'],
+            ['name' => 'Bilaspur', 'statecode' => 'HP'],
             ['name' => 'Hamirpur', 'statecode' => 'HP'],
             ['name' => 'Solan', 'statecode' => 'HP'],
             ['name' => 'Shimla', 'statecode' => 'HP'],
