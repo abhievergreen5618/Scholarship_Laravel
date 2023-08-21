@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
         Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
-        Route::post('/get-districts','getDistricts');
+        Route::post('/districtslist','getDistricts');
     });
 
 
