@@ -42,6 +42,7 @@ class ScholarshipController extends Controller
         $stateCode=$request->post('stateCode');
         $districts=DistrictModel::where('name',$stateCode)
         ->orderBy('name','asc')->get();
+        echo $districts;
    }
 
     /**
