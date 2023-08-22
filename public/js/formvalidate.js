@@ -25,6 +25,7 @@ jQuery('#frm').validate({
     },
     messages:{
         examcentre:"Select an option",
+        districtDropdown:"Select an option",
         email:{
             required:"Please enter email ID",
             email:"Please enter valid email"
