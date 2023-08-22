@@ -53,16 +53,14 @@ jQuery('#frm').validate({
             // Remove the physicallychallengedproof field from the FormData object
             formData.delete('physicallychallengedproof');
         }
-        $(document).ready(function(){
-            toastr.options = {
-                closeButton: true,
-                progressBar: true,
-                timeOut: 5000,
-                extendedTimeOut: 2000,
-                positionClass: "toast-top-right",
-                preventDuplicates: true
-            };
-        })
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            timeOut: 5000,
+            extendedTimeOut: 2000,
+            positionClass: "toast-top-right",
+            preventDuplicates: true
+        };
        
 
         $.ajax({
@@ -97,12 +95,12 @@ jQuery('#frm').validate({
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
 
-                        toastr.error("An error occurred. Please check the form.");
+                        toastr.error(xhr.responseJSON.message);
                     });
                 }
-        
-
-
+                else{
+                    toastr.error("!OOPs Something went wrong");
+                }
                     
             }
             
