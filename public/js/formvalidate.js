@@ -6,6 +6,7 @@ jQuery('#frm').validate({
         fathername:"required",
         mothername:"required",
         examcentre:"required",
+        districtDropdown:"required",
         caddress:"required",
         mobileno:{
             required:true,
@@ -24,6 +25,7 @@ jQuery('#frm').validate({
     },
     messages:{
         examcentre:"Select an option",
+        districtDropdown:"Select an option",
         email:{
             required:"Please enter email ID",
             email:"Please enter valid email"
@@ -83,6 +85,9 @@ jQuery('#frm').validate({
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
                     });
+                }
+                else{
+                    $message="!Oops Something went wrong";
                 }
             }
         });

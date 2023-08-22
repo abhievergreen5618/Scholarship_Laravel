@@ -91,7 +91,6 @@ class ScholarshipController extends Controller
                 $errors[$index] = $error[0];
             }
             return response()->json([
-                'message'  => "!OOPs Something went wrong",
                 'error' => $errors
             ],422);
         }
