@@ -92,7 +92,7 @@
                                 
                                 <div class="form-group mb-3">
                         <div class="form-group">
-                        <select id="district-dropdown" name="district-dropdown" class="form-control">
+                        <select id="district-dropdown" name="districtDropdown" class="form-control">
                         <option value="">-- Select District --</option>
                         </select>
                     </div>

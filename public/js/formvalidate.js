@@ -6,6 +6,7 @@ jQuery('#frm').validate({
         fathername:"required",
         mothername:"required",
         examcentre:"required",
+        districtDropdown:"required",
         caddress:"required",
         mobileno:{
             required:true,
