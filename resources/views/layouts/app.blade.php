@@ -31,6 +31,7 @@
     <script src="{{asset('/js/custom.js')}}"></script>
     <script src="{{asset('/adminlte/plugins/toastr/toastr.min.js')}}"></script>
     <script src="{{asset('/adminlte/plugins/toastr/toastr.js.map')}}"></script>
+    <script src="{{asset('/js/toastr.js')}}"></script>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
 
