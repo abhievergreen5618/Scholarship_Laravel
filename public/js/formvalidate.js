@@ -147,6 +147,16 @@ jQuery('#docform').validate({
         var formData = new FormData($(form)[0]);
 
 
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            timeOut: 5000,
+            extendedTimeOut: 2000,
+            positionClass: "toast-top-right",
+            preventDuplicates: true
+        };
+       
+
         $.ajax({
             type: 'POST',
             url: $(form).attr("action"),
@@ -169,6 +179,8 @@ jQuery('#docform').validate({
                     debugger;
                     $("html, body").animate({ scrollTop: 0 }, "slow");
                     location.reload();
+                    
+                    toastr.success(result.message);
                 }
             },
             error : function(xhr, status, error) {
@@ -178,7 +190,12 @@ jQuery('#docform').validate({
                         $("#"+index+"-error").remove();
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
+                        
+                        toastr.error(xhr.responseJSON.message);
                     });
+                }
+                else{
+                    toastr.error("!OOPs Something went wrong");
                 }
             }
         });
