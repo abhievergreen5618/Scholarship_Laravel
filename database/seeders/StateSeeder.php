@@ -51,7 +51,7 @@ class StateSeeder extends Seeder
             ['name' => 'Delhi', 'code' => 'DL'],
             ['name' => 'Puducherry', 'code' => 'PY'],
             ['name' => 'Ladakh', 'code' => 'LA'],
-            ['name' => 'Jammu and Kashmir', 'code' => 'J&K'],
+            ['name' => 'Jammu and Kashmir', 'code' => 'JK'],
         ];
 
         StateModel::insert($states);
