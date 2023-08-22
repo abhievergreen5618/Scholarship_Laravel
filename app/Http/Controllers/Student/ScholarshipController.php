@@ -63,7 +63,6 @@ class ScholarshipController extends Controller
             "fathername" => "required",
             "mothername" => "required",
             "examcentre" => "required",
-            "districtDropdown" =>"required",
             "caddress" => "required",
             "mobileno" => "required",
             "paddress" => "required",
