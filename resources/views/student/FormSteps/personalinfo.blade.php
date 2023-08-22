@@ -94,7 +94,7 @@
                                 <td>
                                 
                                 <div class="form-group mb-3">
-                                <select  id="state-dropdown" name="statedropdown" class="form-control">
+                                <select  id="state-dropdown" name="examcentre" class="form-control">
                             <option value="">-- Select State --</option>
                             @if(!empty($states))
                             @foreach ($states as $state)
