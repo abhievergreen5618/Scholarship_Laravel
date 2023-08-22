@@ -84,7 +84,7 @@ jQuery('#frm').validate({
                     $("#education_details_step").addClass("btn-success");
                     $("html, body").animate({ scrollTop: 0 }, "slow");
 
-                    toastr.success("Saved Data Successfully!");
+                    toastr.success(result.message);
                 }
             },
             error : function(xhr, status, error) {
