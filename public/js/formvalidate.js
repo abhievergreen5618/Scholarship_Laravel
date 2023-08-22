@@ -85,13 +85,6 @@ jQuery('#frm').validate({
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
                     });
-                }else{
-                    toastr.options = {
-                        closeButton: true,
-                        progressBar: true,
-                        positionClass: "toast-top-right",
-                        timeOut: 2000 
-                    };
                 }
         
 
