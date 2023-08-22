@@ -75,7 +75,8 @@ jQuery('#frm').validate({
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-                    toastr.success(result.message);
+                    $message="Saved Data";
+                    toastr.success($message);
                 }
             },
             error : function(xhr, status, error) {
