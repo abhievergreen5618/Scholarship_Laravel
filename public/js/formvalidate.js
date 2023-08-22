@@ -53,14 +53,17 @@ jQuery('#frm').validate({
             // Remove the physicallychallengedproof field from the FormData object
             formData.delete('physicallychallengedproof');
         }
-        toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            timeOut: 5000,
-            extendedTimeOut: 2000,
-            positionClass: "toast-top-right",
-            preventDuplicates: true
-        };
+        $(document).ready(function(){
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                timeOut: 5000,
+                extendedTimeOut: 2000,
+                positionClass: "toast-top-right",
+                preventDuplicates: true
+            };
+        })
+       
 
         $.ajax({
             type: 'POST',
