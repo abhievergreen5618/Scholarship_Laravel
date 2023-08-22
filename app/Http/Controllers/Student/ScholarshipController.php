@@ -127,10 +127,10 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
                
-            // return response()->json([
-            //     'message' => 'Saved successfully',
-            // ],200);
-            return back()->with('success', 'Success! Saved Data');
+            return response()->json([
+                'message' => 'Saved successfully',
+            ],200);
+            
         }
     }
 
