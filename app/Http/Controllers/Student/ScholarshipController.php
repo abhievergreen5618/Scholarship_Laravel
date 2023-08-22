@@ -141,7 +141,7 @@ class ScholarshipController extends Controller
             else
             {
                 return response()->json([
-                    'message'  => "!OOPs Something went wrong"
+                    'message'  => "!Oops Something went wrong"
                 ],422);
             }
         }
