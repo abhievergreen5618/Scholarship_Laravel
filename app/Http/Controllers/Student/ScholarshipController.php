@@ -63,6 +63,7 @@ class ScholarshipController extends Controller
             "fathername" => "required",
             "mothername" => "required",
             "examcentre" => "required",
+            "districtDropdown" =>"required",
             "caddress" => "required",
             "mobileno" => "required",
             "paddress" => "required",
@@ -129,20 +130,20 @@ class ScholarshipController extends Controller
             // return response()->json([
             //     'message' => 'Saved successfully',
             // ],200);
-            $credentials=$request->only('scholarshipname','name','fathername','mothername','examcentre','districtDropdown','caddress',
-        'paddress','dob','adharno','hsmarksheetmatric','hsmarksheet','nationality','mobileno','gender','singlegirlchild','applyingfor',
-    'physicallychallenged','category','physicallychallengedproof');
-             if (Auth::attempt($credentials)) {
-                return response()->json([
-                    'message' => 'Saved Data Successfully'
-                ],200);
-            }
-            else
-            {
-                return response()->json([
-                    'message'  => "!Oops Something went wrong"
-                ],422);
-            }
+    //         $credentials=$request->only('scholarshipname','name','fathername','mothername','examcentre','districtDropdown','caddress',
+    //     'paddress','dob','adharno','hsmarksheetmatric','hsmarksheet','nationality','mobileno','gender','singlegirlchild','applyingfor',
+    // 'physicallychallenged','category','physicallychallengedproof');
+    //          if (Auth::attempt($credentials)) {
+    //             return response()->json([
+    //                 'message' => 'Saved Data Successfully'
+    //             ],200);
+    //         }
+    //         else
+    //         {
+    //             return response()->json([
+    //                 'message'  => "!Oops Something went wrong"
+    //             ],422);
+    //         }
         }
     }
 
