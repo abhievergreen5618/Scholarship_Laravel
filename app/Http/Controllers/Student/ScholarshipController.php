@@ -127,9 +127,23 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
                
-            return response()->json([
-                'message' => 'Saved successfully',
-            ],200);
+            // return response()->json([
+            //     'message' => 'Saved successfully',
+            // ],200);
+            $credentials=$request->only('scholarshipname','name','fathername','mothername','examcentre','districtDropdown','caddress',
+        'paddress','dob','adharno','hsmarksheetmatric','hsmarksheet','nationality','mobileno','gender','singlegirlchild','applyingfor',
+    'physicallychallenged','category','physicallychallengedproof');
+             if (Auth::attempt($credentials)) {
+                return response()->json([
+                    'message' => 'Saved Data Successfully'
+                ],200);
+            }
+            else
+            {
+                return response()->json([
+                    'message'  => "!OOPs Something went wrong"
+                ],422);
+            }
         }
     }
 
