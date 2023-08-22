@@ -86,6 +86,10 @@ jQuery('#frm').validate({
                         $("#"+index).focus();
                     });
                 }
+                    else {
+                        $message = "!Oops Something Went wrong";
+                        toastr.error($message);
+                    }
             }
         });
     }
