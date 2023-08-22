@@ -58,33 +58,6 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_txtMName__"><input name="mothername" type="text" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mothername}} @endif" maxlength="50" id="mothername" class="textboxlong form-control" style="text-transform: uppercase"></span>
                                 </td>
                             </tr>
-                            <tr id="ctl00_ContentPlaceHolder1_trExamCenter">
-                                <td class="vtext">Examination Centre for Entrance Test <span style="color: red">*</span><br>
-                                    <strong>प्रवेश परीक्षा के लिए परीक्षा केन्द्र</strong>
-                                </td>
-                                <td class="colon">:</td>
-                                <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__"><select name="examcentre" id="examcentre" class="dropdownlong form-select">
-                                            <option value="">-- Select Exam Center --</option>
-                                            <option value="3" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "3" ? 'selected' : ''}} @endif>SOLAN</option>
-                                            <option value="17" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "17" ? 'selected' : ''}} @endif>SHIMLA</option>
-                                            <option value="18" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "18" ? 'selected' : ''}} @endif>DHARAMSHALA</option>
-                                            <option value="19" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "19" ? 'selected' : ''}} @endif>UNA</option>
-                                            <option value="20" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "20" ? 'selected' : ''}} @endif>HAMIRPUR</option>
-                                            <option value="21" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "21" ? 'selected' : ''}} @endif>PALAMPUR</option>
-                                            <option value="24" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "24" ? 'selected' : ''}} @endif>MANDI</option>
-                                            <option value="33" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "33" ? 'selected' : ''}} @endif>AMB (UNA)</option>
-                                            <option value="34" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "34" ? 'selected' : ''}} @endif>BILASPUR</option>
-                                            <option value="35" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "35" ? 'selected' : ''}} @endif>CHAMBA</option>
-                                            <option value="36" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "36" ? 'selected' : ''}} @endif>KANGRA</option>
-                                            <option value="37" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "37" ? 'selected' : ''}} @endif>KULLU</option>
-                                            <option value="38" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "38" ? 'selected' : ''}} @endif>NAHAN</option>
-                                            <option value="39" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "39" ? 'selected' : ''}} @endif>RAMPUR</option>
-                                            <option value="40" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->examcentre == "40" ? 'selected' : ''}} @endif>SUNDER NAGAR</option>
-
-                                        </select></span>
-                                </td>
-                            </tr>
 <!------------------------------------------------->
                     <tr id="ctl00_ContentPlaceHolder1_trExamCenter">
                                 <td class="vtext">Examination Centre for Entrance Test <span style="color: red">*</span><br>
@@ -106,7 +79,17 @@
                         </select>
 
                         </div>
+                        </td>
+                            </tr>
 
+                        <tr id="ctl00_ContentPlaceHolder1_trExamCenter">
+                                <td class="vtext">Examination Centre for Entrance Test <span style="color: red">*</span><br>
+                                    <strong>प्रवेश परीक्षा के लिए परीक्षा केन्द्र</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                
+                                <div class="form-group mb-3">
                         <div class="form-group">
                         <select id="district-dropdown" name="district-dropdown" class="form-control">
                         <option value="">-- Select District --</option>
