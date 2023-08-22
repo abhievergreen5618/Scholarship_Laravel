@@ -75,8 +75,6 @@ jQuery('#frm').validate({
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-                    $message="Saved Data";
-                    toastr.success($message);
                 }
             },
             error : function(xhr, status, error) {
@@ -86,13 +84,7 @@ jQuery('#frm').validate({
                         $("#"+index+"-error").remove();
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
-                        $message="Something is Missing";
-                        toastr.error($message);
                     });
-                }
-                else{
-                    $message="!Oops Something went wrong";
-                    toastr.error($message);
                 }
             }
         });
