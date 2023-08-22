@@ -84,6 +84,7 @@ jQuery('#frm').validate({
                         $("#"+index+"-error").remove();
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
+                        toastr.error(value);
                     });
                 }
                     else {
@@ -91,6 +92,7 @@ jQuery('#frm').validate({
                         toastr.error($message);
                     }
             }
+            
         });
     }
 })
