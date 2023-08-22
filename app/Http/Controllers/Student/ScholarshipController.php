@@ -91,6 +91,7 @@ class ScholarshipController extends Controller
                 $errors[$index] = $error[0];
             }
             return response()->json([
+                'message'  => "!OOPs Something went wrong",
                 'error' => $errors
             ],422);
         }
@@ -126,9 +127,10 @@ class ScholarshipController extends Controller
                 "step1_updated_at" => now(),
             ]);
                
-            return response()->json([
-                'message' => 'Saved successfully',
-            ],200);
+            // return response()->json([
+            //     'message' => 'Saved successfully',
+            // ],200);
+            return back()->with('success', 'Success! Saved Data');
         }
     }
 
