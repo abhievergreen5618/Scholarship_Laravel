@@ -17,12 +17,8 @@
                         <label for="tab2"><i class="fas fa-hand-point-right"></i>Education & Document Details @if(empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-3" {{!empty(auth()->user()->step1_updated_at) && empty(auth()->user()->step2_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)? 'disabled' : ''}}>
-                        <label for="tab3"><i class="fas fa-hand-point-right"></i>Banking Details @if(empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
-                        </label>
-
-                        <input type="radio" name="pcss3t" id="tab4" class="tab-content-4" {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
-                        <label for="tab4"><i class="fas fa-hand-point-right"></i>Application Summary @if(empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
+                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-3" {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
+                        <label for="tab3"><i class="fas fa-hand-point-right"></i>Application Summary @if(empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
                         <input type="radio" name="pcss3t" id="tab5" class="tab-content-last" {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step4_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
@@ -36,7 +32,6 @@
                         <ul>
                             @include("student.FormSteps.personalinfo")
                             @include("student.FormSteps.educationDocument")
-                            @include("student.FormSteps.bankingdetails")
                             @include("student.FormSteps.applicationsummary")
                             @include("student.FormSteps.payment")
 
@@ -45,7 +40,7 @@
                                     <div class="tab-content">
 
                                         <div class="tab-pane active" id="tab_6">
-                                            <h3><span>Step [6/6] :</span>Submit Reference Number &amp; Application Form</h3>
+                                            <h3><span>Step [5/5] :</span>Submit Reference Number &amp; Application Form</h3>
                                             <div class="box-body table-responsive">
                                                 <table id="" class="table Eng_hindi_form" width="50%" border="0" cellspacing="5" cellpadding="0">
                                                     <tbody>

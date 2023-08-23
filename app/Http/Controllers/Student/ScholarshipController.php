@@ -250,11 +250,7 @@ class ScholarshipController extends Controller
         //
     }
 
-public function bankdetails(Request $request)
-{
-    return view('bankingdetails');
-}
-
+    
     public function applicationsummarysubmit(Request $request)
     {
         User::where('id',Auth::id())->update([
