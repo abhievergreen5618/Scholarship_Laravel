@@ -1,4 +1,4 @@
-<li class="tab-content tab-content-third typography">
+
     
 <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
 <div class="tab-content">
@@ -73,4 +73,3 @@
 </form>
 </div>
 </div>
-</li>
