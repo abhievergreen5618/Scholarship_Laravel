@@ -12,7 +12,7 @@
                 </h3>
         <table>
     <tr>
-        <td class="vtext">Account No. <span style="color: red">*</span>
+        <td class="text">Account No. <span style="color: red">*</span>
         <br>
             <strong>खाता संख्या</strong>
         </td>
