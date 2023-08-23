@@ -11,6 +11,7 @@
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                 </h3>
         <table>
+            <tbody>
     <tr>
         <td class="text">Account No. <span style="color: red">*</span>
         <br>
@@ -80,7 +81,8 @@
 
                             <button type="submit" class="btn btn-warning">Save</button>
 
-</tr>
+                            </tr>
+</tbody>
 </table>
 </form>
 </body>
