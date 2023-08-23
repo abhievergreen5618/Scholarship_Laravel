@@ -1,4 +1,4 @@
-
+<li class="tab-content tab-content-first typography">
 <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
 
@@ -26,7 +26,7 @@
         </td>
         <td class="colon">:</td>
             <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="cnfrmaccountno"  maxlength="15" id="accountno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
             </td>
     </tr>
     <tr>
@@ -35,7 +35,7 @@
         </td>
         <td class="colon">:</td>
             <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="accountname" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
             </td>
     </tr>
         <tr>
@@ -44,7 +44,7 @@
             </td>
             <td class="colon">:</td>
                 <td>
-                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text"  maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="ifsccode" type="text"  maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
                 </td>
         </tr>
                             <tr>
@@ -71,3 +71,4 @@
 </form>
 </div>
 </div>
+</li>
