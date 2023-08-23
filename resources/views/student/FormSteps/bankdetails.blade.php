@@ -13,6 +13,7 @@
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                 </h3>
+                <div class="box-body table-responsive">
         <table>
             <tbody>
     <tr>
@@ -73,6 +74,7 @@
                             </tr>
 </tbody>
 </table>
+</div>
 </form>
 </div>
 </div>
