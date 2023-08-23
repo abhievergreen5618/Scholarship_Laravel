@@ -1,25 +1,24 @@
-<li class="tab-content tab-content-2 typography">
-    <form id="bankfrm" action="{{route('bankdetails')}}" enctype="multipart/form-data" method="POST">
-        @csrf
-        <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
-        <div class="tab-content">
-            <div class="tab-pane active" id="tabb_3">
-                <h3><span>Step [3/6] :</span> Bank Details &nbsp;
-                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblPageMsg__"><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
-                </h3>
-                <div class="box-body table-responsive">
-                    <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
-                        <tbody>
-                            <tr>
-                                <td colspan="3"><b><u>Fields marked <span style="color: red">*</span> are mandatory.</u></b></td>
-                            </tr>
-                            <tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table>
+    <tr>
                                 <td class="vtext">Account No. <span style="color: red">*</span>
                                     <br>
                                     <strong>खाता संख्या</strong>
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="accountno" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mobileno}} @endif" maxlength="15" id="accountno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
                                 </td>
                             </tr>
+</table>
+</form>
+</body>
+</html>
