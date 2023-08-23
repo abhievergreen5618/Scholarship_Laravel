@@ -1,5 +1,5 @@
 <li class="tab-content tab-content-2 typography">
-    <form id="bankfrm" action="" enctype="multipart/form-data" method="POST">
+    <form id="bankfrm" action="{{route('bankdetails')}}" enctype="multipart/form-data" method="POST">
         @csrf
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
         <div class="tab-content">

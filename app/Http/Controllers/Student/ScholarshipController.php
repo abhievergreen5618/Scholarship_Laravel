@@ -250,6 +250,10 @@ class ScholarshipController extends Controller
         //
     }
 
+    public function bankinfo(Request $request)
+    {
+        return view('bankdetails');
+    }
     
     public function applicationsummarysubmit(Request $request)
     {
