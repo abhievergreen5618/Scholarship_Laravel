@@ -1,8 +1,9 @@
 <li class="tab-content tab-content-third typography">
+    
+<input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
 <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
 
-            <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
     <form>
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
