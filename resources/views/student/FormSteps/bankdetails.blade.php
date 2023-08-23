@@ -1,4 +1,4 @@
-<li class="tab-content tab-content-third typography">
+<li class=" tab-content-third typography">
     <form>
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><spanstyle="color:Red;"></span></span>
