@@ -87,6 +87,16 @@ $(document).ready(function () {
     });
 
     $("#savestep3").click(function(){
+
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            timeOut: 5000,
+            extendedTimeOut: 2000,
+            positionClass: "toast-top-right",
+            preventDuplicates: true
+        };
+
         $.ajax({
             type: 'POST',
             url: $(this).data("action"),
@@ -112,10 +122,12 @@ $(document).ready(function () {
                     $('[for="tab5"]').find("[data-icon='lock']").remove();
                     $("#payment_step").removeClass("btn-secondary");
                     $("#payment_step").addClass("btn-success");
+
+                    toastr.success(result.message);
                 }
             },
             error : function(xhr, status, error) {
-
+                toastr.error(xhr.responseJSON.message);
             }
         });
     });
