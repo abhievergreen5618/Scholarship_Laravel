@@ -201,6 +201,78 @@ jQuery('#docform').validate({
 })
 
 
+jQuery('#bankform').validate({
+    rules:{
+        accountno:"required",
+        cnfrmaccountno:"required",
+        holdername:"required",
+        ifsccode:"required",
+        passbook_photo:"required",
+    },
+    submitHandler : function(form,e) {
+        e.preventDefault();
+        // Create a new FormData object
+        var formData = new FormData($(form)[0]);
+
+
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            timeOut: 5000,
+            extendedTimeOut: 2000,
+            positionClass: "toast-top-right",
+            preventDuplicates: true
+        };
+       
+
+        $.ajax({
+            type: 'POST',
+            url: $(form).attr("action"),
+            dataType: "json",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(result) {
+                if(result.hasOwnProperty("message"))
+                {
+                    $("#tab3").attr('disabled',false);
+                    $("#tab3").trigger('click');
+                    $('[for="tab3"]').find("[data-icon='lock']").remove();
+                    $("#application_summary_step").removeClass("btn-secondary");
+                    $("#application_summary_step").addClass("btn-success");
+                    debugger;
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    location.reload();
+                    
+                    toastr.success(result.message);
+                }
+            },
+            error : function(xhr, status, error) {
+                if(xhr.status == 422)
+                {
+                    $.each(xhr.responseJSON.error,(index,value) => {
+                        $("#"+index+"-error").remove();
+                        $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
+                        $("#"+index).focus();
+                        
+                        toastr.error(xhr.responseJSON.message);
+                    });
+                }
+                else{
+                    toastr.error("!OOPs Something went wrong");
+                }
+            }
+        });
+    }
+})
+
+
+
+
 $(document).ready(function () {
    $("input[name='physicallychallenged']").change(function (e) {
         if($(this).attr("value") == "yes")

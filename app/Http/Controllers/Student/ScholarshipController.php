@@ -254,9 +254,9 @@ class ScholarshipController extends Controller
     public function bankinfo(Request $request)
     {
         $validator=Validator::make($request->all(),[
-            "accountn0" => "required",
+            "accountno" => "required",
             "cnfrmaccountno" => "required|confirmed",
-            "accountname" => "required",
+            "holdername" => "required",
             "ifsccode" => "required",
             "passbook_photo" => "required",
         ]);
