@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <form>-->
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                 </h3>
-        <table>
+       <!-- <table>
             <tbody>
     <tr>
         <td class="text">Account No. <span style="color: red">*</span>
@@ -33,23 +33,23 @@
             </td>
     </tr>
     <tr>
-                                <td class="vtext">Banking Account Name<span style="color: red">*</span><br>
-                                    <strong>बैंकिंग खाता नाम</strong>
-                                </td>
-                                <td class="colon">:</td>
-                                <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="vtext">IFSC Code<span style="color: red">*</span><br>
-                                    <strong>आईएफएससी कोड</strong>
-                                </td>
-                                <td class="colon">:</td>
-                                <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
-                                </td>
-                            </tr>
+        <td class="vtext">Banking Account Name<span style="color: red">*</span><br>
+            <strong>बैंकिंग खाता नाम</strong>
+        </td>
+        <td class="colon">:</td>
+            <td>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+            </td>
+    </tr>
+        <tr>
+            <td class="vtext">IFSC Code<span style="color: red">*</span><br>
+                <strong>आईएफएससी कोड</strong>
+            </td>
+            <td class="colon">:</td>
+                <td>
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                </td>
+        </tr>
                             <tr>
                                 <td>Upload Passbook Front Page Image
                                     <br>
@@ -86,4 +86,4 @@
 </table>
 </form>
 </body>
-</html>
+</html> -->
