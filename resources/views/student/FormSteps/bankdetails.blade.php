@@ -1,59 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body> 
+<li class="tab-content tab-content-third typography">
     <div class="tab-content">
-            <div class="tab-pane active" id="tab_1">
+        <div class="tab-pane active" id="tab_1">
 
-    <form>
-    <h3><span>Step [3/6] :</span> Bank Details &nbsp;
+            <form>
+                <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                 </h3>
                 <div class="box-body table-responsive">
-        <table>
-            <tbody>
-    <tr>
-        <td class="text">Account No. <span style="color: red">*</span>
-        <br>
-            <strong>खाता संख्या</strong>
-        </td>
-        <td class="colon">:</td>
-            <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
-            </td>
-    </tr>
-    <tr>
-        <td class="text">Confirm Account No. <span style="color: red">*</span>
-        <br>
-            <strong>खाता संख्या</strong>
-        </td>
-        <td class="colon">:</td>
-            <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
-            </td>
-    </tr>
-    <tr>
-        <td class="vtext">Banking Account Name<span style="color: red">*</span><br>
-            <strong>बैंकिंग खाता नाम</strong>
-        </td>
-        <td class="colon">:</td>
-            <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
-            </td>
-    </tr>
-        <tr>
-            <td class="vtext">IFSC Code<span style="color: red">*</span><br>
-                <strong>आईएफएससी कोड</strong>
-            </td>
-            <td class="colon">:</td>
-                <td>
-                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
-                </td>
-        </tr>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="text">Account No. <span style="color: red">*</span>
+                                    <br>
+                                    <strong>खाता संख्या</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"
+                                            maxlength="15" id="accountno" type="number" class="textboxlong form-control"
+                                            ondrop="return false;" ondrag="return false;" onpaste="return false;"
+                                            oncut="return false;"
+                                            onkeydown="return AllownumberOnly(event,this);"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text">Confirm Account No. <span style="color: red">*</span>
+                                    <br>
+                                    <strong>खाता संख्या</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"
+                                            maxlength="15" id="accountno" type="number" class="textboxlong form-control"
+                                            ondrop="return false;" ondrag="return false;" onpaste="return false;"
+                                            oncut="return false;"
+                                            onkeydown="return AllownumberOnly(event,this);"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="vtext">Banking Account Name<span style="color: red">*</span><br>
+                                    <strong>बैंकिंग खाता नाम</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text"
+                                            value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}"
+                                            maxlength="50" id="name" class="textboxlong form-control"
+                                            style="text-transform: uppercase"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="vtext">IFSC Code<span style="color: red">*</span><br>
+                                    <strong>आईएफएससी कोड</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text"
+                                            value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}"
+                                            maxlength="50" id="name" class="textboxlong form-control"
+                                            style="text-transform: uppercase"></span>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>Upload Passbook Front Page Image
                                     <br>
@@ -62,21 +69,24 @@
                                     <span style="color:red">*</span>
                                 </td>
                                 <td class="colon">:</td>
-                                                <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_Uploadpassbook__"><input type="file" name="passbook_photo" id="passbook_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
-                                                    <div><img id="passbook_photo_perview" src="{{ (!empty(auth()->user()->passbook)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
-                                                </td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_Uploadpassbook__"><input type="file"
+                                            name="passbook_photo" id="passbook_photo" class="uploadfiles"
+                                            accept="image/jpeg,image/jpg"></span>
+                                    <div><img id="passbook_photo_perview"
+                                            src="{{ (!empty(auth()->user()->passbook)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : 'http://placehold.it/180'}}"
+                                            class="img-thumbnail mt-2" alt="..."></div>
+                                </td>
                             </tr>
                             <tr>
-<td>
-                            <button type="submit" class="btn btn-warning">Save</button>
-</td>
+                                <td>
+                                    <button type="submit" class="btn btn-warning">Save</button>
+                                </td>
                             </tr>
-</tbody>
-</table>
-</div>
-</form>
-</div>
-</div>
-</body>
-</html>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</li>
