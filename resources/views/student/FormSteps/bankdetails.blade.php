@@ -1,5 +1,5 @@
 
-<li class="tab-content tab-content-2 typography">
+<li class="tab-content tab-content-third typography">
     <form id="bankform">
         @csrf
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
