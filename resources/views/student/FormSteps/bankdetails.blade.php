@@ -79,6 +79,8 @@
                             <tr>
 
                             <button type="submit" class="btn btn-warning">Save</button>
+
+</tr>
 </table>
 </form>
 </body>
