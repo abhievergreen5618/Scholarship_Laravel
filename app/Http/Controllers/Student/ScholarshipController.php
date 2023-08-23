@@ -252,7 +252,23 @@ class ScholarshipController extends Controller
 
     public function bankinfo(Request $request)
     {
-        return view('bankdetails');
+        $validator=Validator::make($request->all(),[
+            "accountn0" => "required",
+            "cnfrmaccountno" => "required",
+            "accountname" => "required",
+            "ifsccode" => "required",
+            "passbook_photo" => "required",
+        ]);
+        if ($validator->fails()) {
+            $errors = [];
+            foreach ($validator->errors()->getMessages() as $index => $error) {
+                $errors[$index] = $error[0];
+            }
+            return response()->json([
+                'message'  => "!OOPs Something went wrong",
+                'error' => $errors
+            ],422);
+        }
     }
     
     public function applicationsummarysubmit(Request $request)
