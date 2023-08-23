@@ -13,3 +13,13 @@
                             <tr>
                                 <td colspan="3"><b><u>Fields marked <span style="color: red">*</span> are mandatory.</u></b></td>
                             </tr>
+                            <tr>
+                                <td class="vtext">Account No. <span style="color: red">*</span>
+                                    <br>
+                                    <strong>खाता संख्या</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="accountno" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mobileno}} @endif" maxlength="15" id="accountno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                                </td>
+                            </tr>
