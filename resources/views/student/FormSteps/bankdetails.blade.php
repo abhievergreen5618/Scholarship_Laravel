@@ -8,7 +8,7 @@
 <body>
     <form>
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
-                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblPageMsg__"><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
+                    <span><spanstyle="color:Red;"></span></span>
                 </h3>
         <table>
     <tr>
