@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<li class="tab-content tab-content-third typography">
     <form>
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><spanstyle="color:Red;"></span></span>
@@ -23,5 +16,3 @@
     </tr>
 </table>
 </form>
-</body>
-</html>
