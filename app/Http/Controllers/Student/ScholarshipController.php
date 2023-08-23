@@ -269,6 +269,10 @@ class ScholarshipController extends Controller
                 'error' => $errors
             ],422);
         }
+        else
+        {
+            
+        }
     }
     
     public function applicationsummarysubmit(Request $request)
