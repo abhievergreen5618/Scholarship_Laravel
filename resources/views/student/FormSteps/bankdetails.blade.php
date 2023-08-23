@@ -44,7 +44,7 @@
             </td>
             <td class="colon">:</td>
                 <td>
-                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text"  maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
                 </td>
         </tr>
                             <tr>
