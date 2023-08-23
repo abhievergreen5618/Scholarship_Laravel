@@ -341,6 +341,7 @@ input#chb {
 }
 .pcss3t > .tab-content-first:checked ~ ul .tab-content-first,
 .pcss3t > .tab-content-2:checked ~ ul .tab-content-2,
+.pcss3t > .tab-content-third:checked ~ ul .tab-content-third,
 .pcss3t > .tab-content-3:checked ~ ul .tab-content-3,
 .pcss3t > .tab-content-4:checked ~ ul .tab-content-4,
 .pcss3t > .tab-content-5:checked ~ ul .tab-content-5,
@@ -375,6 +376,7 @@ input#chb {
 }
 .pcss3t-height-auto > .tab-content-first:checked ~ ul .tab-content-first,
 .pcss3t-height-auto > .tab-content-2:checked ~ ul .tab-content-2,
+.pcss3t-height-auto > .tab-content-third:checked ~ ul .tab-content-third,
 .pcss3t-height-auto > .tab-content-3:checked ~ ul .tab-content-3,
 .pcss3t-height-auto > .tab-content-4:checked ~ ul .tab-content-4,
 .pcss3t-height-auto > .tab-content-5:checked ~ ul .tab-content-5,
