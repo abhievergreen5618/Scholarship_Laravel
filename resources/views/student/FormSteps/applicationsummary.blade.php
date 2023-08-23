@@ -1,7 +1,7 @@
 <li class="tab-content tab-content-3 typography ttt">
                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="tab_3">
-                                        <h3><span>Step [3/5] :</span> Application Summary &nbsp;
+                                    <div class="tab-pane active" id="tab_4">
+                                        <h3><span>Step [4/6] :</span> Application Summary &nbsp;
                                             <span id="Anthem_ctl00_ContentPlaceHolder1_lblPageMsg__"><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                                         </h3>
 

@@ -3,8 +3,8 @@
         @csrf
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
         <div class="tab-content">
-            <div class="tab-pane active" id="tab_1">
-                <h3><span>Step [1/5] :</span> Personal Information &nbsp;
+            <div class="tab-pane active" id="tab_3">
+                <h3><span>Step [3/6] :</span> Banking details &nbsp;
                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblPageMsg__"><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                 </h3>
                 <div class="box-body table-responsive">
