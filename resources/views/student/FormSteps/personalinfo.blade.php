@@ -167,25 +167,7 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="{{!empty(auth()->user()->step1_updated_at) ? auth()->user()->aadhaarno : ''}}" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong"></span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="vtext">High School (Matric) Mark-Sheet No. <span style="color: red">*</span><br>
-                                    <strong>हाई स्कूल (मैट्रिक) मार्क-शीट नं</strong>
-                                </td>
-                                <td class="colon">:</td>
-                                <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheetmatric" type="number" id="hsmarksheetmatric" class="form-control" value="{{(!empty(auth()->user()->step1_updated_at)) ? auth()->user()->hsmarksheetmatric : ''}}" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="vtext">High School (+2) Mark-Sheet No. <span style="color: red">*</span><br>
-                                    <strong>हाई स्कूल (+2) मार्कशीट नं</strong>
-                                </td>
-                                <td class="colon">:</td>
-                                <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtHSchoolCno__"><input name="hsmarksheet" type="number" id="hsmarksheet" class="form-control" value="{{(!empty(auth()->user()->step1_updated_at)) ? auth()->user()->hsmarksheet : ''}}" maxlength="20" id="ctl00_ContentPlaceHolder1_txtHSchoolCno" class="textboxlong" ondrop="return false;" onpaste="return false;"></span>
-                                </td>
-                            </tr>
+                            
 
 
 
