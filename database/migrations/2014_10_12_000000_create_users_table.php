@@ -31,8 +31,6 @@ return new class extends Migration
             $table->string('paddress')->nullable();
             $table->string('dob')->nullable();
             $table->string('aadhaarno')->nullable();
-            $table->string('hsmarksheetmatric')->nullable();
-            $table->string('hsmarksheet')->nullable();
             $table->string('nationality')->nullable();
             $table->string('mobileno')->nullable();
             $table->string('gender')->nullable();

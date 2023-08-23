@@ -18,8 +18,6 @@ jQuery('#frm').validate({
             required:true,
             email:true
         },
-        hsmarksheetmatric:"required",
-        hsmarksheet:"required",
         applyingfor:"required",
         category:"required"
     },
