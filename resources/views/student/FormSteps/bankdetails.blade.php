@@ -1,16 +1,19 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <form>-->
+<body> 
+    <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+
+    <form>
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                 </h3>
-       <!-- <table>
+        <table>
             <tbody>
     <tr>
         <td class="text">Account No. <span style="color: red">*</span>
@@ -85,5 +88,7 @@
 </tbody>
 </table>
 </form>
+</div>
+</div>
 </body>
-</html> -->
+</html>
