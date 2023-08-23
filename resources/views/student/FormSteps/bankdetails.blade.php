@@ -34,12 +34,12 @@
             </td>
     </tr>
     <tr>
-        <td class="vtext">Banking Account Name<span style="color: red">*</span><br>
+        <td class="vtext">Account Holder Name<span style="color: red">*</span><br>
             <strong>बैंकिंग खाता नाम</strong>
         </td>
         <td class="colon">:</td>
             <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="accountname" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="holdername" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
             </td>
     </tr>
         <tr>
