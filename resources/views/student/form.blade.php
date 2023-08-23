@@ -17,8 +17,8 @@
                         <label for="tab2"><i class="fas fa-hand-point-right"></i>Education & Document Details @if(empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
                         
-                        <input type="radio" name="pcss3t" id="tab2" class="tab-content-2" >
-                        <label for="tab2"><i class="fas fa-hand-point-right"></i>Bank Details  <i class="fa fa-lock"></i> 
+                        <input type="radio" name="pcss3t" id="tab1" class="{{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}tab-content-first" {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}} {{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
+                        <label for="tab1"><i class="fas fa-hand-point-right"></i>Bank Details @if(!empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
                         <input type="radio" name="pcss3t" id="tab3" class="tab-content-3" {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
