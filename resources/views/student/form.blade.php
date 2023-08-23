@@ -36,6 +36,7 @@
                         <ul>
                             @include("student.FormSteps.personalinfo")
                             @include("student.FormSteps.educationDocument")
+                            @include("student.FormSteps.bankingdetails")
                             @include("student.FormSteps.applicationsummary")
                             @include("student.FormSteps.payment")
 
