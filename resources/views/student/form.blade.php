@@ -17,7 +17,7 @@
                         <label for="tab2"><i class="fas fa-hand-point-right"></i>Education & Document Details @if(empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
                         
-                        <input type="radio" name="pcss3t" id="tabb3" class="tab-content-third" {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tabb3" class="tab-content-third" {{!empty(auth()->user()->step1_updated_at) && empty(auth()->user()->step2_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)? 'disabled' : ''}}>
                         <label for="tabb3"><i class="fas fa-hand-point-right"></i>Bank Details @if(empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
@@ -75,6 +75,8 @@
                 </div>
             </div>
 
+
+
             <div class="col-md-2">
                 <div class="sidebar">
                     <div class="wr-right" style="display: block">
@@ -93,6 +95,8 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
