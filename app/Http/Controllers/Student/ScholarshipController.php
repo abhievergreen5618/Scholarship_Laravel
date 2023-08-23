@@ -131,20 +131,20 @@ class ScholarshipController extends Controller
     /**Store education data */
     public function educationInfoStore(Request $request){
         $validator = Validator::make($request->all(), [
-            "grad_passed" => "required",
-            "grad_board" => "required",
-            "grad_passing_year" => "required",
-            "grad_marks" => "required",
-            "grad_max_marks" => "required",
-            "grad_percentage" => "required",
-            "grad_rollno" => "required",
-            "post_grad_passed" => "required",
-            "post_grad_board" => "required",
-            "post_grad_passing_year" => "required",
-            "post_grad_marks" => "required",
-            "post_grad_max_marks" => "required",
-            "post_grad_percentage" => "required",
-            "post_grad_rollno" => "required",
+            // "grad_passed" => "required",
+            // "grad_board" => "required",
+            // "grad_passing_year" => "required",
+            // "grad_marks" => "required",
+            // "grad_max_marks" => "required",
+            // "grad_percentage" => "required",
+            // "grad_rollno" => "required",
+            // "post_grad_passed" => "required",
+            // "post_grad_board" => "required",
+            // "post_grad_passing_year" => "required",
+            // "post_grad_marks" => "required",
+            // "post_grad_max_marks" => "required",
+            // "post_grad_percentage" => "required",
+            // "post_grad_rollno" => "required",
             "profile_photo" => "required",
             "sign_photo" => "required",
             "disqualified/suspended" => "required",
@@ -183,37 +183,37 @@ class ScholarshipController extends Controller
                     'type'=>'school',
                  ]);
 
-                 $matchThese = ['user_id'=>decrypt($request['id']),'type'=>'graduation'];
-                 EducationDetails::updateOrCreate($matchThese,[
-                    'user_id'=> decrypt($request['id']),
-                    'resultstatus'=>$request['grad_status'],
-                    'examination_passed'=>$request['grad_passed'],
-                    'name_of_the_board_university'=>$request['grad_board'],
-                    'passing_year'=>$request['grad_passing_year'],
-                    'credits_marks_Obtained'=>$request['grad_marks'],
-                    'maximum_marks'=>$request['grad_max_marks'],
-                    'percentage_marks'=>$request['grad_percentage'],
-                    'exam_roll_no'=>$request['grad_rollno'],
-                    'disqualified/suspended'=>$request['disqualified/suspended'],
-                    'disqualified/suspended_details'=>$request['details'] ?? "",
-                    'type'=>'graduation',
-                 ]);
+                //  $matchThese = ['user_id'=>decrypt($request['id']),'type'=>'graduation'];
+                //  EducationDetails::updateOrCreate($matchThese,[
+                //     'user_id'=> decrypt($request['id']),
+                //     'resultstatus'=>$request['grad_status'],
+                //     'examination_passed'=>$request['grad_passed'],
+                //     'name_of_the_board_university'=>$request['grad_board'],
+                //     'passing_year'=>$request['grad_passing_year'],
+                //     'credits_marks_Obtained'=>$request['grad_marks'],
+                //     'maximum_marks'=>$request['grad_max_marks'],
+                //     'percentage_marks'=>$request['grad_percentage'],
+                //     'exam_roll_no'=>$request['grad_rollno'],
+                //     'disqualified/suspended'=>$request['disqualified/suspended'],
+                //     'disqualified/suspended_details'=>$request['details'] ?? "",
+                //     'type'=>'graduation',
+                //  ]);
 
-                 $matchThese = ['user_id'=>decrypt($request['id']),'type'=>'post_graduation'];
-                 EducationDetails::updateOrCreate($matchThese,[
-                    'user_id'=> decrypt($request['id']),
-                    'resultstatus'=>$request['post_grad_status'],
-                    'examination_passed'=>$request['post_grad_passed'],
-                    'name_of_the_board_university'=>$request['post_grad_board'],
-                    'passing_year'=>$request['post_grad_passing_year'],
-                    'credits_marks_Obtained'=>$request['post_grad_marks'],
-                    'maximum_marks'=>$request['post_grad_max_marks'],
-                    'percentage_marks'=>$request['post_grad_percentage'],
-                    'exam_roll_no'=>$request['post_grad_rollno'],
-                    'disqualified/suspended'=>$request['disqualified/suspended'],
-                    'disqualified/suspended_details'=>$request['details'] ?? "",
-                    'type'=>'post_graduation',
-                 ]);
+                //  $matchThese = ['user_id'=>decrypt($request['id']),'type'=>'post_graduation'];
+                //  EducationDetails::updateOrCreate($matchThese,[
+                //     'user_id'=> decrypt($request['id']),
+                //     'resultstatus'=>$request['post_grad_status'],
+                //     'examination_passed'=>$request['post_grad_passed'],
+                //     'name_of_the_board_university'=>$request['post_grad_board'],
+                //     'passing_year'=>$request['post_grad_passing_year'],
+                //     'credits_marks_Obtained'=>$request['post_grad_marks'],
+                //     'maximum_marks'=>$request['post_grad_max_marks'],
+                //     'percentage_marks'=>$request['post_grad_percentage'],
+                //     'exam_roll_no'=>$request['post_grad_rollno'],
+                //     'disqualified/suspended'=>$request['disqualified/suspended'],
+                //     'disqualified/suspended_details'=>$request['details'] ?? "",
+                //     'type'=>'post_graduation',
+                //  ]);
 
 
             if ($request->hasFile('profile_photo')) {
@@ -249,6 +249,11 @@ class ScholarshipController extends Controller
     {
         //
     }
+
+public function bankdetails(Request $request)
+{
+    return view('bankingdetails');
+}
 
     public function applicationsummarysubmit(Request $request)
     {

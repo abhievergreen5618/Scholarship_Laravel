@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/','index')->name('start');
         Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
-        Route::post('/bankingdetails','bankdetails')->name('bankingdetails');
+        Route::post('/bamkingdetails','bankdetails')->name('bamkingdetails');
         Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
     });
