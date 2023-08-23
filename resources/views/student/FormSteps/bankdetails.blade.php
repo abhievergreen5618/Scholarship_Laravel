@@ -1,4 +1,4 @@
-
+<li class="tab-content tab-content-third typography">
 <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
 
@@ -71,3 +71,4 @@
 </form>
 </div>
 </div>
+</li>
