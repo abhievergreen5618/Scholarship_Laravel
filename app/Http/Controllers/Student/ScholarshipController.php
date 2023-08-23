@@ -254,7 +254,7 @@ class ScholarshipController extends Controller
     {
         $validator=Validator::make($request->all(),[
             "accountn0" => "required",
-            "cnfrmaccountno" => "required",
+            "cnfrmaccountno" => "required|confirmed",
             "accountname" => "required",
             "ifsccode" => "required",
             "passbook_photo" => "required",
