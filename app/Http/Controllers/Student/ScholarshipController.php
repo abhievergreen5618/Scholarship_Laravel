@@ -234,10 +234,9 @@ class ScholarshipController extends Controller
             "passbook_photo" => $request['passbook_photo'],
             "step3_updated_at" => now(),
         ]);
-        dd($request->all());
-        // return response()->json ([
-        //     'message' => "Saved Data",
-        // ],200);
+        return response()->json ([
+            'message' => "Saved Data",
+        ],200);
     }
     }
     
