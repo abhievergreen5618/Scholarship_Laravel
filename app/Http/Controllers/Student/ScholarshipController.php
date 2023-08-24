@@ -132,20 +132,6 @@ class ScholarshipController extends Controller
     /**Store education data */
     public function educationInfoStore(Request $request){
         $validator = Validator::make($request->all(), [
-            // "grad_passed" => "required",
-            // "grad_board" => "required",
-            // "grad_passing_year" => "required",
-            // "grad_marks" => "required",
-            // "grad_max_marks" => "required",
-            // "grad_percentage" => "required",
-            // "grad_rollno" => "required",
-            // "post_grad_passed" => "required",
-            // "post_grad_board" => "required",
-            // "post_grad_passing_year" => "required",
-            // "post_grad_marks" => "required",
-            // "post_grad_max_marks" => "required",
-            // "post_grad_percentage" => "required",
-            // "post_grad_rollno" => "required",
             "profile_photo" => "required",
             "sign_photo" => "required",
             "disqualified/suspended" => "required",
@@ -240,13 +226,13 @@ class ScholarshipController extends Controller
         }
         else
         {
-            BankDetails::where('id',decrypt($request['id']))->update([
-                "accountno" => $request['accountno'],
-                "cnfrmaccountno" => $request['cnfrmaccountno'],
-                "holdername" => $request['holdername'],
-                "ifsccode" => $request['ifsccode'],
-                "passbook_photo" => $request['passbook_photo'],
-            ]);
+           BankDetails::where('id',decrypt($request['id']))->update([
+            "accountno" => $request['accountno'],
+            "cnfrmaccountno" => $request['cnfrmaccountno'],
+            "holdername" => $request['holdername'],
+            "ifsccode" => $request['ifsccode'],
+            "passbook_photo" => $request['passbook_photo'],
+           ]);
             return response()->json([
                 'message' => 'Saved successfully',
             ],200);
