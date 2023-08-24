@@ -233,12 +233,8 @@ class ScholarshipController extends Controller
             "ifsccode" => $request['ifsccode'],
             "passbook_photo" => $request['passbook_photo'],
         ]);
-          
-            return response()->json([
-                'message' => 'Saved successfully',
-                'errors' => $errors
-            ],200);
-        }
+          dd($request->all());
+    }
     }
     
     public function applicationsummarysubmit(Request $request)
