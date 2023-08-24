@@ -226,7 +226,6 @@ class ScholarshipController extends Controller
         }
         else
         {
-            
              BankDetails::where('id', ($request['id']))->update([
             "accountno" => $request['accountno'],
             "cnfrmaccountno" => $request['cnfrmaccountno'],

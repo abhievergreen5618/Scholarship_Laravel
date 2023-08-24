@@ -172,8 +172,8 @@ jQuery('#docform').validate({
                     $("#tab3").attr('disabled',false);
                     $("#tab3").trigger('click');
                     $('[for="tab3"]').find("[data-icon='lock']").remove();
-                    $("#application_summary_step").removeClass("btn-secondary");
-                    $("#application_summary_step").addClass("btn-success");
+                    $("#bank_details_step").removeClass("btn-secondary");
+                    $("#bank_details_step").addClass("btn-success");
                     debugger;
                     $("html, body").animate({ scrollTop: 0 }, "slow");
                     location.reload();
