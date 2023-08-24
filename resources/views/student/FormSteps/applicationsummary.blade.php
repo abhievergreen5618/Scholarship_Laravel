@@ -484,7 +484,7 @@
 </td>
                             </tr>
                                                         </td>
-                                                        <td>&nbsp;</td>
+                                                        <td colspan="3">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="3">&nbsp;</td>
