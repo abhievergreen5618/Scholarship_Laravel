@@ -222,7 +222,8 @@ class ScholarshipController extends Controller
     public function bankinfo(Request $request)
     {
         $validator=Validator::make($request->all(),[
-            "accountno" => "required|confirmed",
+            "accountno" => "required",
+            "cnfrmaccountno" => "required_with:accountno|same:accountno",
             "holdername" => "required",
             "ifsccode" => "required",
             "passbook_photo" => "required",
@@ -241,6 +242,7 @@ class ScholarshipController extends Controller
         {
             BankDetails::where('id',decrypt($request['id']))->update([
                 "accountno" => $request['accountno'],
+                "cnfrmaccountno" => $request['cnfrmaccountno'],
                 "holdername" => $request['holdername'],
                 "ifsccode" => $request['ifsccode'],
                 "passbook_photo" => $request['passbook_photo'],
