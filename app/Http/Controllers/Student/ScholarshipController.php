@@ -234,7 +234,7 @@ class ScholarshipController extends Controller
             "passbook_photo" => $request['passbook_photo'],
         ]);
         return response()->json ([
-            'message' => "Saved Data",
+            'message' => "Saved Data Successfully",
         ],200);
     }
     }
