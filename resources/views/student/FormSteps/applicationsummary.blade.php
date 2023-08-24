@@ -424,7 +424,7 @@
         </td>
         <td class="colon">:</td>
         <td>
-            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->bankdetails()->accountno : ''}}</span>
+            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at)) ? auth()->user()->accountno : ''}}</span>
         </td>
     </tr>
     <tr>
@@ -434,7 +434,7 @@
         </td>
         <td class="colon">:</td>
         <td>
-            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->bankdetails()->cnfrmaccountno : ''}}</span>
+            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at)) ? auth()->user()->cnfrmaccountno : ''}}</span>
         </td>
     </tr>
     <tr>
@@ -443,7 +443,7 @@
         </td>
         <td class="colon">:</td>
         <td>
-            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->bankdetails()->holdername : ''}}</span>
+            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at)) ? auth()->user()->holdername : ''}}</span>
         </td>
              </tr>
         <tr>
@@ -452,7 +452,7 @@
             </td>
             <td class="colon">:</td>
             <td>
-            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->bankdetails()->ifsccode : ''}}</span>
+            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at)) ? auth()->user()->ifsccode : ''}}</span>
         </td>
                 </tr>
                             <tr>
@@ -464,7 +464,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->passbook_photo()->ifsccode : ''}}</span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at)) ? auth()->user()->passbook_photo : ''}}</span>
                                 </td>
                                                </tr>
                             <tr>
