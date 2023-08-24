@@ -225,15 +225,9 @@ class ScholarshipController extends Controller
             ],422);
         }
         else
-        {$decryptedId = decrypt($request['id']);
-            Log::info("Decrypted ID: " . $decryptedId);
+        {
             
-            $bankDetails = BankDetails::where('id', $decryptedId)->first();
-            Log::info("BankDetails Query: " . $bankDetails->toSql());
-            
-            // ... Continue with the update operation
-            
-             BankDetails::where('id', decrypt($request['id']))->update([
+             BankDetails::where('id', ($request['id']))->update([
             "accountno" => $request['accountno'],
             "cnfrmaccountno" => $request['cnfrmaccountno'],
             "holdername" => $request['holdername'],
