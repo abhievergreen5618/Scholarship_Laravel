@@ -226,16 +226,17 @@ class ScholarshipController extends Controller
         }
         else
         {
-            $matchThese = ['user_id'=>decrypt($request['id'])];
-           BankDetails::updateOrCreate($matchThese,[
+             BankDetails::where('id', decrypt($request['id']))->update([
             "accountno" => $request['accountno'],
             "cnfrmaccountno" => $request['cnfrmaccountno'],
             "holdername" => $request['holdername'],
             "ifsccode" => $request['ifsccode'],
             "passbook_photo" => $request['passbook_photo'],
-           ]);
+        ]);
+          
             return response()->json([
                 'message' => 'Saved successfully',
+                'errors' => $errors
             ],200);
         }
     }
