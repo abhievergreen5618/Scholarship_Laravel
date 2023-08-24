@@ -13,6 +13,9 @@
                 <div class="box-body table-responsive">
         <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
             <tbody>
+            <tr>
+                                <td colspan="3"><b><u>Fields marked <span style="color: red">*</span> are mandatory.</u></b></td>
+                            </tr>
     <tr>
         <td class="text">Account No. <span style="color: red">*</span>
         <br>
