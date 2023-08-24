@@ -226,12 +226,19 @@ class ScholarshipController extends Controller
         }
         else
         {
-             BankDetails::where('id', ($request['id']))->update([
+            if ($request->hasFile('passbook_photo')) {
+                $image = $request->file('passbook_photo');
+                $passbook_photo = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images/proofdoc'), $passbook_photo);
+            }
+            $matchThese = ['user_id'=>decrypt($request['id'])];
+            BankDetails::updateOrCreate($matchThese,[
+            'user_id'=> decrypt($request['id']),
             "accountno" => $request['accountno'],
             "cnfrmaccountno" => $request['cnfrmaccountno'],
             "holdername" => $request['holdername'],
             "ifsccode" => $request['ifsccode'],
-            "passbook_photo" => $request['passbook_photo'],
+            "passbook_photo" =>$passbook_photo,
         ]);
         return response()->json ([
             'message' => "Saved Data Successfully",
