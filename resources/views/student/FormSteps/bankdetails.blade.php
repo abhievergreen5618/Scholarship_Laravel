@@ -5,7 +5,7 @@
 <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
 
-    <form id="bankform" method="POST">
+    <form id="bankform" method="POST" action="{{route('bankdetails')}}">
         @csrf
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
