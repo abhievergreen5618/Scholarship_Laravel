@@ -23,7 +23,7 @@
         </td>
         <td class="colon">:</td>
             <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" value="{{!empty(auth()->user()->step1_updated_at) ? auth()->user()->aadhaarno : ''}}" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->accountno : ''}}" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
             </td>
     </tr>
     <tr>
@@ -33,7 +33,7 @@
         </td>
         <td class="colon">:</td>
             <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="cnfrmaccountno"  maxlength="15" id="accountno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="cnfrmaccountno"  maxlength="15" id="cnfrmaccountno" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->cnfrmaccountno : ''}}" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
             </td>
     </tr>
     <tr>
@@ -42,7 +42,7 @@
         </td>
         <td class="colon">:</td>
             <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="holdername" type="text" value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="holdername" type="text" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->holdername : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
             </td>
     </tr>
         <tr>
@@ -51,7 +51,7 @@
             </td>
             <td class="colon">:</td>
                 <td>
-                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="ifsccode" type="text"  maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="ifsccode" type="text"  maxlength="50" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->ifsccode : ''}}" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
                 </td>
         </tr>
                             <tr>
@@ -63,7 +63,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                                 <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_Uploadpassbook__"><input type="file" name="passbook_photo" id="passbook_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_Uploadpassbook__"><input type="file" name="passbook_photo" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->passbook_photo : ''}}" id="passbook_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
                                                     </td>
                             </tr>
                             <tr>
