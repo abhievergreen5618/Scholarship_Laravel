@@ -61,7 +61,7 @@
                                 <td class="colon">:</td>
                                                 <td>
                                                     <span id="Anthem_ctl00_ContentPlaceHolder1_Uploadpassbook__"><input type="file" name="passbook_photo" id="passbook_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
-                                                    <div><img id="passbook_photo_perview" src="{{ (!empty(auth()->user()->passbook)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
+                                                    <div><img id="passbook_photo_perview" src="{{ (!empty(auth()->user()->passbook_photo)) ? asset('public/images/proofdoc/'.auth()->user()->passbook_photo) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                             </tr>
                             <tr>
