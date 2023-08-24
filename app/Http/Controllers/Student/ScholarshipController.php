@@ -242,7 +242,7 @@ class ScholarshipController extends Controller
     public function applicationsummarysubmit(Request $request)
     {
         User::where('id',Auth::id())->update([
-            "step3_updated_at" => now(),
+            "step4_updated_at" => now(),
         ]);
         return response()->json([
             'message' => 'Saved successfully',
@@ -261,7 +261,7 @@ class ScholarshipController extends Controller
         $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);
 
         User::where('id',Auth::id())->update([
-            "step4_updated_at" => now(),
+            "step5_updated_at" => now(),
             "reference_number" => $referenceNumber,
         ]);
         PaymentsDetails::create([

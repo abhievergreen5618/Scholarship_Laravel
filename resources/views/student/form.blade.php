@@ -21,15 +21,15 @@
                         <label for="tabb3"><i class="fas fa-hand-point-right"></i>Bank Details @if(empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step3_updated_at))<i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-3" {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step3_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-3" {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step4_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
                         <label for="tab3"><i class="fas fa-hand-point-right"></i>Application Summary @if(empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab5" class="tab-content-last" {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step4_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab5" class="tab-content-last" {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step5_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
                         <label for="tab5"><i class="fas fa-hand-point-right"></i>Payment @if(empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab6" class="tabend" {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step5_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab6" class="tabend" {{!empty(auth()->user()->step5_updated_at) && empty(auth()->user()->step6_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
                         <label for="tab6"><i class="fas fa-hand-point-right"></i>Submit Application Form @if(empty(auth()->user()->step4_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
@@ -87,8 +87,8 @@
                                 <a href="#" class="btn {{!empty(auth()->user()->step1_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="education_details_step">Education &amp; Document Details</a>
                                 <a href="#" class="btn {{!empty(auth()->user()->step2_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="bank_details_step">Bank Details</a>
                                 <a href="#" class="btn {{!empty(auth()->user()->step3_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="application_summary_step">Application Summary</a>
-                                <a href="#" class="btn {{!empty(auth()->user()->step3_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="payment_step">Payment</a>
-                                <a href="#" class="btn {{!empty(auth()->user()->step4_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="submit_information_form">Submit Application Form</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step4_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="payment_step">Payment</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step5_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="submit_information_form">Submit Application Form</a>
                             </div>
                         </div>
                         <div>
