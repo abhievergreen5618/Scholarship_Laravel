@@ -416,11 +416,15 @@
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
+                                                        <td class="text">Bank Account Details <span style="color: red">*</span>
+        <br>
+            <strong>बैंक के खाते का विवरण</strong>
+        </td>
                                                         <td>&nbsp;
                                                         <tr>
         <td class="text">Account No. <span style="color: red">*</span>
         <br>
-            <strong>खाता संख्या</strong>
+            <strong>खाता संख्या की पुष्टि करें</strong>
         </td>
         <td class="colon">:</td>
         <td>
