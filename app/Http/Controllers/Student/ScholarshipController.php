@@ -226,7 +226,7 @@ class ScholarshipController extends Controller
         }
         else
         {
-           BankDetails::where('id',decrypt($request['id']))->update([
+           BankDetails::where('id',decrypt($request['id']))->updateOrCreate([
             "accountno" => $request['accountno'],
             "cnfrmaccountno" => $request['cnfrmaccountno'],
             "holdername" => $request['holdername'],
