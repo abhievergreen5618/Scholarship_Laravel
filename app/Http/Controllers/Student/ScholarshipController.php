@@ -232,6 +232,7 @@ class ScholarshipController extends Controller
             "holdername" => $request['holdername'],
             "ifsccode" => $request['ifsccode'],
             "passbook_photo" => $request['passbook_photo'],
+            "step2_updated_at" => now(),
         ]);
         return response()->json ([
             'message' => "Saved Data Successfully",
