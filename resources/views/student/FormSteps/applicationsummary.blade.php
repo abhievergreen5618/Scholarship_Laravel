@@ -417,11 +417,12 @@
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <tr>
-                                                        <td class="text">Bank Account Details <span style="color: red">*</span>
-        <br>
-            <strong>बैंक के खाते का विवरण</strong>
-        </td>
-                                </tr>
+                                                        <td colspan="3">Bank Account Details<br>
+                                                            <strong>बैंक के खाते का विवरण</strong>
+                                                        </td>
+                                                        <td class="colon"></td>
+                                                    </tr>
+                                                        
                                                         <td>&nbsp;
                                                         <tr>
         <td class="text">Account No. <span style="color: red">*</span>
