@@ -462,7 +462,7 @@
                                     <span style="color:red">*</span>
                                 </td>
                                 <td class="colon">:</td>
-                                <td></td>
+                                <td>&nbsp;</td>
                                                </tr>
                             <tr>
 <td>
