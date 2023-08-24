@@ -423,6 +423,9 @@
             <strong>खाता संख्या</strong>
         </td>
         <td class="colon">:</td>
+        <td>
+            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->bankdetails()->accountno : ''}}</span>
+        </td>
     </tr>
     <tr>
         <td class="text">Confirm Account No. <span style="color: red">*</span>
@@ -430,18 +433,27 @@
             <strong>खाता संख्या</strong>
         </td>
         <td class="colon">:</td>
+        <td>
+            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->bankdetails()->cnfrmaccountno : ''}}</span>
+        </td>
     </tr>
     <tr>
         <td class="vtext">Account Holder Name<span style="color: red">*</span><br>
             <strong>बैंकिंग खाता नाम</strong>
         </td>
         <td class="colon">:</td>
+        <td>
+            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->bankdetails()->holdername : ''}}</span>
+        </td>
              </tr>
         <tr>
             <td class="vtext">IFSC Code<span style="color: red">*</span><br>
                 <strong>आईएफएससी कोड</strong>
             </td>
             <td class="colon">:</td>
+            <td>
+            <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->bankdetails()->ifsccode : ''}}</span>
+        </td>
                 </tr>
                             <tr>
                                 <td>Upload Passbook Front Page Image
@@ -451,7 +463,9 @@
                                     <span style="color:red">*</span>
                                 </td>
                                 <td class="colon">:</td>
-                                <td>&nbsp;</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->bankdetails()->step3_updated_at)) ? auth()->passbook_photo()->ifsccode : ''}}</span>
+                                </td>
                                                </tr>
                             <tr>
 <td>
