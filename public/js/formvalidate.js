@@ -239,9 +239,9 @@ jQuery('#bankform').validate({
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
-                    $("#tab3").attr('disabled',false);
-                    $("#tab3").trigger('click');
-                    $('[for="tab3"]').find("[data-icon='lock']").remove();
+                    $("#tabb3").attr('disabled',false);
+                    $("#tabb3").trigger('click');
+                    $('[for="tabb3"]').find("[data-icon='lock']").remove();
                     $("#application_summary_step").removeClass("btn-secondary");
                     $("#application_summary_step").addClass("btn-success");
                     debugger;
