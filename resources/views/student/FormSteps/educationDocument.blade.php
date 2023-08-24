@@ -56,8 +56,6 @@
                     </tbody>
                 </table>
 
-
-
                 <div id="ctl00_ContentPlaceHolder1_divEducationGrid" class="box-body  table-responsive">
                     <span id="Anthem_ctl00_ContentPlaceHolder1_lbl_UploadDocDtls__"><span id="ctl00_ContentPlaceHolder1_lbl_UploadDocDtls" style="color:Red;margin-left: 80%"></span></span>
                     <div class="gridiv">
@@ -151,8 +149,7 @@
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="number" maxlength="15" id="class_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"  value="{{isset($step2schooldata['exam_roll_no']) ? $step2schooldata['exam_roll_no'] : '' }}"></span>
                                             </td>
 
-
-                                                                           </tbody>
+                                        </tbody>
                                 </table>
                             </div>
                         </div>
