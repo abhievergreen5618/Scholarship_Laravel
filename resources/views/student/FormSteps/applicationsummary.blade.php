@@ -124,17 +124,6 @@
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_lblAadhaarNo__"><span id="ctl00_ContentPlaceHolder1_lblAadhaarNo">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->aadhaarno : ''}}</span></span>
                                                         </td>
                                                     </tr>
-                                                    <tr id="ctl00_ContentPlaceHolder1_trhpumarkseetno">
-                                                        <td class="vtext">High School (Matric) Mark-Sheet No.
-
-                                                            <br>
-                                                            <strong>हाई स्कूल (मैट्रिक) अंक तालिका संख्या</strong>
-                                                        </td>
-                                                        <td class="colon">:</td>
-                                                        <td>
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblhighschoolmarksheetno__"><span id="ctl00_ContentPlaceHolder1_lblhighschoolmarksheetno">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->hsmarksheetmatric : ''}}</span></span>
-                                                        </td>
-                                                    </tr>
                                                     <tr>
                                                         <td class="vtext">Nationality<br>
                                                             <strong>राष्ट्रीयता</strong>
