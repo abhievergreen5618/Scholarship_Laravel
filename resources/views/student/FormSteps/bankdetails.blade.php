@@ -1,5 +1,5 @@
 <li class="tab-content tab-content-third typography">
-                                <div class="typography">
+    <div class="typography">
     
 <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
 <div class="tab-content">
@@ -11,7 +11,7 @@
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                 </h3>
                 <div class="box-body table-responsive">
-        <table>
+        <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
             <tbody>
     <tr>
         <td class="text">Account No. <span style="color: red">*</span>
