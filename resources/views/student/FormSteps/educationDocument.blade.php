@@ -79,7 +79,7 @@
                                             <td align="center" style="width:5%;">
                                                 1
                                             </td>
-                                            <td align="center" style="width:100%;">
+                                            <td align="center" style="width:10%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="class_status" id="class_status" class="form-select">
                                                         <option value="P" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'P') ? 'selected' : ''}}>Passed</option>
                                                         <option value="A" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'A') ? 'selected' : ''}}>Awaited</option>
@@ -89,7 +89,7 @@
                                                     </select></span>
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlRStatus__"></span>
                                             </td>
-                                            <td align="center" style="width:20%;">
+                                            <td align="center" style="width:10%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamPassed">Class 5 to
                                                         Class 12 or its Equivalent</span></span>
 
