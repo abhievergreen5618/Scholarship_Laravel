@@ -89,7 +89,7 @@
                                                     </select></span>
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlRStatus__"></span>
                                             </td>
-                                            <td align="center" style="width:10%;">
+                                            <td align="center" style="width:12%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamPassed">Class 5 to
                                                         Class 12 or its Equivalent</span></span>
 
