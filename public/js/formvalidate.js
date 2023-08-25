@@ -119,6 +119,7 @@ jQuery('#docform').validate({
         // class_rollno:"required",
 
 
+
         profile_photo:"required",
         sign_photo:"required"
     },
