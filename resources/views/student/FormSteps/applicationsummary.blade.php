@@ -409,6 +409,12 @@
                                                                     <tr>
                                                                         <td>&nbsp;</td>
                                                                     </tr>
+                                                                    <tr>
+                                                                    <td align="left">
+
+<span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="button" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK &amp; EDIT"  id="backstep2" class="btn-primary"></span>
+</td>
+                                                            </tr>
                                                                 </tbody>
                                                             </table>
 
@@ -500,10 +506,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="left">
-
-                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="button" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK &amp; EDIT"  id="backstep2" class="btn-primary"></span>
-                                                        </td>
+                                                        
                                                         <td colspan="2" align="right">
 
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT" data-action="{{route('applicationsummarysubmit')}}" id="savestep3" class="btn-primary"></span>
