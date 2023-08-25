@@ -41,7 +41,7 @@
         </td>
         <td class="colon">:</td>
             <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="holdername" type="text" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->holdername : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="holdername" type="text" value="{{!empty auth()->user()->holdername : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
             </td>
     </tr>
         <tr>
