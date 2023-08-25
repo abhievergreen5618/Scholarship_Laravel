@@ -108,7 +108,7 @@
                                                     </select></span>
 
                                             </td>
-                                            <td align="center">
+                                            <td align="center" style="width:10%;>
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="class_board" class="textbox form-control" onpaste="return false" ondrop="return false" value="{{isset($step2schooldata['name_of_the_board_university']) ? $step2schooldata['name_of_the_board_university'] : '' }}"></span>
 
