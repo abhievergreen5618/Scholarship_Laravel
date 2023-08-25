@@ -108,7 +108,7 @@
                                                     </select></span>
 
                                             </td>
-                                            <td align="center" style="width:10%;>
+                                            <td align="center">
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="class_board" class="textbox form-control" onpaste="return false" ondrop="return false" value="{{isset($step2schooldata['name_of_the_board_university']) ? $step2schooldata['name_of_the_board_university'] : '' }}"></span>
 
@@ -117,7 +117,7 @@
 
 
                                             </td>
-                                            <td align="center" style="width:8%;>
+                                            <td align="center" style="width:10%;>
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="class_passing_year" class="form-select">
                                                         <option value="">--Select --</option>
                                                         <option value="1976" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '1976' ? 'selected' : ''}}>1976</option>
@@ -134,18 +134,18 @@
 
                                                     </select></span>
                                             </td>
-                                            <td align="center" style="width:10%;>
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="number" maxlength="6" id="class_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;" value="{{isset($step2schooldata['credits_marks_Obtained']) ? $step2schooldata['credits_marks_Obtained'] : '' }}"></span>
+                                            <td align="center" >
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="number" maxlength="6" id="class_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:85px;" value="{{isset($step2schooldata['credits_marks_Obtained']) ? $step2schooldata['credits_marks_Obtained'] : '' }}"></span>
 
                                             </td>
-                                            <td align="center" style="width:10%;>
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="number" maxlength="6" id="class_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:55px;" value="{{isset($step2schooldata['maximum_marks']) ? $step2schooldata['maximum_marks'] : '' }}"></span>
+                                            <td align="center">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="number" maxlength="6" id="class_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:85px;" value="{{isset($step2schooldata['maximum_marks']) ? $step2schooldata['maximum_marks'] : '' }}"></span>
                                             </td>
-                                            <td align="center" style="width:10%;>
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="number" maxlength="5" id="class_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:55px;" value="{{isset($step2schooldata['percentage_marks']) ? $step2schooldata['percentage_marks'] : '' }}"></span>
+                                            <td align="center">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="number" maxlength="5" id="class_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:85px;" value="{{isset($step2schooldata['percentage_marks']) ? $step2schooldata['percentage_marks'] : '' }}"></span>
 
                                             </td>
-                                            <td align="center" style="width:8%;>
+                                            <td align="center">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="number" maxlength="15" id="class_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"  value="{{isset($step2schooldata['exam_roll_no']) ? $step2schooldata['exam_roll_no'] : '' }}"></span>
                                             </td>
 
