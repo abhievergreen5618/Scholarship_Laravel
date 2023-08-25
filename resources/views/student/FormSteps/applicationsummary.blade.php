@@ -409,17 +409,18 @@
                                                                     <tr>
                                                                         <td>&nbsp;</td>
                                                                     </tr>
-                                                                    <tr>
-                                                                    <td align="left">
-
-<span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="button" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK &amp; EDIT"  id="backstep2" class="btn-primary"></span>
-</td>
-                                                            </tr>
+                                                                    
                                                                 </tbody>
                                                             </table>
 
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                                    <td align="left">
+
+<span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="button" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK &amp; EDIT"  id="backstep2" class="btn-primary"></span>
+</td>
+                                                            </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td colspan="3">&nbsp;</td>
