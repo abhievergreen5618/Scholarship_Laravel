@@ -179,8 +179,7 @@ jQuery('#docform').validate({
                     location.reload();
                     
                     toastr.success(result.message);
-                }
-            },
+                }            },
             error : function(xhr, status, error) {
                 if(xhr.status == 422)
                 {
