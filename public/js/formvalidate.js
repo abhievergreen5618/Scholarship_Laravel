@@ -118,23 +118,6 @@ jQuery('#docform').validate({
         // class_percentage:"required",
         // class_rollno:"required",
 
-        grad_status:"required",
-        grad_passed:"required",
-        grad_board:"required",
-        grad_passing_year:"required",
-        grad_marks:"required",
-        grad_max_marks:"required",
-        grad_percentage:"required",
-        grad_rollno:"required",
-
-        post_grad_status:"required",
-        post_grad_passed:"required",
-        post_grad_board:"required",
-        post_grad_passing_year:"required",
-        post_grad_marks:"required",
-        post_grad_max_marks:"required",
-        post_grad_percentage:"required",
-        post_grad_rollno:"required",
 
         profile_photo:"required",
         sign_photo:"required"
