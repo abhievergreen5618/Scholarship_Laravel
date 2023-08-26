@@ -4,7 +4,7 @@
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
     <div class="typography">
 <div class="tab-content">
-            <div class="tab-pane active" id="tab_1">
+            <div class="tab-pane active" id="tab_3">
 
     <h3><span>Step [3/6] :</span> Bank Details &nbsp;
                     <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
@@ -38,7 +38,7 @@
     <tr>
         <td class="vtext">Account Holder Name<span style="color: red">*</span><br>
             <strong>बैंकिंग खाता नाम</strong>
-        </td>    
+        </td>
         <td class="colon">:</td>
             <td>
                 <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="holdername" type="text" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->holdername : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>

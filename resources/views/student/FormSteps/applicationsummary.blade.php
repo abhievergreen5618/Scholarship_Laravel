@@ -1,4 +1,4 @@
-<li class="tab-content tab-content-3 typography ttt">
+<li class="tab-content tab-content-fourth typography ttt">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_4">
                                         <h3><span>Step [4/6] :</span> Application Summary &nbsp;
@@ -409,7 +409,7 @@
                                                                     <tr>
                                                                         <td>&nbsp;</td>
                                                                     </tr>
-                                                                    
+
                                                                 </tbody>
                                                             </table>
 
@@ -507,7 +507,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        
+
                                                         <td colspan="2" align="right">
 
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT" data-action="{{route('applicationsummarysubmit')}}" id="savestep3" class="btn-primary"></span>
