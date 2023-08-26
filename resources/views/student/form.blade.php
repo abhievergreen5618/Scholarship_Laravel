@@ -65,6 +65,13 @@
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->reference_number : ''}}</b></span></span>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td width="42%" class="vtext"><strong>Roll Number</strong></td>
+                                                        <td class="colon">:</td>
+                                                        <td>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->roll_no : ''}}</b></span></span>
+                                                        </td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
                                             </div>

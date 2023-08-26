@@ -263,7 +263,8 @@ class ScholarshipController extends Controller
     {
         // The reference number will be the auto-incrementing primary key (id)
         $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);
-
+        $rollno = $randomNumber = random_int(100000, 999999);
+        dd($randomNumber);
         User::where('id',Auth::id())->update([
             "step5_updated_at" => now(),
             "reference_number" => $referenceNumber,
