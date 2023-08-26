@@ -81,7 +81,6 @@ jQuery('#frm').validate({
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-
                     toastr.success(result.message);
                 }
             },
@@ -92,7 +91,6 @@ jQuery('#frm').validate({
                         $("#"+index+"-error").remove();
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
-
                         toastr.error(xhr.responseJSON.message);
                     });
                 }
