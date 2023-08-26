@@ -38,7 +38,7 @@
     <tr>
         <td class="vtext">Account Holder Name<span style="color: red">*</span><br>
             <strong>बैंकिंग खाता नाम</strong>
-        </td>
+        </td>    
         <td class="colon">:</td>
             <td>
                 <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="holdername" type="text" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->holdername : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
@@ -66,12 +66,12 @@
                                                     </td>
                             </tr>
                             <tr>
-<td>
-                            <button type="submit" class="btn btn-warning">Save</button>
-</td>
+                                <td>
+                                    <button type="submit" class="btn btn-warning">Save</button>
+                                </td>
                             </tr>
-</tbody>
-</table>
+        </tbody>
+    </table>
 </div>
 </form>
 </div>
