@@ -26,7 +26,7 @@
                         </label>
 
                         <input type="radio" name="pcss3t" id="tab5" class="tab-content-last" {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step5_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
-                        <label for="tab5"><i class="fas fa-hand-point-right"></i>Payment @if(empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
+                        <label for="tab5"><i class="fas fa-hand-point-right"></i>Payment @if(empty(auth()->user()->step4_updated_at) || !empty(auth()->user()->step5_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
                         <input type="radio" name="pcss3t" id="tab6" class="tabend" {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step4_updated_at) ? 'checked' : ''}} {{empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
