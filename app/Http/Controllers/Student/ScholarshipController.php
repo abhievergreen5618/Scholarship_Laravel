@@ -13,6 +13,7 @@ use App\Models\StateModel;
 use App\Models\DistrictModel;
 use App\Models\BankDetails;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ScholarshipController extends Controller
 {
@@ -261,9 +262,31 @@ class ScholarshipController extends Controller
      */
     public function savepaymentdetails(Request $request)
     {
+        $currentYear = Carbon::now()->format('Y');
+        $currentMonth = Carbon::now()->format('m');
+        $lastGeneratedNumber = User::orderBy('created_at', 'desc')->first();
+
+        $lastNumberYear = null;
+        $lastNumberMonth = null;
+        $lastNumberCounter = 0;
+
+        if ($lastGeneratedNumber) {
+            $lastNumberYear = substr($lastGeneratedNumber->number, 0, 4);
+            $lastNumberMonth = substr($lastGeneratedNumber->number, 4, 2);
+            $lastNumberCounter = intval(substr($lastGeneratedNumber->number, 6));
+        }
+    
+        if ($lastNumberYear == $currentYear && $lastNumberMonth == $currentMonth) {
+            $newCounter = $lastNumberCounter + 1;
+        } else {
+            $newCounter = 1;
+        }
+    // Generate Roll Number
+        $rollno = $currentYear . $currentMonth . str_pad($newCounter, 4, '0', STR_PAD_LEFT);
+    
         // The reference number will be the auto-incrementing primary key (id)
         $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);
-        $rollno = $randomNumber = random_int(100000, 999999);
+
         User::where('id',Auth::id())->update([
             "step5_updated_at" => now(),
             "reference_number" => $referenceNumber,
