@@ -264,7 +264,7 @@ class ScholarshipController extends Controller
     {
         $currentYear = Carbon::now()->format('Y');
         $currentMonth = Carbon::now()->format('m');
-        $lastGeneratedNumber = User::orderBy('mobileno', 'desc')->first();
+        $lastGeneratedNumber = User::orderBy('created_at', 'desc')->first();
 
         $lastNumberYear = null;
         $lastNumberMonth = null;
