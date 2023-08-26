@@ -59,7 +59,7 @@ jQuery('#frm').validate({
             positionClass: "toast-top-right",
             preventDuplicates: true
         };
-       
+
 
         $.ajax({
             type: 'POST',
@@ -99,9 +99,9 @@ jQuery('#frm').validate({
                 else{
                     toastr.error("!OOPs Something went wrong");
                 }
-                    
+
             }
-            
+
         });
     }
 })
@@ -137,7 +137,7 @@ jQuery('#docform').validate({
             positionClass: "toast-top-right",
             preventDuplicates: true
         };
-       
+
 
         $.ajax({
             type: 'POST',
@@ -153,15 +153,12 @@ jQuery('#docform').validate({
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
-                    $("#tabb3").attr('disabled',false);
-                    $("#tabb3").trigger('click');
-                    $('[for="tabb3"]').find("[data-icon='lock']").remove();
+                    $("#tab3").attr('disabled',false);
+                    $("#tab3").trigger('click');
+                    $('[for="tab3"]').find("[data-icon='lock']").remove();
                     $("#bank_details_step").removeClass("btn-secondary");
                     $("#bank_details_step").addClass("btn-success");
-                    debugger;
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-                    location.reload();
-                    
                     toastr.success(result.message);
                 }            },
             error : function(xhr, status, error) {
@@ -171,7 +168,7 @@ jQuery('#docform').validate({
                         $("#"+index+"-error").remove();
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
-                        
+
                         toastr.error(xhr.responseJSON.message);
                     });
                 }
@@ -206,7 +203,7 @@ jQuery('#bankform').validate({
             positionClass: "toast-top-right",
             preventDuplicates: true
         };
-       
+
 
         $.ajax({
             type: 'POST',
@@ -222,15 +219,15 @@ jQuery('#bankform').validate({
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
-                    $("#tab3").attr('disabled',false);
-                    $("#tab3").trigger('click');
-                    $('[for="tab3"]').find("[data-icon='lock']").remove();
+                    $("#tab4").attr('disabled',false);
+                    $("#tab4").trigger('click');
+                    $('[for="tab4"]').find("[data-icon='lock']").remove();
                     $("#application_summary_step").removeClass("btn-secondary");
                     $("#application_summary_step").addClass("btn-success");
                     debugger;
                     $("html, body").animate({ scrollTop: 0 }, "slow");
                     location.reload();
-                    
+
                     toastr.success(result.message);
                 }
             },
@@ -241,7 +238,7 @@ jQuery('#bankform').validate({
                         $("#"+index+"-error").remove();
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
-                        
+
                         toastr.error(xhr.responseJSON.message);
                     });
                 }
