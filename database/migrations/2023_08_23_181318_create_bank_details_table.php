@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('bank_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('accountno');
             $table->string('cnfrmaccountno');
             $table->string('holdername');
