@@ -130,6 +130,8 @@
                                                                             ? auth()->user()->application_number :
                                                                             ''}}</b></span></span>
                                                             </td>
+                                                                        </tr>
+                                                                        <tr>
                                                             <td width="42%" class="vtext"><strong>Transaction Number</strong>
                                                             </td>
                                                             <td class="colon">:</td>
@@ -140,6 +142,8 @@
                                                                             ? auth()->user()->transation_number :
                                                                             ''}}</b></span></span>
                                                             </td>
+                                                                        </tr>
+                                                                        <tr>
                                                             <td width="42%" class="vtext"><strong>Name</strong>
                                                             </td>
                                                             <td class="colon">:</td>
@@ -150,6 +154,8 @@
                                                                             ? auth()->user()->name :
                                                                             ''}}</b></span></span>
                                                             </td>
+                                                                        </tr>
+                                                                        <tr>
                                                             <td width="42%" class="vtext"><strong>Mobile No.</strong>
                                                             </td>
                                                             <td class="colon">:</td>
@@ -160,6 +166,8 @@
                                                                             ? auth()->user()->mobleno :
                                                                             ''}}</b></span></span>
                                                             </td>
+                                                                        </tr>
+                                                                        <tr>
                                                             <td width="42%" class="vtext"><strong>Email-ID</strong>
                                                             </td>
                                                             <td class="colon">:</td>
