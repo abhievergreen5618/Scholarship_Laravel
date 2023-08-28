@@ -57,8 +57,8 @@
                         </label>
 
                         <input type="radio" name="pcss3t" id="tab6" class="tabend"
-                            {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step4_updated_at) ?
-                        'checked' : ''}} {{empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
+                            {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step4_updated_at) ?
+                        'checked' : ''}} {{empty(auth()->user()->step5_updated_at) ? 'disabled' : ''}}>
                         <label for="tab6"><i class="fas fa-hand-point-right"></i>Submit Application Form
                             @if(empty(auth()->user()->step5_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i>
                             @endif
