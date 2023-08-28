@@ -281,10 +281,10 @@ class ScholarshipController extends Controller
         } else {
             $newCounter = 1;
         }
-    // Generate Roll Number
+        // Generate Roll Number
         $rollno = $currentYear . $currentMonth . str_pad($newCounter, 4, '0', STR_PAD_LEFT);
         $application_number = $currentYear . $currentMonth . str_pad($newCounter, 4, '0', STR_PAD_LEFT);
-    dd($rollno);
+
         // The reference number will be the auto-incrementing primary key (id)
         $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);
 
