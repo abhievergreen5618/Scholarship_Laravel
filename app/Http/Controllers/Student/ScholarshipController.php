@@ -136,8 +136,8 @@ class ScholarshipController extends Controller
             "class_max_marks" => "required",
             "class_percentage" => "required",
             "class_rollno" => "required",
-            "profile_photo" => "required|image|mimes:jpg,png,jpeg",
-            "sign_photo" => "required|image|mimes:jpg,png,jpeg",
+            "profile_photo" => "required",
+            "sign_photo" => "required",
             "disqualified/suspended" => "required",
             'details' => 'required_if:disqualified/suspended,yes',
         ],
@@ -216,7 +216,7 @@ class ScholarshipController extends Controller
             "cnfrmaccountno" => "required_with:accountno|same:accountno",
             "holdername" => "required",
             "ifsccode" => "required",
-            "passbook_photo" => "required|image|mimes:jpg,png,jpeg",
+            "passbook_photo" => "required",
         ]);
         if ($validator->fails()) {
             $errors = [];
