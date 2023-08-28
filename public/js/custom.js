@@ -30,9 +30,9 @@ $(document).ready(function () {
         if (file) {
             // Check the file size in KB
             var fileSizeKB = file.size / 1024;
-            if (fileSizeKB > 100) {
-                // File size exceeds 100KB, do something (e.g., show an error message)
-                alert("File size exceeds 100KB");
+            if (fileSizeKB > 20) {
+                // File size exceeds 20KB, do something (e.g., show an error message)
+                alert("File size exceeds 20KB");
                 $(this).val("");
                 $("#sign_photo_perview").attr("src","http://placehold.it/180");
                 // You can show an error message to the user or handle the case accordingly
@@ -59,8 +59,8 @@ $(document).ready(function () {
         if (file) {
             // Check the file size in KB
             var fileSizeKB = file.size / 1024;
-            if (fileSizeKB > 100) {
-                alert("File size exceeds 100KB");
+            if (fileSizeKB > 20) {
+                alert("File size exceeds 20KB");
                 $(this).val("");
                 $("#profile_photo_perview").attr("src","http://placehold.it/180");
             } else {
