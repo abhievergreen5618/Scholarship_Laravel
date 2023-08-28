@@ -179,6 +179,9 @@
                                                                             ''}}</b></span></span>
                                                             </td>
                                                         </tr>
+                                                        <tr>
+                                                            <td><button>Download Receipt</button></td>
+                                                        </tr>
 
                                                     </tbody>
                                                 </table>
