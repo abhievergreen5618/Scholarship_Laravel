@@ -150,7 +150,7 @@
                                                             <td>
                                                                 <span
                                                                     id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step1_updated_at))
+                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
                                                                             ? auth()->user()->name :
                                                                             ''}}</b></span></span>
                                                             </td>
@@ -162,7 +162,7 @@
                                                             <td>
                                                                 <span
                                                                     id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step1_updated_at))
+                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
                                                                             ? auth()->user()->mobileno :
                                                                             ''}}</b></span></span>
                                                             </td>
@@ -174,7 +174,7 @@
                                                             <td>
                                                                 <span
                                                                     id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step1_updated_at))
+                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
                                                                             ? auth()->user()->email :
                                                                             ''}}</b></span></span>
                                                             </td>
