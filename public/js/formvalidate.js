@@ -108,18 +108,18 @@ jQuery('#frm').validate({
 
 jQuery('#docform').validate({
     rules:{
-        // class_passed:"required",
-        // class_board:"required",
-        // class_passing_year:"required",
-        // class_marks:"required",
-        // class_max_marks:"required",
-        // class_percentage:"required",
-        // class_rollno:"required",
+        class_passed:"required",
+        class_board:"required",
+        class_passing_year:"required",
+        class_marks:"required",
+        class_max_marks:"required",
+        class_percentage:"required",
+        class_rollno:"required",
 
 
 
-        profile_photo:"required",
-        sign_photo:"required"
+        profile_photo:"required|image|mimes:jpg,png,jpeg",
+        sign_photo:"required|image|mimes:jpg,png,jpeg"
     },
     submitHandler : function(form,e) {
         e.preventDefault();

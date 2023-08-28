@@ -129,8 +129,15 @@ class ScholarshipController extends Controller
     /**Store education data */
     public function educationInfoStore(Request $request){
         $validator = Validator::make($request->all(), [
-            "profile_photo" => "required",
-            "sign_photo" => "required",
+            "class_passed" => "required",
+            "class_board" => "required",
+            "class_passing_year" => "required",
+            "class_marks" => "required",
+            "class_max_marks" => "required",
+            "class_percentage" => "required",
+            "class_rollno" => "required",
+            "profile_photo" => "required|image|mimes:jpg,png,jpeg",
+            "sign_photo" => "required|image|mimes:jpg,png,jpeg",
             "disqualified/suspended" => "required",
             'details' => 'required_if:disqualified/suspended,yes',
         ],
@@ -209,7 +216,7 @@ class ScholarshipController extends Controller
             "cnfrmaccountno" => "required_with:accountno|same:accountno",
             "holdername" => "required",
             "ifsccode" => "required",
-            "passbook_photo" => "required",
+            "passbook_photo" => "required|image|mimes:jpg,png,jpeg",
         ]);
         if ($validator->fails()) {
             $errors = [];
