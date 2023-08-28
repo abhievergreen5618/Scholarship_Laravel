@@ -265,10 +265,13 @@ class ScholarshipController extends Controller
         $currentYear = Carbon::now()->format('Y');
         $currentMonth = Carbon::now()->format('m');
         $lastGeneratedNumber = User::orderBy('created_at', 'desc')->first();
-        $userName = User::orderBy('name')->first();
+        $userName = auth()->user();
         $nameFirstCharacter = substr($userName->name, 0, 3);
-        $userMobileno = User::orderBy('mobileno')->first();
+        // $userMobileno = User::orderBy('mobileno')->first();
+        // $mobilenoDigit = substr($userMobileno->mobileno, -4);
+        $userMobileno = auth()->user(); // Assuming you're using Laravel's authentication
         $mobilenoDigit = substr($userMobileno->mobileno, -4);
+
 
         $lastNumberYear = null;
         $lastNumberMonth = null;
