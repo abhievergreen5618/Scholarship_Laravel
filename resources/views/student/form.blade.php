@@ -163,7 +163,7 @@
                                                                 <span
                                                                     id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
                                                                         id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step1_updated_at))
-                                                                            ? auth()->user()->mobleno :
+                                                                            ? auth()->user()->mobileno :
                                                                             ''}}</b></span></span>
                                                             </td>
                                                                         </tr>
