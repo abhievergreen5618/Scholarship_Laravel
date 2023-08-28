@@ -265,6 +265,10 @@ class ScholarshipController extends Controller
         $currentYear = Carbon::now()->format('Y');
         $currentMonth = Carbon::now()->format('m');
         $lastGeneratedNumber = User::orderBy('created_at', 'desc')->first();
+        $userName = User::orderBy('name')->first();
+        $nameFirstCharacter = substr($userName->name, 0, 3);
+        $userMobileno = User::orderBy('mobileno')->first();
+        $mobilenoDigit = substr($userMobileno->mobileno, -4);
 
         $lastNumberYear = null;
         $lastNumberMonth = null;
@@ -283,7 +287,7 @@ class ScholarshipController extends Controller
         }
         // Generate Roll Number
         $rollno = $currentYear . $currentMonth . str_pad($newCounter, 4, '0', STR_PAD_LEFT);
-        $application_number = $currentYear . $currentMonth . str_pad($newCounter, 4, '0', STR_PAD_LEFT);
+        $application_number = $currentYear . $currentMonth .$nameFirstCharacter. $mobilenoDigit;
 
         // The reference number will be the auto-incrementing primary key (id)
         $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);

@@ -132,7 +132,7 @@
                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                            <td width="42%" class="vtext"><strong>Transaction Number</strong>
+                                                            <td width="42%" class="vtext"><strong>Transaction ID</strong>
                                                             </td>
                                                             <td class="colon">:</td>
                                                             <td>
