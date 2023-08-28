@@ -180,7 +180,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2"><button>Download Receipt</button></td>
+                                                            <td colspan="3"><button>Download Receipt</button></td>
                                                         </tr>
 
                                                     </tbody>
