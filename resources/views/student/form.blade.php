@@ -139,7 +139,7 @@
                                                                 <span
                                                                     id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
                                                                         id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
-                                                                            ? auth()->user()->transation_number :
+                                                                            ? auth()->user()->transation_id :
                                                                             ''}}</b></span></span>
                                                             </td>
                                                                         </tr>

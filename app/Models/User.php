@@ -49,6 +49,8 @@ class User extends Authenticatable
         'social_type',
         'reference_number',
         'roll_number',
+        'application_number',
+        'transaction_id',
     ];
 
     /**
