@@ -43,7 +43,7 @@ return new class extends Migration
             $table->string('signature')->nullable();
             $table->string('reference_number')->nullable();
             $table->string('roll_number')->nullable();
-            $table->string('apllication_number')->nullable();
+            $table->string('application_number')->nullable();
             $table->string('transaction_id')->nullable();
             $table->timestamp('step1_updated_at')->nullable();
             $table->timestamp('step2_updated_at')->nullable();
