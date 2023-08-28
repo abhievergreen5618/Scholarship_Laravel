@@ -1,5 +1,5 @@
 <li class="tab-content tab-content-2 typography">
-    <form id="docform" action="{{ route('educationinfosubmit') }}">
+    <form id="docform" action="{{ route('educationinfosubmit') }}" method="POST">
         @csrf
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
         <div class="tab-content"> 
