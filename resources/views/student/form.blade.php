@@ -123,6 +123,7 @@
                                                             <td colspan="3"></td>
                                                         </tr>
                                                         <form>
+                                                            <h2>Reciept</h2>
                                                         <tr>
                                                             <td colspan="3"></td>
                                                         </tr>
