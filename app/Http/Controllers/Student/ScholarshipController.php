@@ -304,7 +304,6 @@ class ScholarshipController extends Controller
 
     public function downloadpdf(Request $request)
     {
-      
 
 	    $data = [
 	            'title' => 'Reciept',
