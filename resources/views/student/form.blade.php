@@ -188,7 +188,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="3">
-                                                            <a class="btn btn-primary" href="{{route('downloadPdf',['download'=>'pdf'])}}"><button>Download Receipt</button></a>
+                                                            <a class="btn btn-primary" href="downloadPdf,['download'=>'pdf']"><button>Download Receipt</button></a>
                                                             </td>
                                                         </tr>
                                                     </form>                
