@@ -123,7 +123,7 @@
                                                             <td colspan="3"></td>
                                                         </tr>
                                                            
-                                                        @include("student.FormSteps.pdf")
+                                                        @include("student.FormSteps.pdffile")
                                                     </tbody>
                                                 </table>
                                             </div>
