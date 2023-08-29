@@ -313,7 +313,7 @@ class ScholarshipController extends Controller
 
 	    if($request->has('download'))
 	    {
-	        $pdf = PDF::loadView('pdffile',$data);
+	        $pdf = PDF::loadView('student.FormSteps.pdffile',$data);
 	        return $pdf->download('receipt.pdf');
 	    }
         else{
