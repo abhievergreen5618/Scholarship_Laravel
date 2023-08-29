@@ -37,6 +37,7 @@ class User extends Authenticatable
         'gender',
         'singlegirlchild',
         'applyingfor',
+        'applyingforsubject',
         'physicallychallenged',
         'category',
         'physicallychallengedproof',

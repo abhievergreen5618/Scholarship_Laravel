@@ -276,6 +276,26 @@
                                 </td>
                             </tr>
 
+                            <tr id="ctl00_ContentPlaceHolder1_trSportCulturalBoth">
+                                <td class="vtext">Applying for subject ?<span style="color: red">*</span>
+                                    <br>
+                                    <strong>विषय के लिए आवेदन करना ?</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
+                                        <select name="applyingfor" id="applyingfor" class="dropdownlong form-control">
+                                            <option value="">--Please Select --</option>
+                                            <option value="English" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "English" ? 'selected' : ''}} @endif>English</option>
+                                            <option value="Hindi" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "Hindi" ? 'selected' : ''}} @endif>Hindi</option>
+                                            <option value="Mathematics" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "Mathematics" ? 'selected' : ''}} @endif>Mathematics</option>
+                                            <option value="Science" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "Science" ? 'selected' : ''}} @endif>Science</option>
+                                        </select></span>
+                                    <br>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
+                                </td>
+                            </tr>
+
                             <tr id="ctl00_ContentPlaceHolder1_trPhysicallChall">
                                 <td class="vtext">
                                     <div>

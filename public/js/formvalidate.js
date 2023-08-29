@@ -19,6 +19,7 @@ jQuery('#frm').validate({
             email:true
         },
         applyingfor:"required",
+        applyingforsubject:"required",
         category:"required"
     },
     messages:{
