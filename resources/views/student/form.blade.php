@@ -122,6 +122,10 @@
                                                         <tr>
                                                             <td colspan="3"></td>
                                                         </tr>
+                                                        <form>
+                                                        <tr>
+                                                            <td colspan="3"></td>
+                                                        </tr>
                                                         <tr>
                                                         <td width="42%" class="vtext"><strong>Application Number</strong>
                                                             </td>
@@ -185,7 +189,7 @@
                                                         <tr>
                                                             <td colspan="3"><button>Download Receipt</button></td>
                                                         </tr>
-
+                                                    </form>                
                                                     </tbody>
                                                 </table>
                                             </div>
