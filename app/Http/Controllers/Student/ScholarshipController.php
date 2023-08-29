@@ -302,7 +302,7 @@ class ScholarshipController extends Controller
         ],200);
     }
 
-    public function pdfdownload(Request $request)
+    public function downloadPdf(Request $request)
     {
         User::where('id',Auth::id())->update([
             "application_number" => $application_number,
