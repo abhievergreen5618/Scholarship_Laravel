@@ -304,9 +304,25 @@ class ScholarshipController extends Controller
 
     public function pdfdownload(Request $request)
     {
-        
-    }
+        User::where('id',Auth::id())->update([
+            "application_number" => $application_number,
+            "transaction_id" => $transaction_id,
+            "name" => $request['name'] ?? "",
+        ]);
 
+	    $data = [
+	            'title' => 'Reciept',
+	            'date' => date('d/m/Y')
+	    ];
+
+	    if($request->has('download'))
+	    {
+	        $pdf = PDF::loadView('form',$data);
+	        return $pdf->download('form.pdf');
+	    }
+
+	    return view('student.form');
+	}
     /**
      * Show the form for editing the specified resource.
      *

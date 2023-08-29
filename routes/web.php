@@ -34,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('districtslist',[ScholarshipController::class,'getDistricts']);
 
+    route::get('/downloadPdf',[ScholarshipController::class,'downloadPdf']);
+
     // Admin Routes
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard','index')->name('admin.dashboard');
