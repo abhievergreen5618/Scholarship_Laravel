@@ -286,10 +286,10 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="applyingforsubject" id="applyingforsubject" class="dropdownlong form-control">
                                             <option value="">--Please Select --</option>
-                                            <option value="English" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "English" ? 'selected' : ''}} @endif>English</option>
-                                            <option value="Hindi" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "Hindi" ? 'selected' : ''}} @endif>Hindi</option>
-                                            <option value="Mathematics" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "Mathematics" ? 'selected' : ''}} @endif>Mathematics</option>
-                                            <option value="Science" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "Science" ? 'selected' : ''}} @endif>Science</option>
+                                            <option value="ENGLISH" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "ENGLISH" ? 'selected' : ''}} @endif>ENGLISH</option>
+                                            <option value="HINDI" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "HINDI" ? 'selected' : ''}} @endif>Hindi</option>
+                                            <option value="MATHEMATICS" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "MATHEMATICS" ? 'selected' : ''}} @endif>MATHEMATICS</option>
+                                            <option value="SCIENCE" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "SCIENCE" ? 'selected' : ''}} @endif>SCIENCE</option>
                                         </select></span>
                                     <br>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
