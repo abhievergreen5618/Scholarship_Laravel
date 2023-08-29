@@ -289,7 +289,6 @@ class ScholarshipController extends Controller
         // Generate Roll Number
         $rollno = $currentYear . $currentMonth . str_pad($newCounter, 4, '0', STR_PAD_LEFT);
         $application_number = $currentYear . $currentMonth .$nameFirstCharacter. $mobilenoDigit;
-        $transaction_id = $request['razorpay_payment_id'];
 
         // The reference number will be the auto-incrementing primary key (id)
         $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);
@@ -299,7 +298,6 @@ class ScholarshipController extends Controller
             "reference_number" => $referenceNumber,
             "roll_number" => $rollno,
             "application_number" => $application_number,
-            "transaction_id" => $transaction_id,
         ]);
         PaymentsDetails::create([
             "razorpay_id" => $request['razorpay_payment_id'],

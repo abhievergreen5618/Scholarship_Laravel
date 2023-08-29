@@ -120,6 +120,9 @@
                                                             <td colspan="3"></td>
                                                         </tr>
                                                         <tr>
+                                                            <td colspan="3"></td>
+                                                        </tr>
+                                                        <tr>
                                                         <td width="42%" class="vtext"><strong>Application Number</strong>
                                                             </td>
                                                             <td class="colon">:</td>
@@ -139,7 +142,7 @@
                                                                 <span
                                                                     id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
                                                                         id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
-                                                                            ? auth()->user()->transation_id :
+                                                                            ? auth()->user()->transaction_id :
                                                                             ''}}</b></span></span>
                                                             </td>
                                                                         </tr>
