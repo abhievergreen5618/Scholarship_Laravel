@@ -64,7 +64,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="3">
-                                                            <a class="btn btn-primary" href="downloadpdf,['download'=>'pdf']">Download Receipt</a>
-                                                            </td>
+                                                            <a class="btn btn-primary" href="{{ route('downloadPdf', ['download' => 'pdf']) }}">Download Receipt</a>
+                                                        </td>
                                                         </tr>
                                                     </form>         
