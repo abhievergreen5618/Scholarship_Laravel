@@ -122,8 +122,7 @@
                                                         <tr>
                                                             <td colspan="3"></td>
                                                         </tr>
-                                                        <form>
-                                                            <h2>Reciept</h2>
+                                                    <form>
                                                         <tr>
                                                             <td colspan="3"></td>
                                                         </tr>
@@ -188,7 +187,9 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="3"><button>Download Receipt</button></td>
+                                                            <td colspan="3">
+                                                            <a class="btn btn-primary" href="{{route('users.index',['download'=>'pdf'])}}"><button>Download Receipt</button></a>
+                                                            </td>
                                                         </tr>
                                                     </form>                
                                                     </tbody>

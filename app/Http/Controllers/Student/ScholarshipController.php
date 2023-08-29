@@ -302,6 +302,11 @@ class ScholarshipController extends Controller
         ],200);
     }
 
+    public function pdfdownload(Request $request)
+    {
+        
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
