@@ -304,11 +304,7 @@ class ScholarshipController extends Controller
 
     public function downloadpdf(Request $request)
     {
-        User::where('id',Auth::id())->update([
-            "application_number" => $application_number,
-            "transaction_id" => $transaction_id,
-            "name" => $request['name'] ?? "",
-        ]);
+      
 
 	    $data = [
 	            'title' => 'Reciept',
