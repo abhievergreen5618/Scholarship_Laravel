@@ -266,7 +266,7 @@ class ScholarshipController extends Controller
     {
         $currentYear = Carbon::now()->format('Y');
         $currentMonth = Carbon::now()->format('m');
-        $currentDate = Carbon::now()->format('D');
+        $currentDate = Carbon::now()->format('d');
         $userName = auth()->user();
         $nameFirstCharacter = substr($userName->name, 0, 3);
         $userMobileno = auth()->user();
