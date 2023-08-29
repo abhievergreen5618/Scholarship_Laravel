@@ -14,6 +14,7 @@ use App\Models\DistrictModel;
 use App\Models\BankDetails;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use PDF;
 
 class ScholarshipController extends Controller
 {
