@@ -284,7 +284,7 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="applyingfor" id="applyingfor" class="dropdownlong form-control">
+                                        <select name="applyingforsubject" id="applyingforsubject" class="dropdownlong form-control">
                                             <option value="">--Please Select --</option>
                                             <option value="English" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "English" ? 'selected' : ''}} @endif>English</option>
                                             <option value="Hindi" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "Hindi" ? 'selected' : ''}} @endif>Hindi</option>
