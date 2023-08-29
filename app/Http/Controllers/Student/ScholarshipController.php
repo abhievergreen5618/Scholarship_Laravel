@@ -307,7 +307,7 @@ class ScholarshipController extends Controller
     {
 
 	    $data = [
-	            'title' => 'Reciept',
+	            'title' => 'Receipt',
 	            'date' => date('d/m/Y')
 	    ];
 
