@@ -266,30 +266,19 @@ class ScholarshipController extends Controller
     {
         $currentYear = Carbon::now()->format('Y');
         $currentMonth = Carbon::now()->format('m');
-        $lastGeneratedNumber = User::orderBy('created_at', 'desc')->first();
         $userName = auth()->user();
         $nameFirstCharacter = substr($userName->name, 0, 3);
         $userMobileno = auth()->user();
         $mobilenoDigit = substr($userMobileno->mobileno, -4);
-
+        $usersubject = auth()->user();
+        $subjectslug = substr($usersubject->applyingforsubject, 0, 3);
 
         $lastNumberYear = null;
         $lastNumberMonth = null;
         $lastNumberCounter = 0;
-
-        if ($lastGeneratedNumber) {
-            $lastNumberYear = substr($lastGeneratedNumber->number, 0, 4);
-            $lastNumberMonth = substr($lastGeneratedNumber->number, 4, 2);
-            $lastNumberCounter = intval(substr($lastGeneratedNumber->number, 6));
-        }
     
-        if ($lastNumberYear == $currentYear && $lastNumberMonth == $currentMonth) {
-            $newCounter = $lastNumberCounter + 1;
-        } else {
-            $newCounter = 1;
-        }
-        // Generate Roll Number
-        $rollno = $currentYear . $currentMonth . str_pad($newCounter, 4, '0', STR_PAD_LEFT);
+        // Generate Roll Number Application Number and Transaction ID
+        $rollno = $subjectslug. $currentYear . $currentMonth . $mobilenoDigit;
         $application_number = $currentYear . $currentMonth .$nameFirstCharacter. $mobilenoDigit;
         $transaction_id = $request['razorpay_payment_id'];
 
