@@ -321,7 +321,6 @@ class ScholarshipController extends Controller
 	        return $pdf->download('form.pdf');
 	    }
 
-	    return view('student.form');
 	}
     /**
      * Show the form for editing the specified resource.
