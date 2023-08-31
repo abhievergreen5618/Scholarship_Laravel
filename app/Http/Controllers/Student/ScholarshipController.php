@@ -40,7 +40,11 @@ class ScholarshipController extends Controller
         }
         else
         {
-            return view('student.form')->with(['states'=>$states],['subjects'=>$subjects],['classes'=>$classes]);
+            return view('student.form')->with([
+                'states' => $states,
+                'subjects' => $subjects,
+                'classes' => $classes
+            ]);
         }
     }
 
