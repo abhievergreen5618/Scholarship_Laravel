@@ -291,10 +291,11 @@
                                             <option value="MATHEMATICS" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "MATHEMATICS" ? 'selected' : ''}} @endif>MATHEMATICS</option>
                                             <option value="SCIENCE" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "SCIENCE" ? 'selected' : ''}} @endif>SCIENCE</option>
                                         </select></span> -->
-
+                                        @if(!empty($subjects))
                                         @foreach($subjects as $subject)
                                         {{ $subject->subject_name }}
                                         @endforeach
+                                        @endif
                                     <br>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
                                 </td>
