@@ -87,16 +87,12 @@
         <tr>
             <td>Application Number</td>
             <td>:</td>
-            <td><b>{{(!empty(auth()->user()->step5_updated_at))
-                    ? auth()->user()->application_number :
-                    ''}}</b></td>
+            <td><b>234567</b></td>
         </tr>
         <tr>
             <td>Transaction ID</td>
             <td>:</td>
-            <td><b>{{(!empty(auth()->user()->step5_updated_at))
-                    ? auth()->user()->transaction_id :
-                    ''}}</b></td>
+            <td><b>3456</b></td>
         </tr>
         <!-- <tr>
             <td>Name</td>
