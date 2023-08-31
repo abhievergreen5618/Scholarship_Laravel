@@ -19,7 +19,7 @@ jQuery('#frm').validate({
             email:true
         },
         applyingfor:"required",
-        applyingforsubject:"required",
+        subjects:"required",
         category:"required"
     },
     messages:{
@@ -109,13 +109,13 @@ jQuery('#frm').validate({
 
 jQuery('#docform').validate({
     rules:{
-        // class_passed:"required",
-        // class_board:"required",
-        // class_passing_year:"required",
-        // class_marks:"required",
-        // class_max_marks:"required",
-        // class_percentage:"required",
-        // class_rollno:"required",
+        classes:"required",
+        class_board:"required",
+        class_passing_year:"required",
+        class_marks:"required",
+        class_max_marks:"required",
+        class_percentage:"required",
+        class_rollno:"required",
 
 
 

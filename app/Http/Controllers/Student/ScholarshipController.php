@@ -83,7 +83,7 @@ class ScholarshipController extends Controller
             // "nationality" => "required",
             // "singlegirlchild" => "required",
             "applyingfor" => "required",
-            "applyingforsubject" => "required",
+            "subjects" => "required",
             "physicallychallenged" => "required",
             'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
             "category" => "required",
@@ -129,7 +129,6 @@ class ScholarshipController extends Controller
                 "gender" => $request['gender'] ?? "",
                 "singlegirlchild" => $request['singlegirlchild'] ?? "",
                 "applyingfor" => $request['applyingfor'],
-                "applyingforsubject" => $request['applyingforsubject'],
                 "subjects" => $request['subjects'],
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
@@ -145,6 +144,7 @@ class ScholarshipController extends Controller
     /**Store education data */
     public function educationInfoStore(Request $request){
         $validator = Validator::make($request->all(), [
+            "classes" => "classes",
             "profile_photo" => "required",
             "sign_photo" => "required",
             "disqualified/suspended" => "required",
@@ -171,7 +171,7 @@ class ScholarshipController extends Controller
                 EducationDetails::updateOrCreate($matchThese,[
                     'user_id'=> decrypt($request['id']),
                     'resultstatus'=>$request['class_status'],
-                    'examination_passed'=>$request['class_passed'],
+                    'classes'=>$request['classes'],
                     'name_of_the_board_university'=>$request['class_board'],
                     'passing_year'=>$request['class_passing_year'],
                     'credits_marks_Obtained'=>$request['class_marks'],
