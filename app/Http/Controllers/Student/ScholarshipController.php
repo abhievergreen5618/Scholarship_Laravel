@@ -314,7 +314,7 @@ class ScholarshipController extends Controller
 	    if($request->has('download'))
 	    {
 	        $pdf = PDF::loadView('student.FormSteps.pdffile',$data);
-	        return $pdf->download();
+	        return $pdf->download('users_pdf_example.pdf');
 	    }
         else{
             return "Download parameter not provided.";
