@@ -308,7 +308,8 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="subject" id="applyingforsubject" class="dropdownlong form-control">
                                             <option value="">--Please Select --</option>
-                                            @if(!empty($subject))
+                                            @if(empty($subject))
+                                            hi
                                             @foreach($subject as $subjects)
                                                 <option value="{{ $subjects->id }}">
                                                     {{ $subjects->name }}
