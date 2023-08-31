@@ -87,20 +87,18 @@
         <tr>
             <td>Application Number</td>
             <td>:</td>
-            <td><span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
+            <td>b>{{(!empty(auth()->user()->step5_updated_at))
                     ? auth()->user()->application_number :
-                    ''}}</b></span></span></td>
+                    ''}}</b></td>
         </tr>
         <tr>
             <td>Transaction ID</td>
             <td>:</td>
-            <td><span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
+            <td><b>{{(!empty(auth()->user()->step5_updated_at))
                     ? auth()->user()->transaction_id :
-                    ''}}</b></span></span></td>
+                    ''}}</b></td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>Name</td>
             <td>:</td>
             <td><span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
@@ -123,7 +121,7 @@
                 id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
                     ? auth()->user()->email :
                     ''}}</b></span></span></td>
-        </tr>
+        </tr> -->
     </form>
 
 </body>
