@@ -25,7 +25,7 @@
                         @error('class')
                         <div>
                             <label class="error fail-alert  mt-1">{{ $message }}</label>
-                        </div>
+                        </div> 
                         @enderror
                     </div>
                     <div class="form-group mb-2">
