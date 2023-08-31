@@ -154,6 +154,16 @@
                                                             <span id="Anthem_ctl00_ContentPlaceHolder1_Label1__"><span id="ctl00_ContentPlaceHolder1_Label1">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->applyingfor : ''}}</span></span>
                                                         </td>
                                                     </tr>
+                                                    <tr id="ctl00_ContentPlaceHolder1_tr2">
+                                                        <td class="vtext"><span id="ctl00_ContentPlaceHolder1_span51">Applying for subject ?</span><br>
+                                                            <strong><span id="ctl00_ContentPlaceHolder1_Span52">आप आवेदन कर रहे
+                                                                    हैं</span></strong>
+                                                        </td>
+                                                        <td class="colon">:</td>
+                                                        <td>
+                                                            <span id="Anthem_ctl00_ContentPlaceHolder1_Label1__"><span id="ctl00_ContentPlaceHolder1_Label1">{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->subjects : ''}}</span></span>
+                                                        </td>
+                                                    </tr>
                                                     <tr id="ctl00_ContentPlaceHolder1_trsinglegirlchil">
                                                         <td class="vtext"><span id="ctl00_ContentPlaceHolder1_TrIfGirlsEng">Are you only the
                                                                 single girl child of your parent?</span>
