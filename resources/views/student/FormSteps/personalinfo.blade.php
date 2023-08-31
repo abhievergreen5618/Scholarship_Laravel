@@ -397,8 +397,7 @@
                                         <select name="subjects" id="subjects"
                                             class="dropdownlong form-control">
                                             <option value="">--Please Select--</option>
-                                            @if(empty($subjects))
-                                            hij
+                                            @if(!empty($subjects))
                                             @foreach($subjects as $subject)
                                             <option value="{{ $subject->id }}">
                                                 {{ $subject->name }}
