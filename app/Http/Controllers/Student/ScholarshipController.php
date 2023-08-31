@@ -127,10 +127,9 @@ class ScholarshipController extends Controller
                 "physicallychallengedproof" => $imageName ?? "",
                 "step1_updated_at" => now(),
             ]); 
-dd(all());
-            // return response()->json([
-            //     'message' => 'Saved successfully',
-            // ],200);
+            return response()->json([
+                'message' => 'Saved successfully',
+            ],200);
         }
     }
 
