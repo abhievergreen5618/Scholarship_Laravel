@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\EducationDetails;
 use App\Models\PaymentsDetails;
 use App\Models\User;
+use App\Models\Subject;
 use App\Models\StateModel;
 use App\Models\DistrictModel;
 use App\Models\BankDetails;
@@ -101,6 +102,7 @@ class ScholarshipController extends Controller
                 $image->move(public_path('images/proofdoc'), $imageName);
                 $request['physicallychallengedproof'] = $imageName;
             }
+            $subject = Subject::orderBy('name','asc');
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
@@ -118,11 +120,12 @@ class ScholarshipController extends Controller
                 "singlegirlchild" => $request['singlegirlchild'] ?? "",
                 "applyingfor" => $request['applyingfor'],
                 "applyingforsubject" => $request['applyingforsubject'],
+                "subject" => $subject,
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "physicallychallengedproof" => $imageName ?? "",
                 "step1_updated_at" => now(),
-            ]);
+            ]); 
             return response()->json([
                 'message' => 'Saved successfully',
             ],200);

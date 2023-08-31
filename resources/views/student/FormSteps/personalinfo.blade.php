@@ -295,7 +295,31 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
                                 </td>
                             </tr>
+                            <!-----------------------SUBJECT------------------->
 
+                            
+                            <tr id="ctl00_ContentPlaceHolder1_trSportCulturalBoth">
+                                <td class="vtext">Applying for subject ?<span style="color: red">*</span>
+                                    <br>
+                                    <strong>विषय के लिए आवेदन करना ?</strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
+                                        <select name="subject" id="applyingforsubject" class="dropdownlong form-control">
+                                            <option value="">--Please Select --</option>
+                                            @if(!empty($subject))
+                                            @foreach(subject as subjects)
+                                                <option value="">{{ $subject->name }}</option>
+                                            @endforeach
+                                            @endif
+                                            </select></span>
+                                    <br>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
+                                </td>
+                            </tr>
+
+                            <!------------------------------------------------->
                             <tr id="ctl00_ContentPlaceHolder1_trPhysicallChall">
                                 <td class="vtext">
                                     <div>
