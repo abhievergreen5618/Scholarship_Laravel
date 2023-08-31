@@ -18,7 +18,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string("resultstatus");
-            $table->string("examination_passed");
             $table->string("classes");
             $table->string("name_of_the_board_university");
             $table->string("passing_year");

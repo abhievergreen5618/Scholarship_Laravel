@@ -11,7 +11,6 @@ class EducationDetails extends Model
     protected $fillable = [
         'user_id',
         'resultstatus',
-        'examination_passed',
         'classes',
         'name_of_the_board_university',
         'passing_year',
