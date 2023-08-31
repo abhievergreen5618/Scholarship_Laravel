@@ -108,6 +108,26 @@
                                                     </select></span>
 
                                             </td>
+
+                                            <!------------------------------CLASS---------------------------->
+
+                                            <td align="center" style="width:12%;">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamPassed">Class 5 to
+                                                        Class 12 or its Equivalent</span></span>
+
+
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="classes" id="classes" class="dropdown1 form-select">
+                                                        <option selected="selected" value="">--Select Class--</option>
+                                                        @foreach(!empty($classes))
+                                                        @foreach($classes as $class)
+                                                        <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                                        @endforeach
+                                                        @endif
+                                                    </select></span>
+
+                                            </td>
+
+                                            <!---------------------------------------------------------->
                                             <td align="center">
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="class_board" class="textbox form-control" onpaste="return false" ondrop="return false" value="{{isset($step2schooldata['name_of_the_board_university']) ? $step2schooldata['name_of_the_board_university'] : '' }}"></span>
