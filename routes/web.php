@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/download-pdf',[ScholarshipController::class,'downloadpdf'])->name('downloadPdf');
 
+
     // Admin Routes
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard','index')->name('admin.dashboard');

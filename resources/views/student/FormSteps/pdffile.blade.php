@@ -3,6 +3,9 @@
                                                             <td colspan="3"></td>
                                                         </tr>
                                                         <tr>
+                                                            <td colspan="2">PDF File</td>
+                                                        </tr>
+                                                        <tr>
                                                         <td width="42%" class="vtext"><strong>Application Number</strong>
                                                             </td>
                                                             <td class="colon">:</td>
@@ -62,9 +65,5 @@
                                                                             ''}}</b></span></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td colspan="3">
-                                                            <a class="btn" href="{{ route('downloadPdf', ['download' => 'pdf']) }}">Download Receipt</a>
-                                                        </td>
-                                                        </tr>
+                                                        
                                                     </form>         

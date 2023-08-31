@@ -310,16 +310,8 @@ class ScholarshipController extends Controller
 	            'title' => 'Receipt',
 	            'date' => date('d/m/Y')
 	    ];
-
-	    if($request->has('download'))
-	    {
-	        $pdf = PDF::loadView('student.FormSteps.pdffile',$data);
-	        return $pdf->download('users_pdf_example.pdf');
-	    }
-        else{
-            return "Download parameter not provided.";
-        }
-
+	    $pdf = PDF::loadView('student.FormSteps.pdffile',$data);
+	    return $pdf->download('mypdf.pdf');
 	}
     /**
      * Show the form for editing the specified resource.

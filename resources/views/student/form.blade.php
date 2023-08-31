@@ -124,6 +124,11 @@
                                                         </tr>
                                                            
                                                         @include("student.FormSteps.pdffile")
+                                                        <tr>
+                                                            <td colspan="3">
+                                                            <a class="btn" href="downloadPdf">Download Receipt</a>
+                                                        </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
