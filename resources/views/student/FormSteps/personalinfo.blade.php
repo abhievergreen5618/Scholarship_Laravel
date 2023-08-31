@@ -291,11 +291,14 @@
                                             <option value="MATHEMATICS" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "MATHEMATICS" ? 'selected' : ''}} @endif>MATHEMATICS</option>
                                             <option value="SCIENCE" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "SCIENCE" ? 'selected' : ''}} @endif>SCIENCE</option>
                                         </select></span> -->
+                                        <select name="applyingforsubject" id="applyingforsubject" class="dropdownlong form-control">
+                                            <option value="">--Please Select --</option>
                                         @if(!empty($subjects))
                                         @foreach($subjects as $subject)
                                         {{ $subject->subject_name }}
                                         @endforeach
                                         @endif
+                                        </select></span>
                                     <br>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
                                 </td>
