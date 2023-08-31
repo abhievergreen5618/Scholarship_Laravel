@@ -24,7 +24,7 @@
                                                             <td colspan="3"></td>
                                                         </tr>
                                                         <tr>
-                                                        <td width="42%" class="vtext"><strong>Application Number</strong>
+                                                        <td class="vtext"><strong>Application Number</strong>
                                                             </td>
                                                             <td class="colon">:</td>
                                                             <td>
@@ -48,7 +48,7 @@
                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                            <td width="42%" class="vtext"><strong>Name</strong>
+                                                            <td class="vtext"><strong>Name</strong>
                                                             </td>
                                                             <td class="colon">:</td>
                                                             <td>
@@ -60,7 +60,7 @@
                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                            <td width="42%" class="vtext"><strong>Mobile No.</strong>
+                                                            <td  class="vtext"><strong>Mobile No.</strong>
                                                             </td>
                                                             <td class="colon">:</td>
                                                             <td>
@@ -72,7 +72,7 @@
                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                            <td width="42%" class="vtext"><strong>Email-ID</strong>
+                                                            <td  class="vtext"><strong>Email-ID</strong>
                                                             </td>
                                                             <td class="colon">:</td>
                                                             <td>
