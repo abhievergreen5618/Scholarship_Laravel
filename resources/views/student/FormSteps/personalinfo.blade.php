@@ -397,16 +397,11 @@
                                         <select name="subjects" id="subjects"
                                             class="dropdownlong form-control">
                                             <option value="">--Please Select--</option>
-                                            @if(empty($subjects))
-                                            hjkgl
                                             @foreach($subjects as $subject)
                                             <option value="{{ $subject->id }}">
                                                 {{ $subject->name }}
                                             </option>
                                             @endforeach
-                                            @else
-                                            <option value="" disabled>No subject found</option>
-                                            @endif
                                         </select>
 
                                     </span>
