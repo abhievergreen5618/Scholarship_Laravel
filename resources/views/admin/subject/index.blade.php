@@ -38,6 +38,14 @@
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
+                                            @foreach ($datas as $data)
+                                            <tr>
+                                                <td>{{ $data->name }}</td>
+                                                <td>{{ $data->classes }}</td>
+                                                <td>{{ $data->description }}</td>
+                                                <td>{{ $data->status }}</td>
+                                            </tr>
+                                            @endforeach
                                         </thead>
                                         <tbody>
                                         </tbody>
