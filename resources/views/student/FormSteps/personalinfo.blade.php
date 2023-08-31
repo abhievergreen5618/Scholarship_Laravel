@@ -403,6 +403,8 @@
                                                 {{ $subject->name }}
                                             </option>
                                             @endforeach
+                                            @else
+                                            <option value="" disabled>No subject found</option>
                                             @endif
                                         </select>
 
