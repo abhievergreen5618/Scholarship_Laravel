@@ -284,13 +284,17 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="applyingforsubject" id="applyingforsubject" class="dropdownlong form-control">
+                                        <!-- <select name="applyingforsubject" id="applyingforsubject" class="dropdownlong form-control">
                                             <option value="">--Please Select --</option>
                                             <option value="ENGLISH" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "ENGLISH" ? 'selected' : ''}} @endif>ENGLISH</option>
                                             <option value="HINDI" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "HINDI" ? 'selected' : ''}} @endif>Hindi</option>
                                             <option value="MATHEMATICS" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "MATHEMATICS" ? 'selected' : ''}} @endif>MATHEMATICS</option>
                                             <option value="SCIENCE" @if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->applyingforsubject == "SCIENCE" ? 'selected' : ''}} @endif>SCIENCE</option>
-                                        </select></span>
+                                        </select></span> -->
+
+                                        @foreach($subjects as $subject)
+                                        {{ $subject->subject_name }}
+                                        @endforeach
                                     <br>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
                                 </td>
