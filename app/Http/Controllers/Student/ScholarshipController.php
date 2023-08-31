@@ -14,8 +14,7 @@ use App\Models\DistrictModel;
 use App\Models\BankDetails;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use Barryvdh\DomPDF\PDF;
-use Symfony\Component\HttpFoundation\Response;
+use PDF;
 
 class ScholarshipController extends Controller
 {
@@ -314,9 +313,8 @@ class ScholarshipController extends Controller
 
 	    if($request->has('download'))
 	    {
-	        $pdf = PDF::loadView('student.FormSteps.pdffile',['data' => $data]);
-	        $pdfContent = $pdf->output();
-            return $pdfContent;
+	        $pdf = PDF::loadView('student.FormSteps.pdffile',$data);
+	        return $pdf;
 	    }
         else{
             return "Download parameter not provided.";
