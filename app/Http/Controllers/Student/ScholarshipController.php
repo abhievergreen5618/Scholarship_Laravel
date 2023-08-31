@@ -103,6 +103,7 @@ class ScholarshipController extends Controller
                 $request['physicallychallengedproof'] = $imageName;
             }
             $subject = Subject::orderBy('name','asc');
+            dd($subject);
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",

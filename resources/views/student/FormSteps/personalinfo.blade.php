@@ -310,7 +310,7 @@
                                             <option value="">--Please Select --</option>
                                             @if(!empty($subject))
                                             @foreach($subject as $subjects)
-                                                <option value="">{{ $subject->name }}</option>
+                                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
                                             @endforeach
                                             @endif
                                             </select></span>
