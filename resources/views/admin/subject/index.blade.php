@@ -38,6 +38,7 @@
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
+                                            @if(!empty($datas))
                                             @foreach ($datas as $data)
                                             <tr>
                                                 <td>{{ $data->name }}</td>
@@ -46,6 +47,7 @@
                                                 <td>{{ $data->status }}</td>
                                             </tr>
                                             @endforeach
+                                            @endif
                                         </thead>
                                         <tbody>
                                         </tbody>
