@@ -26,7 +26,7 @@ class ScholarshipController extends Controller
         $subjects = Subject::orderBy('name','asc')->get();
         // dd($subjects);
         $classes = ClassModel::orderBy('class','asc')->get();
-        // dd($classes);
+        dd($classes);
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
