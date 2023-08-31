@@ -22,18 +22,20 @@ class ScholarshipController extends Controller
     public function index()
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
+        $subject = Subject::orderBy('name','asc')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
             
             return view('student.form')->with([
                 "step2schooldata" => $step2schooldata,
-                "states" => $states
+                "states" => $states,
+                "subject" => $subject
             ]);
         }
         else
         {
-            return view('student.form')->with(['states'=>$states]);
+            return view('student.form')->with(['states'=>$states],['subject'=>$subject]);
         }
     }
 
@@ -102,8 +104,6 @@ class ScholarshipController extends Controller
                 $image->move(public_path('images/proofdoc'), $imageName);
                 $request['physicallychallengedproof'] = $imageName;
             }
-            $subject = Subject::orderBy('name','asc');
-            
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
@@ -121,7 +121,7 @@ class ScholarshipController extends Controller
                 "singlegirlchild" => $request['singlegirlchild'] ?? "",
                 "applyingfor" => $request['applyingfor'],
                 "applyingforsubject" => $request['applyingforsubject'],
-                "subject" => $subject,
+                "subject" => $request['subject'],
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "physicallychallengedproof" => $imageName ?? "",
