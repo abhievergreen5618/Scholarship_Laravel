@@ -87,7 +87,7 @@
         <tr>
             <td>Application Number</td>
             <td>:</td>
-            <td>b>{{(!empty(auth()->user()->step5_updated_at))
+            <td><b>{{(!empty(auth()->user()->step5_updated_at))
                     ? auth()->user()->application_number :
                     ''}}</b></td>
         </tr>
