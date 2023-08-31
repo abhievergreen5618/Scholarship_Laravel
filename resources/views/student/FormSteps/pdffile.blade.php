@@ -3,7 +3,7 @@
                                                             <td colspan="3"></td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2">PDF File</td>
+                                                            <td colspan="3"><h3>PDF File</h3></td>
                                                         </tr>
                                                         <tr>
                                                         <td width="42%" class="vtext"><strong>Application Number</strong>
