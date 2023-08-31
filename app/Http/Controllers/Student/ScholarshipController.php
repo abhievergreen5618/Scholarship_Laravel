@@ -15,6 +15,7 @@ use App\Models\BankDetails;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use PDF;
+use Symfony\Component\HttpFoundation\Response;
 
 class ScholarshipController extends Controller
 {
