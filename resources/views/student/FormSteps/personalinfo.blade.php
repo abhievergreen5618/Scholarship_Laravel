@@ -399,11 +399,11 @@
                                             <option value="">--Please Select--</option>
                                             @if(empty($subjects))
                                             hi
-                                            @foreach($subjects as $subject)
+                                            <!-- @foreach($subjects as $subject)
                                             <option value="{{ $subject->id }}">
                                                 {{ $subject->name }}
                                             </option>
-                                            @endforeach
+                                            @endforeach -->
                                             @endif
                                         </select>
 
