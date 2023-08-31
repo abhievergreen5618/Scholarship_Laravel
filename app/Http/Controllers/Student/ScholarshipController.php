@@ -24,7 +24,7 @@ class ScholarshipController extends Controller
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
         $subjects = Subject::orderBy('name','asc')->get();
-        dd($subjects);
+        // dd($subjects);
         $classes = ClassModel::orderBy('class','asc')->get();
         // dd($classes);
         if(!empty(Auth::user()->step2_updated_at))
