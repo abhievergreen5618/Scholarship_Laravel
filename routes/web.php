@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('districtslist',[ScholarshipController::class,'getDistricts']);
 
-    Route::get('/download-pdf',[ScholarshipController::class,'downloadpdf'])->name('downloadPdf');
+    Route::get('/download-pdf',[ScholarshipController::class,'downloadpdf']);
 
 
     // Admin Routes
