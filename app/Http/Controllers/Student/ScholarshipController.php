@@ -32,12 +32,12 @@ class ScholarshipController extends Controller
             return view('student.form')->with([
                 "step2schooldata" => $step2schooldata,
                 "states" => $states,
-                "subject" => $subjects
+                "subjects" => $subjects
             ]);
         }
         else
         {
-            return view('student.form')->with(['states'=>$states],['subject'=>$subjects]);
+            return view('student.form')->with(['states'=>$states],['subjects'=>$subjects]);
         }
     }
 
