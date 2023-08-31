@@ -126,7 +126,7 @@
                                                         @include("student.FormSteps.pdffile")
                                                         <tr>
                                                             <td colspan="3">
-                                                            <a class="btn" href="{{route('download-pdf')}}">Download Receipt</a>
+                                                            <a class="btn" href="{{route('downloadpdf')}}">Download Receipt</a>
                                                         </td>
                                                         </tr>
                                                     </tbody>
