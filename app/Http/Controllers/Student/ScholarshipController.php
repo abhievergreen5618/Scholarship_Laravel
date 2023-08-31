@@ -122,7 +122,7 @@ class ScholarshipController extends Controller
                 "singlegirlchild" => $request['singlegirlchild'] ?? "",
                 "applyingfor" => $request['applyingfor'],
                 "applyingforsubject" => $request['applyingforsubject'],
-                "subject" => $request['subject'],
+                "subjects" => $request['subjects'],
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "physicallychallengedproof" => $imageName ?? "",

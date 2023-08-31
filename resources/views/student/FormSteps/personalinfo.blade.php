@@ -394,7 +394,7 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="subject" id="subject"
+                                        <select name="subjects" id="subjects"
                                             class="dropdownlong form-control">
                                             <option value="">--Please Select--</option>
                                             @if(!empty($subjects))
