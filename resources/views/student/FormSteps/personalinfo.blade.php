@@ -397,7 +397,8 @@
                                         <select name="subjects" id="subjects"
                                             class="dropdownlong form-control">
                                             <option value="">--Please Select--</option>
-                                            @if(!empty($subjects))
+                                            @if(empty($subjects))
+                                            hjkgl
                                             @foreach($subjects as $subject)
                                             <option value="{{ $subject->id }}">
                                                 {{ $subject->name }}
