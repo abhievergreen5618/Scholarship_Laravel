@@ -11,6 +11,7 @@ use App\Models\PaymentsDetails;
 use App\Models\User;
 use App\Models\Subject;
 use App\Models\StateModel;
+use App\Models\ClassModel;
 use App\Models\DistrictModel;
 use App\Models\BankDetails;
 use Illuminate\Support\Facades\DB;
