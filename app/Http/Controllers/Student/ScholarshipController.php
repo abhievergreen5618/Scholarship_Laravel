@@ -23,8 +23,8 @@ class ScholarshipController extends Controller
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
         // dd($states);
-        $subject = Subject::orderBy('name','asc')->get();
-        // dd($subject);
+        $subjects = Subject::orderBy('name','asc')->get();
+        // dd($subjects);
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
