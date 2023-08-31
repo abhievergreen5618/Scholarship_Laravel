@@ -126,6 +126,8 @@
                                                         @foreach($classes as $class)
                                                         <option value="{{ $class->id }}">{{ $class->name }}</option>
                                                         @endforeach
+                                                        @else
+                                                        <option value=""disabled>No class found</option>
                                                         @endif
                                                     </select></span>
 
