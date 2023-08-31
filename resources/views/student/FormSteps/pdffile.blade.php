@@ -19,9 +19,6 @@
 </tr>
 </table> -->
 
-<html>
-    <head></head>
-        <body>
 <form>
                                                         <tr>
                                                             <td colspan="3"></td>
@@ -88,7 +85,6 @@
                                                         </tr>
                                                         
                                                     </form>     
-                                                                        </body>
-                                                                        </html>    
+                                                                           
 </body>
 </html>
