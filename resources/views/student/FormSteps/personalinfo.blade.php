@@ -397,7 +397,7 @@
                                         <select name="subject" id="applyingforsubject"
                                             class="dropdownlong form-control">
                                             <option value="">--Please Select--</option>
-                                            @if(!empty($subjects))
+                                            @if(!$subjects->isEmpty())
                                             @foreach($subjects as $subject)
                                             <option value="{{ $subject->id }}">
                                                 {{ $subject->name }}
