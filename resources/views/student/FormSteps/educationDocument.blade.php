@@ -67,6 +67,7 @@
                                             <th scope="col">S.No</th>
                                             <th scope="col">Result Status <span style="color:red">*</span></th>
                                             <th scope="col">Examination Passed <span style="color:red">*</span></th>
+                                            <th scope="col">class Passed <span style="color:red">*</span></th>
                                             <th scope="col">Name of The Board/University <span style="color:red">*</span>
                                             </th>
                                             <th scope="col">Passing Year <span style="color:red">*</span> </th>
