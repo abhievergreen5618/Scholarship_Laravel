@@ -118,7 +118,7 @@
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="classes" id="classes" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Class--</option>
-                                                        @foreach(!empty($classes))
+                                                        @if(!empty($classes))
                                                         @foreach($classes as $class)
                                                         <option value="{{ $class->id }}">{{ $class->name }}</option>
                                                         @endforeach
