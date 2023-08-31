@@ -310,10 +310,13 @@
                                             <option value="">--Please Select --</option>
                                             @if(!empty($subject))
                                             @foreach($subject as $subjects)
-                                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                                <option value="{{ $subjects->id }}">
+                                                    {{ $subjects->name }}
+                                                </option>
                                             @endforeach
                                             @endif
-                                            </select></span>
+                                            </select>
+                                        </span>
                                     <br>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
                                 </td>
