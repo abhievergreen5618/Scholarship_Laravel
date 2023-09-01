@@ -50,7 +50,7 @@ class ClassController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function store(ClassRequest $request)
     {
         ClassModel::create([

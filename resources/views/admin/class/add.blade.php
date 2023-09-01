@@ -12,7 +12,7 @@
             @csrf
             @isset($data)
             <input type="hidden" name="id" value="{{encrypt($data->id)}}">
-            @endisset
+            @endisset 
             <div class="card-body">
                 <div>
                     <div class="form-group">
