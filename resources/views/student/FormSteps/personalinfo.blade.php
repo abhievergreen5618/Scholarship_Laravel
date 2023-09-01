@@ -339,17 +339,16 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="subjects" id="subjects"
-                                            class="dropdownlong form-control" multiple>
-                                            <option value="">--Please Select--</option>
-                                            @foreach($subjects as $subject)
-                                            <option value="{{ $subject->name }}">
-                                                {{ $subject->name }}
-                                            </option>
-                                            @endforeach
-                                        </select>
+                                    <div class="form-group">
+    <label>Subjects:</label>
+    @foreach($subjects as $subject)
+    <div class="form-check">
+        <input type="checkbox" name="subjects" id="subject_{{ $subject->id }}" value="{{ $subject->name }}" class="form-check-input">
+        <label for="subject_{{ $subject->id }}" class="form-check-label">{{ $subject->name }}</label>
+    </div>
+    @endforeach
+</div>
 
-                     
 
 
                                     </span>
