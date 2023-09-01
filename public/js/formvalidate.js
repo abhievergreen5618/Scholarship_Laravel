@@ -18,6 +18,7 @@ jQuery('#frm').validate({
             required:true,
             email:true
         },
+        applyingfor:"required",
         subjects:"required",
         category:"required"
     },
@@ -217,7 +218,7 @@ jQuery('#bankform').validate({
             success: function(result) {
                 if(result.hasOwnProperty("message"))
                 {
-                    $("#tab3").attr('disabled',false);
+                    $("#tab4").attr('disabled',false);
                     $("#tab4").trigger('click');
                     $('[for="tab4"]').find("[data-icon='lock']").remove();
                     $("#application_summary_step").removeClass("btn-secondary");
