@@ -144,7 +144,7 @@ class ScholarshipController extends Controller
 
         $classmarks = $request['class_marks'];
         $maximummarks = $request['class_max_marks'];
-        $percentage = $class_marks*100/$maximummarks ;
+        $percentage = $classmarks*100/$maximummarks ;
 
 
         $validator = Validator::make($request->all(), [
