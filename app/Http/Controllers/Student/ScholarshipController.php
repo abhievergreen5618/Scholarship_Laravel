@@ -141,6 +141,12 @@ class ScholarshipController extends Controller
 
     /**Store education data */
     public function educationInfoStore(Request $request){
+
+        $class_marks = $request['class_marks'];
+        $maximummarks = $request['class_max_marks'];
+        $percentage = $request['class_percentage'];
+
+
         $validator = Validator::make($request->all(), [
             // "classes" => "classes",
             // "class_board"=>"required",
@@ -160,6 +166,8 @@ class ScholarshipController extends Controller
              "required_if" => "This field is required.",
         ]
     );
+
+
         if ($validator->fails()) {
             $errors = [];
             foreach ($validator->errors()->getMessages() as $index => $error) {
@@ -172,6 +180,8 @@ class ScholarshipController extends Controller
         }
         else
         {
+            
+
                 $matchThese = ['user_id'=>decrypt($request['id']),'type'=>'school'];
                 EducationDetails::updateOrCreate($matchThese,[
                     'user_id'=> decrypt($request['id']),
@@ -179,9 +189,9 @@ class ScholarshipController extends Controller
                     'classes'=>$request['classes'],
                     'name_of_the_board_university'=>$request['class_board'],
                     'passing_year'=>$request['class_passing_year'],
-                    'credits_marks_Obtained'=>$request['class_marks'],
-                    'maximum_marks'=>$request['class_max_marks'],
-                    'percentage_marks'=>$request['class_percentage'],
+                    'credits_marks_Obtained'=>$classmarks,
+                    'maximum_marks'=>$maximummarks,
+                    'percentage_marks'=>$percentage,
                     'exam_roll_no'=>$request['class_rollno'],
                     'disqualified/suspended'=>$request['disqualified/suspended'],
                     'disqualified/suspended_details'=>$request['details'] ?? "",

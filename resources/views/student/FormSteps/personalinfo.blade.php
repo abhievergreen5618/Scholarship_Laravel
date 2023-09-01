@@ -327,6 +327,7 @@
                             </tr>
                             <tr>
 
+
                            
                             <!-----------------------SUBJECT------------------->
 
@@ -340,7 +341,7 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="subjects" id="subjects"
-                                            class="dropdownlong form-control">
+                                            class="dropdownlong form-control" multiple>
                                             <option value="">--Please Select--</option>
                                             @foreach($subjects as $subject)
                                             <option value="{{ $subject->name }}">
@@ -505,27 +506,8 @@
 
     });
 </script>
-<script>
-    $(document).ready(function () {
-    $('#subjects').mousedown(function (e) {
-        if (e.target.tagName === 'OPTION') {
-            e.preventDefault();
-
-            var originalScrollTop = $(this).scrollTop();
-
-            $(this).toggleClass('multiselect-active');
-
-            $(e.target).prop('selected', !$(e.target).prop('selected'));
-
-            $(this).focus();
-
-            $(this).scrollTop(originalScrollTop);
-        }
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select').selectpicker();
     });
-
-    $('#subjects').on('blur', function () {
-        $(this).removeClass('multiselect-active');
-    });
-});
-
-    </script>
+</script>
