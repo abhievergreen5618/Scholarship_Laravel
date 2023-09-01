@@ -232,7 +232,7 @@ class ScholarshipController extends Controller
             "cnfrmaccountno" => "required_with:accountno|same:accountno",
             "holdername" => "required",
             "ifsccode" => "required",
-            "passbook_photo" => "required",
+            "passbook_photo" => "required|image|mimes:jpg,png,jpeg",
         ]);
         if ($validator->fails()) {
             $errors = [];

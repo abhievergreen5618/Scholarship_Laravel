@@ -119,8 +119,8 @@ jQuery('#docform').validate({
 
 
 
-        profile_photo:"required",
-        sign_photo:"required"
+        profile_photo:"required|image|mimes:jpg,png,jpeg",
+        sign_photo:"required|image|mimes:jpg,png,jpeg"
     },
     submitHandler : function(form,e) {
         e.preventDefault();
@@ -186,7 +186,7 @@ jQuery('#bankform').validate({
         cnfrmaccountno:"required",
         holdername:"required",
         ifsccode:"required",
-        passbook_photo:"required",
+        passbook_photo:"required|image|mimes:jpg,png,jpeg",
     },
     submitHandler : function(form,e) {
         e.preventDefault();
