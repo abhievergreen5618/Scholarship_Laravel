@@ -446,7 +446,7 @@
                                                         <tr>
         <td class="text">Account No. <span style="color: red">*</span>
         <br>
-            <strong>खाता संख्या की पुष्टि करें</strong>
+            <strong>खाता संख्या</strong>
         </td>
         <td class="colon">:</td>
         <td>
@@ -456,7 +456,7 @@
     <tr>
         <td class="text">Confirm Account No. <span style="color: red">*</span>
         <br>
-            <strong>खाता संख्या</strong>
+            <strong>खाता संख्या की पुष्टि करें</strong>
         </td>
         <td class="colon">:</td>
         <td>
