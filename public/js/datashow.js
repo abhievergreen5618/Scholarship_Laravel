@@ -52,7 +52,7 @@ $(document).ready(function () {
                 "data": "name",
             },
             {
-                "data": "classes[]",
+                "data": "classes",
             },
             {
                 "data": "description",
