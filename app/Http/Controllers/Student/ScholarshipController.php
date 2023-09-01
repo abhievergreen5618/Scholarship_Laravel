@@ -293,7 +293,7 @@ class ScholarshipController extends Controller
         $userMobileno = auth()->user();
         $mobilenoDigit = substr($userMobileno->mobileno, -4);
         $usersubject = auth()->user();
-        $subjectslug = substr($usersubject->applyingforsubject, 0, 3);
+        $subjectslug = substr($usersubject->subjects, 0, 3);
 
         $lastNumberYear = null;
         $lastNumberMonth = null;
