@@ -39,9 +39,7 @@ class SubjectController extends Controller
      public function display(Request $request)
      {
          if ($request->ajax()) {
-             $GLOBALS['count'] = 0;
              $data = Subject::latest()->get(['id','name','description','status']);
-             dd($data);
              return Datatables::of($data)->addIndexColumn()
                  ->addColumn('action', function ($row) {
                      $id = encrypt($row->id);
@@ -52,7 +50,10 @@ class SubjectController extends Controller
                  ->rawColumns(['action'])
                  ->make(true);
          }
+         return view('admin.subject.index');
      }
+
+
 
     public function store(SubjectRequest $request)
     {
