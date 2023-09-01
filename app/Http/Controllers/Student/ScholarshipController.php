@@ -68,6 +68,7 @@ class ScholarshipController extends Controller
      */
     public function create(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             // "scholarshipname" => "required",
             "name" => "required",
