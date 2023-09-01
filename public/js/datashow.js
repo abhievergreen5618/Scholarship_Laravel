@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
 
 
-    var classtable = $('#subjecttable').DataTable({
+    var subjecttable = $('#subjecttable').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
