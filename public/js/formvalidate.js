@@ -153,7 +153,7 @@ jQuery('#docform').validate({
                 if(result.hasOwnProperty("message"))
                 {
                     $("#tab3").attr('disabled',false);
-                    $("#tab3").trigger('click');
+                    $("#tab4").trigger('click');
                     $('[for="tab3"]').find("[data-icon='lock']").remove();
                     $("#bank_details_step").removeClass("btn-secondary");
                     $("#bank_details_step").addClass("btn-success");
