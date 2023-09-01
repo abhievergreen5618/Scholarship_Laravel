@@ -103,7 +103,7 @@
                                                         <option selected="selected" value="">--Select Class--</option>
                                                         @if(!empty($classes))
                                                         @foreach($classes as $class)
-                                                        <option value="{{ $class->id }}">{{ $class->class }}</option>
+                                                        <option value="{{ $class->class }}">{{ $class->class }}</option>
                                                         @endforeach
                                                         @else
                                                         <option value=""disabled>No class found</option>
