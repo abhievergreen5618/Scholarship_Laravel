@@ -1,4 +1,6 @@
 <li class="tab-content tab-content-fourth typography ttt">
+    
+<input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_4">
                                         <h3><span>Step [4/6] :</span> Application Summary &nbsp;
@@ -6,7 +8,7 @@
                                         </h3>
 
                                         <div class="box-body table-responsive">
-
+ 
                                             <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
                                                 <tbody>
                                                     <tr>
