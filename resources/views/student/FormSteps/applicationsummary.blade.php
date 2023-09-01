@@ -1,6 +1,5 @@
 <li class="tab-content tab-content-fourth typography ttt">
     
-<input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_4">
                                         <h3><span>Step [4/6] :</span> Application Summary &nbsp;
