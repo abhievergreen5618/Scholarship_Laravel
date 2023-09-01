@@ -371,7 +371,7 @@
                                             class="dropdownlong form-control">
                                             <option value="">--Please Select--</option>
                                             @foreach($subjects as $subject)
-                                            <option value="{{ $subject->id }}">
+                                            <option value="{{ $subject->name }}">
                                                 {{ $subject->name }}
                                             </option>
                                             @endforeach
