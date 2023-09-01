@@ -24,7 +24,7 @@
                         <label class="error fail-alert  mt-1">{{ $message }}</label>
                     </div>
                     @enderror
-                    <div class="form-group">
+                    <div class="form-group"> 
                         <label>Class</label>
                         <div class="select2-purple">
                             <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple" >
