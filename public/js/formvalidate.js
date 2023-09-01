@@ -225,7 +225,7 @@ jQuery('#bankform').validate({
                     $("#application_summary_step").addClass("btn-success");
                     debugger;
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-                    location.reload();
+                    
 
                     toastr.success(result.message);
                 }
