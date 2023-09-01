@@ -508,6 +508,6 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('select').selectpicker();
+        $('select').subjects();
     });
 </script>
