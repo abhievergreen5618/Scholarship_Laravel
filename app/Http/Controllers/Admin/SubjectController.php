@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SubjectRequest;
 use Illuminate\Http\Request;
 use App\Models\Subject;
+use Yajra\DataTables\Facades\DataTables;
 
 class SubjectController extends Controller
 {
