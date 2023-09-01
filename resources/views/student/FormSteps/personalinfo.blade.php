@@ -327,34 +327,6 @@
                             </tr>
                             <tr>
 
-                            <tr id="ctl00_ContentPlaceHolder1_trSportCulturalBoth">
-                                <td class="vtext">You are applying for? <span style="color: red">*</span>
-                                    <br>
-                                    <strong>आप आवेदन कर रहे हैं</strong>
-                                </td>
-                                <td class="colon">:</td>
-                                <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="applyingfor" id="applyingfor" class="dropdownlong form-control">
-                                            <option value="">--Please Select --</option>
-                                            <option value="Sport" @if(!empty(auth()->user()->step1_updated_at))
-                                                {{auth()->user()->applyingfor == "Sport" ? 'selected' : ''}}
-                                                @endif>Sport</option>
-                                            <option value="Cultural" @if(!empty(auth()->user()->step1_updated_at))
-                                                {{auth()->user()->applyingfor == "Cultural" ? 'selected' : ''}}
-                                                @endif>Cultural</option>
-                                            <option value="Both" @if(!empty(auth()->user()->step1_updated_at))
-                                                {{auth()->user()->applyingfor == "Both" ? 'selected' : ''}}
-                                                @endif>Both(Sport &amp; Cultural )</option>
-                                            <option value="Not Applicable" @if(!empty(auth()->user()->step1_updated_at))
-                                                {{auth()->user()->applyingfor == "Not Applicable" ? 'selected' : ''}}
-                                                @endif>Not Applicable</option>
-                                        </select></span>
-                                    <br>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
-                                </td>
-                            </tr>
-
                            
                             <!-----------------------SUBJECT------------------->
 

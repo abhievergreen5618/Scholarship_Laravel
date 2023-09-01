@@ -36,7 +36,6 @@ class User extends Authenticatable
         'mobileno',
         'gender',
         'singlegirlchild',
-        'applyingfor',
         'subjects',
         'physicallychallenged',
         'category',

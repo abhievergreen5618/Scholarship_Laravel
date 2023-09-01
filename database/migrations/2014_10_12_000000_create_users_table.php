@@ -35,7 +35,6 @@ return new class extends Migration
             $table->string('mobileno')->nullable();
             $table->string('gender')->nullable();
             $table->string('singlegirlchild')->nullable();
-            $table->string('applyingfor')->nullable();
             $table->string('subjects')->nullable();
             $table->string('physicallychallenged')->nullable();
             $table->string('category')->nullable();
