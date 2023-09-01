@@ -146,6 +146,7 @@ class ScholarshipController extends Controller
         $maximummarks = $request['class_max_marks'];
         $percentage = $classmarks/$maximummarks*100 ;
         $markspercentage = substr($percentage->percentage_marks,0,4);
+        $nonDecimalMarks = preg_replace('/\.\d+/', '', $markspercentage);
 
 
         $validator = Validator::make($request->all(), [
@@ -192,7 +193,7 @@ class ScholarshipController extends Controller
                     'passing_year'=>$request['class_passing_year'],
                     'credits_marks_Obtained'=>$classmarks,
                     'maximum_marks'=>$maximummarks,
-                    'percentage_marks'=>$markspercentage,
+                    'percentage_marks'=>$nonDecimalMarks,
                     'exam_roll_no'=>$request['class_rollno'],
                     'disqualified/suspended'=>$request['disqualified/suspended'],
                     'disqualified/suspended_details'=>$request['details'] ?? "",
