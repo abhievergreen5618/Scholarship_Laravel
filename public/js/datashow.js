@@ -33,7 +33,7 @@ $(document).ready(function () {
         ],
     });
 
-
+   
     var subjecttable = $('#subjecttable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -50,6 +50,9 @@ $(document).ready(function () {
         "columns": [
             {
                 "data": "name",
+            },
+            {
+                "data": "classes",
             },
             {
                 "data": "description",
