@@ -142,7 +142,7 @@ class ScholarshipController extends Controller
     /**Store education data */
     public function educationInfoStore(Request $request){
 
-        $class_marks = $request['class_marks'];
+        $classmarks = $request['class_marks'];
         $maximummarks = $request['class_max_marks'];
         $percentage = $class_marks*100/$maximummarks ;
 
