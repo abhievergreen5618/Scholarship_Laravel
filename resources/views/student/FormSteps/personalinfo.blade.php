@@ -344,8 +344,8 @@
                                             class="dropdownlong form-control selectpicker" multiple >
                                             <option value="" selected>--Please Select--</option>
                                             @foreach(json_decode($subjectSelect) as $subject)
-                                            <option value="{{ $subject->name }}">
-                                                {{ $subject->name }}
+                                            <option value="{{ $subject }}">
+                                                {{ $subject }}
                                             </option>
                                             @endforeach
                                         </select>
