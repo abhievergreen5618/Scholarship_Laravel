@@ -303,15 +303,13 @@ class ScholarshipController extends Controller
         $nameFirstCharacter = substr($userName->name, 0, 3);
         $userMobileno = auth()->user();
         $mobilenoDigit = substr($userMobileno->mobileno, -4);
-        $usersubject = auth()->user();
-        $subjectslug = substr($usersubject->subjects, 0, 3);
 
         $lastNumberYear = null;
         $lastNumberMonth = null;
         $lastNumberCounter = 0;
     
         // Generate Roll Number Application Number and Transaction ID
-        $rollno = $subjectslug. $currentYear . $currentMonth .$currentDate. $mobilenoDigit;
+        $rollno =  $currentYear . $currentMonth .$currentDate. $mobilenoDigit;
         $application_number = $currentYear . $currentMonth .$nameFirstCharacter. $mobilenoDigit;
         $transaction_id = $request['razorpay_payment_id'];
 
