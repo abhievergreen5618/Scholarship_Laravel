@@ -342,7 +342,7 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="subjects[]" id="subjects"
                                             class="dropdownlong form-control selectpicker" multiple >
-                                            <option value="" selected>--Please Select--</option>
+                                            <option value="">--Please Select--</option>
                                             @foreach(json_decode($subjectSelect) as $subject)
                                             <option value="{{ $subject }}">
                                                 {{ $subject }}
