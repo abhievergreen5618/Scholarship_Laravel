@@ -26,7 +26,7 @@ class ScholarshipController extends Controller
         $subjects = Subject::orderBy('name', 'asc')->get();
         $subjectSelect = $subjects->pluck('name')->toArray();
         $subjectSelect = json_encode($subjectSelect);
-        dd($subjectSelect);
+        
         $classes = ClassModel::orderBy('class','asc')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
