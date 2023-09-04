@@ -344,7 +344,7 @@
                                             class="dropdownlong form-control selectpicker" data-live-search="true" multiple>
                                             <option value="" selected>--Please Select--</option>
                                             @foreach($subjects as $subject)
-                                            <option value="{{ $subject->name }}" selected>
+                                            <option value="{{ $subject->name }}">
                                                 {{ $subject->name }}
                                             </option>
                                             @endforeach
