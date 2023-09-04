@@ -1,4 +1,4 @@
-<li class="tab-content tab-content-fourth typography"> 
+<li class="tab-content tab-content-last typography"> 
 <div class="typography">
     <div class="tab-content">
         <div class="tab-pane active" id="tab_5" >
