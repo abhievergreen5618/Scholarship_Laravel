@@ -18,7 +18,7 @@
             <th id="pdfheading" class="thhh" colspan="3">FEE PAYMENT RECEIPT</th>
         </tr>
          <tr class="mm">
-            <th colspan="3"><img src="images/line copy.png" class="rounded mx-auto d-block" alt="..."></th>
+            <th colspan="3"><img src="{{asset('images/line copy.png')}}" class="rounded mx-auto d-block" alt="..."></th>
         </tr>
             <tr>
                 <td id="pdfdata" colspan="3"></td>
