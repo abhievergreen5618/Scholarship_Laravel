@@ -343,7 +343,7 @@
                                         <select name="subjects[]" id="subjects"
                                             class="dropdownlong form-control selectpicker" multiple >
                                             <option value="" selected>--Please Select--</option>
-                                            @foreach($subjects as $subject)
+                                            @foreach($subjectSelect as $subject)
                                             <option value="{{ $subject->name }}">
                                                 {{ $subject->name }}
                                             </option>
