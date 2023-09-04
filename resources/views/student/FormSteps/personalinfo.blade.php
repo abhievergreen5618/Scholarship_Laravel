@@ -341,7 +341,7 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="subjects" id="subjects"
-                                            class="dropdownlong form-control" multiple >
+                                            class="dropdownlong form-control"  >
                                             <option value="" >--Please Select--</option>
                                             @foreach($subjects as $subject)
                                             <option value="{{ $subject->name }}">
