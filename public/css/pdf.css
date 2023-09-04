@@ -10,7 +10,6 @@
 
    #pdf,#pdfheading,#pdfdata{
             border:1px solid #f35b09;
-            border-collapse: collapse;
             text-align: center;
         }
         #pdf.widthhh {
