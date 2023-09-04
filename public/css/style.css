@@ -339,16 +339,10 @@ input#chb {
     -moz-transition: all 0.5s;
     -webkit-transition: all 0.5s;
 }
-/* .pcss3t > .tab-content-first:checked ~ ul .tab-content-first, */
-/* .pcss3t > .tab-content-2:checked ~ ul .tab-content-2,
+.pcss3t > .tab-content-first:checked ~ ul .tab-content-first,
+.pcss3t > .tab-content-2:checked ~ ul .tab-content-2,
 .pcss3t > .tab-content-third:checked ~ ul .tab-content-third,
-.pcss3t > .tab-content-3:checked ~ ul .tab-content-3,
-.pcss3t > .tab-content-4:checked ~ ul .tab-content-4,
-.pcss3t > .tab-content-5:checked ~ ul .tab-content-5,
-.pcss3t > .tab-content-6:checked ~ ul .tab-content-6,
-.pcss3t > .tab-content-7:checked ~ ul .tab-content-7,
-.pcss3t > .tab-content-8:checked ~ ul .tab-content-8,
-.pcss3t > .tab-content-9:checked ~ ul .tab-content-9,
+.pcss3t > .tab-content-fourth:checked ~ ul .tab-content-fourth,
 .pcss3t > .tab-content-last:checked ~ ul .tab-content-last,
 .pcss3t > .tabend:checked ~ ul .tabend {
     z-index: 1;
@@ -357,7 +351,7 @@ input#chb {
     opacity: 1;
     -webkit-transform: scale(1, 1);
     -webkit-transform: rotate(0deg);
-} */
+}
 
 /*----------------------------------------------------------------------------*/
 /*                                 EXTENSIONS                                 */
