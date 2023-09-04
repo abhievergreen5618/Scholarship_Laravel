@@ -510,7 +510,6 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $.fn.selectpicker.Constructor.BootstrapVersion=5;
         $('select').selectpicker();
     });
 </script>
