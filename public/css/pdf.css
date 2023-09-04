@@ -1,0 +1,25 @@
+
+
+
+body{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;	
+}
+
+
+   table,td,th{
+            border:1px solid #f35b09;
+            text-align: center;
+        }
+        table.widthhh {
+    width: 50%;
+    margin:auto;
+}
+th.thhh {
+    font-size: 25px;
+}
+th.thhh {
+    background-color: #f35b09;
+    color:white;
+}

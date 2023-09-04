@@ -9,9 +9,17 @@
 
 <body>
 
-
-    <form>
-        <table>
+<div class="sectiontopp">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 mt-5">
+  <table class="widthhh">
+        <tr>
+            <th class="thhh" colspan="3">FEE PAYMENT RECEIPT</th>
+        </tr>
+         <tr class="mm">
+            <th colspan="3"><img src="images/line copy.png" class="rounded mx-auto d-block" alt="..."></th>
+        </tr>
             <tr>
                 <td colspan="3"></td>
             </tr>
@@ -71,7 +79,10 @@
                 </td>
             </tr>
         </table>
-    </form>
+        </div>
+	</div>
+</div>
+</div>
 </body>
 
 </html>
