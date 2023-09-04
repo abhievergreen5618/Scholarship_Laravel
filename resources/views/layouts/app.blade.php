@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/select.css')}}">
     <link href="{{asset('adminlte/plugins/toastr/toastr.min.css')}}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"/>
     <title>{{ config('app.name', 'Laravel') }}</title>
     <title>Document</title>
     @stack("header_extras")
@@ -29,6 +29,7 @@
     <script src="{{asset('/js/validate.min.js')}}"></script>
     <script src="{{asset('/js/formvalidate.js')}}"></script>
     <script src="{{asset('/js/custom.js')}}"></script>
+    <script src="{{asset('/js/select.js')}}"></script>
     <script src="{{asset('/adminlte/plugins/toastr/toastr.min.js')}}"></script>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
