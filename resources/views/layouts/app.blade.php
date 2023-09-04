@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/select.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/pdf.css')}}">
     <link href="{{asset('adminlte/plugins/toastr/toastr.min.css')}}" rel="stylesheet" />
     <title>{{ config('app.name', 'Laravel') }}</title>
     <title>Document</title>
