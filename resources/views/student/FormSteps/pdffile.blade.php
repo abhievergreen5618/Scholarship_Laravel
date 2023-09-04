@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="border_design">
 
 <div class="sectiontopp">
 <div class="container">
