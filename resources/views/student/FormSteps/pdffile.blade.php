@@ -26,7 +26,6 @@
             <tr>
                 <td width="42%" class="vtext"><strong>Application Number</strong>
                 </td>
-                <td class="colon">:</td>
                 <td>
                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
                             id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
@@ -37,7 +36,6 @@
             <tr>
                 <td width="42%" class="vtext"><strong>Transaction ID</strong>
                 </td>
-                <td class="colon">:</td>
                 <td>
                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
                             id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
@@ -48,7 +46,6 @@
             <tr>
                 <td width="42%" class="vtext"><strong>Name</strong>
                 </td>
-                <td class="colon">:</td>
                 <td>
                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
                             id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
@@ -59,7 +56,6 @@
             <tr>
                 <td width="42%" class="vtext"><strong>Mobile No.</strong>
                 </td>
-                <td class="colon">:</td>
                 <td>
                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
                             id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
@@ -70,7 +66,6 @@
             <tr>
                 <td width="42%" class="vtext"><strong>Email-ID</strong>
                 </td>
-                <td class="colon">:</td>
                 <td>
                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
                             id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
