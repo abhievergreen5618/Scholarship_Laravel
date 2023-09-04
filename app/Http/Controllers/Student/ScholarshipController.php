@@ -23,8 +23,8 @@ class ScholarshipController extends Controller
     public function index()
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
-        $subjects = Subject::orderBy('name','asc')->get();
-        $subjectSelect['subjects'] = json_encode($subjects['subjects']);
+        $subject = Subject::orderBy('name','asc')->get();
+        $subjectSelect['subjects'] = json_encode($subject['subjects']);
         $classes = ClassModel::orderBy('class','asc')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
