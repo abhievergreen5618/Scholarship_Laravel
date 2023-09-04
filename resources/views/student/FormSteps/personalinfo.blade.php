@@ -341,7 +341,7 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="subjects[]" id="subjects"
-                                            class="dropdownlong form-control selectpicker" multiple >
+                                            class="dropdownlong form-control" multiple >
                                             <option value="" selected>--Please Select--</option>
                                             @foreach(json_decode($subjectSelect) as $subject)
                                             <option value="{{ $subject }}">
@@ -510,7 +510,7 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('select').selectpicker();
+        $('select').select2();
     });
 </script>
 
