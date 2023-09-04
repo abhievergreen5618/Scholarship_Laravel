@@ -341,7 +341,7 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="subjects" id="subjects"
-                                            class="dropdownlong form-control" data-live-search="true" multiple>
+                                            class="dropdownlong form-control selectpicker" data-live-search="true" multiple>
                                             <option value="">--Please Select--</option>
                                             @foreach($subjects as $subject)
                                             <option value="{{ $subject->name }}">
@@ -508,8 +508,15 @@
 
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('select').subjects();
+    $('select').selectpicker();
+
+    $('#subjects').on('changed.bs.select', function(e, clickedIndex, isSelected, previousValue) {
+        var selectedValues = $(this).val();
+        console.log(selectedValues);
     });
+});
+
 </script>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link href="{{asset('adminlte/plugins/toastr/toastr.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"/>
     <title>{{ config('app.name', 'Laravel') }}</title>
     <title>Document</title>
     @stack("header_extras")
