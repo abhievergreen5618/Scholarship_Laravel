@@ -341,8 +341,8 @@
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                         <select name="subjects" id="subjects"
-                                            class="dropdownlong form-control selectpicker" data-live-search="true" multiple>
-                                            <option value="" selected>--Please Select--</option>
+                                            class="dropdownlong form-control" data-live-search="true" multiple>
+                                            <option value="" >--Please Select--</option>
                                             @foreach($subjects as $subject)
                                             <option value="{{ $subject->name }}">
                                                 {{ $subject->name }}
