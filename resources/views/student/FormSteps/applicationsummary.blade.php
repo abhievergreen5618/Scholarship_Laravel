@@ -1,5 +1,5 @@
 <li class="tab-content tab-content-fourth typography"> 
-
+<div class="typography">
     <div class="tab-content">
         <div class="tab-pane active" id=tab_4 >
             <h3><span>Step [4/6] :</span> Application Summary &nbsp;
@@ -620,5 +620,6 @@
 
             </div>
         </div>
+    </div>
     </div>
 </li>
