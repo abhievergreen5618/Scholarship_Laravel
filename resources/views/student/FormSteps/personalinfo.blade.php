@@ -508,15 +508,5 @@
 
     });
 </script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        
-    $('select').selectpicker();
 
-    $('#subjects').on('changed.bs.select', function(e, clickedIndex, isSelected, previousValue) {
-        var selectedValues = $(this).val();
-    });
-});
-
-</script>
 
