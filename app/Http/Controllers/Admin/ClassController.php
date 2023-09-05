@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ClassRequest;
 use App\Models\ClassModel;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB;
+
 class ClassController extends Controller
 {
     /**
@@ -112,7 +114,7 @@ class ClassController extends Controller
         // ClassModel::where('id',$id)->delete();
         // return redirect(route('admin.class.details'))->with("msg", "Class Deleted Successfully");
 
-        ClassModel::delete('DELETE FROM class_models WHERE id = ?', [$id]);
+        DB::delete('DELETE FROM class_models WHERE id = ?', [$id]);
           echo ("Class Deleted Successfully.");
           return redirect()->route('admin.class.details');
     }
