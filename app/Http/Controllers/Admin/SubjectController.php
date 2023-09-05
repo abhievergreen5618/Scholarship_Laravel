@@ -110,7 +110,7 @@ class SubjectController extends Controller
             "description" => $request->description,
             "status" => $request->status,
         ]);
-        return redirect(route('admin.subject.index'))->with("msg", "Subject Updated Successfully");
+        return redirect(route('admin.subjects.index'))->with("msg", "Subject Updated Successfully");
   
     }
 
