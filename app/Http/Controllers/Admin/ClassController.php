@@ -110,6 +110,6 @@ class ClassController extends Controller
     {
         //
         ClassModel::where('id',$id)->delete();
-        return view('admin.class.details')->with('msg',"Deleted Successfully!");
+        return redirect(route('admin.class.details'))->with("msg", "Class Deleted Successfully");
     }
 }
