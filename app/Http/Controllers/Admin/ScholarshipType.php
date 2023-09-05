@@ -48,6 +48,18 @@ class ScholarshipType extends Controller
 
     public function edit($id)
     {
-
+        $data = ScholarshipList::where("id",decrypt($id))->first();
+        return view('admin.scholarshiptype.add')->with([
+            "data"=>$data
+        ]);
+    }
+    public function update(Request $request)
+    {
+        ScholarshipList::where("id",decrypt($request['id']))->update([
+            "name" => $request->name,
+            "description" => $request->description,
+            "status" => $request->status,
+        ]);
+        return redirect(route('admin.scholarshiptype.index'))->with("msg", "Scholarship Updated Successfully");
     }
 }
