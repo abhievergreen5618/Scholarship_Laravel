@@ -101,7 +101,7 @@ $(document).ready(function () {
 
 
 function confirmDelete(id) {
-    const result = confirm("Are you sure you want to delete this record?");
+    const result = confirm("Delete");
     if (result) {
         const deleteLink = $('#delete-link-' + id);
         deleteLink.click(); 
