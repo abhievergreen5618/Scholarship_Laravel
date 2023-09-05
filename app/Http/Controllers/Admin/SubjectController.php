@@ -87,6 +87,10 @@ class SubjectController extends Controller
     public function edit($id)
     {
         //
+        $data = Subject::where("id",decrypt($id))->first();
+        return view('admin.subject.add')->with([
+            "data"=>$data
+        ]);
     }
 
     /**
@@ -96,9 +100,18 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+
+        Subject::where("id",decrypt($request['id']))->update([
+            "name" => $request->name,
+            "classes" => $request->classes,
+            "description" => $request->description,
+            "status" => $request->status,
+        ]);
+        return redirect(route('admin.subject.index'))->with("msg", "Subject Updated Successfully");
+  
     }
 
     /**
