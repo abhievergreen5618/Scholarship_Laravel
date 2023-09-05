@@ -68,6 +68,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/storescholarships','store')->name('admin.scholarshiptype.store');
         Route::post('/scholarshipdetails','display')->name('admin.scholarshiptype.details');
         Route::post('/scholarshipedit/{id}','edit')->name('admin.scholarshiptype.edit');
+        Route::post('/scholarshipsupdate', 'update')->name('admin.scholarshiptype.update');
     });
 
 });
