@@ -65,7 +65,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-graduation-cap"></i>
+              <i class="fa-solid fa-book-open"></i>
               <p>
                 Subjects
                 <i class="right fas fa-angle-left"></i>
@@ -82,6 +82,27 @@
                 <a href="{{route('admin.subjects.index')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>View All Subjects</p>
+                </a>
+              </li>
+              <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Scholarship Type
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.subject.add')}}" class="nav-link active">
+                  <i class="fas fa-plus  nav-icon"></i>
+                  <p>Add Scholarship</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.subjects.index')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>View All Scholarship</p>
                 </a>
               </li>
             </ul>
