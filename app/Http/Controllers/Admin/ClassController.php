@@ -108,5 +108,7 @@ class ClassController extends Controller
     public function destroy($id)
     {
         //
+        ClassModel::where('id',$id)->delete();
+        return view('admin.scholarshiptype.index')->with('msg',"Deleted Successfully!");
     }
 }
