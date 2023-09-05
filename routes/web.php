@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/subjectsdetails', 'display')->name('admin.subjects.details');
         Route::get('/subjectsedit/{id}', 'edit')->name('admin.subject.edit');
         Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
+        Route::get('/subjectdelete/{id}', 'destroy')->name('admin.subject.delete');
     });
 
     Route::controller(ScholarshipType::class)->group(function () {
