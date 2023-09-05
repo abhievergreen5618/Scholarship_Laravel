@@ -19,4 +19,9 @@ class Subject extends Model
     protected $casts = [
         "classes" => "array",
     ];
+
+    public function classModel(): HasOne
+    {
+        return $this->hasone(ClassModel::class);
+    }
 }
