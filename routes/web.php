@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/classlist','index')->name('admin.class.index');
         Route::get('/addclass','create')->name('admin.classes');
         Route::post('/createclass','store')->name('admin.class.store');
-        Route::get('/classdetails', 'display')->name('admin.class.details');
+        Route::post('/classdetails', 'display')->name('admin.class.details');
         Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');
         Route::post('/classupdate', 'update')->name('admin.class.update');
         Route::get('/classdelete/{id}', 'destroy')->name('admin.class.delete');

@@ -116,6 +116,6 @@ class ClassController extends Controller
 
         DB::delete('DELETE FROM class_models WHERE id = ?', [$id]);
           echo ("Class Deleted Successfully.");
-          return redirect()->route('admin.class.details');
+          return redirect()->route('admin.class.index');
     }
 }
