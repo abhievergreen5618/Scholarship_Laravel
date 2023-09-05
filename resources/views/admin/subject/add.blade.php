@@ -47,8 +47,7 @@
                         <label for="exampleInputEmail1" class="">{{ __('Status') }}</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" id="active" value="active" @isset($data) @if($data['status']=="active" ) {{"checked"}} @endif @endisset>
-                            <!-- <label class="form-check-label" for="active">Active</label> -->
-                            <button>Active</button>
+                            <label class="form-check-label" for="active">Active</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" id="inactive" value="inactive" @isset($data) @if($data['status']=="inactive" ) {{"checked"}} @endif @endisset>

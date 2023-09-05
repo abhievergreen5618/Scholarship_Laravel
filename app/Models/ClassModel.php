@@ -14,4 +14,4 @@ class ClassModel extends Model
         "description",
         "status",
     ];
-}
+} 

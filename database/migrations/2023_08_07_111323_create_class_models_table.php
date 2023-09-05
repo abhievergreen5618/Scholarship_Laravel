@@ -10,11 +10,12 @@ return new class extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+     */ 
     public function up()
     {
         Schema::create('class_models', function (Blueprint $table) {
             $table->id();
+            $table->bigIneteger('subject_id');
             $table->string("class");
             $table->string("description");
             $table->string("status")->default("active");
