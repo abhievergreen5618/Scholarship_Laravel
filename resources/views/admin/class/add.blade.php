@@ -8,8 +8,9 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form id="class-add-form" action="{{isset($data) ? route('admin.class.update') : route('admin.class.store') }}" method="POST">
+        <form id="class-add-form{{ $row->id }}" action="{{isset($data) ? route('admin.class.update') : route('admin.class.store') }}" method="POST">
             @csrf
+            @method('DELETE')
             @isset($data)
             <input type="hidden" name="id" value="{{encrypt($data->id)}}">
             @endisset 
