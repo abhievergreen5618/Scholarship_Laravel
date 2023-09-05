@@ -56,11 +56,4 @@
 @endsection
 
 
-@push("footer_extras")
-<script>
-    $("#class").select2({
-        multiple: true
-    });
-</script>
 
-@endpush

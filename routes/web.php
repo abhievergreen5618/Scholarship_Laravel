@@ -66,6 +66,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/scholarshipslist','index')->name('admin.scholarshiptype.index');
         Route::get('/addscholarships','create')->name('admin.scholarshiptype.add');
         Route::post('/storescholarships','store')->name('admin.scholarshiptype.store');
+        Route::post('/scholarshipdetails','display')->name('admin.scholarshiptype.details');
     });
 
 });

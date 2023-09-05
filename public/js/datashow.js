@@ -66,4 +66,35 @@ $(document).ready(function () {
 
         ],
     });
+
+
+    var scholarshiptable = $('#scholarshiptable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "scholarshipdetails",
+            "type": "POST",
+            'beforeSend': function (request) {
+                request.setRequestHeader("X-CSRF-TOKEN", jQuery('meta[name="csrf-token"]').attr('content'));
+            },
+        },
+        "columnDefs": [
+            { "scholarshipName": "dt-center", "targets": "_all" }
+        ],
+        "columns": [
+            {
+                "data": "name",
+            },
+            {
+                "data": "description",
+            },
+            {
+                "data": "status",
+            },
+            {
+                "data": "action",
+            },
+
+        ],
+    });
 });
