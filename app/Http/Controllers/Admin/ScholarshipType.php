@@ -53,7 +53,7 @@ class ScholarshipType extends Controller
             "data"=>$data
         ]);
     }
-    public function update(ClassRequest $request)
+    public function update(Request $request,$id)
     {
         ScholarshipList::where("id",decrypt($request['id']))->update([
             "name" => $request->name,
