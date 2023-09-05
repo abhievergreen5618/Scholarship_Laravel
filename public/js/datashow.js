@@ -103,7 +103,8 @@ $(document).ready(function () {
 function confirmDelete(id) {
     const result = confirm("Delete");
     if (result) {
-        const deleteLink = $('#delete-link-' + id);
+        const deleteLink = $('#class-add-form' + id);
         deleteLink.click(); 
     }
 }
+
