@@ -112,7 +112,7 @@ class ClassController extends Controller
         // ClassModel::where('id',$id)->delete();
         // return redirect(route('admin.class.details'))->with("msg", "Class Deleted Successfully");
 
-        DB::delete('DELETE FROM class_models WHERE id = ?', [$id]);
+        ClassModel::delete('DELETE FROM class_models WHERE id = ?', [$id]);
           echo ("Class Deleted Successfully.");
           return redirect()->route('admin.class.details');
     }
