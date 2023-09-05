@@ -111,7 +111,7 @@ class ClassController extends Controller
     public function destroy($id)
     {
         $class = ClassModel::where("id",decrypt($id))->first();
-    dd($class);
+   
         if (!$class) {
             return redirect()->route('admin.class.index')->with("error", "Class not found");
         }
