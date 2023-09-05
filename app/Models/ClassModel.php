@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class ClassModel extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        "subject_id",
         "class",
         "description",
         "status",
