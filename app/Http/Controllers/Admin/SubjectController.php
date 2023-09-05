@@ -127,15 +127,15 @@ class SubjectController extends Controller
         $subject = Subject::where("id",decrypt($id))->first();
    
         if (!$subject) {
-            return redirect()->route('admin.subject.index')->with("error", "Subject not found");
+            return redirect()->route('admin.subjects.index')->with("error", "Subject not found");
         }
     
         try {
             $subject->delete();
-            return redirect()->route('admin.subject.index')->with("success", "Subject Deleted Successfully");
+            return redirect()->route('admin.subjects.index')->with("success", "Subject Deleted Successfully");
         } catch (\Exception $e) {
             // Handle any other exceptions if necessary
-            return redirect()->route('admin.subject.index')->with("error", "Failed to delete Subject");
+            return redirect()->route('admin.subjects.index')->with("error", "Failed to delete Subject");
         }
     }
 }
