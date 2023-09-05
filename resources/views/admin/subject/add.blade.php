@@ -12,7 +12,7 @@
             @csrf
             @isset($data)
             <input type="hidden" name="id" value="{{encrypt($data->id)}}">
-            @endisset 
+            @endisset
             <div class="card-body">
                 <div>
                     <div class="form-group mb-2">
@@ -24,10 +24,10 @@
                         <label class="error fail-alert  mt-1">{{ $message }}</label>
                     </div>
                     @enderror
-                    <div class="form-group"> 
+                    <div class="form-group">
                         <label>Class</label>
                         <div class="select2-purple">
-                            <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple" >
+                            <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple">
                                 <option value="">Select Classes</option>
                                 @for($i=1;$i<=12;$i++) <option value="{{$i}}" @isset($data) @if($data['classes']==$i ) {{"selected"}} @endif @endisset>{{$i}}</option>
                                     @endfor

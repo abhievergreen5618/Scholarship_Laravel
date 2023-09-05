@@ -328,7 +328,7 @@
                             <tr>
 
 
-                           
+
                             <!-----------------------SUBJECT------------------->
 
 
@@ -340,8 +340,7 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="subjects[]" id="subjects"
-                                            class="dropdownlong form-control selectpicker" multiple >
+                                        <select name="subjects[]" id="subjects" class="dropdownlong form-control" multiple="multiple" data-placeholder="Select Subjects" data-dropdown-css-class="select2-purple" >
                                             <option value="">--Please Select--</option>
                                             @foreach(json_decode($subjectSelect) as $subject)
                                             <option value="{{ $subject }}">
@@ -358,7 +357,7 @@
 
                             <!------------------------------------------------->
 
-                            
+
                             <tr id="ctl00_ContentPlaceHolder1_trPhysicallChall">
                                 <td class="vtext">
                                     <div>
@@ -510,8 +509,9 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $.fn.selectpicker.Constructor.BootstrapVersion = '5'; 
-        $('#subjects').selectpicker();
+        $("#subjects").select2({
+        multiple: true
+        });
     });
 </script>
 

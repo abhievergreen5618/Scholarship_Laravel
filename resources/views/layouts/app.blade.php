@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/select.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/pdf.css')}}">
     <link href="{{asset('adminlte/plugins/toastr/toastr.min.css')}}" rel="stylesheet" />
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -30,7 +30,7 @@
     <script src="{{asset('/js/validate.min.js')}}"></script>
     <script src="{{asset('/js/formvalidate.js')}}"></script>
     <script src="{{asset('/js/custom.js')}}"></script>
-    <script src="{{asset('/js/select.js')}}"></script>
+    <script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('/adminlte/plugins/toastr/toastr.min.js')}}"></script>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
