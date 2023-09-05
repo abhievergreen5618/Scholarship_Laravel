@@ -13,4 +13,9 @@ class ScholarshipType extends Controller
     {
         return view('admin.scholarshiptype.index');
     }
+
+    public function create()
+    {
+        return view('admin.scholarshiptype.add');
+    }
 }
