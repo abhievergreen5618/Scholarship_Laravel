@@ -45,4 +45,9 @@ class ScholarshipType extends Controller
                 ->make(true);
         }
     }
+
+    public function edit($id)
+    {
+
+    }
 }
