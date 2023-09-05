@@ -14,6 +14,11 @@ class ClassModel extends Model
         "class",
         "description",
         "status",
-    ];
+    ]; 
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
 
 } 

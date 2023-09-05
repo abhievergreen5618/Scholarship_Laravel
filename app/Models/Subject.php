@@ -8,16 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         "name",
         "classes",
         "description",
-        "status", 
+        "status",  
     ];
 
     protected $casts = [
         "classes" => "array",
     ];
 
-
+ public function classModels()
+    {
+        return $this->hasMany(ClassModel::class, 'subject_id');
+    }
+    
 }
