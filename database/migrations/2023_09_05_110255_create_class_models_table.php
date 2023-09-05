@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('subject_id')->nullable();
             $table->string("class");
-            $table->string("description");
             $table->string("status")->default("active");
             $table->timestamps();
         });
