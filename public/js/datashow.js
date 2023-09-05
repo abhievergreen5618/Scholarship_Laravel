@@ -98,3 +98,12 @@ $(document).ready(function () {
         ],
     });
 });
+
+
+function confirmDelete(id) {
+    const result = confirm("Are you sure you want to delete this record?");
+    if (result) {
+        const deleteLink = $('#delete-link-' + id);
+        deleteLink.click(); // Trigger the actual delete link
+    }
+}

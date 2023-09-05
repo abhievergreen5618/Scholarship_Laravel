@@ -23,6 +23,8 @@ class ClassController extends Controller
 
     public function display(Request $request)
     {
+
+        
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
             $data = ClassModel::latest()->get(['id','class','description','status']);
@@ -31,7 +33,7 @@ class ClassController extends Controller
                     $id = encrypt($row->id);
                     $editlink = route('admin.class.edit', ['id' => $id]);
                     $deletelink = route('admin.class.delete',['id' => $id]);
-                    $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='$deletelink' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete'><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
+                    $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='$deletelink' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' onclick='confirmDelete(\"$id\")'><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
                     return $btn;
                 })
                 ->rawColumns(['action'])
