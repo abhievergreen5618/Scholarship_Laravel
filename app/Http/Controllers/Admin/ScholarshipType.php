@@ -18,4 +18,14 @@ class ScholarshipType extends Controller
     {
         return view('admin.scholarshiptype.add');
     }
+
+    public function store(Request $request)
+    {
+        ScholarshipList::create([
+            "name" => $request->name,
+            "description" => $request->description,
+            "status" => $request->status,
+        ]);
+        return redirect(route('admin.scholarshiptype.index'))->with("msg", "Scholarship Added Successfully");
+    }
 }

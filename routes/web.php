@@ -65,6 +65,7 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(ScholarshipType::class)->group(function () {
         Route::get('/scholarshipslist','index')->name('admin.scholarshiptype.index');
         Route::get('/addscholarships','create')->name('admin.scholarshiptype.add');
+        Route::post('/storescholarships','store')->name('admin.scholarshiptype.store');
     });
 
 });
