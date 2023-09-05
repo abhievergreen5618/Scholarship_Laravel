@@ -21,8 +21,8 @@ class Subject extends Model
         "classes" => "array",
     ];
 
-    public function classModel(): HasOne
+    public function class()
     {
-        return $this->hasone(ClassModel::class);
+        return $this->hasOne('ClassModel::class');
     }
 }

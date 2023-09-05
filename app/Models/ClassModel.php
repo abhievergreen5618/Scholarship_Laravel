@@ -17,8 +17,4 @@ class ClassModel extends Model
         "status",
     ];
 
-    public function subject(): BelongsTo
-    {
-        return $this->belongsTo(Subject::class);
-    }
 } 
