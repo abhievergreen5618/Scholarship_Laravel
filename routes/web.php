@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClassController;
 use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\ScholarshipType;
 
 /*
 |--------------------------------------------------------------------------
