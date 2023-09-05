@@ -339,6 +339,11 @@ input#chb {
     -moz-transition: all 0.5s;
     -webkit-transition: all 0.5s;
 }
+.pcss3t .typography ul li:before {
+    content: "";
+    position: absolute;  
+    background: none!important;
+}
 .pcss3t > .tab-content-first:checked ~ ul .tab-content-first,
 .pcss3t > .tab-content-2:checked ~ ul .tab-content-2,
 .pcss3t > .tab-content-third:checked ~ ul .tab-content-third,
