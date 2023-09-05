@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('class_models', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('subject_id')->nullable();
             $table->string("class");
             $table->string("description");
             $table->string("status")->default("active");

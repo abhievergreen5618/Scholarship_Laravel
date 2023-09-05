@@ -10,8 +10,10 @@ class ClassModel extends Model
     use HasFactory;
     
     protected $fillable = [
+        "subject_id",
         "class",
         "description",
         "status",
     ];
-}
+
+} 

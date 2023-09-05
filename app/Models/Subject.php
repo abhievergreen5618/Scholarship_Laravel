@@ -12,7 +12,7 @@ class Subject extends Model
         "name",
         "classes",
         "description",
-        "status",
+        "status", 
     ];
 
     protected $casts = [
