@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/classdetails', 'display')->name('admin.class.details');
         Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');
         Route::post('/classupdate', 'update')->name('admin.class.update');
-        Route::post('/classdelete/{id}', 'destroy')->name('admin.class.delete');
+        Route::get('/classdelete/{id}', 'destroy')->name('admin.class.delete');
     });
 
     Route::controller(SubjectController::class)->group(function () {
