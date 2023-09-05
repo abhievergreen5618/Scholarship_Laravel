@@ -84,7 +84,7 @@ class ScholarshipController extends Controller
             // "aadhaarno" => "required",
             // "nationality" => "required",
             // "singlegirlchild" => "required",
-            "subjects[]" => "required",
+            "subjects" => "required",
             "physicallychallenged" => "required",
             'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
             "category" => "required",
