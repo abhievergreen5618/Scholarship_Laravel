@@ -60,6 +60,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/subjectsedit/{id}', 'edit')->name('admin.subject.edit');
         Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
     });
+
+    Route::controller(ScholarshipType::class)->group(function () {
+        Route::get('/scholarshipslist','index')->name('admin.scholarshiptype.index');
+    });
+
 });
 
 
