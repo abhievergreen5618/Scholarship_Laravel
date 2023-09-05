@@ -109,13 +109,14 @@ class ClassController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
-        // ClassModel::where('id',$id)->delete();
-        // return redirect(route('admin.class.details'))->with("msg", "Class Deleted Successfully");
-
-        DB::delete('DELETE FROM class_models WHERE id = ?', [$id]);
-          echo ("Class Deleted Successfully.");
-          return redirect()->route('admin.class.index');
+{
+    try {
+        ClassModel::findOrFail($id)->delete();
+        return redirect()->route('admin.class.index')->with("msg", "Class Deleted Successfully");
+    } catch (\Exception $e) {
+        // Handle any errors, e.g., record not found
+        return redirect()->route('admin.class.index')->with("error", "Failed to delete class");
     }
+}
+
 }
