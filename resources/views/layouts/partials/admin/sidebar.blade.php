@@ -96,7 +96,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('')}}" class="nav-link active">
+                <a href="" class="nav-link active">
                   <i class="fas fa-plus  nav-icon"></i>
                   <p>Add Scholarship</p>
                 </a>
