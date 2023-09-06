@@ -585,19 +585,15 @@
                             style="float: right!important;" id="backstep1"
                             class="btn-primary"></span>&nbsp;&nbsp;
                 </td>
-        </tr>
-        </td>
-        </tr>
+                <td colspan="3" align="right">
+
+                <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT" data-action="https://evergreenbraindev.com/scholarship/backend/applicationsummarysubmit" id="savestep3" class="btn-primary"></span>
+                </td>
+        
         
       
 
-            <td colspan="3" align="right">
-
-                <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit"
-                        name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT"
-                        data-action="{{route('applicationsummarysubmit')}}" id="savestep3"
-                        class="btn-primary"></span>
-            </td>
+           
         </tr>
     </tbody>
 </table>
