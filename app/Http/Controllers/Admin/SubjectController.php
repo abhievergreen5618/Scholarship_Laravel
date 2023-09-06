@@ -27,6 +27,9 @@ class SubjectController extends Controller
      */
     public function create()
     {
+        $classes = ClassModel::orderBy('name', 'asc')->get();
+        $classSelect = $classes->pluck('name')->toArray();
+        $classSelect = json_encode($classSelect);
         return view("admin.subject.add");
     }
 

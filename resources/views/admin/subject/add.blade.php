@@ -29,8 +29,13 @@
                         <div class="select2-purple">
                             <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple">
                                 <option value="">Select Classes</option>
-                                @for($i=1;$i<=12;$i++) <option value="{{$i}}" @isset($data) @if($data['classes']==$i ) {{"selected"}} @endif @endisset>{{$i}}</option>
-                                    @endfor
+                                <!-- @for($i=1;$i<=12;$i++) <option value="{{$i}}" @isset($data) @if($data['classes']==$i ) {{"selected"}} @endif @endisset>{{$i}}</option>
+                                    @endfor  -->
+                                    @foreach(json_decode($classes) as $class)
+                                            <option value="{{ $class }}">
+                                                {{ $class }}
+                                            </option>
+                                            @endforeach
                             </select>
                         </div>
                         @error('class')
