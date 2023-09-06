@@ -33,7 +33,6 @@
     <script src="{{asset('/js/custom.js')}}"></script>
     <script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('/adminlte/plugins/toastr/toastr.min.js')}}"></script>
-    <script src="{{asset('/js/sweetalert.min.js')}}"></script>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
 
