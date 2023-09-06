@@ -103,6 +103,7 @@ classtable.on('click','.delete',function(){
     $('#classtable_processing').show();
     element = $(this);
     var classsid = $(this).attr('data-id');
+    console.log(classid);
 Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
