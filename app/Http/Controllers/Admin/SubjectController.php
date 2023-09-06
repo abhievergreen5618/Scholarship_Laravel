@@ -18,10 +18,6 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $classes = ClassModel::orderBy('class', 'asc')->get();
-        $classSelect = $classes->pluck('class')->toArray();
-        $classSelect = json_encode($classSelect);
-        dd($classSelect);
         return view("admin.subject.index");
     }
 
@@ -32,6 +28,10 @@ class SubjectController extends Controller
      */
     public function create()
     {
+        $classes = ClassModel::orderBy('class', 'asc')->get();
+        $classSelect = $classes->pluck('class')->toArray();
+        $classSelect = json_encode($classSelect);
+        dd($classSelect);
         return view("admin.subject.add");
     }
 
