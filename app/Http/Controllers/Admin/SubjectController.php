@@ -31,7 +31,7 @@ class SubjectController extends Controller
         $classes = ClassModel::orderBy('class', 'asc')->get();
         $classSelect = $classes->pluck('class')->toArray();
         $classSelect = json_encode($classSelect);
-        return view("admin.subject.add");
+        return view("admin.subject.add")->with("classSelect",$classSelect);
     }
 
     /**
