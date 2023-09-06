@@ -13,6 +13,7 @@ class Subject extends Model
         "name",
         "classes",
         "description",
+        "class_id",
         "status",  
     ];
 

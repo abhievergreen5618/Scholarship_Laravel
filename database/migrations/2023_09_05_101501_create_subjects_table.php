@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string("classes");
             $table->string("description");
             $table->string("status")->default("active");
+            $table->unsignedBigInteger("class_id");
+            $table->foreign("class_id")->references("id")->on("class_models");
             $table->timestamps();
         });
     }
