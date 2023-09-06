@@ -20,9 +20,10 @@ class Subject extends Model
         "classes" => "array",
     ];
 
- public function classModels()
+    public function class()
     {
-        return $this->hasMany(ClassModel::class, 'subject_id');
+        return $this->belongsTo(ClassModel::class);
     }
     
 }
+ 

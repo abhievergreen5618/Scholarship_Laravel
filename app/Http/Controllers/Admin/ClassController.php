@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ClassRequest;
 use App\Models\ClassModel;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB; 
 
 class ClassController extends Controller
 {

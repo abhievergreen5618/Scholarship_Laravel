@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class ClassModel extends Model
 {
-    use HasFactory;
+    use HasFactory; 
 
     protected $fillable = [
         "class",
         "description",
+        "subject_id",
         "status",  
     ];
 
-    public function subject()
+    public function subjects(): HasMany
     {
-        return $this->belongsTo(Subject::class);
+        return $this->hasMany(Subject::class);
     }
 }
