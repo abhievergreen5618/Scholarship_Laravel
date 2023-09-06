@@ -6,7 +6,7 @@
     data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-paymenturl="{{route('savepaymentdetails')}}">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <div class="page">
 
                     <!-- tabs -->
@@ -141,7 +141,7 @@
 
 
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="sidebar">
                     <div class="wr-right" style="display: block">
                         <div>
