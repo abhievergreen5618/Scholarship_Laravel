@@ -31,7 +31,7 @@
                                 <option value="">Select Classes</option>
                                 <!-- @for($i=1;$i<=12;$i++) <option value="{{$i}}" @isset($data) @if($data['classes']==$i ) {{"selected"}} @endif @endisset>{{$i}}</option>
                                     @endfor  -->
-                                    @foreach(json_decode($classes) as $class)
+                                    @foreach(json_decode($classSelect) as $class)
                                             <option value="{{ $class }}">
                                                 {{ $class }}
                                             </option>
