@@ -40,7 +40,8 @@ class ScholarshipController extends Controller
                 "step2schooldata" => $step2schooldata,
                 "states" => $states,
                 "subjectSelect" => $subjectSelect,
-                "classes" => $classes
+                "classes" => $classes,
+                "scholarshipSelect" => $scholarshipSelect
             ]);
         }
         else
@@ -48,7 +49,8 @@ class ScholarshipController extends Controller
             return view('student.form')->with([
                 'states' => $states,
                 'subjectSelect' => $subjectSelect,
-                'classes' => $classes
+                'classes' => $classes,
+                'scholarshipSelect' => $scholarshipSelect
             ]);
         }
     }
