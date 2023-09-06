@@ -35,7 +35,19 @@ class ClassController extends Controller
                     $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' '><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
                     return $btn;
                 })
-                ->rawColumns(['action'])
+                ->addColumn('status', function ($row) {
+                    if ($row->status == "inactive") {
+                        $class = "btn btn-danger ms-2 status";
+                        $btntext = "Inactive";
+                    } else {
+                        $class = "btn btn-success ms-2 status";
+                        $btntext = "Active";
+                    }
+                    $id = encrypt($row->id);
+                    $statusBtn = "<div class='d-flex justify-content-center'><a href='javascript:void(0)' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Task $btntext' class='$class'>$btntext</a></div>";
+                    return $statusBtn;
+                })
+                ->rawColumns(['action','status'])
                 ->make(true);
         }
     }
@@ -119,6 +131,22 @@ class ClassController extends Controller
         ClassModel::where("id",decrypt($request['id']))->delete();
         $msg = "Deleted Successfully";
         return response()->json(array('msg' => $msg),200);
+    }
+
+    public function status(Request $request)
+    {
+        $request->validate(
+            [
+                "id"=>"required",
+            ]
+            );
+            $status = ClassModel::where('id',decrypt($request['id']))->first('status');
+            $status - ($status['status']="active")?"inactive" : "active";
+            ClassModel::where('id',decrypt($request['id']))->Update([
+                "status"=>$status,
+            ]);
+        $msg = "Status Updated Successfully";
+        return response()->json(array("msg" => $msg), 200);
     }
     
 }
