@@ -99,7 +99,7 @@ $(document).ready(function () {
     });
 
 
-    $('.classtable').on('click', '.delete', function () {
+    classtable.on('click', '.delete', function () {
         $('.datatable_processing').show();
         element = $(this);
         var userid = $(this).attr('data-id');
