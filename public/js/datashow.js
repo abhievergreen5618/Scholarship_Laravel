@@ -100,7 +100,7 @@ $(document).ready(function () {
 
 
     classtable.on('click', '.delete', function () {
-        $('.datatable_processing').show();
+        $('.datatables_processing').show();
         element = $(this);
         var userid = $(this).attr('data-id');
         Swal.fire({
@@ -125,6 +125,80 @@ $(document).ready(function () {
                     dataType: 'json',
                     success: function (data) {
                         classtable.ajax.reload();
+                    },
+                    error: function (data) {
+                        // console.log(data);
+                    }
+                });
+            };
+        });
+    });
+
+
+
+    subjecttable.on('click', '.delete', function () {
+        $('.datatables_processing').show();
+        element = $(this);
+        var userid = $(this).attr('data-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: 'subjectdelete',
+                    data: {
+                        id: userid
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        subjecttable.ajax.reload();
+                    },
+                    error: function (data) {
+                        // console.log(data);
+                    }
+                });
+            };
+        });
+    });
+
+
+    
+    scholarshiptable.on('click', '.delete', function () {
+        $('.datatable_processing').show();
+        element = $(this);
+        var userid = $(this).attr('data-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: 'scholarshipdelete',
+                    data: {
+                        id: userid
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        scholarshiptable.ajax.reload();
                     },
                     error: function (data) {
                         // console.log(data);

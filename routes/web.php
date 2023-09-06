@@ -61,7 +61,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/subjectsdetails', 'display')->name('admin.subjects.details');
         Route::get('/subjectsedit/{id}', 'edit')->name('admin.subject.edit');
         Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
-        Route::get('/subjectdelete/{id}', 'destroy')->name('admin.subject.delete');
+        Route::post('/subjectdelete', 'destroy')->name('subjectdelete');
     });
 
     Route::controller(ScholarshipType::class)->group(function () {
@@ -71,7 +71,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/scholarshipdetails','display')->name('admin.scholarshiptype.details');
         Route::get('/scholarshipedit/{id}','edit')->name('admin.scholarshiptype.edit');
         Route::post('/scholarshipsupdate', 'update')->name('admin.scholarshiptype.update');
-        Route::get('/scholarshipdelete/{id}', 'destroy')->name('admin.scholarshiptype.delete');
+        Route::post('/scholarshipdelete', 'destroy')->name('scholarshiptypedelete');
     });
 
 });

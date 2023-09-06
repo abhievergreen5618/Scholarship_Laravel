@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/pdf.css')}}">
     <link href="{{asset('adminlte/plugins/toastr/toastr.min.css')}}" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert.min.css')}}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <title>Document</title>
     @stack("header_extras")
