@@ -230,6 +230,9 @@ a.imgcopy img.d-inline-block.align-text-top {
     font-size: 40px;
     margin-bottom: 20px;
 }
+input#backstep2 {
+    float: right;
+}
 label {
     font-weight: 600;
     color: black;
