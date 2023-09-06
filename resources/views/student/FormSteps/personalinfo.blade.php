@@ -26,26 +26,6 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
                                         <select name="scholarshipname" id="scholarshipname"
                                             class="dropdownlong form-select">
-
-                                            <option value=""> Please Select </option>
-                                            <option value="3" @if(!empty(auth()->user()->step1_updated_at))
-                                                {{auth()->user()->scholarshipname == "3" ? 'selected' : ''}} @endif>open
-                                                scholarships </option>
-                                            <option value="17" @if(!empty(auth()->user()->step1_updated_at))
-                                                {{auth()->user()->scholarshipname == "17" ? 'selected' : ''}} @endif>
-                                                vidyabharti scholarship</option>
-                                      
-                                            </select>
-                                    </span>
-                                </td>
-
-<!----------------------------------------SCHOLARSHIP TYPE START----------------------------------------------->
-                            
-<td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
-                                        <select name="scholarshipname" id="scholarshipname"
-                                            class="dropdownlong form-select">
-
                                             <option value=""> Please Select </option>
                                             @foreach(json_decode($scholarshipSelect) as $scholarshipname)
                                             <option value="{{ $scholarshipname }}">
@@ -53,11 +33,11 @@
                                             </option>
                                             @endforeach
                                       
+                                            
                                             </select>
                                     </span>
                                 </td>
 
-<!----------------------------------------SCHOLARSHIP TYPE END----------------------------------------------->
   
 
 </tr>
