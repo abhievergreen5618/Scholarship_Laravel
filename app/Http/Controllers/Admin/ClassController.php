@@ -116,7 +116,8 @@ class ClassController extends Controller
             "id"=>'required',
         ]
     );
-        ClassModel::where("id",decrypt($request['id']))->delete();
+        $data = ClassModel::where("id",decrypt($request['id']))->delete();
+        dd($data);
         $msg = "Deleted Successfully";
         return response()->json(array('msg' => $msg),200);
     }
