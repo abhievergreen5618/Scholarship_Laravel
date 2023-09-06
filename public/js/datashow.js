@@ -120,7 +120,7 @@ Swal.fire({
             },
             url: 'classdelete',
             data: {
-                id: userid
+                id: classsid
             },
             dataType: 'json',
             success: function (data) {
