@@ -14,6 +14,7 @@ use App\Models\StateModel;
 use App\Models\ClassModel;
 use App\Models\DistrictModel;
 use App\Models\BankDetails;
+use App\Models\ScholarshipList;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use PDF;
@@ -26,6 +27,10 @@ class ScholarshipController extends Controller
         $subjects = Subject::orderBy('name', 'asc')->get();
         $subjectSelect = $subjects->pluck('name')->toArray();
         $subjectSelect = json_encode($subjectSelect);
+        $scholarshipname = ScholarshipList::orderBy('name','asc')->get();
+        $scholarshipSelect = $scholarshipname->pluck('name')->toArray();
+        $scholarshipSelect = json_encode($scholarshipSelect);
+
         $classes = ClassModel::orderBy('class','asc')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {

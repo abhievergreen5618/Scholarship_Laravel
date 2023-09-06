@@ -26,6 +26,7 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
                                         <select name="scholarshipname" id="scholarshipname"
                                             class="dropdownlong form-select">
+
                                             <option value=""> Please Select </option>
                                             <option value="3" @if(!empty(auth()->user()->step1_updated_at))
                                                 {{auth()->user()->scholarshipname == "3" ? 'selected' : ''}} @endif>open
@@ -33,10 +34,33 @@
                                             <option value="17" @if(!empty(auth()->user()->step1_updated_at))
                                                 {{auth()->user()->scholarshipname == "17" ? 'selected' : ''}} @endif>
                                                 vidyabharti scholarship</option>
-                                        </select>
+                                      
+                                            </select>
                                     </span>
                                 </td>
-                            </tr>
+
+<!----------------------------------------SCHOLARSHIP TYPE START----------------------------------------------->
+                            
+<td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
+                                        <select name="scholarshipname" id="scholarshipname"
+                                            class="dropdownlong form-select">
+
+                                            <option value=""> Please Select </option>
+                                            @foreach(json_decode($scholarshipSelect) as $scholarshipname)
+                                            <option value="{{ $scholarshipname }}">
+                                                {{ $scholarshipname }}
+                                            </option>
+                                            @endforeach
+                                      
+                                            </select>
+                                    </span>
+                                </td>
+
+<!----------------------------------------SCHOLARSHIP TYPE END----------------------------------------------->
+  
+
+</tr>
                             <tr>
                                 <td class="vtext">Name(IN CAPITAL LETTERS) as per Matric certificate <span
                                         style="color: red">*</span><br>
