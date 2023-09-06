@@ -20,9 +20,9 @@ class Subject extends Model
         "classes" => "array",
     ];
 
-    public function class()
+    public function classModel()
     {
-        return $this->belongsTo(ClassModel::class);
+        return $this->belongsTo(ClassModel::class, 'class_id');
     }
     
 }
