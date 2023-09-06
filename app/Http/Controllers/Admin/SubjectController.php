@@ -18,8 +18,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $classes = ClassModel::orderBy('name', 'asc')->get();
-        $classSelect = $classes->pluck('name')->toArray();
+        $classes = ClassModel::orderBy('class', 'asc')->get();
+        $classSelect = $classes->pluck('class')->toArray();
         $classSelect = json_encode($classSelect);
         dd($classSelect);
         return view("admin.subject.index");
