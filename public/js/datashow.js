@@ -70,7 +70,7 @@ $(document).ready(function () {
 
 
     
-    classtable.on('click', '.delete', function () {
+    classtable.on('click', '.status', function () {
         $('.datatables_processing').show();
         element = $(this);
         var userid = $(this).attr('data-id');
@@ -81,7 +81,7 @@ $(document).ready(function () {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes!'
         }).then((result) => {
             if (result.value) {
                 $.ajax({
@@ -89,7 +89,7 @@ $(document).ready(function () {
                     headers: {
                         'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
                     },
-                    url: 'classdelete',
+                    url: 'class-status-update',
                     data: {
                         id: userid
                     },
