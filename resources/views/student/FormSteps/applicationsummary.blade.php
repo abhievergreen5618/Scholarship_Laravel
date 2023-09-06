@@ -582,7 +582,7 @@
 
                     <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit"
                             name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT"
-                            style="float: right!important;" id="backstep1"
+                             id="backstep1"
                             class="btn-primary"></span>&nbsp;&nbsp;
                 </td>
                 <td colspan="3" align="right">
