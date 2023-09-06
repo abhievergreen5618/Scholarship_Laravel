@@ -99,7 +99,10 @@ $(document).ready(function () {
     });
 });
 
+classtable.on('click','delete',function(){
 
+    element = $(this);
+    var classsid = $(this).attr('data-id');
 Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
@@ -115,7 +118,7 @@ Swal.fire({
             headers: {
                 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
             },
-            url: 'classdelete/{id}',
+            url: 'classdelete',
             data: {
                 id: userid
             },
@@ -128,5 +131,7 @@ Swal.fire({
             }
         });
     };
+});
+
 });
 
