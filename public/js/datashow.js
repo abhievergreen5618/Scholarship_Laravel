@@ -180,6 +180,44 @@ $(document).ready(function () {
         });
     });
 
+
+
+    subjecttable.on('click', '.status', function () {
+        $('.datatables_processing').show();
+        element = $(this);
+        var userid = $(this).attr('data-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: 'subject-status-update',
+                    data: {
+                        id: userid
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        subjecttable.ajax.reload();
+                    },
+                    error: function (data) {
+                        // console.log(data);
+                    }
+                });
+            };
+        });
+    });
+
+
     //---------------------------SUBJECT TABLE END---------------------------------------
 
     //----------------------------SCHOLARSHIP TABLE START--------------------------------
@@ -235,6 +273,42 @@ $(document).ready(function () {
                         'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
                     },
                     url: 'scholarshipdelete',
+                    data: {
+                        id: userid
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        scholarshiptable.ajax.reload();
+                    },
+                    error: function (data) {
+                        // console.log(data);
+                    }
+                });
+            };
+        });
+    });
+
+    
+    scholarshiptable.on('click', '.status', function () {
+        $('.datatables_processing').show();
+        element = $(this);
+        var userid = $(this).attr('data-id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: 'scholarship-status-update',
                     data: {
                         id: userid
                     },

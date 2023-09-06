@@ -63,6 +63,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/subjectsedit/{id}', 'edit')->name('admin.subject.edit');
         Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
         Route::post('/subjectdelete', 'destroy')->name('subjectdelete');
+        Route::post('/subject-status-update', 'status')->name('subject-status-update');
     });
 
     Route::controller(ScholarshipType::class)->group(function () {
@@ -73,6 +74,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/scholarshipedit/{id}','edit')->name('admin.scholarshiptype.edit');
         Route::post('/scholarshipsupdate', 'update')->name('admin.scholarshiptype.update');
         Route::post('/scholarshipdelete', 'destroy')->name('scholarshiptypedelete');
+        Route::post('/scholarship-status-update', 'status')->name('scholarship-status-update');
     });
 
 });
