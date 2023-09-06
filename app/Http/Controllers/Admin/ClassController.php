@@ -32,8 +32,7 @@ class ClassController extends Controller
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
                     $editlink = route('admin.class.edit', ['id' => $id]);
-                    $deletelink = route('admin.class.delete',['id' => $id]);
-                    $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='$deletelink' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' onclick='confirmDelete(\"$id\")'><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
+                    $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' '><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -110,22 +109,16 @@ class ClassController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $class = ClassModel::where("id",decrypt($id))->first();
-   
-        if (!$class) {
-            return redirect()->route('admin.class.index')->with("error", "Class not found");
-        }
-    
-        try {
-            $class->delete();
-            return redirect()->route('admin.class.index')->with("success", "Class Deleted Successfully");
-        } catch (\Exception $e) {
-            // Handle any other exceptions if necessary
-            return redirect()->route('admin.class.index')->with("error", "Failed to delete class");
-        }
+        $request->validate(
+        [
+            "id"=>'required',
+        ]
+    );
+        ClassModel::where("id",decrypt($request['id']))->delete();
+        $msg = "Deleted Successfully";
+        return response()->json(array('msg' => $msg),200);
     }
     
-
 }
