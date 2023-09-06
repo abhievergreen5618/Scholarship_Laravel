@@ -100,7 +100,7 @@ $(document).ready(function () {
 });
 
 classtable.on('click','delete',function(){
-    $('#classtable processing').show();
+    $('#userdetails_processing').show();
     element = $(this);
     var classsid = $(this).attr('data-id');
 Swal.fire({
