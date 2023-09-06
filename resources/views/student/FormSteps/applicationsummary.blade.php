@@ -578,7 +578,6 @@
                 </td>
             </tr>
             <tr>
-                <td>
                 <td colspan="6" class="tdgap" width="42%" align="left">
 
                     <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit"
@@ -586,28 +585,13 @@
                             style="float: right!important;" id="backstep1"
                             class="btn-primary"></span>&nbsp;&nbsp;
                 </td>
-        </td>
         </tr>
         </td>
-        <td colspan="3">&nbsp;</td>
         </tr>
-        <tr>
-            <td colspan="3">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="vtext"></td>
-            <td class="colon">&nbsp;</td>
-            <td>
+        
+      
 
-                <span id="Anthem_ctl00_ContentPlaceHolder1_btnSave__"></span>&nbsp;&nbsp;
-
-                <span id="Anthem_ctl00_ContentPlaceHolder1_lblMsg__"><span
-                        id="ctl00_ContentPlaceHolder1_lblMsg" style="color:Red;"></span></span>
-            </td>
-        </tr>
-        <tr>
-
-            <td colspan="2" align="right">
+            <td colspan="3" align="right">
 
                 <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit"
                         name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT"
