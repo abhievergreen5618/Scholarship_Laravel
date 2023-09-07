@@ -22,13 +22,12 @@
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
                             <option value="">Select Class</option>
                             @php
-        $selectedValues = isset($data) ? [$data['class']] : [];
-    @endphp
-    @for($i = 1; $i <= 12; $i++)
-        @if (!in_array($i, $selectedValues))
-            <option value="{{ $i }}">{{ $i }}</option>
-        @endif
-    @endfor
+                            $selectedValues = isset($data) ? [$data['class']] : [];
+                            @endphp
+                            @for($i = 1; $i <= 12; $i++) @if (!in_array($i, $selectedValues)) <option value="{{ $i }}">
+                                {{ $i }}</option>
+                                @endif
+                                @endfor
                         </select>
 
                         @error('class')
