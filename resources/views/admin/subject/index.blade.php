@@ -35,6 +35,7 @@
                                                 <th>Subject Name</th>
                                                 <th>Classes</th>
                                                 <th>Description</th>
+                                                <th>Class</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

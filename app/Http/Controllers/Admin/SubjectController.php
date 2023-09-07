@@ -44,7 +44,7 @@ class SubjectController extends Controller
      public function display(Request $request)
      {
          if ($request->ajax()) {
-             $data = Subject::latest()->get(['id','name','classes','description','status']);
+             $data = Subject::latest()->get(['id','name','classes','description','class_id','status']);
              return Datatables::of($data)->addIndexColumn()
                  ->addColumn('action', function ($row) {
                      $id = encrypt($row->id);
@@ -78,6 +78,7 @@ class SubjectController extends Controller
             "classes" => $request->classes,
             "description" => $request->description,
             "status" => $request->status,
+            
         ]);
         return redirect(route('admin.subjects.index'))->with("msg", "Subject Created Successfully");
     }
