@@ -103,7 +103,7 @@ class ScholarshipType extends Controller
             ]
             );
             $status = ScholarshipList::where('id',decrypt($request['id']))->first('status');
-            $status = ($status['status']="active")?"inactive" : "active";
+            $status = ($status['status'] == "active") ? "inactive" : "active";
             ScholarshipList::where('id',decrypt($request['id']))->Update([
                 "status"=>$status,
             ]);

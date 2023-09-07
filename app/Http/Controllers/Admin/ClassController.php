@@ -141,7 +141,7 @@ class ClassController extends Controller
             ]
             );
             $status = ClassModel::where('id',decrypt($request['id']))->first('status');
-            $status = ($status['status']="active")?"inactive" : "active";
+            $status = ($status['status'] == "active") ? "inactive" : "active";
             ClassModel::where('id',decrypt($request['id']))->Update([
                 "status"=>$status,
             ]);
