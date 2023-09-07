@@ -138,7 +138,7 @@ class ClassController extends Controller
         $request->validate(
             [
                 "id"=>"required",
-            ]
+            ] 
             );
             $status = ClassModel::where('id',decrypt($request['id']))->first('status');
             $status = ($status['status'] == "active") ? "inactive" : "active";

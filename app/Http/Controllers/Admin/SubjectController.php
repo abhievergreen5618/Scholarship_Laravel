@@ -155,13 +155,17 @@ class SubjectController extends Controller
         $request->validate(
             [
                 "id"=>"required",
-            ]
+            ] 
             );
             $status = Subject::where('id',decrypt($request['id']))->first('status');
             $status = ($status['status'] == "active") ? "inactive" : "active";
             Subject::where('id',decrypt($request['id']))->Update([
                 "status"=>$status,
             ]);
+            if ($status === "inactive") {
+                  $msg = "Data is hidden because the status is 'inactive'";
+                return response()->json(["msg" => $msg], 200);
+            }
         $msg = "Status Updated Successfully";
         return response()->json(array("msg" => $msg), 200);
     }
