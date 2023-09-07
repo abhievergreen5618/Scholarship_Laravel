@@ -78,56 +78,7 @@
                                         <div class="tab-pane active" id="tab_6">
                                             <h3><span>Step [5/5] :</span>Submit Reference Number &amp; Application Form
                                             </h3>
-                                            <div class="box-body table-responsive">
-                                                <table id="" class="table Eng_hindi_form" width="50%" border="0"
-                                                    cellspacing="5" cellpadding="0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td colspan="3">
-                                                                <span id=""><span style="color:Red;"></span></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="3">
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="42%" class="vtext"><strong>Reference
-                                                                    Number</strong></td>
-                                                            <td class="colon">:</td>
-                                                            <td>
-                                                                <span
-                                                                    id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
-                                                                            ? auth()->user()->reference_number :
-                                                                            ''}}</b></span></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="42%" class="vtext"><strong>Roll Number</strong>
-                                                            </td>
-                                                            <td class="colon">:</td>
-                                                            <td>
-                                                                <span
-                                                                    id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
-                                                                            ? auth()->user()->roll_number :
-                                                                            ''}}</b></span></span>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td colspan="3"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="3"></td>
-                                                        </tr>
-                                                           
-                                                        @include("student.FormSteps.pdffile")
-                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                            
                             </li>
                         </ul>
                     </div>
