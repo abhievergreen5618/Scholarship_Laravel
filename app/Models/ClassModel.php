@@ -8,15 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class ClassModel extends Model
 {
     use HasFactory; 
- 
+
     protected $fillable = [
         "class",
         "description",
         "status",  
     ];
 
-    public function subjects()
-    {
-        return $this->hasOne(Subject::class);
-    }
+   
 }

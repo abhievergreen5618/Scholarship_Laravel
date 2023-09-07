@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model; 
 
 class Subject extends Model
-{ 
+{
     use HasFactory;
 
     protected $fillable = [
         "name",
         "classes",
         "description",
-        "class_id",
         "status",  
     ];
 
@@ -21,11 +20,6 @@ class Subject extends Model
         "classes" => "array",
     ];
 
-    public function classModel()
-    {
-
-        return $this->hasOne(ClassModel::class);
-    }
     
 }
  
