@@ -24,14 +24,19 @@ class ScholarshipController extends Controller
     public function index()
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
-        $subjects = Subject::orderBy('name', 'asc')->get();
+
+        $subjects = Subject::where('status','active')
+        ->orderBy('name', 'asc')->get();
         $subjectSelect = $subjects->pluck('name')->toArray();
         $subjectSelect = json_encode($subjectSelect);
-        $scholarshipname = ScholarshipList::orderBy('name','asc')->get();
+
+        $scholarshipname = ScholarshipList::where('status','active')
+        ->orderBy('name','asc')->get();
         $scholarshipSelect = $scholarshipname->pluck('name')->toArray();
         $scholarshipSelect = json_encode($scholarshipSelect);
 
-        $classes = ClassModel::orderBy('class','asc')->get();
+        $classes = ClassModel::where('status','active')
+        ->orderBy('class','asc')->get();
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();

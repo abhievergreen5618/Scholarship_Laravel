@@ -58,30 +58,4 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var classSelect = document.getElementById("classSelect");
-        var selectedValue = "{{ isset($data) ? $data['class'] : '' }}";
-
-        if (selectedValue) {
-            var optionToRemove = classSelect.querySelector('option[value="' + selectedValue + '"]');
-            if (optionToRemove) {
-                optionToRemove.remove();
-            }
-        }
-
-        classSelect.addEventListener("change", function () {
-            selectedValue = classSelect.value;
-            if (selectedValue) {
-                var optionToRemove = classSelect.querySelector('option[value="' + selectedValue + '"]');
-                if (optionToRemove) {
-                    optionToRemove.remove();
-                }
-            }
-        });
-    });
-</script>
-
-
-
 @endsection
