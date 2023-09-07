@@ -17,6 +17,6 @@ class ClassModel extends Model
 
     public function subjects()
     {
-        return $this->hasMany(Subject::class, 'class_id');
+        return $this->hasOne(Subject::class, 'class_id');
     }
 }
