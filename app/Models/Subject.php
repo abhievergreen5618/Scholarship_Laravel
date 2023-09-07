@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model; 
 
 class Subject extends Model
-{
+{ 
     use HasFactory;
 
     protected $fillable = [
@@ -23,6 +23,8 @@ class Subject extends Model
 
     public function classModel()
     {
+
+        $class = ClassModel::find(1)->class;
         return $this->belongsTo(ClassModel::class, 'class_id');
     }
     
