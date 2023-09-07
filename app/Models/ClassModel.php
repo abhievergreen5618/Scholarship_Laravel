@@ -15,5 +15,8 @@ class ClassModel extends Model
         "status",  
     ];
 
-   
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class, 'class_id');
+    }
 }

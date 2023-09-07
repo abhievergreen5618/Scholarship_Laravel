@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string("class");
             $table->string("description");
             $table->string("status")->default("active");
+            $table->string("subject_name");
+            $table->foreign('subject_name')->references('name')->on('subjects');
             $table->timestamps();
         });
     }
