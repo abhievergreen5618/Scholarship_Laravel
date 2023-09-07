@@ -158,7 +158,7 @@ class SubjectController extends Controller
             ]
             );
             $status = Subject::where('id',decrypt($request['id']))->first('status');
-            $status = ($status['status']="active") ? "inactive" : "active";
+            $status = ($status['status'] == "active") ? "inactive" : "active";
             Subject::where('id',decrypt($request['id']))->Update([
                 "status"=>$status,
             ]);
