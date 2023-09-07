@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("class");
             $table->string("description");
             $table->string("status")->default("active");
-            $table->unsignedBigInt("subject_id");
+            $table->unsignedBigInteger("subject_id");
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->timestamps();
         });
