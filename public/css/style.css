@@ -231,7 +231,7 @@ a.imgcopy img.d-inline-block.align-text-top {
     margin-bottom: 20px;
 }
 input#backstep2 {
-    float: right;
+    float: right!important;
 }
 input#backstep1 {
     float: left!important;
