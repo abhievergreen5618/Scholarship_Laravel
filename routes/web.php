@@ -64,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
         Route::post('/subjectdelete', 'destroy')->name('subjectdelete');
         Route::post('/subject-status-update', 'status')->name('subject-status-update');
+        Route::get('/subject/{id}', 'showdata')->name('subject');
     });
 
     Route::controller(ScholarshipType::class)->group(function () {

@@ -24,8 +24,7 @@ class Subject extends Model
     public function classModel()
     {
 
-        $class = ClassModel::find(1)->class;
-        return $this->belongsTo(ClassModel::class, 'class_id');
+        return $this->hasOne(ClassModel::class);
     }
     
 }

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string("classes");
             $table->string("description");
             $table->string("status")->default("active");
-            $table->string("class_id");
             $table->timestamps();
         });
     }
