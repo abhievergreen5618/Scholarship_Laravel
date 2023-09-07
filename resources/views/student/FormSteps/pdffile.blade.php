@@ -72,4 +72,9 @@
 </div>
 </div>
 
+<tr>
+                                                            <td colspan="3">
+                                                            <a class="btn btn-primary" href="{{route('downloadpdf')}}">Download Receipt</a>
+                                                        </td>
+                                                        </tr>
  -->
