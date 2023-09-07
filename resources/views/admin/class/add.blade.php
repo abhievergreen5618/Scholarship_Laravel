@@ -21,14 +21,14 @@
                         <label>Class</label>
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
                             <option value="">Select Class</option>
-                            @for($i=1;$i<=12;$i++)
-                                @php $isSelected=isset($data) && $data['class']==$i;
-                                @endphp 
-                                    @if(!$isSelected) 
-                                    <option value="{{ $i }}" {{ $isSelected ? 'selected' : '' }}>{{ $i }}
-                                </option>
-                                @endif
-                                @endfor
+                            @php
+        $selectedValues = isset($data) ? [$data['class']] : [];
+    @endphp
+    @for($i = 1; $i <= 12; $i++)
+        @if (!in_array($i, $selectedValues))
+            <option value="{{ $i }}">{{ $i }}</option>
+        @endif
+    @endfor
                         </select>
 
                         @error('class')
