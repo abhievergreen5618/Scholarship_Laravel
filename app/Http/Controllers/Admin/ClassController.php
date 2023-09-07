@@ -133,50 +133,20 @@ class ClassController extends Controller
         return response()->json(array('msg' => $msg),200);
     }
 
-    // public function status(Request $request)
-    // {
-    //     $request->validate(
-    //         [
-    //             "id"=>"required",
-    //         ] 
-    //         );
-    //         $status = ClassModel::where('id',decrypt($request['id']))->first('status');
-    //         $status = ($status['status'] == "active") ? "inactive" : "active";
-    //         if($status == "inactive")
-    //         {
-    //             ClassModel::where('class',decrypt($request['class']))->update(['disabled' => true]);
-    //         }
-    //         ClassModel::where('id',decrypt($request['id']))->Update([
-    //             "status"=>$status,
-    //         ]);
-    //     $msg = "Status Updated Successfully";
-    //     return response()->json(array("msg" => $msg), 200);
-    // }
-
     public function status(Request $request)
-{
-    $request->validate([
-        "id" => "required",
-        "class" => "required",
-    ]);
-
-    $id = decrypt($request['id']);
-    $class = decrypt($request['class']);
-
-    $classModel = ClassModel::where('id', $id)->first();
-    $status = $classModel->status;
-
-    $newStatus = ($status === "active") ? "inactive" : "active";
-
-    if ($newStatus === "inactive") {
-        ClassModel::where('class', $class)->update(['disabled' => true]);
+    {
+        $request->validate(
+            [
+                "id"=>"required",
+            ]
+            );
+            $status = ClassModel::where('id',decrypt($request['id']))->first('status');
+            $status = ($status['status'] == "active") ? "inactive" : "active";
+            ClassModel::where('id',decrypt($request['id']))->Update([
+                "status"=>$status,
+            ]);
+        $msg = "Status Updated Successfully";
+        return response()->json(array("msg" => $msg), 200);
     }
-
-    ClassModel::where('id', $id)->update(["status" => $newStatus]);
-
-    $msg = "Status Updated Successfully";
-    return response()->json(["msg" => $msg], 200);
-}
-
     
 }
