@@ -20,7 +20,7 @@
       {{-- Profile popup --}}
         <li class="nav-item dropdown user user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                @php $imglink = (!empty(Auth::user()->profile_img)) ? asset('images/profile/').'/'.Auth::user()->profile_img : asset('images/profile/profile.jpg'); @endphp
+                @php $imglink = (!empty(Auth::user()->profile_img)) ? asset('images/').'/'.Auth::user()->profile_img : asset('images/imguserr.png'); @endphp
                 <img src="{{ $imglink }}" class="user-image" alt="User Image">
                 <span class="hidden-xs">{{ ucfirst(Auth::user()->name) }}</span>
             </a>
