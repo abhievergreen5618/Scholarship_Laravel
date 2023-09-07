@@ -45,8 +45,7 @@ class SubjectController extends Controller
      {
          if ($request->ajax()) {
              $data = Subject::latest()->get(['id','name','classes','description','status']);
-             $class = Subject::find($id)->classmodel;
-    return $class;
+            
              return Datatables::of($data)->addIndexColumn()
                  ->addColumn('action', function ($row) {
                      $id = encrypt($row->id);

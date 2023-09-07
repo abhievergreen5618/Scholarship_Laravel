@@ -133,7 +133,7 @@ class ClassController extends Controller
         return response()->json(array('msg' => $msg),200);
     }
 
-    public function status(Request $request)
+    public function status(Request $request) 
     {
         $request->validate(
             [
