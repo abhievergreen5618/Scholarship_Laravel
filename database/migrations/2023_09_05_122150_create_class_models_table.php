@@ -18,11 +18,7 @@ return new class extends Migration
             $table->string("class");
             $table->string("description");
             $table->string("status")->default("active");
-<<<<<<< Updated upstream
             $table->unsignedBigInteger("subject_id")->nullable();
-=======
-            $table->unsignedBigInteger("subject_id");
->>>>>>> Stashed changes
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->timestamps();
         });
