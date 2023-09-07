@@ -20,10 +20,7 @@ class Subject extends Model
         "classes" => "array",
     ];
 
-    public function classModel()
-    {
-        return $this->belongsTo(ClassModel::class);
-    }
+    
     
 }
  
