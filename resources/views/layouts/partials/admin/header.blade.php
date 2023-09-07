@@ -11,11 +11,33 @@
 </a>
 </li>
      
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+      </li> -->
+
+      {{-- Profile popup --}}
+        <li class="nav-item dropdown user user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                @php $imglink = (!empty(Auth::user()->profile_img)) ? asset('images/profile/').'/'.Auth::user()->profile_img : asset('images/profile/profile.jpg'); @endphp
+                <img src="{{ $imglink }}" class="user-image" alt="User Image">
+                <span class="hidden-xs">{{ ucfirst(Auth::user()->name) }}</span>
+            </a>
+            <ul class="dropdown-menu">
+
+                <li class="user-header">
+                    <img src="{{ $imglink }}" class="img-circle" alt="User Image">
+                    <p>
+                        {{ ucfirst(Auth::user()->name) }}
+                        {{-- <small>Member since Nov. 2012</small> --}}
+                    </p>
+                </li>
+                <div class="dropdown-divider"></div>
+                <li class="text-center">
+                    {{ ucfirst(Auth::user()->email) }}
+
+                </li>
     </ul>
   </nav>
   <!-- /.navbar -->
