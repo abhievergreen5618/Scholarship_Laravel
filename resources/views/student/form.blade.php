@@ -141,7 +141,14 @@
 
 
 
-            <div class="col-md-2">
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-2">
                 <div class="sidebar">
                     <div class="wr-right" style="display: block">
                         <div>
@@ -171,11 +178,6 @@
                     </div>
                 </div>
             </div>
-
-
-        </div>
-    </div>
-</div>
 
 
 
