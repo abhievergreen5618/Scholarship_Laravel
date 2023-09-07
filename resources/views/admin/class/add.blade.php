@@ -18,12 +18,11 @@
                 <div>
                     <div class="form-group">
                         <label>Class</label>
-                        <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" id="classSelect">
-    <option value="">Select Class</option>
-    @for($i = 1; $i <= 12; $i++)
-        <option value="{{ $i }}">{{ $i }}</option>
-    @endfor
-</select>
+                        <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
+                            <option value="">Select Class</option>
+                            @for($i=1;$i<=12;$i++) <option value="{{$i}}" @isset($data) @if($data['class']== $i ) {{"selected"}} @endif @endisset>{{$i}}</option>
+                                @endfor
+                        </select>
                         @error('class')
                         <div>
                             <label class="error fail-alert  mt-1">{{ $message }}</label>
@@ -59,7 +58,6 @@
     </div>
 </div>
 
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var classSelect = document.getElementById("classSelect");
@@ -83,5 +81,7 @@
         });
     });
 </script>
+
+
 
 @endsection
