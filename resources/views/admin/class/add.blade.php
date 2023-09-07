@@ -20,16 +20,12 @@
                         <label>Class</label>
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
     <option value="">Select Class</option>
-    @php
-    $selectedClass = isset($data) ? $data['class'] : null;
-    $availableClasses = range(1, 12);
-    $filteredClasses = array_diff($availableClasses, [$selectedClass]);
-    @endphp
-    @foreach($filteredClasses as $class)
-        <option value="{{$class}}">{{$class}}</option>
-    @endforeach
+    @for($i = 1; $i <= 12; $i++)
+        @if(!isset($data) || $data['class'] != $i)
+            <option value="{{$i}}">{{$i}}</option>
+        @endif
+    @endfor
 </select>
-
 
                         @error('class')
                         <div>
