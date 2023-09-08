@@ -32,10 +32,10 @@
                                     <table id="classtable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr style="text-align:center;">
-                                                <th>Class</th>
-                                                <th>Description</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th style="text-align:center;">Class</th>
+                                                <th style="text-align:center;">Description</th>
+                                                <th style="text-align:center;">Status</th>
+                                                <th style="text-align:center;">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
