@@ -48,23 +48,16 @@ class ClassController extends Controller
                     $statusBtn = "<div class='d-flex justify-content-center'><a href='javascript:void(0)' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Task $btntext' class='$class'>$btntext</a></div>";
                     return $statusBtn;
                 })
-                ->addColumn('subject_id', function ($row) {
-                    // Replace 'YourModelNameHere' with your actual model name
-                    $classValue = $row->class;
-                    
-                    // Query the 'subjects' table based on the 'class' value
-                    $subject = Subject::where('classes', $classValue)->first();
-                
-                    if ($subject) {
-                        // If a matching subject is found, return its name
-                        return $subject->name;
-                    } else {
-                        // If no matching subject is found, you can return a default value or handle the case accordingly
-                        return 'No subject found';
+                ->addColumn('subject_id',function($row){
+                    $class = ClassModel::where('class')->get();
+                    $classes = Subject::where('classes')->get();
+                    if($class == $classes)
+                    {
+                        return Subject::where('name')->get();
                     }
+                    $msg = "failed";
+                    return $msg; 
                 })
-
-
                 ->rawColumns(['action','status'])
                 ->make(true);
         }
