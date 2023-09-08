@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/classdelete', 'destroy')->name('classdelete');
         Route::post('/class-status-update', 'status')->name('class-status-update');
     });
+    
 
     Route::controller(SubjectController::class)->group(function () {
         Route::get('/subjectslist','index')->name('admin.subjects.index');
