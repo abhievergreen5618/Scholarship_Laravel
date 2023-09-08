@@ -49,8 +49,8 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
                 ->addColumn('subject_id',function($row){
-                
-                $classInstance = ClassModel::with('subject')->find('class');
+                $classId = ClassModel::where('id')->get();
+                $classInstance = ClassModel::with('subject')->find($classId);
 
                 if ($classInstance && $classInstance->subject) {
                     $subjectName = $classInstance->subject->name;
@@ -59,7 +59,7 @@ class ClassController extends Controller
                     return 'No class found or no associated subject';
                 } 
                 })
-
+                
                 ->rawColumns(['action','status'])
                 ->make(true);
         }
