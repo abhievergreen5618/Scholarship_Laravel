@@ -49,7 +49,17 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
                 ->addColumn('subject_id',function($row){
-                    return $row = Subject::find('id','classes')->name; 
+                    $yourModel = YourModelNameHere::where('class', $classValue)->first();
+
+if ($yourModel) {
+    // If a record with the specified class value is found
+    $subjectName = Subject::find($yourModel->subject_id)->name;
+    return $subjectName;
+} else {
+    // Handle the case where no matching record is found for the class value
+    return 'No subject found';
+}
+ 
                 })
                 ->rawColumns(['action','status'])
                 ->make(true);
