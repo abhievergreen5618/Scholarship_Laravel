@@ -116,7 +116,7 @@ jQuery('#class-add-form').validate({
         },
     messages:{
         class:"Select an option",
-        
+        classes:"Select an option",
     },
     submitHandler : function(form,e) {
         e.preventDefault();
