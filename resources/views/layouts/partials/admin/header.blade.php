@@ -40,9 +40,7 @@
                 </li>
                 <div class="dropdown-divider"></div>
                 <li class="user-footer">
-                    <div class="float-left">
-                        <a href="{{ route('profile.show') }}" class="btn btn-primary btn-flat">Profile</a>
-                    </div>
+                    
                     <div class="float-right">
                         {{-- <a href="#" class="btn btn-danger btn-flat">Sign out</a> --}}
 
