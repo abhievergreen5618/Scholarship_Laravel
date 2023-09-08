@@ -31,7 +31,7 @@
                                 <div class="col-sm-12">
                                     <table id="classtable" class="table table-bordered table-striped">
                                         <thead>
-                                             <tr class="alignment">
+                                            <tr>
                                                 <th>Class</th>
                                                 <th>Description</th>
                                                 <th>Status</th>
