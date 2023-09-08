@@ -49,14 +49,8 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
                 ->addColumn('subject_id',function($row){
-                    $class = ClassModel::where('class', $row->class)->count();
-                    $classes = Subject::where('classes', $row->classes)->count();
-                    if($class == $classes)
-                    {
-                        return Subject::where('name')->get();
-                    }
-                    $msg = "failed";
-                    return $msg; 
+                    $subject = Subject::find('id')->name;
+                    return $subject; 
                 })
                 ->rawColumns(['action','status'])
                 ->make(true);
