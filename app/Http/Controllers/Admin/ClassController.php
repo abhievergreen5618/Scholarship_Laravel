@@ -53,7 +53,7 @@ class ClassController extends Controller
                     $classValue = $row->class;
                     
                     // Query the 'subjects' table based on the 'class' value
-                    $subject = Subject::where('class', $classValue)->first();
+                    $subject = Subject::where('classes', $classValue)->first();
                 
                     if ($subject) {
                         // If a matching subject is found, return its name
@@ -64,7 +64,7 @@ class ClassController extends Controller
                     }
                 })
 
-                
+
                 ->rawColumns(['action','status'])
                 ->make(true);
         }
