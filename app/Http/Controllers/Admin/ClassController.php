@@ -49,7 +49,7 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
                 ->addColumn('subject_id',function($row){
-                    $subject = Subject::find('id')->name;
+                    $subject = Subject::find('class')->name;
                     return $subject; 
                 })
                 ->rawColumns(['action','status'])
