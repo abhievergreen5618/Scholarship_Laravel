@@ -14,11 +14,11 @@ class ClassModel extends Model
         "description",
         "subject_id",
         "status",  
-    ];
+    ]; 
 
     public function subject()
     {
-        return $this->belongsTo(Subject::class, 'subject_id');
+        return $this->hasOne(Subject::class, 'subject_id');
     }
 
 }
