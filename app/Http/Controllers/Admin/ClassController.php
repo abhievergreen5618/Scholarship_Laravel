@@ -48,9 +48,9 @@ class ClassController extends Controller
                     $statusBtn = "<div class='d-flex justify-content-center'><a href='javascript:void(0)' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Task $btntext' class='$class'>$btntext</a></div>";
                     return $statusBtn;
                 })
-                ->addColumn('subject_id',function($row){
-                    return Subject::find('id')->subject->name; 
-                })
+                // ->addColumn('subject_id',function($row){
+                //     return Subject::find('id')->subject->name; 
+                // })
                 ->rawColumns(['action','status'])
                 ->make(true);
         }
