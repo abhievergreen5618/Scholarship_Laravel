@@ -70,14 +70,14 @@ class ClassController extends Controller
      * @return \Illuminate\Http\Response
      */ 
     public function store(ClassRequest $request)
-     {
-    //     $request->validate(
-    //         [
-    //             "class"=>'required',
-    //             "description"=>'required',
-    //             "status"=>'required',
-    //         ]
-    //         );
+    {
+        $request->validate(
+            [
+                "class"=>'required',
+                "description"=>'required',
+                "status"=>'required',
+            ]
+            );
         ClassModel::create([
             "class" => $request->class,
             "description" => $request->description,
