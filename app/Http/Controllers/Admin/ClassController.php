@@ -48,18 +48,7 @@ class ClassController extends Controller
                     $statusBtn = "<div class='d-flex justify-content-center'><a href='javascript:void(0)' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Task $btntext' class='$class'>$btntext</a></div>";
                     return $statusBtn;
                 })
-                ->addColumn('subject_id',function($row){
-                $classId = ClassModel::where('id')->get();
-                $classInstance = ClassModel::with('subject')->find($classId);
-
-                if ($classInstance && $classInstance->subject) {
-                    $subjectName = $classInstance->subject->name;
-                    return $subjectName;
-                } else {
-                    return 'No class found or no associated subject';
-                } 
-                })
-                
+               
                 ->rawColumns(['action','status'])
                 ->make(true);
         }
