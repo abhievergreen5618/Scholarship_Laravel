@@ -58,6 +58,8 @@
                             <input class="form-check-input" type="radio" name="status" id="inactive" value="inactive" @isset($data) @if($data['status']=="inactive" ) {{"checked"}} @endif @endisset>
                             <label class="form-check-label" for="inactive">Inactive</label>
                         </div>
+
+                        
                         @error('status')
                         <div>
                             <label class="error fail-alert  mt-1">{{ $message }}</label>
