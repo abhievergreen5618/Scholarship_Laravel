@@ -49,8 +49,15 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
                 ->addColumn('subject_id',function($row){
-                    $subject = Subject::find('classes')->name;
-                    return $subject; 
+                    $classInstance = ClassModel::find($classId); // Replace with the appropriate method to retrieve the class record
+
+                    if ($classInstance) {
+                        $subjectName = $classInstance->subject->name;
+                        return $subjectName;
+                    } else {
+                        return 'No class found'; // Handle the case where the class doesn't exist
+                    }
+                    
                 })
                 ->rawColumns(['action','status'])
                 ->make(true);
