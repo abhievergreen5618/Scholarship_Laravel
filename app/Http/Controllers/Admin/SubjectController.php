@@ -75,6 +75,14 @@ class SubjectController extends Controller
 
     public function store(SubjectRequest $request)
     {
+        $request->validate(
+            [
+                "name" => 'requred',
+                "classes"=>'required',
+                "description"=>'required',
+                "status"=>'required',
+            ]
+            );
         Subject::create([
             "name" => $request->name,
             "classes" => $request->classes,
@@ -119,7 +127,14 @@ class SubjectController extends Controller
      */
     public function update(Request $request)
     {
-        //
+        $request->validate(
+            [
+                "name" => 'required',
+                "classes"=>'required',
+                "description"=>'required',
+                "status"=>'required',
+            ]
+            );
 
         Subject::where("id",decrypt($request['id']))->update([
             "name" => $request->name,
