@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClassController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ScholarshipType;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +105,12 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
         //    return view('admin.approval')->with("msg",Auth::user()->approved);
         return view('admin.agency.approval');
     } else {
-        return redirect('/dashboard');
+        return redirect('/home');
     }
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/profile/show', 'show')->name('profile.show');
+    Route::post('/profile/update', 'update')->name('profile.update');
+    Route::post('/profile/updatepass', 'updatepass')->name('profile.updatepass');
+});
