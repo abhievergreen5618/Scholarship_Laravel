@@ -34,9 +34,9 @@
                                             <tr>
                                                 <th>Class</th>
                                                 <th>Description</th>
-                                                <th>Subjects</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
+                                                <th>Subjects</th>
                                             </tr>
                                         </thead>
                                         <tbody>
