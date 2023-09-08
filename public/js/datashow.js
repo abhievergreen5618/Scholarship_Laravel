@@ -110,6 +110,7 @@ $(document).ready(function () {
 jQuery('#class-add-form').validate({
     rules:{
         class:"required",
+        name:"required",
         classes:"required",
         status:"required",
         },
