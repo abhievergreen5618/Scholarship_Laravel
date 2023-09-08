@@ -14,7 +14,7 @@ class Subject extends Model
         "classes",
         "description",
         "status",  
-    ];
+    ]; 
 
     protected $casts = [
         "classes" => "array",

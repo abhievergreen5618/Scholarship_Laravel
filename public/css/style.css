@@ -277,6 +277,11 @@ input#chb {
 .col-sm-6.form-group {
     padding: 10px;
 }
+
+.form-control
+{
+    color:red;
+}
 /*register form*/
 
 /*tbs*/
