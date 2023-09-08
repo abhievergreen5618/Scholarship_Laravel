@@ -49,11 +49,11 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
                 ->addColumn('subject_id',function($row){
-                    $yourModel = YourModelNameHere::where('class', $classValue)->first();
+                    $subject = Subject::where('classes', $classValue)->first();
 
-if ($yourModel) {
+if ($subject) {
     // If a record with the specified class value is found
-    $subjectName = Subject::find($yourModel->subject_id)->name;
+    $subjectName = Subject::find($subject->subject_id)->name;
     return $subjectName;
 } else {
     // Handle the case where no matching record is found for the class value
