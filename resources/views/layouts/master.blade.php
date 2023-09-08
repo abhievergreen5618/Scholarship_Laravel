@@ -47,6 +47,7 @@
   <script src="{{asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
   <script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('/js/sweetalert.min.js')}}"></script>
+    <script src="{{asset('/js/validate.min.js')}}"></script>
     <script src="{{asset('js/datashow.js')}}"></script>
 
 
