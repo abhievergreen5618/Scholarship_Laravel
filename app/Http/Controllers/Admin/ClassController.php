@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClassRequest;
 use App\Models\ClassModel;
+use App\Models\Subject;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB; 
 
