@@ -50,7 +50,7 @@ class ClassController extends Controller
                 })
                 ->addColumn('subject_id',function($row){
                 
-                $classInstance = ClassModel::find('class');
+                    $classInstance = ClassModel::with('subject')->find($classId);
                 if ($classInstance) {
                     $subjectName = $classInstance->subject->name;
                     return $subjectName;
