@@ -18,6 +18,6 @@ class ClassModel extends Model
 
     public function subjects()
     {
-        return $this->hasOne(Subject::class,'subject_id');
+        return $this->hasMany(Subject::class);
     }
 }
