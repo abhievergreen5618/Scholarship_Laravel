@@ -41,7 +41,7 @@
                 <div class="dropdown-divider"></div>
                 <li class="user-footer">
                     
-                    <div class="float-right">
+                    <div class="float-right" style="align:center">
                         {{-- <a href="#" class="btn btn-danger btn-flat">Sign out</a> --}}
 
                         <a class="btn btn-danger btn-flat" href="{{ route('logout') }}"
