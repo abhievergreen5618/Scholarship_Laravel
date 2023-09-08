@@ -50,14 +50,15 @@ class ClassController extends Controller
                 })
                 ->addColumn('subject_id',function($row){
                 $classId = 5;
-                    $classInstance = ClassModel::with('subject')->find($classId);
-                if ($classInstance) {
+                $classInstance = ClassModel::with('subject')->find($classId);
+
+                if ($classInstance && $classInstance->subject) {
                     $subjectName = $classInstance->subject->name;
                     return $subjectName;
                 } else {
-                    return 'No class found'; 
+                    return 'No class found or no associated subject';
                 }
-
+                
                     
                 })
                 ->rawColumns(['action','status'])
