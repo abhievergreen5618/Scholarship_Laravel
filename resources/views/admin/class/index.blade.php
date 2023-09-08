@@ -36,7 +36,6 @@
                                                 <th>Description</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
-                                                <th>Subjects</th>
                                             </tr>
                                         </thead>
                                         <tbody>
