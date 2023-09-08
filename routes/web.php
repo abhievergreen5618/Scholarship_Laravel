@@ -96,3 +96,14 @@ Route::controller(LoginController::class)->group(function(){
     });
 });
 
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    if (Auth::user()->approved == "Pending" || Auth::user()->approved == "Disapproved") {
+        Auth::logout();
+        //    return view('admin.approval')->with("msg",Auth::user()->approved);
+        return view('admin.agency.approval');
+    } else {
+        return redirect('/dashboard');
+    }
+})->middleware(['auth', 'signed'])->name('verification.verify');
