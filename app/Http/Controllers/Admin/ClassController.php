@@ -49,8 +49,8 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
                 ->addColumn('subject_id',function($row){
-                    $class = ClassModel::where('class')->get();
-                    $classes = Subject::where('classes')->get();
+                    $class = ClassModel::where('class', $row->class)->count();
+                    $classes = Subject::where('classes', $row->classes)->count();
                     if($class == $classes)
                     {
                         return Subject::where('name')->get();
