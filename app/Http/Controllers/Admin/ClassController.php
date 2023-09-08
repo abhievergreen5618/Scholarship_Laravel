@@ -49,7 +49,7 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
                 ->addColumn('subject_id',function($row){
-                    $classInstance = ClassModel::find($classId); // Replace with the appropriate method to retrieve the class record
+                    $classInstance = ClassModel::find('class'); // Replace with the appropriate method to retrieve the class record
 
                     if ($classInstance) {
                         $subjectName = $classInstance->subject->name;
