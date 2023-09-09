@@ -30,7 +30,7 @@ class UserDetail extends Controller
         $class = User::where('class')->get();
         $classfilter = $class->filter( function($value,$key)
         {
-            return data_get($value , $class);
+            return data_get($value , 'class');
         } );
 
         $classfilter = $classfilter->all();
