@@ -22,8 +22,7 @@
       <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse">
           <i class="fas fa-plus"></i>
-          <select id="filterSelect" style="display: none;"></select>
-  </button>
+        </button>
       </div>
     </div>
 
@@ -70,31 +69,6 @@
     </div>
 
 </section>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#filterBtn').click(function() {
-            var selectElement = $('#filterSelect');
-            if (selectElement.is(':visible')) {
-                selectElement.hide();
-            } else {
-                var classOptions = User::where('class')->get();
-
-                
-                selectElement.empty();
-
-                $.each(classOptions, function(index, value) {
-                    selectElement.append($('<option>').text('Class Block: ' + value));
-                });
-
-                
-
-                selectElement.show();
-            }
-        });
-    });
-</script>
 
 
 @endsection

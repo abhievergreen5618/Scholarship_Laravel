@@ -26,6 +26,16 @@ class UserDetail extends Controller
 
     public function display(Request $request)
     {
+        $userEnteredValue = 5;
+        $class = User::where('class')->get();
+        $classfilter = $class->filter( function($value,$key)use ($userEnteredValue)
+        {
+            return data_get($value , 'class') == $userEnteredValue;
+        } );
+
+        $classfilter = $classfilter->all();
+        dd($classfilter);
+        
         if ($request->ajax()) {
             $data = DB::table('users')->select(['id','name','email','mobileno','class','gender','dob','paddress','status'])->latest()->get();
             return Datatables::of($data)->addIndexColumn()
@@ -63,6 +73,7 @@ class UserDetail extends Controller
 
     public function update(ClassRequest $request)
     {
+
         $request->validate(
             [
                 "name"=>'required',
@@ -76,6 +87,9 @@ class UserDetail extends Controller
             ]
             );
             $class = EducationDetails::where('class')->get();
+
+             
+
 
         User::where("id",decrypt($request['id']))->update([
             "name" => $request->name,
