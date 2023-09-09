@@ -21,6 +21,8 @@
       <h3 class="card-title">Filter</h3>
       <div class="card-tools">
         <select>
+        <h3 class="card-title">Filter</h3>
+      <div class="card-tools">
             <option>Class</option>
             <option>Marks</option>
         </select>
