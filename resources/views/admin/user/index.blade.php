@@ -18,11 +18,11 @@
 </section>
 
 <div class="card-header" style="background-color:#007bff; color:white; margin:10px;">
-      <h3 class="card-title">Filter</h3>
-      <div class="card-tools">
-        <input type="text">
-      </div>
-    </div>
+    <h3 class="card-title">Filter</h3>
+        <div class="card-tools">
+            <input type="text" id="filterclass">
+        </div>
+</div>
 
 <section class="content">
     <div class="container-fluid">

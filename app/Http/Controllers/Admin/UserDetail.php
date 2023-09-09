@@ -26,15 +26,15 @@ class UserDetail extends Controller
 
     public function display(Request $request)
     {
-        $userEnteredValue = 5;
+        
         $class = User::where('class')->get();
-        $classfilter = $class->filter( function($value,$key)use ($userEnteredValue)
+        $classfilter = $class->filter( function($value,$key)
         {
-            return data_get($value , 'class') == $userEnteredValue;
+            return data_get($value , $class);
         } );
 
         $classfilter = $classfilter->all();
-        
+        dd($classfilter);
 
         if ($request->ajax()) {
             $data = DB::table('users')->select(['id','name','email','mobileno','class','gender','dob','paddress','status'])->latest()->get();
