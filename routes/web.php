@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(ClassController::class)->group(function () {
         Route::get('/classlist','index')->name('admin.class.index');
-        Route::get('/addclass','create')->name('admin.classes');
+        Route::get('/addclass','create')->name('admin.classes'); 
         Route::post('/createclass','store')->name('admin.class.store');
         Route::post('/classdetails', 'display')->name('admin.class.details');
         Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');

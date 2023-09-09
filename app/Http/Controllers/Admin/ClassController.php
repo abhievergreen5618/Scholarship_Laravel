@@ -83,6 +83,9 @@ class ClassController extends Controller
             "description" => $request->description,
             "status" => $request->status,
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         
         return redirect(route('admin.class.index'))->with("msg", "Class Created Successfully");
     }
