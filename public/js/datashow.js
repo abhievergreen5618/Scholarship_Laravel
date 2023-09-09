@@ -421,6 +421,9 @@ var usertable = $('#usertable').DataTable({
             "data": "mobileno",
         },
         {
+            "data": "class",
+        },
+        {
             "data": "gender",
         },
         {
