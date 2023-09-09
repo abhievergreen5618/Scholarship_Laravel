@@ -25,10 +25,8 @@ class UserDetail extends Controller
 
     public function display(Request $request)
     {
-
-        
         if ($request->ajax()) {
-            $data = User::latest()->get(['id','name','email','mobileno','class','gender','dob','paddress','status']);
+            $data = User::latest()->select(['id','name','email','mobileno','class','gender','dob','paddress','status']);
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
