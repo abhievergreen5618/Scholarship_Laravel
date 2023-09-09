@@ -19,6 +19,7 @@ class ClassController extends Controller
      */
     public function index()
     {
+        
         return view('admin.class.index');
     }
 

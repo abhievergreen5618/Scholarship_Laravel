@@ -12,9 +12,7 @@ $(document).ready(function () {
             'beforeSend': function (request) {
                 request.setRequestHeader("X-CSRF-TOKEN", jQuery('meta[name="csrf-token"]').attr('content'));
             },
-            "success": function (data) {
-                location.reload();
-            }
+            
         },
         "columnDefs": [
             { "className": "dt-center", "targets": "_all" }
