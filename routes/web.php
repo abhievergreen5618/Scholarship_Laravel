@@ -79,6 +79,17 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/scholarship-status-update', 'status')->name('scholarship-status-update');
     });
 
+    Route::controller(UserDetail::class)->group(function () {
+        Route::get('/userlist','index')->name('admin.user.index');
+        Route::get('/adduser','create')->name('admin.user.add');
+        Route::post('/storesuser','store')->name('admin.user.store');
+        Route::post('/userdetails','display')->name('admin.user.details');
+        Route::get('/useredit/{id}','edit')->name('admin.user.edit');
+        Route::post('/userupdate', 'update')->name('admin.user.update');
+        Route::post('/userdelete', 'destroy')->name('userdelete');
+        Route::post('/user-status-update', 'status')->name('user-status-update');
+    });
+
 });
 
 
