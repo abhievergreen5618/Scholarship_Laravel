@@ -28,6 +28,7 @@ class UserDetail extends Controller
     {
         
         $class = User::where('class')->get();
+        $class = collect($class);
         $classfilter = $class->filter( function($value,$key)
         {
             return data_get($value , 'class');
