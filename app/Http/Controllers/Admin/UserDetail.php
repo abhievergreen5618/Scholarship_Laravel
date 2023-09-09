@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use App\Models\User;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB; 
 
 class UserDetail extends Controller
 {
