@@ -83,8 +83,8 @@ class ClassController extends Controller
             "description" => $request->description,
             "status" => $request->status,
         ]);
-
-        return redirect(route('admin.class.add'))->with("msg", "Class Created Successfully");
+        
+        return redirect(route('admin.class.index'))->with("msg", "Class Created Successfully");
     }
 
 
