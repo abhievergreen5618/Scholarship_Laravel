@@ -28,7 +28,7 @@ class UserDetail extends Controller
 
         
         if ($request->ajax()) {
-            $data = User::latest()->get(['id','name','email','mobileno','class','gender','dob','address','status']);
+            $data = User::latest()->get(['id','name','email','mobileno','class','gender','dob','paddress','status']);
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
@@ -72,19 +72,20 @@ class UserDetail extends Controller
                 "class"=>'required',
                 "gender"=>'required',
                 "dob"=>'required',
-                "address"=>'required',
+                "paddress"=>'required',
                 "status"=>'required',
             ]
             );
+            $class = EducationDetails::where('class')->get();
 
         User::where("id",decrypt($request['id']))->update([
             "name" => $request->name,
             "email" => $request->email,
             "mobileno" => $request->mobileno,
-            "class" => $request->class,
+            "class" => $class,
             "gender" => $request->gender,
             "dob" => $request->dob,
-            "address" => $request->address,
+            "paddress" => $request->address,
             "status" => $request->status,
         ]);
         return redirect(route('admin.user.index'))->with("msg", "User Updated Successfully");

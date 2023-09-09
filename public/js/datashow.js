@@ -430,7 +430,7 @@ var usertable = $('#usertable').DataTable({
             "data": "dob",
         },
         {
-            "data": "address",
+            "data": "paddress",
         },
         {
             "data": "status",
