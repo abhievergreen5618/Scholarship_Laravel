@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClassController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ScholarshipType;
+use App\Http\Controllers\Admin\UserDetail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
