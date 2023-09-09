@@ -75,7 +75,66 @@ class User extends Authenticatable
 
     protected $appends = ['ExamCenterName','scholarshipNameSummary','nationalitySummary','genderSummary'];
 
-   
+    protected function getExamCenterNameAttribute()
+    {
+        // $examCenterId = $this->attributes['examcentre'];
+        // $examCenterId = $this->getAttribute('examcenter');
+
+        switch ($examCenterId) {
+            case 3:
+                $examCenter = "Solan";
+                break;
+            case 17:
+                $examCenter = "SHIMLA";
+                break;
+            case 18:
+                $examCenter = "DHARAMSHALA";
+                break;
+            case 19:
+                $examCenter = "UNA";
+                break;
+            case 20:
+                $examCenter = "HAMIRPUR";
+                break;
+            case 21:
+                $examCenter = "PALAMPUR";
+                break;
+            case 24:
+                $examCenter = "MANDI";
+                break;
+            case 33:
+                $examCenter = "AMB (UNA)";
+                break;
+            case 34:
+                $examCenter = "BILASPUR";
+                break;
+            case 35:
+                $examCenter = "CHAMBA";
+                break;
+            case 36:
+                $examCenter = "KANGRA";
+                break;
+            case 37:
+                $examCenter = "KULLU";
+                break;
+            case 38:
+                $examCenter = "NAHAN";
+                break;
+            case 39:
+                $examCenter = "RAMPUR";
+                break;
+            case 40:
+                $examCenter = "SUNDER NAGAR";
+                break;
+            default:
+                // Add a default case to handle situations where examcenter_id doesn't match any case
+                $examCenter = "Unknown Exam Center";
+                break;
+        }
+
+        return $examCenter;
+    }
+
     protected function getnationalitySummaryAttribute()
     {
         $nationalitycode = $this->attributes['nationality'];
