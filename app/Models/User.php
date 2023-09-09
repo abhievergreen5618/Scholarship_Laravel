@@ -73,7 +73,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['scholarshipNameSummary','nationalitySummary','genderSummary'];
+    protected $appends = ['nationalitySummary','genderSummary'];
 
     // protected function getExamCenterNameAttribute()
     // {
@@ -176,24 +176,24 @@ class User extends Authenticatable
         return $gender;
     }
 
-    protected function getscholarshipNameSummaryAttribute()
-    {
-        $scholarshipname = $this->attributes['scholarshipname'];
+    // protected function getscholarshipNameSummaryAttribute()
+    // {
+    //     $scholarshipname = $this->attributes['scholarshipname'];
 
-        switch ($scholarshipname) {
-            case '3':
-                $scholarshipname = "open scholarships ";
-                break;
-            case '17':
-                $scholarshipname = "vidyabharti scholarship";
-                break;
-            default:
-                // Add a default case to handle situations where examcenter_id doesn't match any case
-                $scholarshipname = "Unknown scholarship";
-                break;
-        }
+    //     switch ($scholarshipname) {
+    //         case '3':
+    //             $scholarshipname = "open scholarships ";
+    //             break;
+    //         case '17':
+    //             $scholarshipname = "vidyabharti scholarship";
+    //             break;
+    //         default:
+    //             // Add a default case to handle situations where examcenter_id doesn't match any case
+    //             $scholarshipname = "Unknown scholarship";
+    //             break;
+    //     }
 
-        return $scholarshipname;
-    }
+    //     return $scholarshipname;
+    // }
 
 }
