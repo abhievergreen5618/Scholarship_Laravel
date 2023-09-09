@@ -17,7 +17,7 @@
     </div>
 </section>
 
-<div class="card-header" style="background-color:#007bff; color:white;">
+<div class="card-header" style="background-color:#007bff; color:white; margin-bottom:20px;">
       <h3 class="card-title">Filter</h3>
       <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse">
