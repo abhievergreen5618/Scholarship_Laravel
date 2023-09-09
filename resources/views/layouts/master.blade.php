@@ -24,7 +24,6 @@
 
     <link rel="stylesheet" href="{{asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
-    <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert.min.css')}}">
