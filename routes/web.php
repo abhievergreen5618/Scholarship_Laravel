@@ -91,7 +91,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/user-status-update', 'status')->name('user-status-update');
     });
 
-});
+});  
 
 
 Route::controller(LoginController::class)->group(function(){

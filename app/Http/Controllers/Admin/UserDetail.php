@@ -74,7 +74,7 @@ class UserDetail extends Controller
 
     public function update(ClassRequest $request)
     {
-
+ 
         $request->validate(
             [
                 "name"=>'required',
