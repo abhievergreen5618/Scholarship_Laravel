@@ -51,7 +51,6 @@ class User extends Authenticatable
         'roll_number',
         'application_number',
         'transaction_id',
-        'class',
     ];
 
     /**
