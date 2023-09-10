@@ -19,10 +19,20 @@
                     <div class="form-group">
                         <label>Class</label>
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
-                            <option value="">Select Class</option>
-                            @for($i=1;$i<=12;$i++) <option value="{{$i}}" @isset($data) @if($data['class']== $i ) {{"selected"}} @endif @endisset>{{$i}}</option>
-                                @endfor
-                        </select>
+    <option value="">Select Class</option>
+    @for($i=1;$i<=12;$i++)
+        <?php
+        if(!isset($data) || $data['class'] != $i) 
+        {
+            $valueExists = DB::table('class_models')->where('class', $i)->exists();
+            if(!$valueExists) {
+                echo "<option value='$i'>$i</option>";
+            }
+        }
+        ?>
+    @endfor
+</select>
+
                         @error('class')
                         <div>
                             <label class="error fail-alert  mt-1">{{ $message }}</label>

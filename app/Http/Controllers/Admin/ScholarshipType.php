@@ -24,8 +24,9 @@ class ScholarshipType extends Controller
     {
         $request->validate(
             [
-                "name"=>"required",
-                "status"=>"required",
+                "name"=>'required',
+                "description"=>'required',
+                "status"=>'required',
             ]
             );
         ScholarshipList::create([
@@ -63,7 +64,7 @@ class ScholarshipType extends Controller
         }
     }
 
-    public function edit($id)
+    public function edit($id) 
     {
         $data = ScholarshipList::where("id",decrypt($id))->first();
         return view('admin.scholarshiptype.add')->with([
@@ -72,6 +73,13 @@ class ScholarshipType extends Controller
     }
     public function update(Request $request)
     {
+        $request->validate(
+            [
+                "name"=>'required',
+                "description"=>'required',
+                "status"=>'required',
+            ]
+            );
         ScholarshipList::where("id",decrypt($request['id']))->update([
             "name" => $request->name,
             "description" => $request->description,

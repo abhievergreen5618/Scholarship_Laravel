@@ -38,6 +38,22 @@
                     {{ ucfirst(Auth::user()->email) }}
 
                 </li>
+                <div class="dropdown-divider"></div>
+                <li class="user-footer">
+                    
+                    <div class="float-right" style="align:center">
+                        {{-- <a href="#" class="btn btn-danger btn-flat">Sign out</a> --}}
+
+                        <a class="btn btn-danger btn-flat" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}"  class="d-none">
+                            <!-- @csrf -->
+                        </form>
+                    </div>
+                </li>
     </ul>
   </nav>
   <!-- /.navbar -->

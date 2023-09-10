@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClassController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ScholarshipType;
+use App\Http\Controllers\Admin\UserDetail;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(ClassController::class)->group(function () {
         Route::get('/classlist','index')->name('admin.class.index');
-        Route::get('/addclass','create')->name('admin.classes');
+        Route::get('/addclass','create')->name('admin.classes'); 
         Route::post('/createclass','store')->name('admin.class.store');
         Route::post('/classdetails', 'display')->name('admin.class.details');
         Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');
@@ -54,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/classdelete', 'destroy')->name('classdelete');
         Route::post('/class-status-update', 'status')->name('class-status-update');
     });
+    
 
     Route::controller(SubjectController::class)->group(function () {
         Route::get('/subjectslist','index')->name('admin.subjects.index');
@@ -77,7 +80,18 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/scholarship-status-update', 'status')->name('scholarship-status-update');
     });
 
-});
+    Route::controller(UserDetail::class)->group(function () {
+        Route::get('/userlist','index')->name('admin.user.index');
+        Route::get('/adduser','create')->name('admin.user.add');
+        Route::post('/storesuser','store')->name('admin.user.store');
+        Route::post('/userdetails','display')->name('admin.user.details');
+        Route::get('/useredit/{id}','edit')->name('admin.user.edit');
+        Route::post('/userupdate', 'update')->name('admin.user.update');
+        Route::post('/userdelete', 'destroy')->name('userdelete');
+        Route::post('/user-status-update', 'status')->name('user-status-update');
+    });
+
+});  
 
 
 Route::controller(LoginController::class)->group(function(){
@@ -95,4 +109,5 @@ Route::controller(LoginController::class)->group(function(){
         return redirect()->to(env("WORDPRESS_URL")."/signup");
     });
 });
+
 

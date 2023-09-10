@@ -29,11 +29,13 @@
                         <div class="select2-purple">
                             <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple">
                                 <option value="">Select Classes</option>
+                                @if(!empty($classSelect))
                                     @foreach(json_decode($classSelect) as $class)
                                             <option value="{{ $class }}">
                                                 {{ $class }}
                                             </option>
                                             @endforeach
+                                            @endif
                             </select>
                         </div>
                         @error('class')
@@ -58,7 +60,7 @@
                         </div>
                         @error('status')
                         <div>
-                            <label class="error fail-alert  mt-1">{{ $message }}</label>
+                            <label class="error fail-alert  mt-1" >{{ $message }}</label>
                         </div>
                         @enderror
                     </div>

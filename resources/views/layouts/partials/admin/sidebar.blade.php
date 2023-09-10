@@ -109,6 +109,30 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa-solid fa-user"></i>
+              <p>
+                User Details
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.user.add')}}" class="nav-link active">
+                  <i class="fas fa-plus  nav-icon"></i>
+                  <p>Add User</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.user.index')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>View All User</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -12,11 +12,15 @@ class ClassModel extends Model
     protected $fillable = [
         "class",
         "description",
+        "subject_id",
         "status",  
-    ];
+    ]; 
 
-    public function subjects()
+    public function subject()
     {
-        return $this->hasOne(Subject::class, 'class_id');
+        return $this->hasOne(Subject::class, 'subject_id');
     }
+
 }
+
+

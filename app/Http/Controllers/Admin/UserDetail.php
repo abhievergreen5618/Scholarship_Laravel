@@ -4,36 +4,45 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\ClassRequest;
-use App\Models\ClassModel;
-use App\Models\Subject;
+use App\Http\Requests\UserRequest;
+use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB; 
 
-class ClassController extends Controller
+class UserDetail extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //
+
     public function index()
     {
         
-        return view('admin.class.index');
+        return view('admin.user.index');
+    }
+
+    public function create()
+    {
+        return view("admin.user.add");
     }
 
     public function display(Request $request)
     {
-
         
+        $class = User::where('class')->get();
+        $class = collect($class);
+        $classfilter = $class->filter( function($value,$key)
+        {
+            return data_get($value , 'class');
+        } );
+
+        $classfilter = $classfilter->all();
+        dd($classfilter);
+
         if ($request->ajax()) {
-            $GLOBALS['count'] = 0;
-            $data = ClassModel::latest()->get(['id','class','description','status']);
+            $data = DB::table('users')->select(['id','name','email','mobileno','class','gender','dob','paddress','status'])->latest()->get();
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
-                    $editlink = route('admin.class.edit', ['id' => $id]);
+                    $editlink = route('admin.user.edit', ['id' => $id]);
                     $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' '><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
                     return $btn;
                 })
@@ -54,92 +63,48 @@ class ClassController extends Controller
                 ->make(true);
         }
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view("admin.class.add");
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */ 
-    public function store(ClassRequest $request)
-    {
-        $request->validate(
-            [
-                "class"=>'required',
-                "description"=>'required',
-                "status"=>'required',
-            ]
-            );
-        ClassModel::create([
-            "class" => $request->class,
-            "description" => $request->description,
-            "status" => $request->status,
-        ]);
-        
-        return redirect(route('admin.class.index'))->with("msg", "Class Created Successfully");
-    }
-
-
-
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $data = ClassModel::where("id",decrypt($id))->first();
-        return view('admin.class.add')->with([
+        $data = User::where("id",decrypt($id))->first();
+        return view('admin.user.add')->with([
             "data"=>$data
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(ClassRequest $request)
     {
+ 
         $request->validate(
             [
+                "name"=>'required',
+                "email"=>'required',
+                "mobileno"=>'required',
                 "class"=>'required',
-                "description"=>'required',
+                "gender"=>'required',
+                "dob"=>'required',
+                "paddress"=>'required',
                 "status"=>'required',
             ]
             );
+            $class = EducationDetails::where('class')->get();
 
-        ClassModel::where("id",decrypt($request['id']))->update([
-            "class" => $request->class,
-            "description" => $request->description,
+             
+
+
+        User::where("id",decrypt($request['id']))->update([
+            "name" => $request->name,
+            "email" => $request->email,
+            "mobileno" => $request->mobileno,
+            "class" => $class,
+            "gender" => $request->gender,
+            "dob" => $request->dob,
+            "paddress" => $request->address,
             "status" => $request->status,
         ]);
-        return redirect(route('admin.class.index'))->with("msg", "Class Updated Successfully");
+        return redirect(route('admin.user.index'))->with("msg", "User Updated Successfully");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         $request->validate(
@@ -147,7 +112,7 @@ class ClassController extends Controller
             "id"=>'required',
         ]
     );
-        ClassModel::where("id",decrypt($request['id']))->delete();
+    User::where("id",decrypt($request['id']))->delete();
         $msg = "Deleted Successfully";
         return response()->json(array('msg' => $msg),200);
     }
@@ -159,13 +124,12 @@ class ClassController extends Controller
                 "id"=>"required",
             ]
             );
-            $status = ClassModel::where('id',decrypt($request['id']))->first('status');
+            $status = User::where('id',decrypt($request['id']))->first('status');
             $status = ($status['status'] == "active") ? "inactive" : "active";
-            ClassModel::where('id',decrypt($request['id']))->Update([
+            User::where('id',decrypt($request['id']))->Update([
                 "status"=>$status,
             ]);
         $msg = "Status Updated Successfully";
         return response()->json(array("msg" => $msg), 200);
     }
-    
 }

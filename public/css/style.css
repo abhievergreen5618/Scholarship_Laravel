@@ -277,6 +277,7 @@ input#chb {
 .col-sm-6.form-group {
     padding: 10px;
 }
+
 /*register form*/
 
 /*tbs*/
@@ -354,6 +355,7 @@ input.select2-search__field {
     margin-top: -2px!important;
     margin-left: -16px!important;
 }
+
 .pcss3t > .tab-content-first:checked ~ ul .tab-content-first,
 .pcss3t > .tab-content-2:checked ~ ul .tab-content-2,
 .pcss3t > .tab-content-third:checked ~ ul .tab-content-third,

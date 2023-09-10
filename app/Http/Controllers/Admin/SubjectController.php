@@ -7,7 +7,8 @@ use App\Http\Requests\SubjectRequest;
 use Illuminate\Http\Request;
 use App\Models\Subject;
 use App\Models\ClassModel;
-use Yajra\DataTables\Facades\DataTables; 
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Validation\Validator; 
 
 class SubjectController extends Controller
 {
@@ -28,7 +29,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $classes = ClassModel::orderBy('class', 'asc')->get();
+        $classes = ClassModel::where('status','active')
+        ->orderBy('class', 'asc')->get();
         $classSelect = $classes->pluck('class')->toArray();
         $classSelect = json_encode($classSelect);
         return view("admin.subject.add")->with("classSelect",$classSelect);
@@ -45,8 +47,7 @@ class SubjectController extends Controller
      {
          if ($request->ajax()) {
              $data = Subject::latest()->get(['id','name','classes','description','status']);
-             $class = Subject::find($id)->classmodel;
-    return $class;
+            
              return Datatables::of($data)->addIndexColumn()
                  ->addColumn('action', function ($row) {
                      $id = encrypt($row->id);
@@ -75,6 +76,14 @@ class SubjectController extends Controller
 
     public function store(SubjectRequest $request)
     {
+        $request->validate(
+            [
+                "name" => 'requred',
+                "classes"=>'required',
+                "description"=>'required',
+                "status"=>'required',
+            ]
+            );
         Subject::create([
             "name" => $request->name,
             "classes" => $request->classes,
@@ -119,7 +128,14 @@ class SubjectController extends Controller
      */
     public function update(Request $request)
     {
-        //
+        $request->validate(
+            [
+                "name" => 'required',
+                "classes"=>'required',
+                "description"=>'required',
+                "status"=>'required',
+            ]
+            );
 
         Subject::where("id",decrypt($request['id']))->update([
             "name" => $request->name,

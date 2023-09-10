@@ -157,7 +157,7 @@ class LoginController extends Controller
                 "required" => "This field is required.",
                 "email.email" => "Please enter a valid email address.",
             ]
-        );
+        ); 
 
         if ($validator->fails()) {
             $errors = [];
