@@ -35,7 +35,7 @@ class ScholarshipController extends Controller
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
-            
+
             return view('student.form')->with([
                 "step2schooldata" => $step2schooldata,
                 "states" => $states,
@@ -56,7 +56,7 @@ class ScholarshipController extends Controller
     }
 
    public function getDistricts(Request $request)
-   { 
+   {
         $stateCode=$request->post('stateCode');
         $districts=DistrictModel::where('statecode',$stateCode)
         ->orderBy('name','asc')->get();
@@ -91,7 +91,7 @@ class ScholarshipController extends Controller
             // "aadhaarno" => "required",
             // "nationality" => "required",
             // "singlegirlchild" => "required",
-            "subjects" => "required",
+            // "subjects" => "required",
             "physicallychallenged" => "required",
             'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
             "category" => "required",
@@ -141,7 +141,7 @@ class ScholarshipController extends Controller
                 "category" => $request['category'],
                 "physicallychallengedproof" => $imageName ?? "",
                 "step1_updated_at" => now(),
-            ]); 
+            ]);
             return response()->json([
                 'message' => 'Saved successfully',
             ],200);
@@ -189,7 +189,7 @@ class ScholarshipController extends Controller
         }
         else
         {
-            
+
 
                 $matchThese = ['user_id'=>decrypt($request['id']),'type'=>'school'];
                 EducationDetails::updateOrCreate($matchThese,[
@@ -283,7 +283,7 @@ class ScholarshipController extends Controller
         ],200);
     }
     }
-    
+
     public function applicationsummarysubmit(Request $request)
     {
         User::where('id',Auth::id())->update([
@@ -313,7 +313,7 @@ class ScholarshipController extends Controller
         $lastNumberYear = null;
         $lastNumberMonth = null;
         $lastNumberCounter = 0;
-    
+
         // Generate Roll Number Application Number and Transaction ID
         $rollno =  $currentYear . $currentMonth .$currentDate. $mobilenoDigit;
         $application_number = $currentYear . $currentMonth .$nameFirstCharacter. $mobilenoDigit;
