@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ClassController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ScholarshipType;
 use App\Http\Controllers\Admin\UserDetail;
+use App\Http\Controllers\Admin\FeeDetails;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -89,6 +90,17 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/userupdate', 'update')->name('admin.user.update');
         Route::post('/userdelete', 'destroy')->name('userdelete');
         Route::post('/user-status-update', 'status')->name('user-status-update');
+    });
+
+    Route::controller(FeeDetails::class)->group(function () {
+        Route::get('/feelist','index')->name('admin.fee.index');
+        Route::get('/addfee','create')->name('admin.fee.add');
+        Route::post('/storesfee','store')->name('admin.fee.store');
+        Route::post('/feedetails','display')->name('admin.fee.details');
+        Route::get('/feeedit/{id}','edit')->name('admin.fee.edit');
+        Route::post('/feeupdate', 'update')->name('admin.fee.update');
+        Route::post('/feedelete', 'destroy')->name('feedelete');
+        Route::post('/fee-status-update', 'status')->name('fee-status-update');
     });
 
 });  
