@@ -9,7 +9,6 @@ use App\Models\ClassModel;
 use App\Models\Subject;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB; 
-use Illuminate\Support\Facades\Log;
 
 class ClassController extends Controller
 {
@@ -86,7 +85,7 @@ class ClassController extends Controller
             "description" => $request->description,
             "status" => $request->status,
         ]);
-        Log::info('Before redirection');
+        
         return redirect(route('admin.class.index'))->with("msg", "Class Created Successfully");
     }
 
