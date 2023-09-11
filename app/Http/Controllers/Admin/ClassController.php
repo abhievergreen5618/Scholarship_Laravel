@@ -72,13 +72,7 @@ class ClassController extends Controller
      */ 
     public function store(ClassRequest $request)
     {
-        $request->validate(
-            [
-                "class"=>'required',
-                "description"=>'required',
-                "status"=>'required',
-            ]
-            );
+       
         ClassModel::create([
             "class" => $request->class,
             "description" => $request->description,
