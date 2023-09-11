@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class FeeDetail extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "feetype",
+        "fee",
+        "description",
+        "subject_id",
+        "status",  
+    ]; 
 }
