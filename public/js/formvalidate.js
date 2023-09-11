@@ -253,16 +253,15 @@ jQuery('#bankform').validate({
 
 
 $(document).ready(function () {
-   $("input[name='physicallychallenged']").change(function (e) {
-        if($(this).attr("value") === "yes")
-        {
+    $("input[name='physicallychallenged']").change(function (e) {
+        var physicallyChallengedValue = $(this).val(); 
+        if (physicallyChallengedValue === "yes") {
+            
             $("#proofofdocuments").show();
             $("#fee").show();
             $("#category").prop("disabled", true);
-
-        }
-        else
-        {
+        } else {
+            
             $("#proofofdocuments").hide();
             $("#fee").hide();
             $("#category").prop("disabled", false);
