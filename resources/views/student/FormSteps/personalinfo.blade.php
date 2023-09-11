@@ -485,7 +485,7 @@
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
-        <div id="fee" {{ !empty(auth()->user()->physicallychallenged == "yes") ? 'style="display:none;"' : ''}} >100</div>
+        <div id="fee" {{ !empty(auth()->user()->physicallychallenged == "yes") ? 'style="display:none;"' : ''}} >{{ $fee }}</div>
    
 
 </td>
