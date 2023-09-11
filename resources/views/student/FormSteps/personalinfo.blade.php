@@ -485,6 +485,8 @@
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
+                                phys chall: {{ auth()->user()->physicallychallenged }}
+
     @if(auth()->user()->physicallychallenged == 'yes')
         <div id="fee">
             <div>100</div>
