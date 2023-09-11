@@ -113,25 +113,28 @@ jQuery('#class-add-form').validate({
         class:"required",
         name:"required",
         classes:"required",
+        feetype:"required",
+        fee:"required",
         status:"required",
         },
     messages:{
         class:"Select an option",
         classes:"Select an option",
+        fee:"Select an option",
     },
     submitHandler : function(form,e) {
         e.preventDefault();
         // Create a new FormData object
         var formData = new FormData($(form)[0]);
        
-        // toastr.options = {
-        //     closeButton: true,
-        //     progressBar: true,
-        //     timeOut: 5000,
-        //     extendedTimeOut: 2000,
-        //     positionClass: "toast-top-right",
-        //     preventDuplicates: true
-        // };
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            timeOut: 5000,
+            extendedTimeOut: 2000,
+            positionClass: "toast-top-right",
+            preventDuplicates: true
+        };
 
 
         $.ajax({
@@ -149,7 +152,7 @@ jQuery('#class-add-form').validate({
                 if(result.hasOwnProperty("message"))
                 {
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-                    // toastr.success(result.message);
+                    toastr.success(result.message);
                 }
             },
             error : function(xhr, status, error) {
@@ -159,11 +162,11 @@ jQuery('#class-add-form').validate({
                         $("#"+index+"-error").remove();
                         $("#"+index).parent().append('<label id="'+index+'-error" class="error" for="name">'+value+'</label>');
                         $("#"+index).focus();
-                        // toastr.error(xhr.responseJSON.message);
+                        toastr.error(xhr.responseJSON.message);
                     });
                 }
                 else{
-                    // toastr.error("!OOPs Something went wrong");
+                    toastr.error("!OOPs Something went wrong");
                 }
 
             }
@@ -515,7 +518,120 @@ usertable.on('click', '.status', function () {
     });
 });
 
+
+
+
+
+//-------------------------------------FEE DETAIL----------------------------------------------
+  
+
+var feetable = $('#feetable').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "ajax": {
+        "url": "feedetails",
+        "type": "POST",
+        'beforeSend': function (request) {
+            request.setRequestHeader("X-CSRF-TOKEN", jQuery('meta[name="csrf-token"]').attr('content'));
+        },
+    },
+    "columnDefs": [
+        { "Fee": "dt-center", "targets": "_all" }
+    ],
+    "columns": [
+        {
+            "data": "feetype",
+        },
+        {
+            "data": "fee",
+        },
+        {
+            "data": "description",
+        },
+        {
+            "data": "status",
+        },
+        {
+            "data": "action",
+        },
+
+    ],
 });
+
+
+feetable.on('click', '.delete', function () {
+    $('.datatable_processing').show();
+    element = $(this);
+    var userid = $(this).attr('data-id');
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                },
+                url: 'feedelete',
+                data: {
+                    id: userid
+                },
+                dataType: 'json',
+                success: function (data) {
+                    feetable.ajax.reload();
+                },
+                error: function (data) {
+                    // console.log(data);
+                }
+            });
+        };
+    });
+});
+
+
+feetable.on('click', '.status', function () {
+    $('.datatables_processing').show();
+    element = $(this);
+    var userid = $(this).attr('data-id');
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                },
+                url: 'fee-status-update',
+                data: {
+                    id: userid
+                },
+                dataType: 'json',
+                success: function (data) {
+                    feetable.ajax.reload();
+                },
+                error: function (data) {
+                    // console.log(data);
+                }
+            });
+        };
+    });
+});
+
+});
+
 
 
     
