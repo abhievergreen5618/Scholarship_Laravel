@@ -485,18 +485,11 @@
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
-                                    <p>User Data: {{ dd(auth()->user()) }}</p>
-
-
-    @if(auth()->user()->physicallychallenged == 'yes')
-        <div id="fee">
-            <div>100</div>
-        </div>
-    @else
-        <div id="fee" style="display: none;">
-            <div>150</div>
-        </div>
-    @endif
+                                @if(!empty(auth()->user()->step1_updated_at))
+                                    {{auth()->user()->physicallychallenged == "yes" ? 'checked': ''}} 
+                                      <div id="fee">{{ $fee }}</div>                      
+                                @endif
+        
 </td>
 
                             </tr>
