@@ -55,7 +55,7 @@ $feeDetails = FeeDetail::whereIn('feetype', $feeCategories)
                 "subjectSelect" => $subjectSelect,
                 "classes" => $classes,
                 "scholarshipSelect" => $scholarshipSelect,
-                "fee" => $fee
+                "fee" => $feeDetails
             ]);
         }
         else
@@ -65,7 +65,7 @@ $feeDetails = FeeDetail::whereIn('feetype', $feeCategories)
                 'subjectSelect' => $subjectSelect,
                 'classes' => $classes,
                 'scholarshipSelect' => $scholarshipSelect,
-                'fee' => $fee
+                'fee' => $feeDetails
             ]);
         }
     }
