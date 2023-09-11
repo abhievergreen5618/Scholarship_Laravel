@@ -485,9 +485,8 @@
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
-    @if(old('physicallychallenged') == "yes")
-        <div id="fee">100</div>
-    @endif
+        <div id="fee" {{ !empty(auth()->user()->physicallychallenged == "yes") ? 'style="display:none;"' : ''}} >100</div>
+   
 
 </td>
 
