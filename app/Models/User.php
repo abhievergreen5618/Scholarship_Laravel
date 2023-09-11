@@ -41,6 +41,7 @@ class User extends Authenticatable
         'category',
         'physicallychallengedproof',
         'categorycertificate',
+        'fee',
         'step1_updated_at',
         'step2_updated_at',
         'step3_updated_at',
