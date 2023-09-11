@@ -264,6 +264,7 @@ $(document).ready(function () {
         {
             $("#proofofdocuments").hide();
             $("#fee").hide();
+            $("#category").show();
         }
     });
 });
