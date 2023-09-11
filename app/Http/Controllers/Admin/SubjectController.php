@@ -126,7 +126,7 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(SubjectRequest $request)
     {
         $request->validate(
             [
