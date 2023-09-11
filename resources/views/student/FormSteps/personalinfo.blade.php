@@ -485,12 +485,11 @@
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
-                                @if(!empty(auth()->user()->step1_updated_at))
-                                    {{auth()->user()->physicallychallenged == "yes" ? 'checked': ''}} 
-                                      <div id="fee">100</div>                      
-                                @endif
-        
+    @if(old('physicallychallenged') == "yes")
+        <div id="fee">100</div>
+    @endif
 </td>
+
 
                             </tr>
 
