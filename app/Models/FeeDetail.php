@@ -10,7 +10,8 @@ class FeeDetail extends Model
     use HasFactory;
 
     protected $fillable = [
-        "class",
+        "feetype",
+        "fee",
         "description",
         "subject_id",
         "status",  
