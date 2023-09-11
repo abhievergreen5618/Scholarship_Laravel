@@ -39,8 +39,8 @@ class ScholarshipController extends Controller
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
 
-        $fee = FeeDetail::orderBy('fee')->get();
-        dd($fee);
+        $fee = FeeDetail::where('feetype','physically challenged')->orderBy('fee')->get();
+        
 
         if(!empty(Auth::user()->step2_updated_at))
         {

@@ -104,7 +104,6 @@
                                             @endforeach
                                             @endif
                                         </select>
-
                                     </div>
                                 </td>
                             </tr>
@@ -488,7 +487,7 @@
                                 <td>
     @if(auth()->user()->physicallychallenged == 'yes')
         <div id="fee">
-            <div>100 rs.</div>
+            <div>$fee</div>
         </div>
     @else
         <div id="fee" style="display: none;">
