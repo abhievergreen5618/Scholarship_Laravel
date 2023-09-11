@@ -254,7 +254,7 @@ jQuery('#bankform').validate({
 
 $(document).ready(function () {
    $("input[name='physicallychallenged']").change(function (e) {
-        if($(this).attr("value") == "yes")
+        if($(this).attr("value") === "yes")
         {
             $("#proofofdocuments").show();
             $("#fee").show();
