@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\ClassController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ScholarshipType;
 use App\Http\Controllers\Admin\UserDetail;
-use App\Http\Controllers\Admin\FeeDetails;
+use App\Http\Controllers\Admin\FeeController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
