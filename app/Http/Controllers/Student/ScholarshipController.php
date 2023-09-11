@@ -39,11 +39,7 @@ class ScholarshipController extends Controller
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
 
-        $feeCategories = ['physically challenged', 'OBC', 'SC', 'ST', 'General'];
-
-$feeDetails = FeeDetail::whereIn('feetype', $feeCategories)
-    ->orderBy('fee')
-    ->get();
+        $fee = FeeDetail::where('feetype','physically challenged')->orderBy('fee')->get();
 
         if(!empty(Auth::user()->step2_updated_at))
         {
@@ -55,7 +51,7 @@ $feeDetails = FeeDetail::whereIn('feetype', $feeCategories)
                 "subjectSelect" => $subjectSelect,
                 "classes" => $classes,
                 "scholarshipSelect" => $scholarshipSelect,
-                "fee" => $feeDetails
+                "fee" => $fee
             ]);
         }
         else
@@ -65,7 +61,7 @@ $feeDetails = FeeDetail::whereIn('feetype', $feeCategories)
                 'subjectSelect' => $subjectSelect,
                 'classes' => $classes,
                 'scholarshipSelect' => $scholarshipSelect,
-                'fee' => $feeDetails
+                'fee' => $fee
             ]);
         }
     }
