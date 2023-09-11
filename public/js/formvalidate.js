@@ -258,6 +258,7 @@ $(document).ready(function () {
         {
             $("#proofofdocuments").show();
             $("#fee").show();
+            $("#category").hide();
         }
         else
         {
