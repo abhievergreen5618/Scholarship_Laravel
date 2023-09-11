@@ -98,7 +98,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td width="42%" class="vtext"><strong>Reference
+                                                            <td width="35%" class="vtext"><strong>Reference
                                                                     Number</strong></td>
                                                             <td class="colon">:</td>
                                                             <td>
@@ -110,7 +110,7 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td width="42%" class="vtext"><strong>Roll Number</strong>
+                                                            <td width="35%" class="vtext"><strong>Roll Number</strong>
                                                             </td>
                                                             <td class="colon">:</td>
                                                             <td>
@@ -120,13 +120,6 @@
                                                                             ? auth()->user()->roll_number :
                                                                             ''}}</b></span></span>
                                                             </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td colspan="3"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="3"></td>
                                                         </tr>
                                                            
                                                         @include("student.FormSteps.pdffile")
