@@ -487,7 +487,7 @@
                                 <td>
                                 @if(!empty(auth()->user()->step1_updated_at))
                                     {{auth()->user()->physicallychallenged == "yes" ? 'checked': ''}} 
-                                      <div id="fee">{{ $fee }}</div>                      
+                                      <div id="fee">100</div>                      
                                 @endif
         
 </td>
