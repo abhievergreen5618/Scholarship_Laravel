@@ -37,6 +37,10 @@ class ScholarshipController extends Controller
 
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
+
+        $fee = FeeDetail::where('fee')->orderBy('feetype')->get();
+        dd($fee);
+
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
@@ -101,6 +105,7 @@ class ScholarshipController extends Controller
             'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
             "category" => "required",
             'categorycertificate' => 'required',
+            'fee' => "required",
             "email" => "required|email",
         ],
         [
@@ -152,6 +157,7 @@ class ScholarshipController extends Controller
                 "subjects" => $request['subjects'],
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
+                "fee" => $request['fee'],
                 "physicallychallengedproof" => $imageName ?? "",
                 "categorycertificatd" => $certificateName ??"",
                 "step1_updated_at" => now(),
