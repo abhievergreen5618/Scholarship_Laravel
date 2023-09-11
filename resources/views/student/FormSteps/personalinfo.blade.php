@@ -466,12 +466,17 @@
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
-                                <div id="proofofdocuments" {{ !empty(auth()->
-                                                            user()->physicallychallenged == "yes") ? 'style="display:
-                                                            none;"' : ''}}>
-                                                            <div>100 rs.</div>
-                                                            
-                                </td>
+    @if(auth()->user()->physicallychallenged == 'yes')
+        <div id="proofofdocuments">
+            <div>100 rs.</div>
+        </div>
+    @else
+        <div id="proofofdocuments" style="display: none;">
+            <div>100 rs.</div>
+        </div>
+    @endif
+</td>
+
                             </tr>
 
                             <tr>
