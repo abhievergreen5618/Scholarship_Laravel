@@ -259,6 +259,7 @@ $(document).ready(function () {
             $("#proofofdocuments").show();
             $("#fee").show();
             $("#category").prop("disabled", true);
+
         }
         else
         {
@@ -270,5 +271,15 @@ $(document).ready(function () {
 });
 
 
-
-
+$(document).ready(function () {
+    $("input[name='category']").change(function (e) {
+         var selectedValue = $(this).val(); 
+ 
+         if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST" || selectedValue === "General") {
+             $("#categorycertificate").show();
+         } else {
+             $("#categorycertificate").hide();
+         }
+     });
+ });
+ 
