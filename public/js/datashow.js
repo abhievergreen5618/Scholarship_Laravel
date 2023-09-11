@@ -136,7 +136,7 @@ jQuery('#class-add-form').validate({
 
         $.ajax({
             type: 'POST',
-            url: classlist,
+            url: $(form).attr("action"),
             dataType: "json",
             data: formData,
             cache: false,
