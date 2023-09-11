@@ -487,8 +487,6 @@
                                 <td>
     @if(old('physicallychallenged') == "yes")
         <div id="fee">100</div>
-    @else
-        <div id="fee">Not Selected</div>
     @endif
 
 </td>
