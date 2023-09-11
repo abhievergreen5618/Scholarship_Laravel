@@ -492,7 +492,7 @@
         </div>
     @else
         <div id="fee" style="display: none;">
-            <div>100</div>
+            <div>150</div>
         </div>
     @endif
 </td>
