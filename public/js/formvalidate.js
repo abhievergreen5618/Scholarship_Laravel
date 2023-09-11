@@ -273,7 +273,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("input[name='category']").change(function (e) {
          var selectedValue = $(this).val(); // Get the selected value
- 
+ console.log(selectedValue);
          if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST" || selectedValue === "General") {
              $("#categorycertificate").show();
          } else {
