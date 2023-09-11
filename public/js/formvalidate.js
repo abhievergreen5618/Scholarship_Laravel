@@ -257,6 +257,7 @@ $(document).ready(function () {
         if($(this).attr("value") == "yes")
         {
             $("#proofofdocuments").show();
+            $("#fee").show();
         }
         else
         {

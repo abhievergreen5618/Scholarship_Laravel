@@ -467,11 +467,11 @@
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
     @if(auth()->user()->physicallychallenged == 'yes')
-        <div id="proofofdocuments">
+        <div id="fee">
             <div>100 rs.</div>
         </div>
     @else
-        <div id="proofofdocuments" style="display: none;">
+        <div id="fee" style="display: none;">
             <div>100 rs.</div>
         </div>
     @endif
