@@ -14,6 +14,7 @@ use App\Models\StateModel;
 use App\Models\ClassModel;
 use App\Models\DistrictModel;
 use App\Models\BankDetails;
+use App\Models\FeeDetail;
 use App\Models\ScholarshipList;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
