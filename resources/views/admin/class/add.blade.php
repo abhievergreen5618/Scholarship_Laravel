@@ -7,13 +7,13 @@
             <h3 class="card-title">{{ __('Add Class') }}</h3>
         </div>
         <!-- /.card-header -->
-        <!-- form start -->
-        <form id="class-add-form" action="{{isset($data) ? route('admin.class.update') : route('admin.class.store') }}" method="POST">
-            @csrf
-            
-            @isset($data)
-            <input type="hidden" name="id" value="{{encrypt($data->id)}}">
-            @endisset 
+            <form id="class-add-form" action="{{ isset($data) ? route('admin.class.update') : route('admin.class.store') }}" method="POST">
+    @csrf
+
+    @isset($data)
+    <input type="hidden" name="id" value="{{ encrypt($data->id) }}">
+    @endisset 
+
             <div class="card-body">
                 <div>
                     <div class="form-group">
