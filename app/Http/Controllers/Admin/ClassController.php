@@ -43,7 +43,7 @@ class ClassController extends Controller
                         $btntext = "Inactive";
                     } else {
                         $class = "btn btn-success ms-2 status";
-                        $btntext = "Active";
+                        $btntext = "Active"; 
                     }
                     $id = encrypt($row->id);
                     $statusBtn = "<div class='d-flex justify-content-center'><a href='javascript:void(0)' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Task $btntext' class='$class'>$btntext</a></div>";
