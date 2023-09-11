@@ -275,7 +275,7 @@ $(document).ready(function () {
     $("select[name='category']").change(function (e) {
          var selectedValue = $(this).val(); 
  
-         if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST" || selectedValue === "General") {
+         if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST") {
              $("#categorycertificate").show();
          } else {
              $("#categorycertificate").hide();
