@@ -271,17 +271,17 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $("input[name='category']").change(function (e) {
+    // Hide the #categorycertificate div initially
+    $("#categorycertificate").hide();
+ 
+    $("select[name='category']").change(function (e) {
          var selectedValue = $(this).val(); // Get the selected value
- console.log(selectedValue);
+ 
          if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST" || selectedValue === "General") {
              $("#categorycertificate").show();
          } else {
              $("#categorycertificate").hide();
          }
      });
- 
-    // Ensure the #categorycertificate div is initially hidden
-    $("#categorycertificate").hide();
  });
  
