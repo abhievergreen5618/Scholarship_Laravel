@@ -20,7 +20,7 @@
                         <label>Fee Type</label>
                         <select class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype">
     <option value="">Select Fee Type</option>
-   <option value="OBC" @if(!empty(auth()->user()->step1_updated_at))
+   <option value="physically challenged" @if(!empty(auth()->user()->step1_updated_at))
     {{auth()->user()->category == "physicallychallenged" ? 'selected' : ''}} @endif>Physically Challenged</option> 
 
    <option value="OBC" @if(!empty(auth()->user()->step1_updated_at))
