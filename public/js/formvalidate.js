@@ -272,10 +272,12 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    $("input[name='category']").change(function (e) {
-         var selectedValue = $(this).val(); 
+    $("#categorycertificate").hide(); // Hide the div initially
  
-         if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST" || selectedValue === "General") {
+    $("input[name='category']").change(function (e) {
+         var selectedValue = $(this).val(); // Get the selected value
+ 
+         if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST") {
              $("#categorycertificate").show();
          } else {
              $("#categorycertificate").hide();
