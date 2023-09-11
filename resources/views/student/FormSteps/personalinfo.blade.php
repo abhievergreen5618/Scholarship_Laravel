@@ -485,12 +485,12 @@
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
-        <div id="fee">
-            @if( {{ !empty(auth()->user()->physicallychallenged == "yes") ? 'style="display:none;"' : ''}})
+        <div id="fee"
+             {{ !empty(auth()->user()->physicallychallenged == "yes") ? 'style="display:none;"' : ''}}>
         @foreach($fee as $feeDetail)
         {{ $feeDetail['fee'] }}
     @endforeach
-@endif
+
         </div>
    
 
