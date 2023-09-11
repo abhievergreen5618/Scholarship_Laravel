@@ -487,9 +487,11 @@
                                 <td>
         <div id="fee"
              {{ !empty(auth()->user()->physicallychallenged == "yes") ? 'style="display:none;"' : ''}}>
+             @if(!empty($feeDetails))
         @foreach($feeDetails as $feeDetail)
         {{ $feeDetail['fee'] }}
     @endforeach
+    @endif
 
         </div>
    
