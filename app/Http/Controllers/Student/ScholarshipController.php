@@ -40,7 +40,6 @@ class ScholarshipController extends Controller
         ->orderBy('class','asc')->get();
 
         $fee = FeeDetail::where('feetype','physically challenged')->orderBy('fee')->get();
-        
 
         if(!empty(Auth::user()->step2_updated_at))
         {
