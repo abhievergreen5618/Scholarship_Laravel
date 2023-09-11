@@ -122,16 +122,16 @@
                                                             </td>
                                                         </tr>
                                                            
-                                                        @include("student.FormSteps.pdffile")
-                                                        <td colspan="3">
-                                                            <a class="btn" href="{{route('downloadpdf')}}">Download Receipt</a>
-                                                        </td>
+                                                       
                                                         </tr>
                                                         
                                                     </tbody>
                                                 </table>
                                             </div>
-
+                                            @include("student.FormSteps.pdffile")
+                                                        <td colspan="3">
+                                                            <a class="btn" href="{{route('downloadpdf')}}">Download Receipt</a>
+                                                        </td>
                                             
                             </li>
                         </ul>
