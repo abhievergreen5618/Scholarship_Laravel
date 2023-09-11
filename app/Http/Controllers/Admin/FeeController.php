@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\FeeRequest;
 use App\Models\FeeDetail;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB; 
@@ -57,7 +56,7 @@ class FeeController extends Controller
         return view("admin.fee.add");
     }
 
-    public function store(FeeRequest $request)
+    public function store(Request $request)
     {
         $request->validate(
             [
@@ -86,7 +85,7 @@ class FeeController extends Controller
             "data"=>$data
         ]);
     }
-    public function update(FeeRequest $request)
+    public function update(Request $request)
     {
         $request->validate(
             [
