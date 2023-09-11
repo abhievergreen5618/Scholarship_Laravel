@@ -92,7 +92,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/user-status-update', 'status')->name('user-status-update');
     });
 
-    Route::controller(FeeDetails::class)->group(function () {
+    Route::controller(FeeController::class)->group(function () {
         Route::get('/feelist','index')->name('admin.fee.index');
         Route::get('/addfee','create')->name('admin.fee.add');
         Route::post('/storesfee','store')->name('admin.fee.store');
