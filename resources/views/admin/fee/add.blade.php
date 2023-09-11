@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group mb-2">
                         <label for="exampleInputEmail1">{{ __('Fee') }}</label>
-                        <input type="text" class="form-control @error('fee') {{ 'is-invalid' }} @enderror" id="fee" name="fee" rows="3" placeholder="Enter Fee Amount">{{@old('name',$data->fee)}}
+                        <input type="text" class="form-control @error('fee') {{ 'is-invalid' }} @enderror" id="fee" name="fee" rows="3" placeholder="Enter Fee Amount"  value="{{@old('name',$data->fee)}}">
                     </div>
                     <div class="form-group mb-2">
                         <label for="exampleInputEmail1">{{ __('Description') }}</label>
