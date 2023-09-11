@@ -79,10 +79,7 @@
                                             <h3><span>Step [5/5] :</span>Submit Reference Number &amp; Application Form
                                             </h3>
                                             <tr>
-                                                            <td colspan="3">
-                                                            <a class="btn btn-primary" href="{{route('downloadpdf')}}">Download Receipt</a>
-                                                        </td>
-                                                        </tr>
+                                                           
 
 
 
@@ -133,6 +130,10 @@
                                                         </tr>
                                                            
                                                         @include("student.FormSteps.pdffile")
+                                                        <td colspan="3">
+                                                            <a class="btn" href="{{route('downloadpdf')}}">Download Receipt</a>
+                                                        </td>
+                                                        </tr>
                                                         
                                                     </tbody>
                                                 </table>
