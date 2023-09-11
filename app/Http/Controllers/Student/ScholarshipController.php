@@ -100,6 +100,7 @@ class ScholarshipController extends Controller
             "physicallychallenged" => "required",
             'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
             "category" => "required",
+            'categorycertificate' => 'required',
             "email" => "required|email",
         ],
         [
@@ -126,6 +127,13 @@ class ScholarshipController extends Controller
                 $image->move(public_path('images/proofdoc'), $imageName);
                 $request['physicallychallengedproof'] = $imageName;
             }
+
+            if ($request->hasFile('categorycertificate')) {
+                $image = $request->file('categorycertificate');
+                $certificateName = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images/proofdoc'), $certificateName);
+                $request['categorycertificate'] = $certificateName;
+            }
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
@@ -145,6 +153,7 @@ class ScholarshipController extends Controller
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "physicallychallengedproof" => $imageName ?? "",
+                "categorycertificatd" => $certificateName ??"",
                 "step1_updated_at" => now(),
             ]);
             return response()->json([

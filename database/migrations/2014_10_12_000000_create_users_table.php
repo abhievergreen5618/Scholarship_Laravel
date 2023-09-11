@@ -39,6 +39,7 @@ return new class extends Migration
             $table->string('physicallychallenged')->nullable();
             $table->string('category')->nullable();
             $table->string('physicallychallengedproof')->nullable();
+            $table->string('categorycertificate')->nullable();
             $table->string('photo')->nullable();
             $table->string('signature')->nullable();
             $table->string('reference_number')->nullable();

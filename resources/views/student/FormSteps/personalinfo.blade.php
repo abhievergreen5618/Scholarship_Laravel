@@ -457,6 +457,26 @@
                                     </span>
                                     <br>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
+
+                                    <div id="categorycertificate" {{ !empty
+                                        (in_array(auth()->user()->categorycertificate, ["OBC", "SC", "ST", "General"])) ? 'style="display: none;"' : ''}}>
+
+                                                            <h3 class="hedingss">upload category certificate</h3>
+
+                                                            <form action="#">
+                                                                <div class="input-group mb-3">
+                                                                    <input type="file" class="form-control"
+                                                                        id="categorycertificate"
+                                                                        name="categorycertificate">
+                                                                </div>
+                                                            </form>
+
+                                                            @if(!empty((in_array(auth()->user()->categorycertificate, ["OBC", "SC", "ST", "General"])) ? 'style="display: none;"' : ''))
+                                                            <div><img id="categorycertificate_photo_perview"
+                                                                    src="{{ asset('public/images/proofdoc/'.auth()->user()->categorycertificate) }}"
+                                                                    class="img-thumbnail mt-2" alt="..."></div>
+                                                            @endif
+                                                        </div>
                                 </td>
                             </tr>
                             <tr>
