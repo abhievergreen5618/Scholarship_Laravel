@@ -487,7 +487,7 @@
                                 <td>
     @if(auth()->user()->physicallychallenged == 'yes')
         <div id="fee">
-            <div>$fee</div>
+            <div>{{ $fee }}</div>
         </div>
     @else
         <div id="fee" style="display: none;">
