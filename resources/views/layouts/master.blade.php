@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/plugins/toastr/toastr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/plugins/toastr/toastr.css')}}">
     @stack("header_extras")
 </head>
 
@@ -49,6 +51,8 @@
   <script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('/js/sweetalert.min.js')}}"></script>
     <script src="{{asset('/js/validate.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/toastr/toastr.min.js')}}"></script>
+  <script src="{{asset('adminlte/plugins/toastr/toastr.js.map')}}"></script>
     <script src="{{asset('js/datashow.js')}}"></script>
 
 
