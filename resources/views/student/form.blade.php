@@ -82,6 +82,8 @@
                             </li>
                         </ul>
                     </div>
+
+                    @include("student.FormSteps.pdffile")
                     <!--/ tabs -->
                 </div>
             </div>
