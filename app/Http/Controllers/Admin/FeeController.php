@@ -70,7 +70,7 @@ class FeeController extends Controller
 
             FeeDetail::create([
             "feetype" => $request->feetype,
-            "class" => $request->class,
+            "fee" => $request->fee,
             "description" => $request->description,
             "status" => $request->status,
         ]);
