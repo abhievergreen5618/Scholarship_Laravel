@@ -39,7 +39,7 @@ class ScholarshipController extends Controller
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
 
-        $fee = FeeDetail::where('feetype','physically challenged')->orderBy('fee')->get();
+        // $fee = FeeDetail::where('feetype','physically challenged')->orderBy('fee')->get();
         // dd($fee);
 
         if(!empty(Auth::user()->step2_updated_at))
@@ -51,8 +51,8 @@ class ScholarshipController extends Controller
                 "states" => $states,
                 "subjectSelect" => $subjectSelect,
                 "classes" => $classes,
-                "scholarshipSelect" => $scholarshipSelect,
-                "fee" => $fee
+                "scholarshipSelect" => $scholarshipSelect
+                // "fee" => $fee
             ]);
         }
         else
@@ -61,8 +61,8 @@ class ScholarshipController extends Controller
                 'states' => $states,
                 'subjectSelect' => $subjectSelect,
                 'classes' => $classes,
-                'scholarshipSelect' => $scholarshipSelect,
-                'fee' => $fee
+                'scholarshipSelect' => $scholarshipSelect
+                // 'fee' => $fee
             ]);
         }
     }
