@@ -21,7 +21,9 @@
                         <select class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype">
     <option value="">Select Fee Type</option>
    <option value="">Physically Challenged</option>
-   <option value="OBC">OBC</option>
+   <option value="OBC" @if(!empty(auth()->user()->step1_updated_at))
+                                                {{auth()->user()->category == "OBC" ? 'selected' : ''}} @endif>OBC
+                                            </option>  
    <option value="General">General</option>
    <option value="SC">SC</option>
    <option value="ST">ST</option>
