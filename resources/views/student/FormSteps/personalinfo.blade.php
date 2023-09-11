@@ -465,7 +465,9 @@
                                     <strong>शुल्क का विवरण जमा</strong>
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
-
+                                @if(!empty(auth()->user()->physicallychallenged == "yes"))
+                                                            <div>100 rs.</div>
+                                                            @endif                        
 
                                 </td>
                             </tr>
