@@ -258,13 +258,13 @@ $(document).ready(function () {
         {
             $("#proofofdocuments").show();
             $("#fee").show();
-            $("#category").hide();
+            $("#category").prop("disabled", true);
         }
         else
         {
             $("#proofofdocuments").hide();
             $("#fee").hide();
-            $("#category").show();
+            $("#category").prop("disabled", false);
         }
     });
 });
