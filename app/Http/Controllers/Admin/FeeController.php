@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\FeeRequest;
-use App\Models\FeeDetails;
+use App\Models\FeeDetail;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB; 
 
@@ -26,7 +26,7 @@ class FeeController extends Controller
         
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
-            $data = FeeDetails::latest()->get(['id','feetype','fee','description','status']);
+            $data = FeeDetail::latest()->get(['id','feetype','fee','description','status']);
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
@@ -69,7 +69,7 @@ class FeeController extends Controller
             );
 
 
-            FeeDetails::create([
+            FeeDetail::create([
             "feetype" => $request->feetype,
             "class" => $request->class,
             "description" => $request->description,
@@ -81,7 +81,7 @@ class FeeController extends Controller
 
     public function edit($id)
     {
-        $data = FeeDetails::where("id",decrypt($id))->first();
+        $data = FeeDetail::where("id",decrypt($id))->first();
         return view('admin.fee.add')->with([
             "data"=>$data
         ]);
@@ -97,7 +97,7 @@ class FeeController extends Controller
             ]
             );
 
-            FeeDetails::where("id",decrypt($request['id']))->update([
+            FeeDetail::where("id",decrypt($request['id']))->update([
             "feetype" => $request->feetype,
             "fee" => $request->fee,
             "description" => $request->description,
@@ -113,7 +113,7 @@ class FeeController extends Controller
         "id"=>'required',
     ]
 );
-    FeeDetails::where("id",decrypt($request['id']))->delete();
+FeeDetail::where("id",decrypt($request['id']))->delete();
     $msg = "Deleted Successfully";
     return response()->json(array('msg' => $msg),200);
 }
@@ -125,9 +125,9 @@ public function status(Request $request)
             "id"=>"required",
         ]
         );
-        $status = FeeDetails::where('id',decrypt($request['id']))->first('status');
+        $status = FeeDetail::where('id',decrypt($request['id']))->first('status');
         $status = ($status['status'] == "active") ? "inactive" : "active";
-        FeeDetails::where('id',decrypt($request['id']))->Update([
+        FeeDetail::where('id',decrypt($request['id']))->Update([
             "status"=>$status,
         ]);
     $msg = "Fee Updated Successfully";
