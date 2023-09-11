@@ -270,18 +270,18 @@ $(document).ready(function () {
     });
 });
 
-
 $(document).ready(function () {
-    $("#categorycertificate").hide(); // Hide the div initially
- 
     $("input[name='category']").change(function (e) {
          var selectedValue = $(this).val(); // Get the selected value
  
-         if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST") {
+         if (selectedValue === "OBC" || selectedValue === "SC" || selectedValue === "ST" || selectedValue === "General") {
              $("#categorycertificate").show();
          } else {
              $("#categorycertificate").hide();
          }
      });
+ 
+    // Ensure the #categorycertificate div is initially hidden
+    $("#categorycertificate").hide();
  });
  
