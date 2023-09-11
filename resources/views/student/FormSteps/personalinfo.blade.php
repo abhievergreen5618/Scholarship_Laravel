@@ -490,7 +490,7 @@
         @foreach($fee as $feeDetail)
         {{ $feeDetail['fee'] }}
     @endforeach
-
+@endif
         </div>
    
 
