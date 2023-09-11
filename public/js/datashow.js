@@ -136,7 +136,7 @@ jQuery('#class-add-form').validate({
 
         $.ajax({
             type: 'POST',
-            url: $(form).attr("action"),
+            url: classlist,
             dataType: "json",
             data: formData,
             cache: false,
@@ -146,14 +146,11 @@ jQuery('#class-add-form').validate({
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(result) {
-                // if(result.hasOwnProperty("message"))
-                // {
-                //     $("html, body").animate({ scrollTop: 0 }, "slow");
-                //     // toastr.success(result.message);
-                // }
-                if (result.redirect) {
-                    window.location.href = response.redirect;
-                } 
+                if(result.hasOwnProperty("message"))
+                {
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    // toastr.success(result.message);
+                }
             },
             error : function(xhr, status, error) {
                 if(xhr.status == 422)
