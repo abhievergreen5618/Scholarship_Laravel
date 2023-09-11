@@ -69,7 +69,7 @@ class FeeController extends Controller
             );
 
 
-        FeeDeatils::create([
+            FeeDetails::create([
             "feetype" => $request->feetype,
             "class" => $request->class,
             "description" => $request->description,
@@ -81,7 +81,7 @@ class FeeController extends Controller
 
     public function edit($id)
     {
-        $data = FeeDeatils::where("id",decrypt($id))->first();
+        $data = FeeDetails::where("id",decrypt($id))->first();
         return view('admin.fee.add')->with([
             "data"=>$data
         ]);
@@ -97,7 +97,7 @@ class FeeController extends Controller
             ]
             );
 
-            FeeDeatils::where("id",decrypt($request['id']))->update([
+            FeeDetails::where("id",decrypt($request['id']))->update([
             "feetype" => $request->feetype,
             "fee" => $request->fee,
             "description" => $request->description,
@@ -113,7 +113,7 @@ class FeeController extends Controller
         "id"=>'required',
     ]
 );
-FeeDeatils::where("id",decrypt($request['id']))->delete();
+    FeeDetails::where("id",decrypt($request['id']))->delete();
     $msg = "Deleted Successfully";
     return response()->json(array('msg' => $msg),200);
 }
@@ -125,9 +125,9 @@ public function status(Request $request)
             "id"=>"required",
         ]
         );
-        $status = FeeDeatils::where('id',decrypt($request['id']))->first('status');
+        $status = FeeDetails::where('id',decrypt($request['id']))->first('status');
         $status = ($status['status'] == "active") ? "inactive" : "active";
-        FeeDeatils::where('id',decrypt($request['id']))->Update([
+        FeeDetails::where('id',decrypt($request['id']))->Update([
             "status"=>$status,
         ]);
     $msg = "Fee Updated Successfully";
