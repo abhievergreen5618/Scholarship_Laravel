@@ -78,12 +78,13 @@
                                         <div class="tab-pane active" id="tab_6">
                                             <h3><span>Step [5/5] :</span>Submit Reference Number &amp; Application Form
                                             </h3>
+                                            @include("student.FormSteps.pdffile")
                                             
                             </li>
                         </ul>
                     </div>
 
-                    @include("student.FormSteps.pdffile")
+                    
                     <!--/ tabs -->
                 </div>
             </div>
