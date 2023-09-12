@@ -50,8 +50,7 @@ class ScholarshipController extends Controller
                 "states" => $states,
                 "subjectSelect" => $subjectSelect,
                 "classes" => $classes,
-                "scholarshipSelect" => $scholarshipSelect,
-                "fee" => $fee
+                "scholarshipSelect" => $scholarshipSelect
             ]);
         }
         else
@@ -60,8 +59,7 @@ class ScholarshipController extends Controller
                 'states' => $states,
                 'subjectSelect' => $subjectSelect,
                 'classes' => $classes,
-                'scholarshipSelect' => $scholarshipSelect,
-                'fee' => $fee
+                'scholarshipSelect' => $scholarshipSelect
             ]);
         }
     }
