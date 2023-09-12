@@ -87,7 +87,7 @@ class UserDetail extends Controller
                 "status"=>'required',
             ]
             );
-            $class = EducationDetails::where('class')->get();
+            $class = User::where('class')->get();
 
              
 

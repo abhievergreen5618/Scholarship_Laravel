@@ -141,6 +141,7 @@ class ScholarshipController extends Controller
                 $image->move(public_path('images/proofdoc'), $certificateName);
                 $request['categorycertificate'] = $certificateName;
             }
+            $classes = EducationDetails::where('classes')->get();
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
@@ -160,6 +161,7 @@ class ScholarshipController extends Controller
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "fee" => $request['fee'],
+                "classes" => $classes,
                 "physicallychallengedproof" => $imageName ?? "",
                 "categorycertificate" => $certificateName ??"",
                 "step1_updated_at" => now(),
