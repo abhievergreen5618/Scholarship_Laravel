@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/adminstyle.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome4.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminlte/plugins/toastr/toastr.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminlte/plugins/toastr/toastr.css')}}">
