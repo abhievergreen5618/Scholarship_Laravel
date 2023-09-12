@@ -150,6 +150,12 @@ class SubjectController extends Controller
      */
     public function update(SubjectRequest $request)
     {
+        $classSelect = ClassModel::where('status', 'active')
+        ->orderBy('class', 'asc')
+        ->get();
+
+    $classSelect = $classes->pluck('class')->toArray();
+    $classSelect = json_encode($classSelect);
         $request->validate(
             [
                 "name" => 'required',
@@ -161,7 +167,7 @@ class SubjectController extends Controller
 
         Subject::where("id",decrypt($request['id']))->update([
             "name" => $request->name,
-            "classes" => $request->classes,
+            "classes" => $classSelect,
             "description" => $request->description,
             "status" => $request->status,
         ]);
