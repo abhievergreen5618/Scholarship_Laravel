@@ -549,7 +549,9 @@
     // Handle change event for Physically Challenged radio buttons
     $('input[name="physicallychallenged"]').on('change', function() {
         var physicallyChallenged = $(this).val();
+        if (physicallyChallenged === "yes") {
         updateFee(physicallyChallenged);
+    }
     });
 
     // Handle change event for Category select dropdown
