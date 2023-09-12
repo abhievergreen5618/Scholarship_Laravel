@@ -72,14 +72,18 @@ class ClassController extends Controller
      */ 
     public function store(ClassRequest $request)
     {
+
+        $validatedData = $request->validated();
+
+        $class = $validatedData['class'];
+
         $request->validate(
             [
-                "class"=>'required',
                 "description"=>'required',
                 "status"=>'required',
             ]
             );
-       
+       try{
         ClassModel::create([
             "class" => $request->class,
             "description" => $request->description,
@@ -87,6 +91,14 @@ class ClassController extends Controller
         ]);
         
         return redirect(route('admin.class.index'))->with("msg", "Class Created Successfully");
+    }
+    catch (QueryException $e) {
+        if ($e->errorInfo[1] === 1062) {
+            return redirect()->back()->with('error', 'Class already exists in the database.');
+        } else {
+            return redirect()->back()->with('error', 'An error occurred while saving the class.');
+        }
+    }
     }
 
 
