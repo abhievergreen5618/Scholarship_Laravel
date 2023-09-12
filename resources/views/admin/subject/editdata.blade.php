@@ -80,8 +80,7 @@
     $("#class").select2({
         multiple: true
     });
-    console.log(JSON.parse('{{ $classSelect }}'));
-
+    
 </script>
 
 @endpush
