@@ -89,7 +89,7 @@ class ScholarshipType extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
         $request->validate(
