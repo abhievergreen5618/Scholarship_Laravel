@@ -4,11 +4,11 @@
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">{{ __('Add Subjects') }}</h3>
+            <h3 class="card-title">{{ __('Edit Subjects') }}</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form id="class-add-form" action="{{route('admin.subject.store') }}" method="POST">
+        <form id="class-add-form" action="{{isset($data) ? route('admin.subject.update') : route('admin.subject.store') }}" method="POST">
             @csrf
             @isset($data)
             <input type="hidden" name="id" value="{{encrypt($data->id)}}">

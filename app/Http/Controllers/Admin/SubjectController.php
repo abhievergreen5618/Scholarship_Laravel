@@ -36,6 +36,15 @@ class SubjectController extends Controller
         return view("admin.subject.add")->with("classSelect",$classSelect);
     }
 
+    public function editdata()
+    {
+        $classes = ClassModel::where('status','active')
+        ->orderBy('class', 'asc')->get();
+        $classSelect = $classes->pluck('class')->toArray();
+        $classSelect = json_encode($classSelect);
+        return view("admin.subject.editdata")->with("classSelect",$classSelect);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -114,7 +123,7 @@ class SubjectController extends Controller
     {
         //
         $data = Subject::where("id",decrypt($id))->first();
-        return view('admin.subject.add')->with([
+        return view('admin.subject.editdata')->with([
             "data"=>$data
         ]);
     }
