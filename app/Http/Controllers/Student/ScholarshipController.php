@@ -172,11 +172,16 @@ class ScholarshipController extends Controller
 
 
     public function getFee($feetype)
-    {
-        $fee = FeeDetail::where('feetype', $feetype)->value('fee');
-        dd($fee);
-        return response()->json(['fee' => $fee]);
+{
+    if ($feetype === "no") {
+        return response()->json(['fee' => null]);
     }
+
+    $fee = FeeDetail::where('feetype', $feetype)->value('fee');
+    
+    return response()->json(['fee' => $fee]);
+}
+
     
 
 
