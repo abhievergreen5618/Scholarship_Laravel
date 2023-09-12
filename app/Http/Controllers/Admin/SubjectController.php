@@ -35,7 +35,6 @@ class SubjectController extends Controller
 
         $classSelect = $classes->pluck('class')->toArray();
         $classSelect = json_encode($classSelect);
-        dd($classSelect);
         return $classSelect;
     }
 
@@ -49,7 +48,7 @@ class SubjectController extends Controller
     public function editdata()
     {
         $classSelect = $this->getClassSelectData();
-
+        dd($classSelect);
         return view("admin.subject.editdata")->with("classSelect", $classSelect);
     }
 
