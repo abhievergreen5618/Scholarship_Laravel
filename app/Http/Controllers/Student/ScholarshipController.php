@@ -142,6 +142,7 @@ class ScholarshipController extends Controller
                 $request['categorycertificate'] = $certificateName;
             }
             $classes = EducationDetails::where('classes')->get();
+            dd($classes);
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
