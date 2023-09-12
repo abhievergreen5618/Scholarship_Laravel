@@ -31,11 +31,7 @@
                                 <option value="">Select Classes</option>
                                 @if(empty($classSelect))
                                 "empty"
-                                    <!-- @foreach(json_decode($classSelect) as $class)
-                                            <option value="{{ $class }}">
-                                                {{ $class }}
-                                            </option>
-                                            @endforeach -->
+                                    
                                             @endif
                             </select>
                         </div>
