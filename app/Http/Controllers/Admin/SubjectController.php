@@ -27,22 +27,30 @@ class SubjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    private function getClassSelectData()
     {
-        $classes = ClassModel::where('status','active')
-        ->orderBy('class', 'asc')->get();
+        $classes = ClassModel::where('status', 'active')
+            ->orderBy('class', 'asc')
+            ->get();
+
         $classSelect = $classes->pluck('class')->toArray();
         $classSelect = json_encode($classSelect);
-        return view("admin.subject.add")->with("classSelect",$classSelect);
+
+        return $classSelect;
+    }
+
+    public function create()
+    {
+        $classSelect = $this->getClassSelectData();
+
+        return view("admin.subject.add")->with("classSelect", $classSelect);
     }
 
     public function editdata()
     {
-        $classes = ClassModel::where('status','active')
-        ->orderBy('class', 'asc')->get();
-        $classSelect = $classes->pluck('class')->toArray();
-        $classSelect = json_encode($classSelect);
-        return view("admin.subject.editdata")->with("classSelect",$classSelect);
+        $classSelect = $this->getClassSelectData();
+
+        return view("admin.subject.editdata")->with("classSelect", $classSelect);
     }
 
     /**
