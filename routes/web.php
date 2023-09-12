@@ -66,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/createsubject','store')->name('admin.subject.store');
         Route::post('/subjectsdetails', 'display')->name('admin.subjects.details');
         Route::get('/subjectsedit/{id}', 'edit')->name('admin.subject.edit');
-        Route::get('/subjectseditdata/{id}', 'editdata')->name('admin.subject.editdata');
+        Route::get('/subjectseditdata', 'editdata')->name('admin.subject.editdata');
         Route::post('/subjectsupdate', 'update')->name('admin.subject.update');
         Route::post('/subjectdelete', 'destroy')->name('subjectdelete');
         Route::post('/subject-status-update', 'status')->name('subject-status-update');
