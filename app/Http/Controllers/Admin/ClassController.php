@@ -94,7 +94,7 @@ class ClassController extends Controller
     }
     catch (QueryException $e) {
         $errorCode = $e->getCode();
-
+        dd($errorCode);
         if ($errorCode == 23000) {
             return redirect()->back()->with('error', 'Class already exists in the database.');
         } else {
