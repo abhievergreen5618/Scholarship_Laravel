@@ -27,7 +27,6 @@ class ScholarshipController extends Controller
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
 
         
-
         $subjects = Subject::where('status','active')
         ->orderBy('name', 'asc')->get();
         $subjectSelect = $subjects->pluck('name')->toArray();
