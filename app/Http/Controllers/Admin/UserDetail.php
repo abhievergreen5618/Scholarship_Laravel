@@ -38,8 +38,7 @@ class UserDetail extends Controller
        
 
         if ($request->ajax()) {
-            $data = DB::table('users')->select(['id','name','email','mobileno','gender','dob','paddress','status'])->latest()->get();
-            $data = DB::table('education_details')->select(['class'])->latest()->get();
+            $data = DB::table('users')->select(['id','name','email','mobileno','class','gender','dob','paddress','status'])->latest()->get();
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
@@ -88,7 +87,7 @@ class UserDetail extends Controller
                 "status"=>'required',
             ]
             );
-            $class = User::where('class')->get();
+            $class = EducationDetails::where('classes')->get();
 
              
 
