@@ -88,6 +88,7 @@ class ScholarshipController extends Controller
     public function create(Request $request)
     {
 
+        $class = EducationDetails::orderBy('classes')->get();
         $validator = Validator::make($request->all(), [
             // "scholarshipname" => "required",
             "name" => "required",
@@ -141,8 +142,7 @@ class ScholarshipController extends Controller
                 $image->move(public_path('images/proofdoc'), $certificateName);
                 $request['categorycertificate'] = $certificateName;
             }
-            $classes = EducationDetails::orderBy('classes')->get();
-            dd($classes);
+            
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
@@ -162,7 +162,7 @@ class ScholarshipController extends Controller
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "fee" => $request['fee'],
-                "classes" => $classes,
+                "class" => $class,
                 "physicallychallengedproof" => $imageName ?? "",
                 "categorycertificate" => $certificateName ??"",
                 "step1_updated_at" => now(),
