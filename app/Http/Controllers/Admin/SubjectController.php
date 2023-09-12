@@ -45,12 +45,6 @@ class SubjectController extends Controller
         return view("admin.subject.add")->with("classSelect", $classSelect);
     }
 
-    public function editdata()
-    {
-        $classSelect = $this->getClassSelectData();
-        dd($classSelect);
-        return view("admin.subject.editdata")->with("classSelect", $classSelect);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -133,6 +127,14 @@ class SubjectController extends Controller
         return view('admin.subject.editdata')->with([
             "data"=>$data
         ]);
+    }
+
+    
+    public function editdata()
+    {
+        $classSelect = $this->getClassSelectData();
+        dd($classSelect);
+        return view("admin.subject.editdata")->with("classSelect", $classSelect);
     }
 
     /**
