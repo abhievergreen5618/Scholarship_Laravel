@@ -141,8 +141,8 @@ class ScholarshipController extends Controller
                 $image->move(public_path('images/proofdoc'), $certificateName);
                 $request['categorycertificate'] = $certificateName;
             }
-            $classes = EducationDetails::where('classes')->get();
-            dd($classes);
+            $classes = EducationDetails::orderBy('classes')->get();
+            
             User::where('id',decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
