@@ -161,7 +161,7 @@ class ScholarshipController extends Controller
                 "category" => $request['category'],
                 "fee" => $request['fee'],
                 "physicallychallengedproof" => $imageName ?? "",
-                "categorycertificatd" => $certificateName ??"",
+                "categorycertificate" => $certificateName ??"",
                 "step1_updated_at" => now(),
             ]);
             return response()->json([
