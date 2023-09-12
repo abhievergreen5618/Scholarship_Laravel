@@ -72,6 +72,10 @@ class ClassController extends Controller
      */ 
     public function store(ClassRequest $request)
     {
+
+        // $selectedClass = $request->input('class');
+        // $valueExists = DB::table('class_models')->where('class', $selectedClass)->exists();
+
         $request->validate(
             [
                 "class"=>'required',
