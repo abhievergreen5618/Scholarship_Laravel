@@ -525,7 +525,7 @@
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step2_updated_at))
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step4_updated_at))
                         ? auth()->user()->accountno : ''}}</span>
                 </td>
             </tr>
