@@ -22,7 +22,7 @@
         </td>
         <td class="colon">:</td>
             <td>
-                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->bank()->accountno : ''}}" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->accountno : ''}}" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
             </td>
     </tr>
     <tr>

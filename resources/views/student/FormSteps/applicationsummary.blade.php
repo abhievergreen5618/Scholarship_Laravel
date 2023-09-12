@@ -538,7 +538,8 @@
                 <td>
                     <span
                         id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->cnfrmaccountno : ''}}</span>
+                        ? auth()->user()->cnfrmaccountno : ''}}dd(auth()->user()->cnfrmaccountno);
+</span>
                 </td>
             </tr>
             <tr>
