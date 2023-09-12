@@ -9,6 +9,7 @@ use App\Models\ClassModel;
 use App\Models\Subject;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB; 
+use Illuminate\Database\QueryException;
 
 class ClassController extends Controller
 {
