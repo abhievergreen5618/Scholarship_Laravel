@@ -31,7 +31,7 @@
                             <option value="">Select Classes</option>
                             @if (!empty($classSelect))
                                 @foreach (json_decode($classSelect) as $class)
-                                    <option value="{{ $class }}" {{(in_array($class,$class,$data->classes) ? 'selected' : ''}}>{{ $class }}</option>
+                                    <option value="{{ $class }}" {{(in_array($class,$class,$data->classes)) ? 'selected' : ''}}>{{ $class }}</option>
                                 @endforeach
                             @endif
                         </select>
