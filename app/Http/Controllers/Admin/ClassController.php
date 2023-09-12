@@ -73,9 +73,7 @@ class ClassController extends Controller
     public function store(ClassRequest $request)
     {
 
-        // $selectedClass = $request->input('class');
-        // $valueExists = DB::table('class_models')->where('class', $selectedClass)->exists();
-
+        $classExists = ClassModel::where('class', $class)->exists();
         $request->validate(
             [
                 "class"=>'required',
@@ -83,14 +81,19 @@ class ClassController extends Controller
                 "status"=>'required',
             ]
             );
-       
+            if ($classExists) {
+                return redirect()->back()->with('error', 'Class already exists.');
+            } 
+            else 
+            {
         ClassModel::create([
             "class" => $request->class,
             "description" => $request->description,
             "status" => $request->status,
         ]);
-        
+    
         return redirect(route('admin.class.index'))->with("msg", "Class Created Successfully");
+    }
     }
 
 
