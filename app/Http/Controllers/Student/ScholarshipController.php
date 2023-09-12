@@ -107,7 +107,7 @@ class ScholarshipController extends Controller
             'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
             "category" => "required",
             'categorycertificate' => 'required',
-            'fee' => "required",
+            // 'fee' => "required",
             "email" => "required|email",
         ],
         [
