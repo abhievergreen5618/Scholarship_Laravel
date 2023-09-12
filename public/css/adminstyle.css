@@ -1,3 +1,34 @@
-div.dataTables_filter {
+div#classtable_filter {
+    float: right;
+}
+div#classtable_paginate {
+    float: right;
+}
+
+div#subjecttable_filter {
+    float: right;
+}
+div#subjecttable_paginate {
+    float: right;
+}
+
+div#scholarshiptable_filter {
+    float: right;
+}
+div#scholarshiptable_paginate {
+    float: right;
+}
+
+div#usertable_filter {
+    float: right;
+}
+div#usertable_paginate {
+    float: right;
+}
+
+div#feetable_filter {
+    float: right;
+}
+div#feetable_paginate {
     float: right;
 }
