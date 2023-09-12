@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Subject;
 use App\Models\ClassModel;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Validation\Validator; 
+use Illuminate\Validation\Validator;
 
 class SubjectController extends Controller
 {
@@ -57,7 +57,7 @@ class SubjectController extends Controller
      {
          if ($request->ajax()) {
              $data = Subject::latest()->get(['id','name','classes','description','status']);
-            
+
              return Datatables::of($data)->addIndexColumn()
                  ->addColumn('action', function ($row) {
                      $id = encrypt($row->id);
@@ -138,6 +138,7 @@ class SubjectController extends Controller
 
     $classSelect = $classes->pluck('class')->toArray();
     $classSelect = json_encode($classSelect);
+    dd($classSelect);
         return view("admin.subject.editdata")->with("classSelect", $classSelect);
     }
 
@@ -166,7 +167,7 @@ class SubjectController extends Controller
             "status" => $request->status,
         ]);
         return redirect(route('admin.subjects.index'))->with("msg", "Subject Updated Successfully");
-  
+
     }
 
     /**
@@ -186,7 +187,7 @@ class SubjectController extends Controller
             Subject::where("id",decrypt($request['id']))->delete();
             $msg = "Deleted Successfully";
             return response()->json(array('msg' => $msg),200);
-        
+
     }
 
 
@@ -195,14 +196,14 @@ class SubjectController extends Controller
         $request->validate(
             [
                 "id"=>"required",
-            ] 
+            ]
             );
             $status = Subject::where('id',decrypt($request['id']))->first('status');
             $status = ($status['status'] == "active") ? "inactive" : "active";
             Subject::where('id',decrypt($request['id']))->Update([
                 "status"=>$status,
             ]);
-            
+
         $msg = "Status Updated Successfully";
         return response()->json(array("msg" => $msg), 200);
     }
