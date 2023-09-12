@@ -39,13 +39,7 @@
         @php
             $valueExists = DB::table('class_models')->where('class', $i)->exists();
             $isSelected = (isset($data) && $data['class'] == $i) ? 'selected' : '';
-            if(!isset($data) || $data['class'] != $i) 
-        {
-            $valueExists = DB::table('class_models')->where('class', $i)->exists();
-            if(!$valueExists) {
-                echo "<option value='$i'>$i</option>";
-            }
-        }
+            
         @endphp
         <option value="{{ $i }}" {{ $isSelected }}>{{ $i }}</option>
     @endfor
