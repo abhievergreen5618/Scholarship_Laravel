@@ -73,7 +73,7 @@ class ClassController extends Controller
     public function store(ClassRequest $request)
     {
 
-        $classExists = ClassModel::where('class', $class)->exists();
+        $classExists = ClassModel::where('class')->exists();
         $request->validate(
             [
                 "class"=>'required',
