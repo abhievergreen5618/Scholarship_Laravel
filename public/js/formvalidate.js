@@ -259,12 +259,12 @@ $(document).ready(function () {
             
             $("#proofofdocuments").show();
             $("#fee").show();
-            $("#category").prop("disabled", true);
+            // $("#category").prop("disabled", true);
         } else {
             
             $("#proofofdocuments").hide();
             $("#fee").hide();
-            $("#category").prop("disabled", false);
+            // $("#category").prop("disabled", false);
         }
     });
 });
