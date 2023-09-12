@@ -559,10 +559,10 @@
     });
 
     // Function to update the fee based on user selections
-    function updateFee(option) {
+    function updateFee(feetype) {
         // Make an AJAX request to fetch the fee based on the selected option
         $.ajax({
-            url: '/get-fee/' + option, // Replace with your route or URL
+            url: '/get-fee/' + feetype, // Replace with your route or URL
             method: 'GET',
             success: function(response) {
                 // Update the fee display based on the response
