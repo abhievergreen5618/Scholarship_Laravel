@@ -35,7 +35,7 @@ class UserDetail extends Controller
         } );
 
         $classfilter = $classfilter->all();
-        dd($classfilter);
+       
 
         if ($request->ajax()) {
             $data = DB::table('users')->select(['id','name','email','mobileno','class','gender','dob','paddress','status'])->latest()->get();
