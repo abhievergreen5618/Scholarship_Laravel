@@ -33,7 +33,7 @@
     @endfor
 </select> -->
 
-<select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
+<!-- <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
     <option value="">Select Class</option>
     @for ($i = 1; $i <= 12; $i++)
         @php
@@ -42,7 +42,20 @@
         @endphp
         <option value="{{ $i }}" {{ $isSelected }}>{{ $i }}</option>
     @endfor
+</select> -->
+
+<select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
+    <option value="">Select Class</option>
+    @for ($i = 1; $i <= 12; $i++)
+        @php
+            $valueExists = DB::table('class_models')->where('class', $i)->exists();
+            $isSelected = (old('class', isset($data) ? $data['class'] : null) == $i) ? 'selected' : '';
+            $isDisabled = $valueExists ? 'disabled' : ''; // Disable if value already exists
+        @endphp
+        <option value="{{ $i }}" {{ $isSelected }} {{ $isDisabled }}>{{ $i }}</option>
+    @endfor
 </select>
+
 
 
                         @error('class')
