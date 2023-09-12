@@ -40,7 +40,6 @@ class ScholarshipController extends Controller
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
 
-        $fee = FeeDetail::where('feetype','physically challenged')->orderBy('fee')->get();
 
         if(!empty(Auth::user()->step2_updated_at))
         {
@@ -172,6 +171,16 @@ class ScholarshipController extends Controller
             ],200);
         }
     }
+
+
+    public function getFee($option)
+    {
+        $fee = FeeModel::where('option', $option)->value('fee');
+    
+        return response()->json(['fee' => $fee]);
+    }
+    
+
 
     /**Store education data */
     public function educationInfoStore(Request $request){

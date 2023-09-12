@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
         Route::any('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
     });
+    Route::get('/get-fee/{option}', 'ScholarshipController@getFee');
 
     Route::post('districtslist',[ScholarshipController::class,'getDistricts']);
 

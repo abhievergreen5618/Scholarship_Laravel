@@ -466,7 +466,7 @@
                                                                 <div class="input-group mb-3">
                                                                     <input type="file" class="form-control"
                                                                         id="categorycertificate"
-                                                                        name="categorycertificate">
+                                                                       name="categorycertificate">
                                                                 </div>
                                                             </form>
 
@@ -485,16 +485,12 @@
                                 </td>
                                 <td class="colon">:</td><span style="color: red">*</span>
                                 <td>
-        <div id="fee"
-             {{ !empty(auth()->user()->physicallychallenged == "yes") ? 'style="display:none;"' : ''}}>
-        @foreach($fee as $feeDetail)
-        {{ $feeDetail['fee'] }}
-    @endforeach
-
-        </div>
+                                    <div id="fee">
+        
+                                    </div>
    
 
-</td>
+                                </td>
 
 
                             </tr>
@@ -546,5 +542,47 @@
         multiple: true
         });
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+    // Handle change event for Physically Challenged radio buttons
+    $('input[name="physicallychallenged"]').on('change', function() {
+        var physicallyChallenged = $(this).val();
+        updateFee(physicallyChallenged);
+    });
+
+    // Handle change event for Category select dropdown
+    $('#category').on('change', function() {
+        var category = $(this).val();
+        updateFee(category);
+    });
+
+    // Function to update the fee based on user selections
+    function updateFee(option) {
+        // Make an AJAX request to fetch the fee based on the selected option
+        $.ajax({
+            url: '/get-fee/' + option, // Replace with your route or URL
+            method: 'GET',
+            success: function(response) {
+                // Update the fee display based on the response
+                if (response.fee) {
+                    $('#fee').html('Fee: $' + response.fee);
+                } else {
+                    $('#fee').html(''); // Clear the fee display if no fee is found
+                }
+            },
+            error: function() {
+                // Handle errors if needed
+            }
+        });
+    }
+
+    // Initialize the fee display when the page loads
+    var selectedOption = $('input[name="physicallychallenged"]:checked').val();
+    updateFee(selectedOption);
+});
+
+
 </script>
 

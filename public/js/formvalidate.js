@@ -252,6 +252,7 @@ jQuery('#bankform').validate({
 
 
 
+
 $(document).ready(function () {
     $("input[name='physicallychallenged']").change(function (e) {
         var physicallyChallengedValue = $(this).val(); 
