@@ -548,7 +548,7 @@
     $(document).ready(function() {
     $('input[name="physicallychallenged"]').on('change', function() {
         var physicallyChallenged = $(this).val();
-        if (physicallyChallenged === "physically challenged") {
+        if (physicallyChallenged === "yes") {
         updateFee(physicallyChallenged);
     }else {
         $('#fee').html('');

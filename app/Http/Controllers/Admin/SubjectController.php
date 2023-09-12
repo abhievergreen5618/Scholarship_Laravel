@@ -35,7 +35,7 @@ class SubjectController extends Controller
 
         $classSelect = $classes->pluck('class')->toArray();
         $classSelect = json_encode($classSelect);
-
+        dd($classSelect);
         return $classSelect;
     }
 
