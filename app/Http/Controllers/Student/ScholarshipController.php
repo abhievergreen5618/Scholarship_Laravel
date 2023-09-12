@@ -26,6 +26,9 @@ class ScholarshipController extends Controller
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
 
+        
+        $class = EducationDetails::orderBy('classes')->get();
+
         $subjects = Subject::where('status','active')
         ->orderBy('name', 'asc')->get();
         $subjectSelect = $subjects->pluck('name')->toArray();
@@ -88,7 +91,6 @@ class ScholarshipController extends Controller
     public function create(Request $request)
     {
 
-        $class = EducationDetails::orderBy('classes')->get();
         $validator = Validator::make($request->all(), [
             // "scholarshipname" => "required",
             "name" => "required",
