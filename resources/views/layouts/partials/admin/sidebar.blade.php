@@ -112,7 +112,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa fa-user-o" aria-hidden="true"></i>
               <p>
               User Details
                 <i class="right fas fa-angle-left"></i>
