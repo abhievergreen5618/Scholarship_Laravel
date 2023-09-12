@@ -18,32 +18,32 @@
                 <div>
                     <div class="form-group">
                         <label>Class</label>
-                        <!-- <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
+                        <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
     <option value="">Select Class</option>
     @for($i=1;$i<=12;$i++)
         @php
         if(!isset($data) || $data['class'] != $i) 
         {
             $valueExists = DB::table('class_models')->where('class', $i)->exists();
+            $isSelected = (isset($data) && $data['class'] == $i) ? 'selected' : '';
             if(!$valueExists) {
                 echo "<option value='$i'>$i</option>";
             }
         }
         @endphp
     @endfor
-</select> -->
+</select>
 
-<select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
+<!-- <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
     <option value="">Select Class</option>
     @for ($i = 1; $i <= 12; $i++)
         @php
             $valueExists = DB::table('class_models')->where('class', $i)->exists();
-            $isSelected = (isset($data) && $data['class'] == $i) ? 'selected' : '';
             
         @endphp
         <option value="{{ $i }}" {{ $isSelected }}>{{ $i }}</option>
     @endfor
-</select>
+</select> -->
 
 
 
