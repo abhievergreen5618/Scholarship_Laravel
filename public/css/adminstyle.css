@@ -1,4 +1,4 @@
-div#classtable_filter {
+div.dataTables_filter {
     float: right;
 }
 div#classtable_paginate {
