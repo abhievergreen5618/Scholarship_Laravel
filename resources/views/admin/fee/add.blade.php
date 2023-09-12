@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label>Fee Type</label>
                         <select class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype">
-    <option value="">Select Fee Type</option>
+    <option value="">Select Fee Category</option>
    <option value="physically challenged" @if(!empty(auth()->user()->step1_updated_at))
     {{auth()->user()->category == "physicallychallenged" ? 'selected' : ''}} @endif>Physically Challenged</option> 
 
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group mb-2">
                         <label for="exampleInputEmail1">{{ __('Fee') }}</label>
-                        <input type="text" class="form-control @error('fee') {{ 'is-invalid' }} @enderror" id="fee" name="fee" rows="3" placeholder="Enter Fee Amount"  value="{{@old('name',$data->fee)}}">
+                        <input type="number" class="form-control @error('fee') {{ 'is-invalid' }} @enderror" id="fee" name="fee" rows="3" placeholder="Enter Fee Amount"  value="{{@old('name',$data->fee)}}">
                     </div>
                     <div class="form-group mb-2">
                         <label for="exampleInputEmail1">{{ __('Description') }}</label>
