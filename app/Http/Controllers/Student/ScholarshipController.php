@@ -174,7 +174,7 @@ class ScholarshipController extends Controller
     public function getFee($option)
     {
         $fee = FeeDetail::where('option', $option)->value('fee');
-    
+    dd($fee);
         return response()->json(['fee' => $fee]);
     }
     
