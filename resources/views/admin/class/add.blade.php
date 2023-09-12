@@ -68,12 +68,4 @@
     </div>
 </div>
 
-
-<script>
-$(document).ready(function() {
-  $("#classSelect").change(function() {
-    $(this).prop("disabled", true);
-  });
-});
-</script>
 @endsection
