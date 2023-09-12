@@ -25,6 +25,7 @@
         if(!isset($data) || $data['class'] != $i) 
         {
             $valueExists = DB::table('class_models')->where('class', $i)->exists();
+            $isSelected = (isset($data) && $data['class'] == $i) ? 'selected' : '';
             if(!$valueExists) {
                 echo "<option value='$i'>$i</option>";
             }
