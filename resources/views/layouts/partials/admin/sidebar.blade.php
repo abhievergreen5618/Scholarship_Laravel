@@ -112,45 +112,45 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa-solid fa-user"></i>
+              <i class="fa fa-user-o" aria-hidden="true"></i>
               <p>
-                User Details
+              User Details
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('admin.user.add')}}" class="nav-link active">
+                <a href="{{route('admin.subject.add')}}" class="nav-link active">
                   <i class="fas fa-plus  nav-icon"></i>
                   <p>Add User</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('admin.user.index')}}" class="nav-link">
+                <a href="{{route('admin.subjects.index')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>View All User</p>
                 </a>
               </li>
             </ul>
           </li>
-
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa-solid fa-user"></i>
+              <i class="nav-icon fas fa-graduation-cap"></i>
               <p>
-                Fee Details
+              Fee Details
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('admin.fee.add')}}" class="nav-link active">
+                <a href="{{route('admin.subject.add')}}" class="nav-link active">
                   <i class="fas fa-plus  nav-icon"></i>
                   <p>Add Fee</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('admin.fee.index')}}" class="nav-link">
+                <a href="{{route('admin.subjects.index')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>View Fee Details</p>
                 </a>

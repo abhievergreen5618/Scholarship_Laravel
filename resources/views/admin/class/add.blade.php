@@ -6,7 +6,7 @@
         <div class="card-header">
             <h3 class="card-title">{{ __('Add Class') }}</h3>
         </div>
-        <!-- /.card-header -->
+        <!-- /.card-header --> 
             <form id="class-add-form" action="{{ isset($data) ? route('admin.class.update') : route('admin.class.store') }}" method="POST">
     @csrf
 
