@@ -28,6 +28,7 @@ class ScholarshipController extends Controller
 
         
         $class = EducationDetails::orderBy('classes')->get();
+        dd($class);
 
         $subjects = Subject::where('status','active')
         ->orderBy('name', 'asc')->get();
