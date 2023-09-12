@@ -28,7 +28,7 @@ class ScholarshipController extends Controller
 
         
         $class = EducationDetails::orderBy('classes')->get();
-        dd($class);
+        
 
         $subjects = Subject::where('status','active')
         ->orderBy('name', 'asc')->get();
@@ -55,7 +55,8 @@ class ScholarshipController extends Controller
                 "subjectSelect" => $subjectSelect,
                 "classes" => $classes,
                 "scholarshipSelect" => $scholarshipSelect,
-                "fee" => $fee
+                "fee" => $fee,
+                "class" => $class
             ]);
         }
         else
@@ -65,7 +66,8 @@ class ScholarshipController extends Controller
                 'subjectSelect' => $subjectSelect,
                 'classes' => $classes,
                 'scholarshipSelect' => $scholarshipSelect,
-                'fee' => $fee
+                'fee' => $fee,
+                'class' => $class
             ]);
         }
     }
