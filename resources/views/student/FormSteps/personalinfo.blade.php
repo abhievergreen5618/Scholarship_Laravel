@@ -567,7 +567,7 @@
             success: function(response) {
                 // Update the fee display based on the response
                 if (response.fee) {
-                    $('#fee').html('Fee: $' + response.fee);
+                    $('#fee').html('Rs.' + response.fee);
                 } else {
                     $('#fee').html(''); // Clear the fee display if no fee is found
                 }
