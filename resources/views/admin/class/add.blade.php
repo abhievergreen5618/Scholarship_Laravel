@@ -33,28 +33,25 @@
     @endfor
 </select> -->
 
-<!-- <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
-    <option value="">Select Class</option>
-    @for ($i = 1; $i <= 12; $i++)
-        @php
-            $valueExists = DB::table('class_models')->where('class', $i)->exists();
-            $isSelected = (isset($data) && $data['class'] == $i) ? 'selected' : '';
-        @endphp
-        <option value="{{ $i }}" {{ $isSelected }}>{{ $i }}</option>
-    @endfor
-</select> -->
-
 <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class">
     <option value="">Select Class</option>
     @for ($i = 1; $i <= 12; $i++)
         @php
             $valueExists = DB::table('class_models')->where('class', $i)->exists();
-            $isSelected = (old('class', isset($data) ? $data['class'] : null) == $i) ? 'selected' : '';
-            $isDisabled = $valueExists ? 'disabled' : ''; // Disable if value already exists
+            $isSelected = (isset($data) && $data['class'] == $i) ? 'selected' : '';
+            if(!isset($data) || $data['class'] != $i) 
+        {
+            $valueExists = DB::table('class_models')->where('class', $i)->exists();
+            if(!$valueExists) {
+                echo "<option value='$i'>$i</option>";
+            }
+        }
         @endphp
-        <option value="{{ $i }}" {{ $isSelected }} {{ $isDisabled }}>{{ $i }}</option>
+        <option value="{{ $i }}" {{ $isSelected }}>{{ $i }}</option>
     @endfor
 </select>
+
+
 
 
 
