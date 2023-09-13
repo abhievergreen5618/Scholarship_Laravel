@@ -59,7 +59,7 @@ class UserDetail extends Controller
                     return $statusBtn;
                 })
                
-                ->rawColumns(['action','status'])
+                ->rawColumns(['action','status']) 
                 ->make(true);
         }
     }
