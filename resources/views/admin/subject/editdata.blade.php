@@ -29,15 +29,11 @@
                         <div class="select2-purple">
                    
                         @php
-    $selectedId = (!isset($data) || empty($data['classes'])) ? '' : implode(', ', $data['classes']);
-    $valueExists = DB::table('subjects')->whereIn('classes', $data['classes'])->exists();
+    $selectedId = (!isset($data) || !is_array($data['classes'])) ? '' : implode(', ', (array) $data['classes']);
+    $valueExists = DB::table('subjects')->whereIn('classes', (array) $data['classes'])->exists();
 @endphp
 
 <input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" >
-
-
-
-
 
                         </div>
                         @error('class')
