@@ -33,19 +33,12 @@
     @endfor
 </select>
 
+@error('class')
+<div>
+    <label class="error fail-alert  mt-1">{{ $message }}</label>
+</div> 
+@enderror
 
-
-
-
-
-
-
-
-                        @error('class')
-                        <div>
-                            <label class="error fail-alert  mt-1">{{ $message }}</label>
-                        </div> 
-                        @enderror
                     </div>
                     <div class="form-group mb-2">
                         <label for="exampleInputEmail1">{{ __('Description') }}</label>
