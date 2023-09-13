@@ -24,7 +24,7 @@
     $valueExists = DB::table('class_models')->where('class', $selectedId)->exists();
 @endphp
 
-<input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
+<input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" id="class" name="class" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
 
 
 
@@ -48,7 +48,7 @@
                         <textarea class="form-control @error('description') {{ 'is-invalid' }} @enderror" id="description" name="description" rows="3" placeholder="Enter ...">{{@old('name',$data->description)}}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1" class="">{{ __('Status') }}</label>
+                        <label for="exampleInputEmail1" id="status" class="">{{ __('Status') }}</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" id="active" value="active" @isset($data) @if($data['status']=="active" ) {{"checked"}} @endif @endisset>
                             <label class="form-check-label" for="active">Active</label>

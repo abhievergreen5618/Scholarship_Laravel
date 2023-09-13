@@ -107,6 +107,36 @@ $(document).ready(function () {
     });
 
 
+
+
+        const form = document.getElementById("class-add-form");
+        const classInput = document.getElementById("class");
+        const statusInput = document.getElementById("status");
+
+        form.addEventListener("submit", function (event) {
+            let valid = true;
+
+            
+            if (classInput.value === "") {
+                error.textContent = "Class is required.";
+                valid = false;
+            } else {
+                error.textContent = "";
+            }
+
+            if (statusInput.value === "") {
+                error.textContent = "Status is required.";
+                valid = false;
+            } else {
+                error.textContent = "";
+            }
+
+            if (!valid) {
+                event.preventDefault(); // Prevent form submission if validation fails
+            }
+        });
+
+
     //---------------------------------------CLASS TABLE END---------------------------
 
     //----------------------------------------SUBJECT TABLE START---------------------------
