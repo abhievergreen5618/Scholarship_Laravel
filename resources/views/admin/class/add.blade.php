@@ -35,7 +35,7 @@
 
 @error('class')
 <div>
-    <label class="error fail-alert  mt-1">{{ $message }}</label>
+    <label class="error fail-alert  mt-1" id="class-error">{{ $message }}</label>
 </div> 
 @enderror
 
@@ -56,7 +56,7 @@
                         </div>
                         @error('status')
                         <div>
-                            <label class="error fail-alert  mt-1">{{ $message }}</label>
+                            <label class="error fail-alert  mt-1" id="status-error">{{ $message }}</label>
                         </div>
                         @enderror
                     </div>
