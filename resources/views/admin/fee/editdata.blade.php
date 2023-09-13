@@ -17,17 +17,17 @@
             <div class="card-body">
                 <div>
                     <div class="form-group">
-                        <label>Fee Type</label>
-                        @php
+                    @php
     $selectedId = (!isset($data) || $data['feetype'] == '') ? null : $data['feetype'];
     $valueExists = DB::table('fee_details')->where('feetype', $selectedId)->exists();
 @endphp
 
 <select class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype">
     <option value="" {{ is_null($selectedId) ? 'selected' : '' }} @if ($valueExists) disabled @endif>
-        {{ $valueExists ? 'Value Exists' : 'No Value' }}
+        {{ is_null($selectedId) ? 'Select Value' : $selectedId }}
     </option>
 </select>
+
 
 
                         @error('feetype')
