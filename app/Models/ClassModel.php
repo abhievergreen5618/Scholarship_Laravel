@@ -11,7 +11,7 @@ class ClassModel extends Model
 
     protected $fillable = [
         "class",
-        "description",
+        "description", 
         "subject_id",
         "status",
     ];
