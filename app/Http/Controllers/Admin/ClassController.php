@@ -125,7 +125,7 @@ class ClassController extends Controller
     public function edit($id)
     {
         $data = ClassModel::where("id",decrypt($id))->first();
-        return view('admin.class.edit')->with([
+        return view('admin.class.editdata')->with([
             "data"=>$data
         ]);
     }
