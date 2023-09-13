@@ -44,9 +44,6 @@
                             </select> 
  
 
-<!--
-<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" > -->
-
 
                         </div>
                         @error('class')
