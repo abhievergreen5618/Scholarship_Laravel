@@ -19,15 +19,13 @@
                     <div class="form-group">
                         <label>Class</label>
 
-                        <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" id="class" data-placeholder="Select Class" data-dropdown-css-class="select2-purple" @if (isset($data)) disabled @endif>
-    
+                        
         @php
             $selectedId = (!isset($data) || $data['class'] != '') ? '' : 'selected';
             $valueExists = DB::table('class_models')->where('class')->exists();
         @endphp
         <input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
 
-</select>
 
 
 
