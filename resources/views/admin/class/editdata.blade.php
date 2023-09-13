@@ -21,15 +21,12 @@
 
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" id="class" data-placeholder="Select Class" data-dropdown-css-class="select2-purple" @if (isset($data)) disabled @endif>
     <option value="">Select Class</option>
-    @for ($i = 1; $i <= 12; $i++)
         @php
             $selected = (!isset($data) || $data['class'] != $i) ? '' : 'selected';
             $valueExists = DB::table('class_models')->where('class', $i)->exists();
         @endphp
-        <option value="{{ $i }}" {{ $selected }} @if ($valueExists) disabled @endif>
-            {{ $i }}
-        </option>
-    @endfor
+        <input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
+
 </select>
 
 
