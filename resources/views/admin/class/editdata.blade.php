@@ -24,7 +24,7 @@
     @for ($i = 1; $i <= 12; $i++)
         @php
             $selected = (!isset($data) || $data['class'] != $i) ? '' : 'selected';
-            $valueExists = DB::table('class_models')->where('class', $i)->exists();
+            $valueExists = DB::table('class_models')->where('class', $i);
         @endphp
         <option value="{{ $i }}" {{ $selected }} @if ($valueExists) disabled @endif>
             {{ $i }}
