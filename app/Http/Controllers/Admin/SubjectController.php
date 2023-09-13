@@ -127,9 +127,8 @@ class SubjectController extends Controller
     public function editdata()
     {
         
-        $classes = ClassModel::orderBy('class', 'asc')
-            ->get();
-        return view("admin.subject.editdata");
+        $classes = ClassModel::orderBy('class')->get();
+        return view("admin.subject.editdata")->with('clases',$classes);
     }
     
 
