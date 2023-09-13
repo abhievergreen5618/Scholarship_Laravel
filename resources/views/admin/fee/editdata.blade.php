@@ -20,7 +20,11 @@
                         <label>Fee Type</label>
                         <select class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype">
     <option value="">Select Fee Category</option>
-
+    @foreach(['physicallychallenged', 'OBC', 'SC', 'ST', 'General'] as $category)
+        <option value="{{ $category }}" {{ auth()->check() && auth()->user()->category == $category ? 'selected' : '' }}>
+            {{ ucfirst($category) }}
+        </option>
+    @endforeach
 </select>
 
                         @error('feetype')
