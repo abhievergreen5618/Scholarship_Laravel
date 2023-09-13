@@ -19,12 +19,12 @@
                     <div class="form-group">
                         <label>Class</label>
 
-                        
-        @php
-            $selectedId = (!isset($data) || $data['class'] != '') ? '' : 'selected';
-            $valueExists = DB::table('class_models')->where('class')->exists();
-        @endphp
-        <input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
+                        @php
+    $selectedId = (!isset($data) || $data['class'] == '') ? null : $data['class'];
+    $valueExists = DB::table('class_models')->where('class', $selectedId)->exists();
+@endphp
+
+<input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
 
 
 
