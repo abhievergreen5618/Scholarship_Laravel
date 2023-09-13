@@ -141,14 +141,12 @@ class ClassController extends Controller
     {
         $request->validate(
             [
-                "class"=>'required',
                 "description"=>'required',
                 "status"=>'required',
             ]
             );
 
         ClassModel::where("id",decrypt($request['id']))->update([
-            "class" => $request->class,
             "description" => $request->description,
             "status" => $request->status,
         ]);

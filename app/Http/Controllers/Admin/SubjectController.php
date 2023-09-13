@@ -147,7 +147,6 @@ class SubjectController extends Controller
     {
         $request->validate(
             [
-                "name" => 'required',
                 "classes"=>'required',
                 "description"=>'required',
                 "status"=>'required',
@@ -155,7 +154,6 @@ class SubjectController extends Controller
             );
 
         Subject::where("id",decrypt($request['id']))->update([
-            "name" => $request->name,
             "classes" => $request->classes,
             "description" => $request->description,
             "status" => $request->status,

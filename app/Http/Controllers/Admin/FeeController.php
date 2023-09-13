@@ -95,7 +95,6 @@ class FeeController extends Controller
     {
         $request->validate(
             [
-                "feetype" => "required",
                 "fee"=>'required',
                 "description"=>'required',
                 "status"=>'required',
@@ -103,7 +102,6 @@ class FeeController extends Controller
             );
 
             FeeDetail::where("id",decrypt($request['id']))->update([
-            "feetype" => $request->feetype,
             "fee" => $request->fee,
             "description" => $request->description,
             "status" => $request->status,
