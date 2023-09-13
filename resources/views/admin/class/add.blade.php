@@ -47,11 +47,11 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="">{{ __('Status') }}</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" class="status" id="active" value="active" @isset($data) @if($data['status']=="active" ) {{"checked"}} @endif @endisset>
+                            <input class="form-check-input" type="radio" name="status" id="active" value="active" @isset($data) @if($data['status']=="active" ) {{"checked"}} @endif @endisset>
                             <label class="form-check-label" for="active">Active</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" class="status" id="inactive" value="inactive" @isset($data) @if($data['status']=="inactive" ) {{"checked"}} @endif @endisset>
+                            <input class="form-check-input" type="radio" name="status" id="inactive" value="inactive" @isset($data) @if($data['status']=="inactive" ) {{"checked"}} @endif @endisset>
                             <label class="form-check-label" for="inactive">Inactive</label>
                         </div>
                         @error('status')
@@ -76,7 +76,7 @@
     document.addEventListener("DOMContentLoaded", function () {
         let form = document.getElementById("class-add-form");
         let classInput = document.getElementById("class");
-        let statusInput = document.getElementByClassName("status");
+        let statusInput = document.getElementById("status");
         let classError = document.getElementById("class-error");
         let statusError = document.getElementById("status-error");
     
