@@ -79,13 +79,11 @@ class ScholarshipType extends Controller
     {
         $request->validate(
             [
-                "name"=>'required',
                 "description"=>'required',
                 "status"=>'required',
             ]
             );
         ScholarshipList::where("id",decrypt($request['id']))->update([
-            "name" => $request->name,
             "description" => $request->description,
             "status" => $request->status,
         ]);
