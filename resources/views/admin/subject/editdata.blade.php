@@ -33,8 +33,8 @@
 @endphp
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple">
                         <option value="{{ $selectedId ?: 'Select Value' }}" selected>{{ $selectedId ?: 'Select Value' }}</option>
-                                @if(!empty($classSelect))
-                                    @foreach($classSelect as $class)
+                                @if(!empty($valueExists))
+                                    @foreach($valueExists as $class)
                                     <option value="{{ $class }}">
                                         {{ $class }}
                                     </option>
