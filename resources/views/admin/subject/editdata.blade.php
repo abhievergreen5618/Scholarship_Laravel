@@ -17,7 +17,7 @@
                 <div>
                     <div class="form-group mb-2">
                         <label for="name">{{ __('Subject Name') }}</label>
-                        <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name" name="name" placeholder="Subject Name" value="{{@old('name',$data->name)}}">
+                        <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name" name="name" placeholder="Subject Name" value="{{@old('name',$data->name)}}" readonly>
                     </div>
                     @error('name')
                     <div>
