@@ -115,9 +115,9 @@ $(document).ready(function () {
         let statusError = document.getElementById("status-error");
     
         form.addEventListener("submit", function (event) {
+            console.log("Form submitted");
             let valid = true;
     
-            // Validate Class
             if (classInput.value === "") {
                 classError.textContent = "Class is required.";
                 valid = false;
@@ -125,7 +125,6 @@ $(document).ready(function () {
                 classError.textContent = "";
             }
     
-            // Validate Status
             if (statusInput.value === "") {
                 statusError.textContent = "Status is required.";
                 valid = false;
@@ -134,7 +133,7 @@ $(document).ready(function () {
             }
     
             if (!valid) {
-                event.preventDefault(); // Prevent form submission if validation fails
+                event.preventDefault(); 
             }
         });
     });
