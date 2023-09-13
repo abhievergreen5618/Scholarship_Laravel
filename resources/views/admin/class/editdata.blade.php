@@ -21,11 +21,9 @@
 
                         @php
     $selectedId = (!isset($data) || !is_array($data['class'])) ? '' : implode(', ', $data['class']);
-    $valueExists = DB::table('class_models')->whereIn('class', (array) $data['class'])->exists();
 @endphp
 
-
-<input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ $selectedId ?: 'Select Value' }}" readonly disabled>
+<input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ $selectedId ?: 'Select Value' }}" readonly>
 
 
 
