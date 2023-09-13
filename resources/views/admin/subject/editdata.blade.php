@@ -28,10 +28,10 @@
                         <label>Class</label>
                         <div class="select2-purple">
                    
-                        <!-- @php
+                        @php
     $selectedId = (!isset($data) || empty($data['classes'])) ? '' : implode(', ', $data['classes']);
     $valueExists = DB::table('subjects')->whereIn('classes', $data['classes'])->exists();
-@endphp -->
+@endphp
 
 <input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" >
 
