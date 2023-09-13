@@ -20,9 +20,10 @@
                         <label>Class</label>
 
                         @php
-    $selectedId = (!isset($data) || empty($data['class'])) ? '' : implode(', ', $data['class']);
-    $valueExists = DB::table('class_models')->whereIn('class', $data['class'])->exists();
+    $selectedId = (!isset($data) || !is_array($data['class'])) ? '' : implode(', ', $data['class']);
+    $valueExists = DB::table('class_models')->whereIn('class', (array) $data['class'])->exists();
 @endphp
+
 
 <input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ $selectedId ?: 'Select Value' }}" readonly disabled>
 
