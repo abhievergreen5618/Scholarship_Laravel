@@ -143,7 +143,7 @@ class ClassController extends Controller
             [
                 "description"=>'required',
                 "status"=>'required',
-            ]
+            ] 
             );
 
         ClassModel::where("id",decrypt($request['id']))->update([
