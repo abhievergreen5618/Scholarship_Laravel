@@ -35,7 +35,6 @@
                               
                         <option value="{{ $selectedId ?: 'Select Value' }}">{{ $selectedId ?: 'Select Value' }}</option>
                                 @if(!empty($classSelect))
-                                <option value=""></option>
                                     @foreach($classSelect as $class)
                                     <option value="{{ $class }}">
                                         {{ $class }}
