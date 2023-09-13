@@ -16,8 +16,8 @@
             <div class="card-body">
                 <div>
                 @php
-    $selectedId = (!isset($data) || $data['scholarshiptype'] == '') ? null : $data['scholarshiptype'];
-    $valueExists = DB::table('scholarship_lists')->where('scholarshiptype', $selectedId)->exists();
+    $selectedId = (!isset($data) || $data['name'] == '') ? null : $data['name'];
+    $valueExists = DB::table('scholarship_lists')->where('name', $selectedId)->exists();
 @endphp
 
 <input type="text" class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
