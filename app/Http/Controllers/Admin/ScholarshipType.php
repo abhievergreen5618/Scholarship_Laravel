@@ -63,11 +63,15 @@ class ScholarshipType extends Controller
                 ->make(true);
         }
     }
+    public function editdata()
+    {
+        return view('admin.scholarshiptype.editdata');
+    }
 
     public function edit($id) 
     {
         $data = ScholarshipList::where("id",decrypt($id))->first();
-        return view('admin.scholarshiptype.add')->with([
+        return view('admin.scholarshiptype.editdata')->with([
             "data"=>$data
         ]);
     }

@@ -79,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/storescholarships','store')->name('admin.scholarshiptype.store');
         Route::post('/scholarshipdetails','display')->name('admin.scholarshiptype.details');
         Route::get('/scholarshipedit/{id}','edit')->name('admin.scholarshiptype.edit');
+        Route::get('/scholarshipeditdata', 'editdata')->name('admin.scholarshiptype.editdata');
         Route::post('/scholarshipsupdate', 'update')->name('admin.scholarshiptype.update');
         Route::post('/scholarshipdelete', 'destroy')->name('scholarshiptypedelete');
         Route::post('/scholarship-status-update', 'status')->name('scholarship-status-update');
