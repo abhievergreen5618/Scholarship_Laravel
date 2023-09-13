@@ -19,6 +19,9 @@ class SubjectController extends Controller
      */
     public function index()
     {
+        $class = ClassModel::find(2); // Replace $classId with the ID of the class.
+        $subjects = $class->subjects(); // This will give you a collection of subjects associated with the class.
+        dd($subjects);
         return view("admin.subject.index");
     }
 
