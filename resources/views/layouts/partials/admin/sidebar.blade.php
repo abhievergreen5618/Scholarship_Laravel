@@ -136,7 +136,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="a fa-inr"></i>
+              <i class="fa fa-book"></i>
               <p>
                 Fees
                 <i class="right fas fa-angle-left"></i>
