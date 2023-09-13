@@ -126,7 +126,7 @@ class SubjectController extends Controller
 
     public function editdata()
     {
-        return view("admin.subject.editdata")->with("classSelect", $classSelect);
+        return view("admin.subject.editdata");
     }
     
 
