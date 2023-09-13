@@ -32,7 +32,8 @@
     $valueExists = DB::table('subjects')->whereIn('classes', (array) $data['classes'])->exists();
 @endphp
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple">
-                                <option value="{{ $selectedId ?: 'Select Value' }}">{{ $selectedId ?: 'Select Value' }}</option>
+                        {{ $selectedId ?: 'Select Value' }}        
+                        <option value="{{ $selectedId ?: 'Select Value' }}">{{ $selectedId ?: 'Select Value' }}</option>
                                 @if(!empty($classSelect))
                                 <option value=""></option>
                                     @foreach($classSelect as $class)
