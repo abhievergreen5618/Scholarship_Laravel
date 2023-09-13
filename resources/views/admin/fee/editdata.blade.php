@@ -22,11 +22,8 @@
     $valueExists = DB::table('fee_details')->where('feetype', $selectedId)->exists();
 @endphp
 
-<select class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype">
-    <option value="" {{ is_null($selectedId) ? 'selected' : '' }} @if ($valueExists) disabled @endif>
-        {{ is_null($selectedId) ? 'Select Value' : $selectedId }}
-    </option>
-</select>
+<input type="text" class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
+
 
 
 
