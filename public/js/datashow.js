@@ -107,8 +107,7 @@ $(document).ready(function () {
     });
 
 
-
-
+    document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("class-add-form");
         const classInput = document.getElementById("class");
         const statusInput = document.getElementById("status");
@@ -117,7 +116,6 @@ $(document).ready(function () {
         form.addEventListener("submit", function (event) {
             let valid = true;
 
-            
             if (classInput.value === "") {
                 error.textContent = "Class is required.";
                 valid = false;
@@ -125,7 +123,7 @@ $(document).ready(function () {
                 error.textContent = "";
             }
 
-            if (statusInput.value === "") {
+               if (statusInput.value === "") {
                 error.textContent = "Status is required.";
                 valid = false;
             } else {
@@ -136,6 +134,8 @@ $(document).ready(function () {
                 event.preventDefault(); // Prevent form submission if validation fails
             }
         });
+
+});
 
 
     //---------------------------------------CLASS TABLE END---------------------------
