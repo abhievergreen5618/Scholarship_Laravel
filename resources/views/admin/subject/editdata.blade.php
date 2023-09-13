@@ -30,18 +30,14 @@
                     <div class="form-group">
                         <label>Class</label>
                         <div class="select2-purple">
-                        <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple">
-    @if (!empty($classSelect))
-        @foreach ($classSelect as $class)
-            @php
-                $isSelected = in_array($class, $data->classes) ? 'selected' : '';
-            @endphp
-            <option value="{{ $class }}" {{ $isSelected }}>
-                {{ $class }}
-            </option>
-        @endforeach
-    @endif
-</select>
+                         @php
+    $selectedId = (!isset($data) || $data['classes'] == '') ? null : $data['classes'];
+    $valueExists = DB::table('subjects')->where('classes', $selectedId)->exists();
+@endphp
+
+<input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" name="feetype" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
+
+
 
                         </div>
                         @error('class')
