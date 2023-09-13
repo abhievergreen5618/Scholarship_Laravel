@@ -38,13 +38,13 @@
                                     @endforeach
                                     @endif
                             </select> 
-
+<!-- 
 @php
     $selectedId = (!isset($data) || !is_array($data['classes'])) ? '' : implode(', ', (array) $data['classes']);
     $valueExists = DB::table('subjects')->whereIn('classes', (array) $data['classes'])->exists();
 @endphp
 
-<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" >
+<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" > -->
 
 
                         </div>
