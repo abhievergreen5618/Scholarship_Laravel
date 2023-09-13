@@ -112,8 +112,8 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="fa fa-user"></i>
-              <p>
+            <i class="fa fa-user" style="width:25px; height:17px;"></i>
+              <p style="font-size:25px;">
               Users
                 <i class="right fas fa-angle-left"></i>
               </p>
