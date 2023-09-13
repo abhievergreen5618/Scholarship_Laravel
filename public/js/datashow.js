@@ -111,7 +111,7 @@ $(document).ready(function () {
         const form = document.getElementById("class-add-form");
         const classInput = document.getElementById("class");
         const statusInput = document.getElementById("status");
-        const error = document.querySelector(".error");
+        const error = document.getElementsByClassName(".error");
 
         form.addEventListener("submit", function (event) {
             let valid = true;
