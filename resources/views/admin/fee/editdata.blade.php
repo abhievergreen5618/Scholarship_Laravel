@@ -18,32 +18,17 @@
                 <div>
                     <div class="form-group">
                         <label>Fee Type</label>
-                        <select class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype">
-    <option value="">Select Fee Category</option>
-   <option value="physically challenged" @if(!empty(auth()->user()->step1_updated_at))
-    {{auth()->user()->category == "physicallychallenged" ? 'selected' : ''}} @endif>Physically Challenged</option> 
+                        @php
+    $selectedId = (!isset($data) || $data['feetype'] == '') ? null : $data['feetype'];
+    $valueExists = DB::table('fee_details')->where('feetype', $selectedId)->exists();
+@endphp
 
-   <option value="OBC" @if(!empty(auth()->user()->step1_updated_at))
-    {{auth()->user()->category == "OBC" ? 'selected' : ''}} @endif>OBC</option>  
-
-    <option value="SC" @if(!empty(auth()->user()->step1_updated_at))
-    {{auth()->user()->category == "SC" ? 'selected' : ''}} @endif>SC</option>
-
-    <option value="ST" @if(!empty(auth()->user()->step1_updated_at))
-    {{auth()->user()->category == "ST" ? 'selected' : ''}} @endif>ST</option>
-
-    <option value="General" @if(!empty(auth()->user()->step1_updated_at))
-    {{auth()->user()->category == "General" ? 'selected' : ''}} @endif>General</option>
-
-
-        @php
-            $selected = (!isset($data) || $data['feetype'] != $i) ? '' : 'selected';
-            $valueExists = DB::table('fee_details')->where('class', $i)->exists();
-        @endphp
-        <option value="" {{ $selected }} @if ($valueExists) disabled @endif>
-            $valueExists
-        </option>
+<select class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype">
+    <option value="" {{ is_null($selectedId) ? 'selected' : '' }} @if ($valueExists) disabled @endif>
+        {{ $valueExists ? 'Value Exists' : 'No Value' }}
+    </option>
 </select>
+
 
                         @error('feetype')
                         <div>
