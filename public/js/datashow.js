@@ -107,38 +107,6 @@ $(document).ready(function () {
     });
 
 
-    document.addEventListener("DOMContentLoaded", function () {
-        let form = document.getElementById("class-add-form");
-        let classInput = document.getElementById("class");
-        let statusInput = document.getElementById("status");
-        let classError = document.getElementById("class-error");
-        let statusError = document.getElementById("status-error");
-    
-        form.addEventListener("submit", function (event) {
-            console.log("Form submitted");
-            let valid = true;
-    
-            if (classInput.value === "") {
-                classError.textContent = "Class is required.";
-                valid = false;
-            } else {
-                classError.textContent = "";
-            }
-    
-            if (statusInput.value === "") {
-                statusError.textContent = "Status is required.";
-                valid = false;
-            } else {
-                statusError.textContent = "";
-            }
-    
-            if (!valid) {
-                event.preventDefault(); 
-            }
-        });
-    });
-    
-
 
     //---------------------------------------CLASS TABLE END---------------------------
 
