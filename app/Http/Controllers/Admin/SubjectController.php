@@ -115,31 +115,17 @@ class SubjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-{
-    try {
-        $decryptedId = decrypt($id);
-        $data = Subject::where("id", $decryptedId)->first();
-
-        if (!$data) {
-            // Handle the case where no record is found for the decrypted ID
-            // You can redirect with an error message or handle it as needed
-        }
-
+    {
+        //
+        $data = Subject::where("id",decrypt($id))->first();
         return view('admin.subject.editdata')->with([
-            "data" => $data
+            "data"=>$data
         ]);
-    } catch (\Exception $e) {
     }
-}
 
 
     public function editdata()
     {
-        $classes = ClassModel::where('status', 'active')
-        ->orderBy('class', 'asc')
-        ->get();
-
-    $classSelect = $classes->pluck('class')->toArray();
         return view("admin.subject.editdata")->with("classSelect", $classSelect);
     }
     
