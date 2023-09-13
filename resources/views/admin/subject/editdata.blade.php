@@ -29,10 +29,10 @@
                         <div class="select2-purple">
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple" >
                             <option value="">Select Classes</option>
-                            @if(!empty($classSelect) && (is_array($classSelect) || is_object($classSelect)))
-                                @foreach ($classSelect as $class)
-                                    <option value="{{ $class }}" {{(in_array($class,$data->classes)) ? 'selected' : ''}}>{{ $class }}</option>
-                                @endforeach
+                            @if (is_array($classSelect) && !empty($classSelect))
+        @foreach ($classSelect as $class)
+            <option value="{{ $class }}" {{ (is_array($data->classes) && in_array($class, $data->classes)) ? 'selected' : '' }}>
+                @endforeach
                             @endif
                         </select>
 
