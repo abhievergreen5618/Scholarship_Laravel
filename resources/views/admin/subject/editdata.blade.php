@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label>Class</label>
                         <div class="select2-purple">
-                        <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple" >
+                        <!-- <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple" >
                             <option value="">Select Classes</option>
                            @if(!empty($classSelect))
                                     @foreach($classSelect as $class)
@@ -37,6 +37,29 @@
                                     @endforeach
                                     @endif
                         </select>
+
+                        <div class="select2-purple">
+                        @php
+    $selectedId = (!isset($data) || empty($data['classes'])) ? '' : implode(', ', $data['classes']);
+    $valueExists = DB::table('subjects')->whereIn('classes', $data['classes'])->exists();
+@endphp
+
+<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" > -->
+
+
+<select class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple" >
+    <option value="">Select Classes</option>
+    @if (!empty($classSelect))
+        @foreach ($classSelect as $class)
+            <option value="{{ $class }}" {{ in_array($class, $data['classes']) ? 'selected' : '' }}>
+                {{ $class }}
+            </option>
+        @endforeach
+    @endif
+</select>
+
+<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="selectedClasses" value="{{ implode(', ', $data['classes']) ?: 'Select Value' }}" readonly>
+
 
                         </div>
                         @error('class')
