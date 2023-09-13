@@ -101,6 +101,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/storesfee','store')->name('admin.fee.store');
         Route::post('/feedetails','display')->name('admin.fee.details');
         Route::get('/feeedit/{id}','edit')->name('admin.fee.edit');
+        Route::get('/feeeditdata', 'editdata')->name('admin.fee.editdata');
         Route::post('/feeupdate', 'update')->name('admin.fee.update');
         Route::post('/feedelete', 'destroy')->name('feedelete');
         Route::post('/fee-status-update', 'status')->name('fee-status-update');

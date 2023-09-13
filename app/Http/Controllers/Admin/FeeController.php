@@ -56,6 +56,12 @@ class FeeController extends Controller
         return view("admin.fee.add");
     }
 
+
+    public function editdata()
+    {
+        return view("admin.fee.editdata");
+    }
+
     public function store(Request $request)
     {
         $request->validate(
@@ -81,7 +87,7 @@ class FeeController extends Controller
     public function edit($id)
     {
         $data = FeeDetail::where("id",decrypt($id))->first();
-        return view('admin.fee.add')->with([
+        return view('admin.fee.editdata')->with([
             "data"=>$data
         ]);
     }
