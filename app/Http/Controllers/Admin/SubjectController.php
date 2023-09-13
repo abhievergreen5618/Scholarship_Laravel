@@ -130,7 +130,7 @@ class SubjectController extends Controller
         ->orderBy('class', 'asc')
         ->get();
 
-    $classSelect = $classes->pluck('class')->toArray();
+    $classSelect = $classSelect->pluck('class')->toArray();
         return view("admin.subject.editdata")->with("classSelect", $classSelect);
     }
 
