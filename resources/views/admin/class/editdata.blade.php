@@ -24,7 +24,7 @@
     $valueExists = DB::table('class_models')->where('class', $selectedId)->exists();
 @endphp
 
-<input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" id="class" name="class" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
+<input type="text" class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="class" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
 
 
 
