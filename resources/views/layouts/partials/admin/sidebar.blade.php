@@ -112,7 +112,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa fa-user"></i>
               <p>
               User Details
                 <i class="right fas fa-angle-left"></i>
@@ -133,7 +133,7 @@
               </li>
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-graduation-cap"></i>
