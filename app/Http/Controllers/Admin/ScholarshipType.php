@@ -79,7 +79,6 @@ class ScholarshipType extends Controller
     {
         $request->validate(
             [
-                "name"=>'required',
                 "description"=>'required',
                 "status"=>'required',
             ]
