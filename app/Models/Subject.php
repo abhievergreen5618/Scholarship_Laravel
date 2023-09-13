@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model; 
+use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
@@ -13,17 +13,16 @@ class Subject extends Model
         "name",
         "classes",
         "description",
-        "status",  
-    ]; 
+        "status",
+    ];
 
     protected $casts = [
         "classes" => "array",
     ];
 
-    public function classModel()
+    public function classes()
     {
-        return $this->belongsTo(ClassModel::class);
+        return ClassModel::whereIn('id', $this->classes)->get();
     }
-    
+
 }
- 

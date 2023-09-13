@@ -112,9 +112,9 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa fa-user"></i>
               <p>
-              User Details
+              Users
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -133,12 +133,12 @@
               </li>
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-graduation-cap"></i>
               <p>
-              Fee Details
+                Fees
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
