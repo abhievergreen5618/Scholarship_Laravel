@@ -32,3 +32,9 @@ div#feetable_filter {
 div#feetable_paginate {
     float: right;
 }
+
+i.fa.fa-user {
+    width: 25px;
+    height: 17px;
+    font-size: 25px;
+}
