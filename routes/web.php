@@ -54,6 +54,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/createclass','store')->name('admin.class.store');
         Route::post('/classdetails', 'display')->name('admin.class.details');
         Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');
+        Route::get('/classeditdata', 'editdata')->name('admin.class.editdata');
         Route::post('/classupdate', 'update')->name('admin.class.update');
         Route::post('/classdelete', 'destroy')->name('classdelete');
         Route::post('/class-status-update', 'status')->name('class-status-update');

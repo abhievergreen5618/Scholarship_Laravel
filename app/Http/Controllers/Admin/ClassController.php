@@ -65,6 +65,11 @@ class ClassController extends Controller
         return view("admin.class.add");
     }
 
+    public function editdata()
+    {
+        return view("admin.class.editdata");
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -120,7 +125,7 @@ class ClassController extends Controller
     public function edit($id)
     {
         $data = ClassModel::where("id",decrypt($id))->first();
-        return view('admin.class.add')->with([
+        return view('admin.class.edit')->with([
             "data"=>$data
         ]);
     }
