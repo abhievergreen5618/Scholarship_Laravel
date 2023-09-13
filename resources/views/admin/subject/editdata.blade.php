@@ -35,8 +35,8 @@
                         <option value="{{ $selectedId ?: 'Select Value' }}" selected>{{ $selectedId ?: 'Select Value' }}</option>
                                 @if(!empty($classes))
                                     @foreach($classes as $class)
-                                    <option value="{{ $class }}">
-                                        {{ $class }}
+                                    <option value="{{ $class->class }}">
+                                        {{ $class->class }}
                                     </option>
                                     @endforeach
                                     @endif
