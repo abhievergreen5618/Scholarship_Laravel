@@ -15,13 +15,10 @@
             @endisset
             <div class="card-body">
                 <div>
-                @php
-    $selectedId = (!isset($data) || $data['name'] == '') ? null : $data['name'];
-    $valueExists = DB::table('subjects')->where('name', $selectedId)->exists();
-@endphp
-
-<input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" name="feetype" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
-
+                    <div class="form-group mb-2">
+                        <label for="name">{{ __('Subject Name') }}</label>
+                        <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name" name="name" placeholder="Subject Name" value="{{@old('name',$data->name)}}">
+                    </div>
                     @error('name')
                     <div>
                         <label class="error fail-alert  mt-1">{{ $message }}</label>
@@ -30,14 +27,16 @@
                     <div class="form-group">
                         <label>Class</label>
                         <div class="select2-purple">
-                        @php
-    $selectedId = (!isset($data) || empty($data['classes'])) ? '' : implode(', ', $data['classes']);
-    $valueExists = DB::table('subjects')->whereIn('classes', $data['classes'])->exists();
-@endphp
-
-<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" >
-
-
+                        <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple" >
+                            <option value="">Select Classes</option>
+                           @if(!empty($classSelect))
+                                    @foreach($classSelect as $class)
+                                    <option value="{{ $class }}">
+                                        {{ $class }}
+                                    </option>
+                                    @endforeach
+                                    @endif
+                        </select>
 
                         </div>
                         @error('class')
