@@ -127,12 +127,8 @@ class SubjectController extends Controller
     public function editdata()
     {
         
-        $classes = ClassModel::where('status', 'active')
-            ->orderBy('class', 'asc')
+        $classes = ClassModel::orderBy('class', 'asc')
             ->get();
-
-        $classSelect = $classes->pluck('class')->toArray();
-        dd($classSelect);
         return view("admin.subject.editdata");
     }
     
