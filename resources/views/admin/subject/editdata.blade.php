@@ -30,12 +30,12 @@
                     <div class="form-group">
                         <label>Class</label>
                         <div class="select2-purple">
-                         @php
-    $selectedId = (!isset($data) || $data['classes'] == '') ? null : $data['classes'];
-    $valueExists = DB::table('subjects')->where('classes', $selectedId)->exists();
+                        @php
+    $selectedId = (!isset($data) || empty($data['classes'])) ? '' : implode(', ', $data['classes']);
+    $valueExists = DB::table('subjects')->whereIn('classes', $data['classes'])->exists();
 @endphp
 
-<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}">
+<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" readonly>
 
 
 
