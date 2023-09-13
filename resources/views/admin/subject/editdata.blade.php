@@ -15,10 +15,13 @@
             @endisset
             <div class="card-body">
                 <div>
-                    <div class="form-group mb-2">
-                        <label for="name">{{ __('Subject Name') }}</label>
-                        <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name" name="name" placeholder="Subject Name" value="{{@old('name',$data->name)}}">
-                    </div>
+                @php
+    $selectedId = (!isset($data) || $data['name'] == '') ? null : $data['name'];
+    $valueExists = DB::table('subjects')->where('name', $selectedId)->exists();
+@endphp
+
+<input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" name="feetype" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
+
                     @error('name')
                     <div>
                         <label class="error fail-alert  mt-1">{{ $message }}</label>

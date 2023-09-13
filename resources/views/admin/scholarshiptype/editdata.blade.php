@@ -20,7 +20,7 @@
     $valueExists = DB::table('scholarship_lists')->where('name', $selectedId)->exists();
 @endphp
 
-<input type="text" class="form-control @error('feetype') {{ 'is-invalid' }} @enderror" name="feetype" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
+<input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" name="feetype" value="{{ is_null($selectedId) ? 'Select Value' : $selectedId }}" readonly>
 
                     @error('name')
                     <div>
