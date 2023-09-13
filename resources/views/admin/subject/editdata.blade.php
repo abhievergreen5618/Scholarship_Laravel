@@ -35,7 +35,7 @@
     $valueExists = DB::table('subjects')->whereIn('classes', $data['classes'])->exists();
 @endphp
 
-<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}" readonly>
+<input type="text" class="form-control @error('classes') {{ 'is-invalid' }} @enderror" name="classes" value="{{ $selectedId ?: 'Select Value' }}">
 
 
 
