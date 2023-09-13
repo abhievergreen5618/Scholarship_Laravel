@@ -121,7 +121,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.user.add')}}" class="nav-link active">
-                  <<i class="fa fa-user-circle" aria-hidden="true"></i>
+                  <<i class="fa fa-user-circle-o" aria-hidden="true"></i>
                   <p>Add User</p>
                 </a>
               </li>
