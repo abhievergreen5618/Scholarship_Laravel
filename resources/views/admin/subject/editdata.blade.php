@@ -30,11 +30,12 @@
                         @php
     $selectedId = (!isset($data) || !is_array($data['classes'])) ? '' : implode(', ', (array) $data['classes']);
     $valueExists = DB::table('subjects')->whereIn('classes', (array) $data['classes'])->exists();
+    $classvalues = DB::table('class_models')->where('class')->get();
 @endphp
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple">
                         <option value="{{ $selectedId ?: 'Select Value' }}" selected>{{ $selectedId ?: 'Select Value' }}</option>
-                                @if(!empty($valueExists))
-                                    @foreach($valueExists as $class)
+                                @if(!empty($classvalues))
+                                    @foreach($classvalues as $class)
                                     <option value="{{ $class }}">
                                         {{ $class }}
                                     </option>
