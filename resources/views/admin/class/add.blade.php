@@ -17,7 +17,7 @@
             <div class="card-body">
                 <div>
                     <div class="form-group">
-                        <label>Class</label>
+                        <label>Name</label>
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" id="class" name="class">
     <option value="">Select Class</option>
     @for($i=1;$i<=12;$i++)

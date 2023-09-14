@@ -12,7 +12,7 @@ jQuery('#frm').validate({
             required:true,
             maxlength:10,
             minlength:10
-        },
+        }, 
         paddress:"required",
         email:{
             required:true,
