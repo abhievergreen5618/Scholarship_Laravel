@@ -32,6 +32,7 @@ class SubjectController extends Controller
     public function create()
     {
         $classes = ClassModel::where('status', 'active')->orderBy('class', 'asc')->pluck("class","id");
+        dd($classes);
         return view("admin.subject.add")->with("classes", $classes);
     }
 
