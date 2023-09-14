@@ -76,7 +76,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // protected $appends = ['ExamCenterName','scholarshipNameSummary','nationalitySummary','genderSummary'];
+    protected $appends = ['ExamCenterName','scholarshipNameSummary','nationalitySummary','genderSummary'];
 
     protected function getExamCenterNameAttribute()
     {
