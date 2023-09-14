@@ -51,7 +51,7 @@
                                                     {{(!empty(auth()->user()->step2_updated_at))
                                                     ? auth()->user()->email : ''}}
                                                 </div>
-                                                <div></div>
+                                                <div class="col"></div>
                                                     </div>
                                                     </div>
                                             </div>
