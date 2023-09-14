@@ -30,6 +30,8 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <form>
+                                        <table>
+                                            <tr>
                                         <div class="container text-center">
                                             <div class="row align-items-start">
                                                 <div class="col">
@@ -42,6 +44,10 @@
                                                 <div class="col">
                                                 <img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" class="rounded float-end" alt="...">
                                                 </div>
+                                                </div>
+                                                    </div>
+                                                    </tr>
+                                                    <tr>
                                                 <div class="container text-center">
                                                     <div class="row align-items-start">
                                                 <div class="col">
@@ -52,10 +58,11 @@
                                                     ? auth()->user()->email : ''}}
                                                 </div>
                                                 <div class="col"></div>
-                                                    </div>
-                                                    </div>
+                                                    
                                             </div>
                                         </div>
+                                                    </tr>
+                                                    </table>
                                     </form>
                                 </div>
                             </div>
