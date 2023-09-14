@@ -13,7 +13,7 @@ class Subject extends Model
         "name",
         "classes",
         "description",
-        "status", 
+        "status",
     ];
 
     protected $casts = [
@@ -22,7 +22,7 @@ class Subject extends Model
 
     public function classes()
     {
-        return ClassModel::whereIn('id', $this->classes)->get();
+        return $this->belongsToMany(ClassModel::class);
     }
 
 }
