@@ -27,17 +27,12 @@
                                 }
                                 @endphp
                                 @endfor -->
-                                @for($i=1;$i<=12;$i++) @php if(!isset($data) || $data['class'] !=$i) { $valueExists=DB::table('class_models')->where('class', $i)->exists();
-                                if(!$valueExists) {
-                                @foreach($classes as $class)
+
+                                 @foreach($classes as $class)
                 <option value="{{ $class->class }}">
                     {{ $class->class }}
                 </option>
             @endforeach
-        }
-                                }
-                                @endphp
-                                @endfor
                         </select>
 
                         @error('class')
