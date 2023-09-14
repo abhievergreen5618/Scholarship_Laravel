@@ -32,8 +32,8 @@
                                     <form>
                                         <table>
                                             <tr>
-                                                <td><b> Name :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                <td colspan="2"><b> Name :</b></td>
+                                                <td colspan="2">{{(!empty(auth()->user()->step2_updated_at))
                                                     ? strtoupper(auth()->user()->name) : ''}}</td>
                                                 <td rowspan="2"><img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" class="rounded float-end" alt="..."></td>
                                             </tr>
