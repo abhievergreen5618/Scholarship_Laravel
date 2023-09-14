@@ -232,7 +232,7 @@
                         ? auth()->user()->category : ''}}</span></span>
             </td>
         </tr>
-        <tr>
+        <tr> 
             <td class="vtext">Detail of Form Fee
                 <br>
                 <strong>शुल्क का विवरण जमा</strong>
