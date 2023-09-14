@@ -20,15 +20,19 @@ $(document).ready(function () {
         "columns": [
             {
                 "data": "class",
+                "defaultContent": "Not Provided"
             }, 
             {
                 "data": "description",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "status",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "action",
+                "defaultContent": "Not Provided"
             },
 
         ],
@@ -130,18 +134,23 @@ $(document).ready(function () {
         "columns": [
             {
                 "data": "name",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "classes",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "description",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "status",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "action",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "created_at",
@@ -249,15 +258,19 @@ $(document).ready(function () {
         "columns": [
             {
                 "data": "name",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "description",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "status",
+                "defaultContent": "Not Provided"
             },
             {
                 "data": "action",
+                "defaultContent": "Not Provided"
             },
 
         ],
@@ -357,12 +370,15 @@ var usertable = $('#usertable').DataTable({
     "columns": [
         {
             "data": "name",
+            "defaultContent": "Not Provided"
         },
         {
             "data": "email",
+            "defaultContent": "Not Provided"
         },
         {
             "data": "mobileno",
+            "defaultContent": "Not Provided"
         },
         {
             "data": "class",
@@ -370,18 +386,23 @@ var usertable = $('#usertable').DataTable({
         },
         {
             "data": "gender",
+            "defaultContent": "Not Provided"
         },
         {
             "data": "dob",
+            "defaultContent": "Not Provided"
         },
         {
             "data": "paddress",
+            "defaultContent": "Not Provided"
         },
         {
             "data": "status",
+            "defaultContent": "Not Provided"
         },
         {
             "data": "action",
+            "defaultContent": "Not Provided"
         },
 
     ],
