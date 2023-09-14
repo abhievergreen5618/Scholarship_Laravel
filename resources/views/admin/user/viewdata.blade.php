@@ -102,7 +102,7 @@
                                             <tr>
                                                 <td ><b>Gender :</b></td>
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->genderSummary : ''}}</td>
+                                                ? auth()->user()->gender : ''}}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Applying for subject ? :</b></td>
