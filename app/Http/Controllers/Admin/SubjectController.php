@@ -128,6 +128,7 @@ class SubjectController extends Controller
     {
         
         $classes = ClassModel::orderBy('class')->get();
+        dd($class);
         return view("admin.subject.editdata")->with('clases',$classes);
     }
     
