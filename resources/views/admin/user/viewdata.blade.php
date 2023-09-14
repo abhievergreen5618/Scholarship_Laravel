@@ -32,11 +32,17 @@
                                     <form>
                                         <table>
                                             <tr>
-                                                <td><b> Name :</b></td>
+                                            <div class="container text-center">
+                                                <div class="row align-items-start">
+                                                    <div class="col">
+                                                        <td><b> Name :</b></td>
+                                                    </div>
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
                                                     ? strtoupper(auth()->user()->name) : ''}}</td>
                                                 <td rowspan="2"><img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" class="rounded float-end" alt="..."></td>
                                             </tr>
+                                                </div>
+                                            </div>
                                             <tr>
                                                 <td><b>E-mail ID :</b></td>
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
