@@ -35,7 +35,9 @@ class UserDetail extends Controller
         } );
 
         $classfilter = $classfilter->all();
-       
+
+        $user = User::find('id');
+        $gender = $user->gender;
 
         if ($request->ajax()) {
             $data = DB::table('users')->select(['id','name','email','mobileno','class','gender','dob','paddress','status'])->where('role','student')->latest()->get();
