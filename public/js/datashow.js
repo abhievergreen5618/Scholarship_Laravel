@@ -124,7 +124,8 @@ $(document).ready(function () {
             },
         },
         "columnDefs": [
-            { "className": "dt-center", "targets": "_all" }
+            { "className": "dt-center", "targets": "_all" },
+            { "visible": false, "targets": [5] } // Hide the "created_at" column
         ],
         "columns": [
             {
@@ -144,16 +145,11 @@ $(document).ready(function () {
             },
             {
                 "data": "created_at",
-                "visible": false,
             }
         ],
-        "order": [[5, 'desc']],
-        "orderCellsTop": true, // Display sorting controls at the top of the table
-        "columnDefs": [
-            { "orderable": false, "targets": [5] } // Disable sorting for the "created_at" column
-        ]
+        "order": [[4, 'desc']] // Order by the "action" column in descending order
     });
-    
+        
     
 
 
