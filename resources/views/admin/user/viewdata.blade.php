@@ -325,25 +325,7 @@
                         ? auth()->user()->passbook_photo : ''}}</span>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3" class="tdgap" width="42%" align="left">
-
-                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit"
-                            name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT"
-                             id="backstep1"
-                            class="btn-primary"></span>&nbsp;&nbsp;
-                </td>
-                <td colspan="3" align="right">
-
-                <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT" data-action="https://evergreenbraindev.com/scholarship/backend/applicationsummarysubmit" id="savestep3" class="btn-primary"></span>
-                </td>
-        
-        
-      
-
-           
-        </tr>
-                                        </table>
+                                  </table>
                                     </form>
                                 </div>
                             </div>
