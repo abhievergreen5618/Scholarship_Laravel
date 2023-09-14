@@ -20,13 +20,13 @@
                         <label>Name</label>
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" id="class" name="class">
                             <option value="">Select Class</option>
-                            @for($i=1;$i<=12;$i++) @php if(!isset($data) || $data['class'] !=$i) { $valueExists=DB::table('class_models')->where('class', $i)->exists();
+                            <!-- @for($i=1;$i<=12;$i++) @php if(!isset($data) || $data['class'] !=$i) { $valueExists=DB::table('class_models')->where('class', $i)->exists();
                                 if(!$valueExists) {
                                 echo "<option value='$i'>$i</option>";
                                 }
                                 }
                                 @endphp
-                                @endfor
+                                @endfor -->
                         </select>
 
                         @error('class')
