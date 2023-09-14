@@ -62,7 +62,8 @@ class ClassController extends Controller
      */
     public function create()
     {
-        $classes = ClassModel::orderBy('class')->get();
+        $classes = ClassModel::orderByRaw('CAST(class AS UNSIGNED)')->get();
+
         return view("admin.class.add")->with('classes',$classes);
     }
 
