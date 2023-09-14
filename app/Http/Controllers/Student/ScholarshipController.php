@@ -40,6 +40,7 @@ class ScholarshipController extends Controller
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
 
+      
 
         if(!empty(Auth::user()->step2_updated_at))
         {
@@ -159,7 +160,6 @@ class ScholarshipController extends Controller
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "fee" => $request['fee'],
-                "class" => $class,
                 "physicallychallengedproof" => $imageName ?? "",
                 "categorycertificate" => $certificateName ??"",
                 "step1_updated_at" => now(),

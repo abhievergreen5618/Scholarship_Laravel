@@ -35,11 +35,15 @@ class UserDetail extends Controller
         } );
 
         $classfilter = $classfilter->all();
-       
 
         if ($request->ajax()) {
-            $data = DB::table('users')->select(['id','name','email','mobileno','class','gender','dob','paddress','status'])->where('role','student')->latest()->get();
+            $data = DB::table('users')->select(['id','name','email','mobileno','class',
+            DB::raw('gender AS gender_display'),
+            'dob','paddress','status'])->where('role','student')->latest()->get();
             return Datatables::of($data)->addIndexColumn()
+            ->addColumn('gender_display', function ($row) {
+                return $row->gender_display; // Accessing the "gender_display" alias
+            })
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
                     $editlink = route('admin.user.edit', ['id' => $id]);

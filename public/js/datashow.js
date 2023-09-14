@@ -581,8 +581,8 @@ jQuery('#class-add-form').validate({
         status:"Select an option",
        
     },
-    submitHandler : function(form,e) {
-        e.preventDefault();
+    submitHandler: function(form) {
+        form.submit(); // This will allow the form to submit when it's valid.
     }
 });
       
