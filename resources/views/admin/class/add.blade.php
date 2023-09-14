@@ -64,7 +64,9 @@
         </form>
     </div>
 </div>
-
-
-
+<script>
+$("#class").select2({
+  tags: true
+});
+</script>
 @endsection
