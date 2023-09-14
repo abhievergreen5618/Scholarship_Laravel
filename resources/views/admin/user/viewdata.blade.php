@@ -42,6 +42,13 @@
                                                 <div class="col">
                                                 <img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" class="rounded float-end" alt="...">
                                                 </div>
+                                                <div class="col">
+                                                   <b>E-mail ID :</b>
+                                                </div>
+                                                <div class="col">
+                                                    {{(!empty(auth()->user()->step2_updated_at))
+                                                    ? auth()->user()->email : ''}}
+                                                </div>
                                             </div>
                                         </div>
                                     </form>
