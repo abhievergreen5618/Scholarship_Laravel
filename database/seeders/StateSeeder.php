@@ -54,6 +54,6 @@ class StateSeeder extends Seeder
             ['name' => 'Jammu and Kashmir', 'code' => 'JK'],
         ];
 
-        StateModel::insert($states);
+        StateModel::insert($states); 
     }
 }
