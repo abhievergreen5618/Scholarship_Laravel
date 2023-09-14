@@ -58,12 +58,9 @@ class User extends Authenticatable
 
     public function getGenderAttribute($value)
 {
-    if ($value === "F") {
-        return 'Female';
-    } else {
-        return 'Male';
-    }
+    return $value === 'F' ? 'Female' : 'Male';
 }
+
 
     /**
      * The attributes that should be hidden for serialization.

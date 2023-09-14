@@ -36,9 +36,6 @@ class UserDetail extends Controller
 
         $classfilter = $classfilter->all();
 
-        $user = User::orderBy('id')->get();
-        $gender = $user->gender;
-dd($gender);
         if ($request->ajax()) {
             $data = DB::table('users')->select(['id','name','email','mobileno','class','gender','dob','paddress','status'])->where('role','student')->latest()->get();
             return Datatables::of($data)->addIndexColumn()
