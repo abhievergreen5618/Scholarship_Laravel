@@ -37,8 +37,7 @@ class UserDetail extends Controller
         $classfilter = $classfilter->all();
 
         if ($request->ajax()) {
-            $data = DB::table('users')->select(['id','name','email','mobileno','class','genderSummary',
-            'dob','paddress','status'])->where('role','student')->latest()->get();
+            $data = User::where('role','student')->latest()->get(['id','name','email','mobileno','class','genderSummary','dob','paddress','status']);
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
