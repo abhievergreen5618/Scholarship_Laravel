@@ -8,7 +8,7 @@ use App\Http\Requests\ClassRequest;
 use App\Models\ClassModel;
 use App\Models\Subject;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 
 class ClassController extends Controller
@@ -20,14 +20,15 @@ class ClassController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.class.index');
+        // return view('admin.class.index');
+        $class = ClassModel::find(2);
+        dd($class);
     }
 
     public function display(Request $request)
     {
 
-        
+
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
             $data = ClassModel::latest()->get(['id','class','description','status']);
@@ -44,13 +45,13 @@ class ClassController extends Controller
                         $btntext = "Inactive";
                     } else {
                         $class = "btn btn-success ms-2 status";
-                        $btntext = "Active"; 
+                        $btntext = "Active";
                     }
                     $id = encrypt($row->id);
                     $statusBtn = "<div class='d-flex justify-content-center'><a href='javascript:void(0)' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Task $btntext' class='$class'>$btntext</a></div>";
                     return $statusBtn;
                 })
-               
+
                 ->rawColumns(['action','status'])
                 ->make(true);
         }
@@ -77,7 +78,7 @@ class ClassController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */ 
+     */
     public function store(ClassRequest $request)
     {
 
@@ -97,12 +98,12 @@ class ClassController extends Controller
             "description" => $request->description,
             "status" => $request->status,
         ]);
-        
+
         return redirect(route('admin.class.index'))->with("msg", "Class Created Successfully");
     }
     catch (QueryException $e) {
         $errorCode = $e->getCode();
-        
+
         if ($errorCode == 23000) {
             return redirect()->back()->with('error', 'Class already exists in the database.');
         } else {
@@ -145,7 +146,7 @@ class ClassController extends Controller
             [
                 "description"=>'required',
                 "status"=>'required',
-            ] 
+            ]
             );
 
         ClassModel::where("id",decrypt($request['id']))->update([
@@ -173,7 +174,7 @@ class ClassController extends Controller
         return response()->json(array('msg' => $msg),200);
     }
 
-    public function status(Request $request) 
+    public function status(Request $request)
     {
         $request->validate(
             [
@@ -188,5 +189,5 @@ class ClassController extends Controller
         $msg = "Status Updated Successfully";
         return response()->json(array("msg" => $msg), 200);
     }
-    
+
 }
