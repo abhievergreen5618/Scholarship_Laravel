@@ -147,7 +147,7 @@ $(document).ready(function () {
                 "data": "created_at",
             }
         ],
-        "order": [[4, 'desc']] // Order by the "action" column in descending order
+        "order": [[5, 'desc']] // Order by the "action" column in descending order
     });
         
     

@@ -46,7 +46,7 @@ class SubjectController extends Controller
      public function display(Request $request)
      {
          if ($request->ajax()) {
-            $data = Subject::orderBy('created_at', 'desc')->get(['id', 'name', 'classes', 'description', 'status']);
+            $data = Subject::orderBy('created_at', 'desc')->get(['id', 'name', 'classes', 'description', 'status','created_at']);
              return Datatables::of($data)->addIndexColumn()
                  ->addColumn('action', function ($row) {
                      $id = encrypt($row->id);
