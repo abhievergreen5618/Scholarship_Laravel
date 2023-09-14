@@ -111,6 +111,8 @@ $(document).ready(function () {
     //---------------------------------------CLASS TABLE END---------------------------
 
     //----------------------------------------SUBJECT TABLE START---------------------------
+    
+    
     var subjecttable = $('#subjecttable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -141,11 +143,15 @@ $(document).ready(function () {
                 "data": "action",
             },
             {
-                "data": "created_at", 
-                "visible": false, 
+                "data": "created_at",
+                "visible": false,
             }
         ],
-        "order": [[5, 'desc']] 
+        "order": [[5, 'desc']],
+        "orderCellsTop": true, // Display sorting controls at the top of the table
+        "columnDefs": [
+            { "orderable": false, "targets": [5] } // Disable sorting for the "created_at" column
+        ]
     });
     
     
