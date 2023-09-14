@@ -34,12 +34,13 @@
 
     <option value="General" @if(!empty(auth()->user()->step1_updated_at))
 {{auth()->user()->category == "General" ? 'selected' : ''}} @endif>General</option> -->
-@if(empty($classes))
-vbn
-@foreach($classes as $class)
-    <option value="{{ $class->class }}">{{ $class->class }}</option>
-@endforeach
-@endif
+
+            @foreach($classes as $class)
+                <option value="{{ $class->class }}">
+                    {{ $class->class }}
+                </option>
+            @endforeach
+
 </select>
 
                         @error('feetype')
