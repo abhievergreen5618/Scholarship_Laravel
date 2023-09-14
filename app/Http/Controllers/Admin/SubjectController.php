@@ -132,6 +132,7 @@ class SubjectController extends Controller
             ->get();
 
         $classSelect = $classes->pluck('class')->toArray();
+        dd($classSelect);
         return view("admin.subject.editdata")->with('classSelect',$classSelect);
     }
     
