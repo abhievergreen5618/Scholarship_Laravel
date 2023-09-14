@@ -56,6 +56,11 @@ class User extends Authenticatable
         'class',
     ];
 
+      // Define the 'gender' column as a cast attribute
+      protected $casts = [
+        'gender' => 'string',
+    ];
+
 
     /**
      * The attributes that should be hidden for serialization.
