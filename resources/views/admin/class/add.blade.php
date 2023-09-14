@@ -65,6 +65,8 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
 <script>
 $("#class").select2({
   tags: true
