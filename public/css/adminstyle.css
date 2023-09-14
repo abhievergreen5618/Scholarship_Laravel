@@ -43,3 +43,7 @@ i.fa.fa-book{
     height: 17px;
     font-size: 24px;
 }
+table,tr,td{
+    border: 2px solid;
+    border-collapse: collapse;
+}
