@@ -27,16 +27,12 @@ class SubjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
+
 
     public function create()
     {
-        $classes = ClassModel::where('status', 'active')
-            ->orderBy('class', 'asc')
-            ->get();
-
-        $classSelect = $classes->pluck('class')->toArray();
-        return view("admin.subject.add")->with("classSelect", $classSelect);
+        $classes = ClassModel::where('status', 'active')->orderBy('class', 'asc')->pluck("class","id");
+        return view("admin.subject.add")->with("classes", $classes);
     }
 
 
@@ -87,7 +83,7 @@ class SubjectController extends Controller
                 "description"=>'required',
                 "status"=>'required',
             ]
-            );
+        );
         Subject::create([
             "name" => $request->name,
             "classes" => $request->classes,
@@ -116,7 +112,6 @@ class SubjectController extends Controller
      */
     public function edit($id)
     {
-        //
         $data = Subject::where("id",decrypt($id))->first();
         return view('admin.subject.editdata')->with([
             "data"=>$data
@@ -126,7 +121,6 @@ class SubjectController extends Controller
 
     public function editdata()
     {
-        
         $classes = ClassModel::where('status', 'active')
             ->orderBy('class', 'asc')
             ->get();
@@ -134,7 +128,7 @@ class SubjectController extends Controller
         $classSelect = $classes->pluck('class')->toArray();
         return view("admin.subject.editdata")->with('classSelect',$classSelect);
     }
-    
+
 
     /**
      * Update the specified resource in storage.
