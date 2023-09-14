@@ -46,14 +46,13 @@
                                             <tr>
                                                 <td ><b>E-mail ID :</b></td>
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->email : ''}}</td>
-                                                <td rowspan="2"><img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : ''}}"
-                                                style="height:50px;width:150px;border-width:0px;" class="rounded float-end" style="width:150px;" alt="..."></td>
-                                            </tr>
+                                                ? auth()->user()->email : ''}}</td></tr>
                                             <tr>
                                                 <td ><b>Mobile No :</b></td>
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
                                                 ? auth()->user()->mobileno : ''}}</td>
+                                                <td rowspan="2"><img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : ''}}"
+                                                style="height:50px;width:150px;border-width:0px;" class="rounded float-end" style="width:150px;" alt="..."></td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Date of Birth :</b></td>
