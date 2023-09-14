@@ -366,6 +366,7 @@ var usertable = $('#usertable').DataTable({
         },
         {
             "data": "class",
+            "defaultContent": "Not Provided"
         },
         {
             "data": "gender",
