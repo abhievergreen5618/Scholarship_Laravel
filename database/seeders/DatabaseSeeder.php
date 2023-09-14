@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\StateSeeder;
 use Database\Seeders\DistrictSeeder;
-use Database\Seeders\ClassSeeder;
+use Database\Seeders\ClassSeeders;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             StateSeeder::class,
             DistrictSeeder::class,
-            ClassSeeder::class,
+            ClassSeeders::class,
         ]);
     }
 }
