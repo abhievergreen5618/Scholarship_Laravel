@@ -27,6 +27,12 @@
                                 }
                                 @endphp
                                 @endfor -->
+
+                                @foreach($classes as $class)
+                <option value="{{ $class->class }}">
+                    {{ $class->class }}
+                </option>
+            @endforeach
                         </select>
 
                         @error('class')
