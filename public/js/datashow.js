@@ -122,16 +122,7 @@ $(document).ready(function () {
             },
         },
         "columnDefs": [
-            { "className": "dt-center", "targets": "_all" },
-            // Add a hidden column (index 5) to store creation date or timestamp
-            {
-                "visible": false,
-                "targets": 5, 
-                "data": "created_at", 
-                "render": function (data, type, full, meta) {
-                    return data;
-                }
-            }
+            { "className": "dt-center", "targets": "_all" }
         ],
         "columns": [
             {
@@ -149,14 +140,14 @@ $(document).ready(function () {
             {
                 "data": "action",
             },
-            // Include a hidden column to store creation date or timestamp
             {
-                "data": "created_at",
-                "visible": false,
+                "data": "created_at", 
+                "visible": false, 
             }
         ],
-        "order": [[5, 'desc']] // Order by the hidden column in descending order
+        "order": [[5, 'desc']] 
     });
+    
     
 
 
