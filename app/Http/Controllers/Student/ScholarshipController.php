@@ -157,7 +157,7 @@ class ScholarshipController extends Controller
                 "aadhaarno" => $request['aadhaarno'] ?? "",
                 "nationality" =>  $request['nationality'] ?? "",
                 "mobileno" => $request['mobileno'],
-                "gender" => $request['gender'] ?? "",
+                "gender" => $gender ?? "",
                 "singlegirlchild" => $request['singlegirlchild'] ?? "",
                 "subjects" => $request['subjects'],
                 "physicallychallenged" => $request['physicallychallenged'],
