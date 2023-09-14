@@ -159,7 +159,7 @@ class User extends Authenticatable
 
     }
 
-    public function getgenderSummaryAttribute()
+    protected function getgenderSummaryAttribute()
     {
         $gendercode = $this->attributes['gender'];
 
