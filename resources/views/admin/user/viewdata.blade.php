@@ -48,6 +48,86 @@
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
                                                 ? auth()->user()->email : ''}}</td>
                                             </tr>
+                                            <tr>
+                                                <td ><b>Mobile No :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->mobileno : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Date of Birth :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->dob : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Name of the Course :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->scholarshipnamesummary : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Address for Correspondence:</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->caddress : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Address Home Addres :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->paddress : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Father's Name :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->fathername : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Mother's Name :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->mothername : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Examination Centre for Entrance Test :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->examCenterName : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Aadhaar No. :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->aadhaarno : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Nationality :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->nationalitySummary : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Gender :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->gender : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Applying for subject ? :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->subjects : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Are you only the single girl child of your parent? :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->singlegirlchild : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Are you Physically Challenged? :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->physicallychallenged : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Select your Category :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->category : ''}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Detail of Form Fee :</b></td>
+                                                <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                ? auth()->user()->fee : ''}}</td>
+                                            </tr>
                                         </table>
                                     </form>
                                 </div>
