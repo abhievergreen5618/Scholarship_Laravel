@@ -39,12 +39,12 @@
                                                     </div>
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
                                                     ? strtoupper(auth()->user()->name) : ''}}</td>
-                                                <td rowspan="2"><img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" class="rounded float-end" alt="..."></td>
+                                                <td rowspan="2"><img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" class="rounded float-end" style="width:150px;" alt="..."></td>
                                             </tr>
                                                 </div>
                                             </div>
                                             <tr>
-                                                <td><b>E-mail ID :</b></td>
+                                                <td ><b>E-mail ID :</b></td>
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
                                                 ? auth()->user()->email : ''}}</td>
                                             </tr>
