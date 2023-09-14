@@ -39,8 +39,6 @@
                                     {{ $class->class }}
                                 </option>
                             @endforeach
-                        @else
-                            <option value="default">No classes available</option>
                         @endif
 
                         </select> 
