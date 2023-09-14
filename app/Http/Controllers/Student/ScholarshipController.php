@@ -40,7 +40,7 @@ class ScholarshipController extends Controller
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
 
-        $user = User::find($id);
+        $user = User::find('id');
         $gender = $user->gender;
 
         if(!empty(Auth::user()->step2_updated_at))
