@@ -129,7 +129,9 @@
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
                                                 ? auth()->user()->fee : ''}}</td>
                                             </tr>
-                                            <tr></tr>
+                                            <tr>
+                                                <td colspan="3"></td>
+                                            </tr>
                                             <tr>
                                                 <td ><b>Academic Qualifications :</b></td>
                                             </tr>
@@ -210,6 +212,137 @@
 
                         </td>
                     </tr>
+                    <tr>
+                                                <td colspan="3"></td>
+                                            </tr>
+                                            <tr>
+                                                <td ><b>Bank Account Details :</b></td>
+                                            </tr>
+                                            <tr>
+            <td colspan="3">Were you ever disqualified/suspended by the School or any other
+                institution from attending classes or appearing in any exam? if yes give Details:
+                <br>
+                <strong>तुम कभी
+                    विश्वविद्यालय या किसी अन्य संस्था द्वारा कक्षाओं में भाग लेने या किसी भी परीक्षा
+                    में प्रदर्शित होने से निलंबित कर दिया गए? यदि हाँ जानकारी दे
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td width="48%">Yes/No
+                <br>
+                <strong>हाॅ/ नही </strong>
+            </td>
+            <td class="colon">:</td>
+            <td width="48%">
+                <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualiOrSus__"><span
+                        id="ctl00_ContentPlaceHolder1_lblDisqualiOrSus">{{isset($step2graduationdata['disqualified/suspended'])
+                        ? ucFirst($step2graduationdata['disqualified/suspended']) : ''}}</span></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Details
+                <br>
+                <strong>विवरण
+                </strong>
+            </td>
+            <td class="colon">:</td>
+            <td>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualifDtls__"><span
+                        id="ctl00_ContentPlaceHolder1_lblDisqualifDtls">{{isset($step2graduationdata['disqualified/suspended_details'])
+                        ? $step2graduationdata['disqualified/suspended_details'] : ''}}</span></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="3">&nbsp;</td>
+        <tr>
+            <td colspan="3">Bank Account Details<br>
+                <strong>बैंक के खाते का विवरण</strong>
+            </td>
+            <td class="colon"></td>
+        </tr>
+        <td colspan="3">&nbsp;</td>
+        <td>&nbsp;
+            <tr>
+                <td class="text">Account No. <span style="color: red">*</span>
+                    <br>
+                    <strong>खाता संख्या</strong>
+                </td>
+                <td class="colon">:</td>
+                <td>
+                    <span
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
+                        ? auth()->user()->accountno : ''}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="text">Confirm Account No. <span style="color: red">*</span>
+                    <br>
+                    <strong>खाता संख्या की पुष्टि करें</strong>
+                </td>
+                <td class="colon">:</td>
+                <td>
+                    <span
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
+                        ? auth()->user()->cnfrmaccountno : ''}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="vtext">Account Holder Name<span style="color: red">*</span><br>
+                    <strong>बैंकिंग खाता नाम</strong>
+                </td>
+                <td class="colon">:</td>
+                <td>
+                    <span
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
+                        ? auth()->user()->holdername : ''}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="vtext">IFSC Code<span style="color: red">*</span><br>
+                    <strong>आईएफएससी कोड</strong>
+                </td>
+                <td class="colon">:</td>
+                <td>
+                    <span
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
+                        ? auth()->user()->ifsccode : ''}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Upload Passbook Front Page Image
+                    <br>
+                    <strong>पासबुक फ्रंट पेज छवि अपलोड करें
+                    </strong>
+                    <span style="color:red">*</span>
+                </td>
+                <td class="colon">:</td>
+                <td>
+                    <span
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
+                        ? auth()->user()->passbook_photo : ''}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tdgap" width="42%" align="left">
+
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit"
+                            name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT"
+                             id="backstep1"
+                            class="btn-primary"></span>&nbsp;&nbsp;
+                </td>
+                <td colspan="3" align="right">
+
+                <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT" data-action="https://evergreenbraindev.com/scholarship/backend/applicationsummarysubmit" id="savestep3" class="btn-primary"></span>
+                </td>
+        
+        
+      
+
+           
+        </tr>
                                         </table>
                                     </form>
                                 </div>
