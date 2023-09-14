@@ -21,7 +21,7 @@ class ClassController extends Controller
     public function index()
     {
         // return view('admin.class.index');
-        $class = ClassModel::find(2);
+        $class = ClassModel::with('classes')->all();
         dd($class);
     }
 
