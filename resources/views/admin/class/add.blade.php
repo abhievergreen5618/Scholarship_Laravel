@@ -33,6 +33,7 @@
                     {{ $class->class }}
                 </option>
             @endforeach
+            
                         </select>
 
                         @error('class')
