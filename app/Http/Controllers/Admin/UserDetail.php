@@ -37,7 +37,7 @@ class UserDetail extends Controller
         $classfilter = $classfilter->all();
 
         if ($request->ajax()) {
-            $data = User::where('role','student')->latest()->get(['id','name','email','mobileno','class','genderSummary','dob','paddress','status']);
+            $data = User::where('role','student')->latest()->get(['id','name','email','mobileno','class','gender','dob','paddress','status']);
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
@@ -45,6 +45,9 @@ class UserDetail extends Controller
                     $viewdatalink = route('admin.user.viewdata',['id' => $id]);
                     $btn = "<div class='d-flex justify-content-around'><a href='$viewdatalink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fa fa-eye'></i></a><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' '><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
                     return $btn;
+                })
+                ->addColumn('gender', function ($row) {
+                    return $row->gender === 'F' ? 'Female' : 'Male';;
                 })
                 ->addColumn('status', function ($row) {
                     if ($row->status == "inactive") {

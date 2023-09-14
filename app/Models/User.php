@@ -57,7 +57,6 @@ class User extends Authenticatable
     ];
 
 
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -75,7 +74,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'gender' => 'string',
     ];
 
     protected $appends = ['ExamCenterName','scholarshipNameSummary','nationalitySummary','genderSummary'];
