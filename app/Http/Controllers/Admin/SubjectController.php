@@ -79,7 +79,6 @@ class SubjectController extends Controller
             [
                 "name" => 'required',
                 "classes"=>'required',
-                "description"=>'required',
                 "status"=>'required',
             ]
         );
@@ -141,7 +140,6 @@ class SubjectController extends Controller
         $request->validate(
             [
                 "classes"=>'required',
-                "description"=>'required',
                 "status"=>'required',
             ]
             );
