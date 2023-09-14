@@ -8,7 +8,7 @@ use Database\Seeders\UserSeeder;
 use Database\Seeders\StateSeeder;
 use Database\Seeders\DistrictSeeder;
 use Database\Seeders\ClassSeeders;
-
+use Database\Seeders\FeeSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             StateSeeder::class,
             DistrictSeeder::class,
             ClassSeeders::class,
+            FeeSeeder::class,
         ]);
     }
 }

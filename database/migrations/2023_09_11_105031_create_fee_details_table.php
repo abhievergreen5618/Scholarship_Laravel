@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("feetype");
             $table->string("fee")->nullable();
-            $table->string("description");
+            $table->string("description")->nullable();
             $table->string("status")->default("active");
             $table->timestamps();
         });
