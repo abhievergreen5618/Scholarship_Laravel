@@ -16,12 +16,11 @@ class FeeSeeder extends Seeder
     public function run()
     {
         //
-        $feetype = [
+        FeeDetail::insert([
             ['feetype' => 'OBC'],
             ['feetype' => 'SC'],
             ['feetype' => 'ST'],
             ['feetype' => 'General'],
-        ];
-        FeeDetail::insert($feetype);
+        ]);
     }
 }
