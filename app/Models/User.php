@@ -56,10 +56,6 @@ class User extends Authenticatable
         'class',
     ];
 
-      // Define the 'gender' column as a cast attribute
-      protected $casts = [
-        'gender' => 'string',
-    ];
 
 
     /**
@@ -79,6 +75,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'gender' => 'string',
     ];
 
     protected $appends = ['ExamCenterName','scholarshipNameSummary','nationalitySummary','genderSummary'];
