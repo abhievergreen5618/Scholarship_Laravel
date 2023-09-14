@@ -111,7 +111,6 @@ $(document).ready(function () {
     //---------------------------------------CLASS TABLE END---------------------------
 
     //----------------------------------------SUBJECT TABLE START---------------------------
-   
     var subjecttable = $('#subjecttable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -123,7 +122,16 @@ $(document).ready(function () {
             },
         },
         "columnDefs": [
-            { "subjectName": "dt-center", "targets": "_all" }
+            { "className": "dt-center", "targets": "_all" },
+            // Add a hidden column (index 5) to store creation date or timestamp
+            {
+                "visible": false,
+                "targets": 5, 
+                "data": "created_at", 
+                "render": function (data, type, full, meta) {
+                    return data;
+                }
+            }
         ],
         "columns": [
             {
@@ -141,10 +149,15 @@ $(document).ready(function () {
             {
                 "data": "action",
             },
-
+            // Include a hidden column to store creation date or timestamp
+            {
+                "data": "created_at",
+                "visible": false,
+            }
         ],
-        "order": [[5,'desc']]
+        "order": [[5, 'desc']] // Order by the hidden column in descending order
     });
+    
 
 
 
