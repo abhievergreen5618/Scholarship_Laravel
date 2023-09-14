@@ -148,9 +148,6 @@
                         <th scope="col">Exam Roll No.</th>
                     </tr>
                     <tr class="dgitem-style" style="background-color:White;">
-                        <td align="center" style="width:10%;">
-                            1
-                        </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus__"><span
