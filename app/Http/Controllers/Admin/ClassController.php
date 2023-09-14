@@ -62,7 +62,7 @@ class ClassController extends Controller
      */
     public function create()
     {
-        $classes = ClassModel::orderBy('class','asc')->get();
+        $classes = ClassModel::orderBy('class')->get();
         return view("admin.class.add")->with('classes',$classes);
     }
 
