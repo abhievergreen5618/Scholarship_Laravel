@@ -91,7 +91,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/storesuser','store')->name('admin.user.store');
         Route::post('/userdetails','display')->name('admin.user.details');
         Route::get('/useredit/{id}','edit')->name('admin.user.edit');
-        Route::get('/viewdata/{id}','viewdata')->name('admin.user.viewdata');
+        Route::get('/viewdata/{id}','view')->name('admin.user.viewdata');
         Route::post('/userupdate', 'update')->name('admin.user.update');
         Route::post('/userdelete', 'destroy')->name('userdelete');
         Route::post('/user-status-update', 'status')->name('user-status-update');
