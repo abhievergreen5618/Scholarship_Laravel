@@ -40,8 +40,7 @@ class ScholarshipController extends Controller
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
 
-        $user = User::find('id');
-        $gender = $user->gender;
+      
 
         if(!empty(Auth::user()->step2_updated_at))
         {
@@ -52,8 +51,7 @@ class ScholarshipController extends Controller
                 "states" => $states,
                 "subjectSelect" => $subjectSelect,
                 "classes" => $classes,
-                "scholarshipSelect" => $scholarshipSelect,
-                "gender" => $gender
+                "scholarshipSelect" => $scholarshipSelect
             ]);
         }
         else
@@ -62,8 +60,7 @@ class ScholarshipController extends Controller
                 'states' => $states,
                 'subjectSelect' => $subjectSelect,
                 'classes' => $classes,
-                'scholarshipSelect' => $scholarshipSelect,
-                "gender" => $gender
+                'scholarshipSelect' => $scholarshipSelect
             ]);
         }
     }
@@ -157,7 +154,7 @@ class ScholarshipController extends Controller
                 "aadhaarno" => $request['aadhaarno'] ?? "",
                 "nationality" =>  $request['nationality'] ?? "",
                 "mobileno" => $request['mobileno'],
-                "gender" => $gender ?? "",
+                "gender" => $request['gender'] ?? "",
                 "singlegirlchild" => $request['singlegirlchild'] ?? "",
                 "subjects" => $request['subjects'],
                 "physicallychallenged" => $request['physicallychallenged'],
