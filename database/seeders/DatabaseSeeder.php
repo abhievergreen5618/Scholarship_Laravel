@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             StateSeeder::class,
             DistrictSeeder::class,
+            ClassSeeder::class,
         ]);
     }
 }
