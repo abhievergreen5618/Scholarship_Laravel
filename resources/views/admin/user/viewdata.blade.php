@@ -39,7 +39,7 @@
                                                     {{(!empty(auth()->user()->step2_updated_at))
                                                     ? strtoupper(auth()->user()->name) : ''}}
                                                 </div>
-                                                <div class="col">
+                                                <div class="col" rowspan="2">
                                                 <img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" class="rounded float-end" alt="...">
                                                 </div>
                                                 <div class="container text-center">
