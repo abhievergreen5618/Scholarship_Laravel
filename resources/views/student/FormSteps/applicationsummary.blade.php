@@ -241,7 +241,8 @@
             <td>
                 <input type="hidden" id="hiddenSid">
                 <span id="Anthem_ctl00_ContentPlaceHolder1_lblFeeDeposited__"><span
-                        id="ctl00_ContentPlaceHolder1_lblFeeDeposited">1100.00</span></span>
+                        id="ctl00_ContentPlaceHolder1_lblFeeDeposited">{{(!empty(auth()->user()->step2_updated_at))
+                        ? auth()->user()->fee : ''}}</span></span>
 
             </td>
         </tr>
