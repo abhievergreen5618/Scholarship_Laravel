@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\StateSeeder;
 use Database\Seeders\DistrictSeeder;
+use Database\Seeders\ClassSeeder;
 
 class DatabaseSeeder extends Seeder
 {
