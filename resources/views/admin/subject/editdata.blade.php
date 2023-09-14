@@ -28,22 +28,22 @@
                         <label>Class</label>
                         <div class="select2-purple">
                         @php
-    $selectedId = (!isset($data) || !is_array($data['classes'])) ? '' : implode(', ', (array) $data['classes']);
-    $valueExists = DB::table('subjects')->whereIn('classes', (array) $data['classes'])->exists();
-@endphp
+                            $selectedId = (!isset($data) || !is_array($data['classes'])) ? '' : implode(', ', (array) $data['classes']);
+                            $valueExists = DB::table('subjects')->whereIn('classes', (array) $data['classes'])->exists();
+                        @endphp
                         <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" name="classes[]" id="class" multiple="multiple" data-placeholder="Select Classes" data-dropdown-css-class="select2-purple">
                         <option value="{{ $selectedId ?: 'Select Value' }}" selected>{{ $selectedId ?: 'Select Value' }}</option>
                         @if(isset($classSelect) && !empty($classSelect))
-    @foreach($classSelect as $class)
-        <option value="{{ $class->class }}">
-            {{ $class->class }}
-        </option>
-    @endforeach
-@else
-    <option value="default">No classes available</option>
-@endif
+                            @foreach($classSelect as $class)
+                                <option value="{{ $class->class }}">
+                                    {{ $class->class }}
+                                </option>
+                            @endforeach
+                        @else
+                            <option value="default">No classes available</option>
+                        @endif
 
-                            </select> 
+                        </select> 
  
 
 
