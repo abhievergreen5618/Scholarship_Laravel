@@ -129,6 +129,7 @@
                                                 <td>{{(!empty(auth()->user()->step2_updated_at))
                                                 ? auth()->user()->fee : ''}}</td>
                                             </tr>
+                                            <tr></tr>
                                             <tr>
                                                 <td ><b>Academic Qualifications :</b></td>
                                             </tr>
