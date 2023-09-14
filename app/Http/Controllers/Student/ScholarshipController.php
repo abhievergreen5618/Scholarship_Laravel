@@ -160,7 +160,6 @@ class ScholarshipController extends Controller
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
                 "fee" => $request['fee'],
-                "class" => $class,
                 "physicallychallengedproof" => $imageName ?? "",
                 "categorycertificate" => $certificateName ??"",
                 "step1_updated_at" => now(),
