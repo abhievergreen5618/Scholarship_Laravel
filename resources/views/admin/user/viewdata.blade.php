@@ -33,6 +33,13 @@
                                         <div>Name : </div>
                                         <div>{{(!empty(auth()->user()->step2_updated_at))
                         ? strtoupper(auth()->user()->name) : ''}}</div>
+                        <div class="col">
+                        Name :
+    </div>
+    <div class="col">
+    {{(!empty(auth()->user()->step2_updated_at))
+                        ? strtoupper(auth()->user()->name) : ''}}
+    </div>
                                     </form>
                                 </div>
                             </div>
