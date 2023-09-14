@@ -29,7 +29,11 @@
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-
+                                    <form>
+                                        <div>Name : </div>
+                                        <div>{{(!empty(auth()->user()->step2_updated_at))
+                        ? strtoupper(auth()->user()->name) : ''}}</div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
