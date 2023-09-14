@@ -222,10 +222,6 @@
             <td colspan="3">Were you ever disqualified/suspended by the School or any other
                 institution from attending classes or appearing in any exam? if yes give Details:
                 <br>
-                <strong>तुम कभी
-                    विश्वविद्यालय या किसी अन्य संस्था द्वारा कक्षाओं में भाग लेने या किसी भी परीक्षा
-                    में प्रदर्शित होने से निलंबित कर दिया गए? यदि हाँ जानकारी दे
-                </strong>
             </td>
         </tr>
         <tr>
@@ -259,7 +255,6 @@
             <td colspan="3">&nbsp;</td>
         <tr>
             <td colspan="3">Bank Account Details<br>
-                <strong>बैंक के खाते का विवरण</strong>
             </td>
             <td class="colon"></td>
         </tr>
@@ -268,7 +263,6 @@
             <tr>
                 <td class="text">Account No. <span style="color: red">*</span>
                     <br>
-                    <strong>खाता संख्या</strong>
                 </td>
                 <td class="colon">:</td>
                 <td>
@@ -280,7 +274,6 @@
             <tr>
                 <td class="text">Confirm Account No. <span style="color: red">*</span>
                     <br>
-                    <strong>खाता संख्या की पुष्टि करें</strong>
                 </td>
                 <td class="colon">:</td>
                 <td>
@@ -291,7 +284,6 @@
             </tr>
             <tr>
                 <td class="vtext">Account Holder Name<span style="color: red">*</span><br>
-                    <strong>बैंकिंग खाता नाम</strong>
                 </td>
                 <td class="colon">:</td>
                 <td>
@@ -302,7 +294,6 @@
             </tr>
             <tr>
                 <td class="vtext">IFSC Code<span style="color: red">*</span><br>
-                    <strong>आईएफएससी कोड</strong>
                 </td>
                 <td class="colon">:</td>
                 <td>
@@ -314,8 +305,6 @@
             <tr>
                 <td>Upload Passbook Front Page Image
                     <br>
-                    <strong>पासबुक फ्रंट पेज छवि अपलोड करें
-                    </strong>
                     <span style="color:red">*</span>
                 </td>
                 <td class="colon">:</td>
