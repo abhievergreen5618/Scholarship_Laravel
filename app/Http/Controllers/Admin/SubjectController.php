@@ -163,14 +163,22 @@ class SubjectController extends Controller
     public function destroy(Request $request)
     {
         //
-        $request->validate(
-            [
-                "id"=>'required',
-            ]
-        );
-            Subject::where("id",decrypt($request['id']))->delete();
-            $msg = "Deleted Successfully";
-            return response()->json(array('msg' => $msg),200);
+            $request->validate(
+                [
+                    "id"=>'required',
+                ]
+            );
+            $subject = Subject::find(decrypt($request['id']));
+            if ($subject) {
+                $subject->delete();
+                $subject->syncWithoutDetaching([decrypt($request['id'])]);
+                $msg = "Deleted Successfully";
+                return response()->json(array('msg' => $msg),200);
+            } else {
+                $msg = "Failed to delete";
+                return response()->json(array('msg' => $msg),500);
+            }
+
 
     }
 
