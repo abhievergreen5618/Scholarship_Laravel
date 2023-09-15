@@ -192,7 +192,7 @@ class LoginController extends Controller
                     ],422);
                 }
             }
-        }
+        // }
         // else
         // {
         //     $request->validate([
