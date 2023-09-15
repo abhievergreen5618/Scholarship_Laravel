@@ -32,7 +32,11 @@
 </tr>
   <div class="tabs-stage">
     <div id="tab-1">
+        <tr>
+            <th>
     <b>Transaction ID</b>
+</th>
+</tr>
     </div>
     <div id="tab-2">
     </div>
