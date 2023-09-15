@@ -33,7 +33,7 @@
 </table>
   <div class="tabs-stage">
     <div id="tab-1">
-    
+    <b>Transaction ID</b>
     </div>
     <div id="tab-2">
     </div>
