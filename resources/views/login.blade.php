@@ -18,7 +18,7 @@
 		<div class="row">
 			<div class="col-md-6 offset-3">
 	
-<form action="{{ route('start') }}" method="POST">
+<form action="{{ route('login') }}" method="POST">
   @csrf
 <div class="formmm">
 	<h4 class="Login mb-2">Login</h4>
@@ -75,6 +75,15 @@
 <i class="fas fa-phone-square-alt"></i>Login with mobile no
 </button>
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
 
     
