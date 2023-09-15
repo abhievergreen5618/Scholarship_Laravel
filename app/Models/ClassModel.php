@@ -18,7 +18,7 @@ class ClassModel extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class,'class');
+        return $this->belongsToMany(Subject::class);
     }
 
 }
