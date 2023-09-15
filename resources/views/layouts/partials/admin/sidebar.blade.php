@@ -157,6 +157,23 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa fa-book" style="width: 28px; height: 17px; font-size: 25px;"></i>
+              <p>
+                Revenue
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.payment.index')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>Payment</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
