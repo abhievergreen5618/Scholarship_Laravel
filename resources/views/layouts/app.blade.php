@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}">
     <link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/pdf.css')}}">
     <link href="{{asset('adminlte/plugins/toastr/toastr.min.css')}}" rel="stylesheet" />

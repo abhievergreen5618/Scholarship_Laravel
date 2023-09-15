@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<!--fontawesome Files -->
-    <link rel="stylesheet" type="text/css" href="css/all.css">
-    <!--fontawesome Files -->
 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
 
     <title></title>
   </head>
@@ -30,13 +25,13 @@
 	<h3 class="Login mb-4">Welcome Back!</h3>
   <!-- Email input -->
   <div class="form-outline mb-4">
-    <input type="email" id="form2Example1" class="form-control" placeholder="Email/Username/Mobile No" />
+    <input type="email" id="form2Example1" class="form-control" name="email" placeholder="Email/Username/Mobile No" />
 
   </div>
 
   <!-- Password input -->
   <div class="form-outline mb-4">
-    <input type="password" id="form2Example2" class="form-control" placeholder="Enter Your Password " />
+    <input type="password" id="form2Example2" class="form-control" name="password" placeholder="Enter Your Password " />
    
   </div>
 
@@ -86,20 +81,9 @@
   </div></div>
 </form>
 </div>
-
-			
-
-
-</div></div></div>
-
-
-
-
-   <script src="js/bootstrap.min.js"></script>
-<script src="js/all.js"></script>
- <script src="js/jquery.js"></script>
-
-
+</div>
+</div>
+</div>
 
   </body>
 </html>
