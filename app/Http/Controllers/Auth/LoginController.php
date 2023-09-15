@@ -193,6 +193,7 @@ class LoginController extends Controller
             }
         }
         else
+        
         {
             $request->validate([
                 "email" => "required|email",

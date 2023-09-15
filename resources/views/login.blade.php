@@ -20,6 +20,8 @@
 	
 <form action="{{ route('login') }}" method="POST">
   @csrf
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
 <div class="formmm">
 	<h4 class="Login mb-2">Login</h4>
 	<h3 class="Login mb-4">Welcome Back!</h3>
