@@ -130,7 +130,7 @@ Route::controller(LoginController::class)->group(function(){
     
     Route::post('/','login')->name('login');
 
-    Route::get('/login',function(){
+    Route::post('/login',function(){
         return redirect()->to(env("WORDPRESS_URL")."/login");
     });
     Route::get('/register',function(){
