@@ -211,7 +211,7 @@ class LoginController extends Controller
             $credentials = $request->only('email','password');
             $remember = $request->has('rememberme');
             if (Auth::attempt($credentials,$remember)) {
-                return redirect()->intended('login');
+                return Auth::user()->role == "admin" ? redirect()->route("admin.dashboard") : redirect()->route("start");
             }
             else
             {
