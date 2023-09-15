@@ -134,9 +134,11 @@ Route::controller(LoginController::class)->group(function(){
     Route::get('/register',function(){
         return redirect()->to(env("WORDPRESS_URL")."/signup");
     });
+
+    Route::get('/','index')->name('loginpage');
 });
 
 
-Route::post('/', 'LoginController@login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
+
 
 

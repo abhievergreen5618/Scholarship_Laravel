@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
+    public function index()
+    {
+        return view('login');
+    }
     public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
@@ -149,10 +153,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-
-        if ($request->header('X-Requested-With') == 'XMLHttpRequest') {
-            dd("test");
-        }
         if($request->ajax())
         {
             $validator = Validator::make($request->all(), [
