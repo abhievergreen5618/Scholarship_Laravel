@@ -21,7 +21,7 @@ class ClassController extends Controller
     public function index()
     {
         // return view('admin.class.index');
-        $class = ClassModel::with('classes')->get();
+        $class = ClassModel::with('subjects')->get();
         dd($class);
     }
 
