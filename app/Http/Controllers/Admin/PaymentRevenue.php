@@ -17,7 +17,7 @@ class PaymentRevenue extends Controller
     {
         if ($request->ajax()) {
             $data = PaymentsDetails::latest()->get(['id','razorpay_id']);
-            dd($data);
+           
             return Datatables::of($data) 
             ->addColumn('actions', function ($row) {
                 return '<button>Edit</button>';
