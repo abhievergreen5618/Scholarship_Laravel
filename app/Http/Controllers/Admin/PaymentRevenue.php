@@ -12,5 +12,13 @@ class PaymentRevenue extends Controller
     {
         return view('admin.payment.index');
     }
+    public function display()
+    {
+        if ($request->ajax()) {
+            $GLOBALS['count'] = 0;
+            $data = PaymentDetails::latest()->get(['id','razorpay_id']);
+            return Datatables::of($data);
+    }
+}
 }
  

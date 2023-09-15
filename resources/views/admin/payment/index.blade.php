@@ -31,14 +31,19 @@
                                 <div class="col-sm-12">
     <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
 
-    
+    <table style="text-align:center;" id="paymenttable" class="table table-bordered table-striped">
+                                        
+                                            <tr>
 <div class="tabs">
   <ul class="tabs-nav">
     <li><a href="#tab-1">Success</a></li>
     <li><a href="#tab-2">Failure</a></li>
   </ul>
+</tr>
+</table>
   <div class="tabs-stage">
     <div id="tab-1">
+
     </div>
     <div id="tab-2">
     </div>

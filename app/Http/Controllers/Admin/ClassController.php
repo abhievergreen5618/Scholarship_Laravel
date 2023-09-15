@@ -25,8 +25,6 @@ class ClassController extends Controller
 
     public function display(Request $request)
     {
-
-
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
             $data = ClassModel::with('subjects')->latest()->get(['id','class','description','status']);

@@ -600,6 +600,26 @@ feetable.on('click', '.status', function () {
 
 
 
+var paymenttable = $('#paymenttable').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "ajax": {
+        "url": "paymentdetails",
+        "type": "POST",
+        'beforeSend': function (request) {
+            request.setRequestHeader("X-CSRF-TOKEN", jQuery('meta[name="csrf-token"]').attr('content'));
+        },
+    },
+    "columnDefs": [
+        { "payment": "dt-center", "targets": "_all" }
+    ],
+    "columns": [
+        {
+            "data": "razorpay_id",
+        },
+
+    ],
+});
 
 
 
