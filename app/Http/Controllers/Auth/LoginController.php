@@ -194,15 +194,15 @@ class LoginController extends Controller
         }
         else
         {
-            $request->validate($request->all(),[
+            $request->validate([
                 "email" => "required|email",
                 "password" => "required",
-                ],
-                [
-                    "required" => "This field is required.",
-                    "email.email" => "Please enter a valid email address.",
-                ]
-            );
+            ], [
+                "email.required" => "The email field is required.",
+                "email.email" => "Please enter a valid email address.",
+                "password.required" => "The password field is required.",
+            ]);
+            
             $credentials = $request->only('email','password');
             $remember = $request->has('rememberme');
             if (Auth::attempt($credentials,$remember)) {
