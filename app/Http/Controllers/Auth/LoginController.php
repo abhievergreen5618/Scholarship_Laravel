@@ -149,9 +149,12 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+
+        if ($request->header('X-Requested-With') == 'XMLHttpRequest') {
+            dd("test");
+        }
         if($request->ajax())
         {
-            
             $validator = Validator::make($request->all(), [
                 "email" => "required|email",
                 "password" => "required",
