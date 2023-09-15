@@ -82,7 +82,7 @@ class User extends Authenticatable
 
     protected $appends = ['ExamCenterName','scholarshipNameSummary','nationalitySummary','genderSummary'];
 
-    protected function getExamCenterNameAttribute()
+    public function getExamCenterNameAttribute()
     {
         $examCenterId = $this->attributes['examcentre'];
         // $examCenterId = $this->getAttribute('examcenter');
