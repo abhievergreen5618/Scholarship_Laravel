@@ -33,7 +33,7 @@
 </table>
   <div class="tabs-stage">
     <div id="tab-1">
-
+    
     </div>
     <div id="tab-2">
     </div>
