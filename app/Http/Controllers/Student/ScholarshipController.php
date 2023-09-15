@@ -23,12 +23,6 @@ use PDF;
 class ScholarshipController extends Controller
 {
 
-
-    public function login()
-    {
-        return view('login');
-    }
-
     public function index()
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
