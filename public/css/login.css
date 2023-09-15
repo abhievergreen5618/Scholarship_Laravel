@@ -100,7 +100,7 @@ hr.line {
     margin-left: 20%;
     margin-right: 20%;
 }
-button.btn.btn-lg.btn-block.btn-primary {
+#login-button.btn.btn-lg.btn-block.btn-primary {
     width: 100%;
     margin-top: 10px;
     border:none;
