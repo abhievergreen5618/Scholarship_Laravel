@@ -38,7 +38,11 @@ class ClassController extends Controller
                     return $btn;
                 })
                 ->addColumn('subjects', function ($row) {
-                    dd($row->subjects);
+                    if(count($row->subjects) > 0) {
+                        $subjectNames = collect($row->subjects)->pluck('name')->implode(', ');
+                        return $subjectNames;
+                    }
+                    return 'No subjects'; // Display a message when the subjects array is empty
                 })
                 ->addColumn('status', function ($row) {
                     if ($row->status == "inactive") {
