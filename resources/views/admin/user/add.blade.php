@@ -52,7 +52,7 @@
                                         <select name="scholarshipname" id="scholarshipname"
                                             class="dropdownlong form-select">
                                             <option value=""> Please Select </option>
-                                            @foreach(json_decode($scholarshipSelect) as $scholarshipname)
+                                            @foreach($scholarshipSelect as $scholarshipname)
                                             <option value="{{ $scholarshipname }}">
                                                 {{ $scholarshipname }}
                                             </option>
