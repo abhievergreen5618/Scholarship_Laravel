@@ -13,7 +13,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Details</h3>
+                        <h3 class="card-title">Payment Details</h3>
                     </div>
                     <div class="card-body">
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
