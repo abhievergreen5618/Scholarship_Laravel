@@ -19,8 +19,8 @@
 		<div class="row">
 			<div class="col-md-6 offset-3">
 	
-<form action="{{ route('login') }}" method="POST">
-  @csrf
+      <form method="POST" action="{{ route('login') }}" id="login-form">
+    @csrf
 
 <div class="formmm">
 	<h4 class="Login mb-2">Login</h4>
@@ -54,7 +54,7 @@
 
   <!-- Submit button -->
    <div class="col-sm-auto px-1 mb-2">
-      <button type="button" class="btn btn-primary w-100">Login</button>
+      <button type="submit" id="login-button" class="btn btn-primary w-100">Login</button>
     </div>
 
 
