@@ -109,6 +109,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/fee-status-update', 'status')->name('fee-status-update');
     });
 
+
+    Route::controller(PaymentRevenue::class)->group(function () {
+        Route::get('/paymentdata','index')->name('admin.payment.index');
+    });
+
 });
 
 
