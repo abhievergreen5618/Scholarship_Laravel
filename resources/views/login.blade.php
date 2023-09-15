@@ -8,6 +8,9 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
+
+<link rel="stylesheet" type="text/css" href="{{asset('css/all.css')}}">
 
     <title></title>
   </head>
@@ -83,7 +86,10 @@
 </div>
 </div>
 </div>
-
+<script src="{{ asset/js/all.js}}"></script>
+<script src="{{ asset/js/jquery.js}}"></script>
+<script src="{{ asset/js/bootstrap.min.js}}"></script>
+<script src="{{ asset/js/owl.carousel.js}}"></script>
 
   </body>
 </html>
