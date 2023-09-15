@@ -250,6 +250,27 @@ jQuery('#bankform').validate({
 })
 
 
+    $(document).ready(function() {
+        $('#login-button').on('click', function(e) {
+            e.preventDefault(); 
+            var formData = $('#login-form').serialize(); 
+            $.ajax({
+                url: "{{ route('login') }}",
+                method: "POST",
+                data: formData,
+                success: function(response) {
+                    if (response.status === 'success') {
+                        window.location.href = "{{ route('student.form') }}";
+                    } else {
+                        console.log(response.message);
+                    }
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    });
 
 
 
