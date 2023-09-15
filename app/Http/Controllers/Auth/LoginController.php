@@ -149,8 +149,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        if($request->ajax())
-        {
+        // if($request->ajax())
+        // {
             $validator = Validator::make($request->all(), [
                 "email" => "required|email",
                 "password" => "required",
@@ -191,27 +191,27 @@ class LoginController extends Controller
                     ],422);
                 }
             }
-        }
-        else
-        {
-            $request->validate([
-                "email" => "required|email",
-                "password" => "required",
-            ], [
-                "email.required" => "The email field is required.",
-                "email.email" => "Please enter a valid email address.",
-                "password.required" => "The password field is required.",
-            ]);
+        // }
+        // else
+        // {
+        //     $request->validate([
+        //         "email" => "required|email",
+        //         "password" => "required",
+        //     ], [
+        //         "email.required" => "The email field is required.",
+        //         "email.email" => "Please enter a valid email address.",
+        //         "password.required" => "The password field is required.",
+        //     ]);
             
-            $credentials = $request->only('email','password');
-            $remember = $request->has('rememberme');
-            if (Auth::attempt($credentials,$remember)) {
-                return redirect()->intended('login');
-            }
-            else
-            {
-                $error = ["password"=>"Please enter valid credentials."];
-            }
-        }
+        //     $credentials = $request->only('email','password');
+        //     $remember = $request->has('rememberme');
+        //     if (Auth::attempt($credentials,$remember)) {
+        //         return redirect()->intended('login');
+        //     }
+        //     else
+        //     {
+        //         $error = ["password"=>"Please enter valid credentials."];
+        //     }
+        // }
     }
 }
