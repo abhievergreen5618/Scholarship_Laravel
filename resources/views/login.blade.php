@@ -21,7 +21,7 @@
 <div class="formm">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 ">
+			<div class="col-md-6 offset-3">
 	
       <form method="POST" action="{{ route('mainlogin') }}" id="login-form">
     @csrf
