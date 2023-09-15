@@ -37,7 +37,6 @@ class UserDetail extends Controller
         // $classfilter = $classfilter->all();
 
         if ($request->ajax()) {
-            DB::connection()->enableQueryLog();
             $data = User::where('role', 'student')->latest()
                 ->get(['id', 'name', 'email', 'mobileno', 'class', 'gender', 'dob', 'paddress', 'status']);
                 return Datatables::of($data)->addIndexColumn()
