@@ -10,7 +10,7 @@ class PaymentRevenue extends Controller
     //
     public function index()
     {
-        return view('admin.payment.payment');
+        return view('admin.payment.index');
     }
 }
  
