@@ -47,7 +47,7 @@
                                     <strong>छात्रवृत्ति का नाम</strong>
                                 </td>
                                 <td class="colon">:</td>
-                                <td>
+                                <!-- <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
                                         <select name="scholarshipname" id="scholarshipname"
                                             class="dropdownlong form-select">
@@ -61,7 +61,7 @@
                                             
                                             </select>
                                     </span>
-                                </td>
+                                </td> -->
 
   
 
