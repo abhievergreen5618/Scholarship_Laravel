@@ -35,6 +35,9 @@
         <tr>
             <th>
     <b>Transaction ID</b>
+    <p>{{(!empty(auth()->user()->step5_updated_at))
+                                ? auth()->user()->transaction_id :
+                                ''}}</p>
 </th>
 </tr>
     </div>
