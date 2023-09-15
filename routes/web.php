@@ -49,8 +49,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::controller(ClassController::class)->group(function () {
-        Route::get('/classlist','index')->name('admin.class.index'); 
-        Route::get('/addclass','create')->name('admin.classes'); 
+        Route::get('/classlist','index')->name('admin.class.index');
+        Route::get('/addclass','create')->name('admin.classes');
         Route::post('/createclass','store')->name('admin.class.store');
         Route::post('/classdetails', 'display')->name('admin.class.details');
         Route::get('/classedit/{id}', 'edit')->name('admin.class.edit');
@@ -59,7 +59,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/classdelete', 'destroy')->name('classdelete');
         Route::post('/class-status-update', 'status')->name('class-status-update');
     });
-     
+
 
     Route::controller(SubjectController::class)->group(function () {
         Route::get('/subjectslist','index')->name('admin.subjects.index');
@@ -109,7 +109,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/fee-status-update', 'status')->name('fee-status-update');
     });
 
-});  
+});
 
 
 Route::controller(LoginController::class)->group(function(){
