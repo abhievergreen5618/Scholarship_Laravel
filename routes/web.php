@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Student Routes
     Route::controller(ScholarshipController::class)->group(function () {
-        Route::get('/','index')->name('start');
+        Route::get('/form','index')->name('start');
         Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
         Route::post('/bankdetails','bankinfo')->name('bankdetails');
