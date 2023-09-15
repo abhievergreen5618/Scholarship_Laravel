@@ -137,5 +137,5 @@ Route::controller(LoginController::class)->group(function(){
 });
 
 
-Route::get('/', 'LoginController@login')->name('login');
+Route::post('/', 'LoginController@login')->name('login');
 
