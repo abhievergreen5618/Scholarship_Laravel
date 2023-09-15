@@ -128,7 +128,7 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('/register','create')->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
     Route::post('/login','login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
 
-    Route::post('/login',function(){
+    Route::get('/login',function(){
         return redirect()->to(env("WORDPRESS_URL")."/login");
     });
     Route::get('/register',function(){
