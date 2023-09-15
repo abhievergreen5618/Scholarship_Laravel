@@ -73,7 +73,7 @@ class SubjectController extends Controller
 
 
 
-    public function store(SubjectRequest $request)
+    public function store(Request $request)
     {
         $request->validate(
             [
@@ -82,12 +82,13 @@ class SubjectController extends Controller
                 "status"=>'required',
             ]
         );
-        Subject::create([
+        $subject = Subject::create([
             "name" => $request->name,
             "classes" => $request->classes,
             "description" => $request->description,
             "status" => $request->status,
         ]);
+        $subject->classes()->sync($request->classes);
         return redirect(route('admin.subjects.index'))->with("msg", "Subject Created Successfully");
     }
 
@@ -162,14 +163,22 @@ class SubjectController extends Controller
     public function destroy(Request $request)
     {
         //
-        $request->validate(
-            [
-                "id"=>'required',
-            ]
-        );
-            Subject::where("id",decrypt($request['id']))->delete();
-            $msg = "Deleted Successfully";
-            return response()->json(array('msg' => $msg),200);
+            $request->validate(
+                [
+                    "id"=>'required',
+                ]
+            );
+            $subject = Subject::find(decrypt($request['id']));
+            if ($subject) {
+                $subject->classes()->syncWithoutDetaching([decrypt($request['id'])]);
+                $subject->delete();
+                $msg = "Deleted Successfully";
+                return response()->json(array('msg' => $msg),200);
+            } else {
+                $msg = "Failed to delete";
+                return response()->json(array('msg' => $msg),500);
+            }
+
 
     }
 
