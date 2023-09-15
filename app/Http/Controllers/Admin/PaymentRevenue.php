@@ -18,7 +18,6 @@ class PaymentRevenue extends Controller
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
             $data = PaymentDetails::latest()->get(['id','razorpay_id']);
-            dd($data);
             return Datatables::of($data);
     }
 }

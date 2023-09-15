@@ -30,7 +30,6 @@
     <li><a href="#tab-2">Failure</a></li>
   </ul>
 </tr>
-</table>
   <div class="tabs-stage">
     <div id="tab-1">
     <b>Transaction ID</b>
@@ -39,6 +38,8 @@
     </div>
   </div>
 </div>
+
+</table>
 
 
 <script src="{{asset('js/tabs.js')}}"></script>
