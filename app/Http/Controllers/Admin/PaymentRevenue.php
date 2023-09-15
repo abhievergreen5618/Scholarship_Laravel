@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\PaymentDetails;
+use App\Models\PaymentsDetails;
 
 class PaymentRevenue extends Controller
 {
@@ -17,7 +17,7 @@ class PaymentRevenue extends Controller
     {
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
-            $data = PaymentDetails::latest()->get(['id','razorpay_id']);
+            $data = PaymentsDetails::latest()->get(['id','razorpay_id']);
             return Datatables::of($data);
     }
 }

@@ -20,15 +20,13 @@ class FeeController extends Controller
     }
 
     public function display(Request $request)
-    {
-
-        
+    {        
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
             $data = FeeDetail::latest()->get(['id','feetype','fee','description','status']);
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $id = encrypt($row->id);
+                    $id = encrypt($row->id); 
                     $editlink = route('admin.fee.edit', ['id' => $id]);
                     $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a>
                     </div>";
