@@ -54,7 +54,7 @@
 
   <!-- Submit button -->
    <div class="col-sm-auto px-1 mb-2">
-      <button type="button" class="btn btn-primary w-100">Login</button>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
     </div>
 
 
