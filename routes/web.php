@@ -128,15 +128,19 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('/register','create')->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
     Route::post('/login','login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
 
-    Route::post('/login',function(){
+    Route::get('/login',function(){
         return redirect()->to(env("WORDPRESS_URL")."/login");
     });
     Route::get('/register',function(){
         return redirect()->to(env("WORDPRESS_URL")."/signup");
     });
+
+    Route::get('/','index')->name('loginpage');
+
+    Route::post('/auth','directlogin')->name('mainlogin');
 });
 
 
-Route::post('/', 'LoginController@login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
+
 
 

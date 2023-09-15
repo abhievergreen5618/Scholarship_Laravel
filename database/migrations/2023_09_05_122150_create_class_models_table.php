@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string("class")->unique();
             $table->string("description")->nullable();
             $table->string("status")->default("active");
-            $table->unsignedBigInteger("subject_id")->nullable();
-            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->timestamps();
         });
     }
