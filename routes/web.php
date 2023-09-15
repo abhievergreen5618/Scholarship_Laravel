@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Student Routes
     Route::controller(ScholarshipController::class)->group(function () {
+        Route::get('/','login')->name('login');
         Route::get('/form','index')->name('start');
         Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
@@ -120,7 +121,7 @@ Route::controller(LoginController::class)->group(function(){
     Route::get('/login/facebook/callback','facebookCallback')->name('handleFacebookCallback');
     Route::post('/register','create')->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
     Route::post('/login','login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
-    Route::get('/','login')->name('login');
+    
     Route::get('/login',function(){
         return redirect()->to(env("WORDPRESS_URL")."/login");
     });
