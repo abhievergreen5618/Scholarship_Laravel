@@ -149,12 +149,9 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-
-        if ($request->header('X-Requested-With') == 'XMLHttpRequest') {
-            dd("test");
-        }
         if($request->ajax())
         {
+            
             $validator = Validator::make($request->all(), [
                 "email" => "required|email",
                 "password" => "required",
@@ -210,7 +207,7 @@ class LoginController extends Controller
             $credentials = $request->only('email','password');
             $remember = $request->has('rememberme');
             if (Auth::attempt($credentials,$remember)) {
-                return redirect()->intended('student.form');
+                return redirect()->intended('login');
             }
             else
             {
