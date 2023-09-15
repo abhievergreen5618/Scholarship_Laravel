@@ -34,6 +34,13 @@
                                 @isset($data)
                                     <input type="hidden" name="id" value="{{encrypt($data->id)}}">
                                 @endisset
+                                <div class="tab-content">
+            <div class="tab-pane active" id="tab_1">
+                <h3><span>Step [1/6] :</span> Personal Information &nbsp;
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblPageMsg__"><span
+                            id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
+                </h3>
+                <div class="box-body table-responsive">
                                 <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form mobile_form" width="100%"
                         border="0" cellspacing="5" cellpadding="0">
                         <tbody>
@@ -513,6 +520,398 @@
         <button type="submit" class="btn btn-warning">Save</button>
     </form>
 
+    <form id="docform" action="{{ route('educationinfosubmit') }}" method="POST">
+        @csrf
+        <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
+        <div class="tab-content"> 
+            <div class="tab-pane active" id="tab_2">
+
+                <h3><span>Step [2/5] :</span>Education &amp; Document Details &nbsp;
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblPageMsg__"><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
+                </h3>
+
+                <table id="ctl00_ContentPlaceHolder1_tblInstruction" class="table Eng_hindi_form" width="100%" border="0" cellspacing="5" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td colspan="6" class="tdgap" width="42%" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" align="center">
+                                <div style="border: solid 1px #ccc; border-radius: 5px; padding: 5px; background-color: #ff6000">
+                                    <div style="font-size: 14px; color: #fff"><b>INSTRUCTION :</b> once <b>'result
+                                            status'</b> of education qualification is saved as <b>'passed'</b> by the
+                                        candidate, then he/she can not change the status further. </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <table id="ctl00_ContentPlaceHolder1_tblEducationInstrucation" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td colspan="3"><strong>Note :</strong> &nbsp;* Correct upto two decimal places.<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><u>Fields
+                                        marked <span style="color: red">*</span> are mandatory.</u></b><br>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center"><strong><span style="color: #009e0c">Document Name max 10
+                                        characters allowed.</span></strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center"><strong><span style="color: #009e0c">if any Problem in
+                                        Uploading document then go through microsoft internet explorer and mozilla web
+                                        browsers.</span></strong></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3"><b>Academic Qualifications</b><br>
+                                <strong><b>शैक्षणिक योग्यता</b></strong>
+                            </td>
+                            <td class="colon"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id="ctl00_ContentPlaceHolder1_divEducationGrid" class="box-body  table-responsive">
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_lbl_UploadDocDtls__"><span id="ctl00_ContentPlaceHolder1_lbl_UploadDocDtls" style="color:Red;margin-left: 80%"></span></span>
+                    <div class="gridiv">
+                        <div id="Anthem_ctl00_ContentPlaceHolder1_gvsubject__">
+                            <div>
+                                <table class="table" cellspacing="1" cellpadding="1" rules="all" border="1" id="ctl00_ContentPlaceHolder1_gvsubject" style="width:100%;border:1px solid #B0B0B0;border-collapse:collapse; margin:15px 0;">
+                                    <tbody>
+                                        <tr class="header-style">
+                                            <th scope="col">S.No</th>
+                                            <th scope="col">Result Status <span style="color:red">*</span></th>
+                                            <th scope="col">Examination Passed <span style="color:red">*</span></th>
+                                            <th scope="col">Name of The Board/University <span style="color:red">*</span>
+                                            </th>
+                                            <th scope="col">Passing Year <span style="color:red">*</span> </th>
+                                            <th scope="col">Credits/Marks Obtained <span style="color:red">*</span></th>
+                                            <th scope="col">Maximum Marks(not for the candidate with CGPA) <span style="color:red">*</span></th>
+                                            <th scope="col">% Marks <span style="color:red">*</span></th>
+                                            <th scope="col">Exam. Roll No. <span style="color:red">*</span></th>
+                                        </tr>
+                                        <tr class="dgitem-style" style="background-color:White;">
+                                            <td align="center" style="width:5%;">
+                                                1
+                                            </td>
+                                            <td align="center" style="width:12%;">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="class_status" id="class_status" class="form-select">
+                                                        <option value="P" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'P') ? 'selected' : ''}}>Passed</option>
+                                                        <option value="A" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'A') ? 'selected' : ''}}>Awaited</option>
+                                                        <option value="N" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'N') ? 'selected' : ''}}>Not Applicable</option>
+
+
+                                                    </select></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlRStatus__"></span>
+                                            </td>
+
+
+                                            
+                                            <!------------------------------CLASS---------------------------->
+
+                                            <td align="center" style="width:12%;">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamPassed__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamPassed">Class 5 to
+                                                        Class 12 or its Equivalent</span></span>
+
+
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="classes" id="classes" class="dropdown1 form-select">
+                                                        <option selected="selected" value="">--Select Class--</option>
+                                                        @if(!empty($classes))
+                                                        @foreach($classes as $class)
+                                                        <option value="{{ $class->class }}">{{ $class->class }}</option>
+                                                        @endforeach
+                                                        @else
+                                                        <option value=""disabled>No class found</option>
+                                                        @endif
+                                                    </select></span>
+
+                                            </td>
+
+                                            <!---------------------------------------------------------->
+                                          
+  <td align="center">
+
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="class_board" class="textbox form-control" onpaste="return false" ondrop="return false" value="{{isset($step2schooldata['name_of_the_board_university']) ? $step2schooldata['name_of_the_board_university'] : '' }}"></span>
+
+
+
+
+
+                                            </td>
+                                            <td align="center" style="width:10%;>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="class_passing_year" class="form-select">
+                                                        <option value="">--Select --</option>
+                                                        <option value="1976" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '1976' ? 'selected' : ''}}>1976</option>
+                                                        <option value="2014" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2014' ? 'selected' : ''}}>2014</option>
+                                                        <option value="2015" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2015' ? 'selected' : ''}}>2015</option>
+                                                        <option value="2016" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2016' ? 'selected' : ''}}>2016</option>
+                                                        <option value="2017" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2017' ? 'selected' : ''}}>2017</option>
+                                                        <option value="2018" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2018' ? 'selected' : ''}}>2018</option>
+                                                        <option value="2019" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2019' ? 'selected' : ''}}>2019</option>
+                                                        <option value="2020" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2020' ? 'selected' : ''}}>2020</option>
+                                                        <option value="2021" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2021' ? 'selected' : ''}}>2021</option>
+                                                        <option value="2022" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2022' ? 'selected' : ''}}>2022</option>
+                                                        <option value="2023" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2023' ? 'selected' : ''}}>2023</option>
+
+                                                    </select></span>
+                                            </td>
+                                            <td align="center" >
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="number" maxlength="6" id="class_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:85px;" value="{{isset($step2schooldata['credits_marks_Obtained']) ? $step2schooldata['credits_marks_Obtained'] : '' }}"></span>
+
+                                            </td>
+                                            <td align="center">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="number" maxlength="6" id="class_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:85px;" value="{{isset($step2schooldata['maximum_marks']) ? $step2schooldata['maximum_marks'] : '' }}"></span>
+                                            </td>
+                                            <td align="center">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="number" maxlength="5" id="class_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:65px;" value="{{isset($step2schooldata['percentage_marks']) ? $step2schooldata['percentage_marks'] : '' }}"></span>
+
+                                            </td>
+                                            <td align="center">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="number" maxlength="15" id="class_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"  value="{{isset($step2schooldata['exam_roll_no']) ? $step2schooldata['exam_roll_no'] : '' }}"></span>
+                                            </td>
+
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="box-body table-responsive">
+
+                    <table id="ctl00_ContentPlaceHolder1_Table2" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td colspan="3"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Were you ever disqualified/suspended by the School or any other
+                                    institution from attending classes or appearing in any exam? if yes give Details:
+                                    <br>
+                                    <strong>तुम कभी विश्वविद्यालय या किसी अन्य संस्था द्वारा कक्षाओं में भाग लेने या
+                                        किसी भी परीक्षा में प्रदर्शित होने से निलंबित कर दिया गए? यदि हाँ जानकारी दे
+                                    </strong>
+                                    <span style="color:red">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="48%">Yes/No
+                                    <br>
+                                    <strong>हाॅ/ नही </strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td width="48%">
+                                    <div id="Anthem_ctl00_ContentPlaceHolder1_rdListYesNo__">
+                                        <table id="ctl00_ContentPlaceHolder1_rdListYesNo" class="radio" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="yes" {{isset($step2graduationdata['disqualified/suspended']) && $step2graduationdata['disqualified/suspended'] == "yes" ? 'checked' : ''}}>
+                                                            <label class="form-check-label" for="disqualified/suspendedyes">Yes</label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="no" {{isset($step2graduationdata['disqualified/suspended']) && $step2graduationdata['disqualified/suspended'] == "no" ? 'checked' : ''}}>
+                                                            <label class="form-check-label" for="disqualified/suspendedno">No</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Details
+                                    <br>
+                                    <strong>विवरण
+                                    </strong>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="details" rows="2" cols="20" id="details" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;" disabled>{{isset($step2graduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y" ? $step2graduationdata['disqualified/suspended_details'] : ''}}</textarea></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><strong>Note :<br>
+                                    </strong><strong><span id="ctl00_ContentPlaceHolder1_spn_FsignMsg">Photograph,Signature and
+                                            Father/Guardian signature</span><br>
+                                        should be in <span style="color: red">.jpg or .Jpeg format</span> and max size
+                                        20KB allowed.
+
+
+                                        <br>
+
+                                        Filename<span style="color: red"> max 10 Characters</span> Allowed.</strong>
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Upload Your Photograph
+                                    <br>
+                                    <strong>अपना तस्वीर डाले
+                                    </strong>
+                                    <span style="color:red">*</span>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+
+
+
+
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="profile_photo" id="profile_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
+                                                    <div><img id="profile_photo_perview" src="{{ (!empty(auth()->user()->photo)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Upload Your Signature
+                                    <br>
+                                    <strong>अपना हस्ताक्षर डाले
+                                    </strong>
+                                    <span style="color:red">*</span>
+                                </td>
+                                <td class="colon">:</td>
+                                <td>
+
+
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
+                                                    <div><img id="sign_photo_perview" src="{{ (!empty(auth()->user()->signature)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
+                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+
+                            </tr>
+                            <tr>
+                                <td class="vtext"></td>
+                                <td class="colon">&nbsp;</td>
+                                <td>
+
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnSave__"></span>&nbsp;&nbsp;
+
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnReset__"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblMsg__"><span id="ctl00_ContentPlaceHolder1_lblMsg" style="color:Red;"></span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK" id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
+                                <td colspan="6" class="tdgap" width="42%" align="left">
+
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="SAVE " id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary"></span>&nbsp;&nbsp;
+                                </td>
+                                </td>
+                                <td colspan="2" align="right">
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"></span>
+                                </td>
+                            </tr>
+                            <form id="bankform" method="POST" action="{{route('bankdetails')}}">
+        @csrf
+        <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
+    <div class="typography">
+<div class="tab-content">
+            <div class="tab-pane active" id="tab_3">
+
+    <h3><span>Step [3/6] :</span> Bank Details &nbsp;
+                    <span><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
+                </h3>
+                <div class="box-body table-responsive">
+        <table id="ctl00_ContentPlaceHolder1_Table1" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
+            <tbody>
+            <tr>
+                                <td colspan="3"><b><u>Fields marked <span style="color: red">*</span> are mandatory.</u></b></td>
+                            </tr>
+    <tr>
+        <td class="text">Account No. <span style="color: red">*</span>
+        <br>
+            <strong>खाता संख्या</strong>
+        </td>
+        <td class="colon">:</td>
+            <td>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="accountno"  maxlength="15" id="accountno" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->accountno : ''}}" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+            </td>
+    </tr>
+    <tr>
+        <td class="text">Confirm Account No. <span style="color: red">*</span>
+        <br>
+            <strong>खाता संख्या</strong>
+        </td>
+        <td class="colon">:</td>
+            <td>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAccountNo__"><input name="cnfrmaccountno"  maxlength="15" id="cnfrmaccountno" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->cnfrmaccountno : ''}}" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;"></span>
+            </td>
+    </tr>
+    <tr>
+        <td class="vtext">Account Holder Name<span style="color: red">*</span><br>
+            <strong>बैंकिंग खाता नाम</strong>
+        </td>
+        <td class="colon">:</td>
+            <td>
+                <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="holdername" type="text" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->holdername : ''}}" maxlength="50" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+            </td>
+    </tr>
+        <tr>
+            <td class="vtext">IFSC Code<span style="color: red">*</span><br>
+                <strong>आईएफएससी कोड</strong>
+            </td>
+            <td class="colon">:</td>
+                <td>
+                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="ifsccode" type="text"  maxlength="50" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->ifsccode : ''}}" id="name" class="textboxlong form-control" style="text-transform: uppercase"></span>
+                </td>
+        </tr>
+                            <tr>
+                                <td>Upload Passbook Front Page Image
+                                    <br>
+                                    <strong>पासबुक फ्रंट पेज छवि अपलोड करें
+                                    </strong>
+                                    <span style="color:red">*</span>
+                                </td>
+                                <td class="colon">:</td>
+                                                <td>
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_Uploadpassbook__"><input type="file" name="passbook_photo" value="{{!empty(auth()->user()->step3_updated_at) ? auth()->user()->passbook_photo : ''}}" id="passbook_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
+                                                    </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button type="submit" class="btn btn-warning">Save</button>
+                                </td>
+                            </tr>
+ 
 
                                 </div>
                             </div>
