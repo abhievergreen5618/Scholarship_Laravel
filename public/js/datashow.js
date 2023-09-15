@@ -12,7 +12,7 @@ $(document).ready(function () {
             'beforeSend': function (request) {
                 request.setRequestHeader("X-CSRF-TOKEN", jQuery('meta[name="csrf-token"]').attr('content'));
             },
-            
+
         },
         "columnDefs": [
             { "className": "dt-center", "targets": "_all" }
@@ -21,9 +21,13 @@ $(document).ready(function () {
             {
                 "data": "class",
                 "defaultContent": "Not Provided"
-            }, 
+            },
             {
                 "data": "description",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "subjects",
                 "defaultContent": "Not Provided"
             },
             {
@@ -74,7 +78,7 @@ $(document).ready(function () {
     });
 
 
-    
+
     classtable.on('click', '.status', function () {
         $('.datatables_processing').show();
         element = $(this);
@@ -115,8 +119,8 @@ $(document).ready(function () {
     //---------------------------------------CLASS TABLE END---------------------------
 
     //----------------------------------------SUBJECT TABLE START---------------------------
-    
-    
+
+
     var subjecttable = $('#subjecttable').DataTable({
         "processing": true,
         "serverSide": true,
@@ -158,8 +162,8 @@ $(document).ready(function () {
         ],
         "order": [[5, 'desc']] // Order by the "action" column in descending order
     });
-        
-    
+
+
 
 
 
@@ -237,7 +241,7 @@ $(document).ready(function () {
 
 
 
-    
+
     //---------------------------SUBJECT TABLE END---------------------------------------
 
     //----------------------------SCHOLARSHIP TABLE START--------------------------------
@@ -312,7 +316,7 @@ $(document).ready(function () {
         });
     });
 
-    
+
     scholarshiptable.on('click', '.status', function () {
         $('.datatables_processing').show();
         element = $(this);
@@ -352,7 +356,7 @@ $(document).ready(function () {
 //--------------------------------------SCHOLARSHIP TYPE ENDs------------------------------------
 
 //-------------------------------------USER DETAIL----------------------------------------------
-  
+
 
 var usertable = $('#usertable').DataTable({
     "processing": true,
@@ -485,7 +489,7 @@ usertable.on('click', '.status', function () {
 
 
 //-------------------------------------FEE DETAIL----------------------------------------------
-  
+
 
 var feetable = $('#feetable').DataTable({
     "processing": true,
@@ -596,8 +600,8 @@ feetable.on('click', '.status', function () {
 
 
 
-    
-    
+
+
 
 jQuery('#class-add-form').validate({
     rules:{
@@ -608,14 +612,13 @@ jQuery('#class-add-form').validate({
     messages:{
         class:"Select an option",
         status:"Select an option",
-       
+
     },
     submitHandler: function(form) {
         form.submit(); // This will allow the form to submit when it's valid.
     }
 });
-      
-    
 
-    
-    
+
+
+
