@@ -170,7 +170,7 @@ class SubjectController extends Controller
             );
             $subject = Subject::find(decrypt($request['id']));
             if ($subject) {
-                $subject->syncWithoutDetaching([decrypt($request['id'])]);
+                $subject->classes()->syncWithoutDetaching([decrypt($request['id'])]);
                 $subject->delete();
                 $msg = "Deleted Successfully";
                 return response()->json(array('msg' => $msg),200);
