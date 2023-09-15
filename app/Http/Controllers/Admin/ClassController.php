@@ -57,7 +57,7 @@ class ClassController extends Controller
                     return $statusBtn;
                 })
 
-                ->rawColumns(['action','status'])
+                ->rawColumns(['action','subjects','status'])
                 ->make(true);
         }
     }
