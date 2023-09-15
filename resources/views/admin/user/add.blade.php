@@ -352,21 +352,7 @@
                                     <strong>विषय के लिए आवेदन करना ?</strong>
                                 </td>
                                 <td class="colon">:</td>
-                                <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
-                                        <select name="subjects[]" id="subjects" class="form-control" multiple="multiple" data-placeholder="Select Subjects" data-dropdown-css-class="select2-purple">
-                                            <option value="">--Please Select--</option>
-                                            @foreach(json_decode($subjectSelect) as $subject)
-                                            <option value="{{ $subject }}">
-                                                {{ $subject }}
-                                            </option>
-                                            @endforeach
-                                        </select>
-
-                                    </span>
-                                    <br>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
-                                </td>
+                                
                             </tr>
 
                             <!------------------------------------------------->
