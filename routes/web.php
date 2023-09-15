@@ -126,7 +126,7 @@ Route::controller(LoginController::class)->group(function(){
     Route::get('/login/facebook','redirectFacebook')->name('redirectToFacebook');
     Route::get('/login/facebook/callback','facebookCallback')->name('handleFacebookCallback');
     Route::post('/register','create')->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
-    Route::post('/login','login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
+    Route::post('/login','login')->name('mainlogin')->withoutMiddleware([VerifyCsrfToken::class]);
 
     Route::post('/login',function(){
         return redirect()->to(env("WORDPRESS_URL")."/login");
