@@ -35,7 +35,6 @@
    
   </div>
 
-  <!-- 2 column grid layout for inline styling -->
   <div class="row mb-4">
     <div class="col d-flex justify-content-center">
       <!-- Checkbox -->
@@ -74,18 +73,6 @@
     <button class="loginBtnnn loginBtn--facebook">
 <i class="fas fa-phone-square-alt"></i>Login with mobile no
 </button>
-
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
-
-
     
   </div></div>
 </form>
