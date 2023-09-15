@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ScholarshipType;
 use App\Http\Controllers\Admin\UserDetail;
 use App\Http\Controllers\Admin\FeeController;
+use App\Http\Controllers\Admin\PaymentRevenue;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
