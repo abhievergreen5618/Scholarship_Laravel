@@ -207,7 +207,7 @@ class LoginController extends Controller
             $credentials = $request->only('email','password');
             $remember = $request->has('rememberme');
             if (Auth::attempt($credentials,$remember)) {
-                return redirect()->intended('login');
+                return redirect()->intended('student.form');
             }
             else
             {
