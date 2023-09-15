@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+$base-font: 'Open Sans', sans-serif;
+
+$bgc:#4c607c;
+$tabc:#b2bbc0;
+$fontc:#596165;
+$tabfontc:white;
+
+$tabwidth:650px;
+
+
+body{
+  background-color: $bgc;
+  height:100%;
+  font-family: $base-font;
+  font-size: 16px;
+  line-height:1.5;
+}
+
+.tab-block{
+  width:$tabwidth;
+  height:290px;
+  margin:50px auto;
+  .tab-mnu{
+    display:block;
+    list-style:none;
+    &:after{
+      content:'';
+      display:table;
+      clear:both;
+    }
+    li{
+      box-sizing:border-box;
+      float:left;
+      background-color: $tabc;
+      color:$tabfontc;
+      width:$tabwidth/5;
+      text-align:center;
+      padding-top:13px;
+      padding-bottom:13px;
+      cursor:pointer;
+      &:not(:last-child){
+        border-right:1px solid $bgc;
+      }
+      &:hover:not(.active){
+        background-color: lighten($tabc,5%);
+      }
+    }
+    .active{
+        background-color: #fff;
+        color:$fontc;
+        border-bottom:1px solid lighten($fontc,55%);
+      cursor:default;
+      }
+  }
+  
+  .tab-cont{
+    box-sizing:border-box;
+    border-top:1px solid white;
+    background-color:$tabfontc;
+    color:darken($fontc,20%);
+    .tab-pane{
+      padding:20px 25px;
+    }
+  }
+    
+}
