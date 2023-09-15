@@ -1,3 +1,14 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
+    <title>Document</title>
+</head>
+<body>
 <div class="tabs">
   <ul class="tabs-nav">
     <li><a href="#tab-1">Features</a></li>
@@ -12,3 +23,9 @@
     </div>
   </div>
 </div>
+
+
+<script src="{{asset('js/tabs.js')}}"></script>
+</body>
+</html>
+

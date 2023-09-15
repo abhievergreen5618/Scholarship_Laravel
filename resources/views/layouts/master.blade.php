@@ -24,7 +24,6 @@
 
     <link rel="stylesheet" href="{{asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
-    <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/adminstyle.css') }}">
@@ -57,7 +56,6 @@
   <script src="{{asset('adminlte/plugins/toastr/toastr.min.js')}}"></script>
   <script src="{{asset('adminlte/plugins/toastr/toastr.js.map')}}"></script>
   
-  <script src="{{asset('js/tabs.js')}}"></script>
     <script src="{{asset('js/datashow.js')}}"></script>
 
 
