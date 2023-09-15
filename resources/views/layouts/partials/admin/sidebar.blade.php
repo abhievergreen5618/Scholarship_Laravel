@@ -167,7 +167,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('admin.fee.index')}}" class="nav-link">
+                <a href="{{route('admin.payment.index')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>Payment</p>
                 </a>
