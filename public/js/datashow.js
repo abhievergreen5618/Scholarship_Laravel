@@ -628,14 +628,16 @@ jQuery('#class-add-form').validate({
         name:"required",
         class:"required",
         status:"required",
+        classes:"required",
     },
     messages:{
         class:"Select an option",
+        classes:"Select an option",
         status:"Select an option",
 
     },
     submitHandler: function(form) {
-        form.submit(); // This will allow the form to submit when it's valid.
+        form.submit(); 
     }
 });
 
