@@ -128,9 +128,7 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('/register','create')->name('register')->withoutMiddleware([VerifyCsrfToken::class]);
     Route::post('/login','login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
     
-    Route::group(['middleware' => ['web']], function () {
-        Route::post('/', 'LoginController@login')->name('login');
-    });
+    
     
 
     Route::post('/login',function(){
@@ -141,4 +139,6 @@ Route::controller(LoginController::class)->group(function(){
     });
 });
 
-
+Route::group(['middleware' => ['web']], function () {
+    Route::post('/', 'LoginController@login')->name('login');
+});
