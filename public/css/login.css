@@ -1,0 +1,151 @@
+
+
+
+body{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;	
+}
+
+.formmm {
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    padding: 50px;
+    box-shadow: 0px 15px 50px rgb(177 177 177 / 15%);
+}
+svg.svg-inline--fa.fa-google.fa-w-16.me-2 {
+    margin-left: -14px;
+}
+svg.svg-inline--fa.fa-phone-square-alt.fa-w-14 {
+    margin-right: 8px;
+}
+svg.svg-inline--fa.fa-facebook-square.fa-w-14 {
+    margin-right: 10px;
+}
+button.loginBtn.loginBtn--facebook {
+    background-color: #c71919;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    margin-top:10px!important;
+}
+button.loginBtnnn.loginBtn--facebook {
+    background-color: #089927;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    margin-top: 10px!important;
+}
+button.loginBtnn.loginBtn--facebook {
+    background-color: #074bb1;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    margin-top: 10px!important;
+}
+     a.textrr {
+    color: white!important;
+    text-decoration: none!important;
+    margin-left: -7px!important;
+}
+svg.svg-inline--fa.fa-google.fa-w-16.me-2 {
+    margin-left: -20px!important;
+}
+a.textr {
+    color: white!important;
+    text-decoration: none!important;
+}
+input#ctl00_ContentPlaceHolder1_btnBackEdit {
+    float: right!important;
+}
+h4.Login {
+    font-size: 40px;
+  button.loginBtnnn.loginBtn--facebook {
+    background-color: #0ca133;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    margin-top: 10px!important;
+}  
+}
+p.rr {
+    margin-top: 8px;
+    font-weight: 500;
+}
+input#form2Example1 {
+    margin-top: 20px;
+}
+p.mt-1.mm {
+    font-weight: 500;
+    color: black;
+}
+.col-md-6.imggg img.img-fluid {
+    width: 27%;
+    border-radius: 50px;
+}
+p.rr {
+    margin-top: 20px;
+}
+.or {
+    margin-top: -12px!important;
+}
+.or {
+    margin: 35px 0;
+    font-weight: 600;
+    color: #9f9f9f;
+}
+hr.line {
+    margin-top: -30px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+button.btn.btn-lg.btn-block.btn-primary {
+    width: 100%;
+    margin-top: 10px;
+    border:none;
+}
+.formm {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.formm {
+    
+margin-top: 5%;
+}
+body.colorrr {
+    background-color: #ff5700;
+}
+button.btn.btn-primary.w-100 {
+    padding: 12px;
+}
+
+@media (min-width: 250px) and (max-width: 600px){
+
+.formm {
+    margin: 0%;
+    
+}
+
+}
+
+
+
+
+@media (min-width: 250px) and (max-width: 1800px){
+.col-md-6.offset-3 {
+    margin-left: 0px!important;
+    width: 100%!important;
+}
+
+}
+
+
+
+
+
+
+
