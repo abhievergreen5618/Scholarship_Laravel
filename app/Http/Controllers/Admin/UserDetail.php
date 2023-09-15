@@ -27,18 +27,20 @@ class UserDetail extends Controller
     public function display(Request $request)
     {
         
-        $class = User::where('class')->get();
-        $class = collect($class);
-        $classfilter = $class->filter( function($value,$key)
-        {
-            return data_get($value , 'class');
-        } );
+        // $class = User::where('class')->get();
+        // $class = collect($class);
+        // $classfilter = $class->filter( function($value,$key)
+        // {
+        //     return data_get($value , 'class');
+        // } );
 
-        $classfilter = $classfilter->all();
+        // $classfilter = $classfilter->all();
 
         if ($request->ajax()) {
-            $data = User::where('role','student')->latest()->get(['id','name','email','mobileno','class','gender','dob','paddress','status']);
-            return Datatables::of($data)->addIndexColumn()
+            $data =  DB::table('users')
+            ->where('role', 'student')
+                ->select(['id', 'name', 'email', 'mobileno', 'class', 'gender', 'dob', 'paddress', 'status'])->latest()->get();
+                return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
                     $editlink = route('admin.user.edit', ['id' => $id]);

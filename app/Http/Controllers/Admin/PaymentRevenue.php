@@ -5,14 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PaymentsDetails;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\DB;
 
 class PaymentRevenue extends Controller
 {
-    //
+
     public function index()
     {
         return view('admin.payment.index');
     }
+
     public function display(Request $request)
     {
         if ($request->ajax()) {
@@ -24,7 +27,7 @@ class PaymentRevenue extends Controller
             })
             ->rawColumns(['actions']) 
             ->make(true);
+        }
     }
-}
 }
  

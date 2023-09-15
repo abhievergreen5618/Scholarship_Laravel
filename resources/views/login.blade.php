@@ -7,6 +7,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+<link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
+
+<link rel="stylesheet" type="text/css" href="{{asset('css/all.css')}}">
 
     <title></title>
   </head>
@@ -26,13 +30,13 @@
 	<h4 class="Login mb-2">Login</h4>
 	<h3 class="Login mb-4">Welcome Back!</h3>
   <!-- Email input -->
-  <div class="form-outline mb-4">
+  <div class="form-outline mb-4 form-control">
     <input type="email" id="form2Example1" class="form-control" name="email" placeholder="Email/Username/Mobile No" />
 
   </div>
 
   <!-- Password input -->
-  <div class="form-outline mb-4">
+  <div class="form-outline mb-4 form-control">
     <input type="password" id="form2Example2" class="form-control" name="password" placeholder="Enter Your Password " />
    
   </div>
@@ -82,7 +86,10 @@
 </div>
 </div>
 </div>
-
+<script src="{{ asset('js/all.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.js') }}"></script>
 
   </body>
 </html>
