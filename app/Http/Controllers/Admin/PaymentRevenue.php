@@ -13,7 +13,7 @@ class PaymentRevenue extends Controller
     {
         return view('admin.payment.index');
     }
-    public function display()
+    public function display(Request $request)
     {
         if ($request->ajax()) {
             $GLOBALS['count'] = 0;
