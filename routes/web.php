@@ -137,7 +137,7 @@ Route::controller(LoginController::class)->group(function(){
 
     Route::get('/','index')->name('loginpage');
 
-    Route::post('/auth','login')->name('mainlogin');
+    Route::post('/auth','directlogin')->name('mainlogin');
 });
 
 

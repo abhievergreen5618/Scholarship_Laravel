@@ -153,11 +153,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        if ($request->header('X-Requested-With') == 'XMLHttpRequest') {
-            dd("test");
-        }
-        if($request->ajax())
-        {
             $validator = Validator::make($request->all(), [
                 "email" => "required|email",
                 "password" => "required",
@@ -198,27 +193,27 @@ class LoginController extends Controller
                     ],422);
                 }
             }
+    }
+
+    public function directlogin(Request $request)
+    {
+        $request->validate([
+            "email" => "required|email",
+            "password" => "required",
+        ], [
+            "email.required" => "The email field is required.",
+            "email.email" => "Please enter a valid email address.",
+            "password.required" => "The password field is required.",
+        ]);
+        
+        $credentials = $request->only('email','password');
+        $remember = $request->has('rememberme');
+        if (Auth::attempt($credentials,$remember)) {
+            return Auth::user()->role == "admin" ? redirect()->route("admin.dashboard") : redirect()->route("start");
         }
         else
         {
-            $request->validate([
-                "email" => "required|email",
-                "password" => "required",
-            ], [
-                "email.required" => "The email field is required.",
-                "email.email" => "Please enter a valid email address.",
-                "password.required" => "The password field is required.",
-            ]);
-            
-            $credentials = $request->only('email','password');
-            $remember = $request->has('rememberme');
-            if (Auth::attempt($credentials,$remember)) {
-                return Auth::user()->role == "admin" ? redirect()->route("admin.dashboard") : redirect()->route("start");
-            }
-            else
-            {
-                $error = ["password"=>"Please enter valid credentials."];
-            }
+            $error = ["password"=>"Please enter valid credentials."];
         }
     }
 }
