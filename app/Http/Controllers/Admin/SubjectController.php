@@ -169,6 +169,7 @@ class SubjectController extends Controller
                 ]
             );
             $subject = Subject::find(decrypt($request['id']));
+            dd($subject);
             if ($subject) {
                 $subject->delete();
                 $subject->syncWithoutDetaching([decrypt($request['id'])]);
