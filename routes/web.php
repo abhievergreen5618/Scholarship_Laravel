@@ -137,5 +137,6 @@ Route::controller(LoginController::class)->group(function(){
 });
 
 
-Route::post('/', 'LoginController@login')->name('login');
+Route::post('/', 'LoginController@login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
+
 
