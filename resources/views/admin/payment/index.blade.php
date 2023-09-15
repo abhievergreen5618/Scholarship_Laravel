@@ -35,9 +35,9 @@
         <tr>
             <th>
     <b>Transaction ID</b>
-    <p>{{(!empty(auth()->user()->step5_updated_at))
+    <!-- <p>{{(!empty(auth()->user()->step5_updated_at))
                                 ? auth()->user()->transaction_id :
-                                ''}}</p>
+                                ''}}</p> -->
 </th>
 </tr>
     </div>

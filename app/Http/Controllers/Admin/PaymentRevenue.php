@@ -16,10 +16,14 @@ class PaymentRevenue extends Controller
     public function display(Request $request)
     {
         if ($request->ajax()) {
-            $GLOBALS['count'] = 0;
             $data = PaymentsDetails::latest()->get(['id','razorpay_id']);
             dd($data);
-            return Datatables::of($data);
+            return Datatables::of($data) 
+            ->addColumn('actions', function ($row) {
+                return '<button>Edit</button>';
+            })
+            ->rawColumns(['actions']) 
+            ->make(true);
     }
 }
 }
