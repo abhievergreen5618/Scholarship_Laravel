@@ -1,28 +1,13 @@
-$(document).ready(function(){
-  
-    var tabWrapper = $('#tab-block'),
-        tabMnu = tabWrapper.find('.tab-mnu  li'),
-        tabContent = tabWrapper.find('.tab-cont > .tab-pane');
-    
-    tabContent.not(':first-child').hide();
-    
-    tabMnu.each(function(i){
-      $(this).attr('data-tab','tab'+i);
-    });
-    tabContent.each(function(i){
-      $(this).attr('data-tab','tab'+i);
-    });
-    
-    tabMnu.click(function(){
-      var tabData = $(this).data('tab');
-      tabWrapper.find(tabContent).hide();
-      tabWrapper.find(tabContent).filter('[data-tab='+tabData+']').show(); 
-    });
-    
-    $('.tab-mnu > li').click(function(){
-      var before = $('.tab-mnu li.active');
-      before.removeClass('active');
-      $(this).addClass('active');
-     });
-    
-  });
+// Show the first tab by default
+$('.tabs-stage div').hide();
+$('.tabs-stage div:first').show();
+$('.tabs-nav li:first').addClass('tab-active');
+
+// Change tab class and display content
+$('.tabs-nav a').on('click', function(event){
+  event.preventDefault();
+  $('.tabs-nav li').removeClass('tab-active');
+  $(this).parent().addClass('tab-active');
+  $('.tabs-stage div').hide();
+  $($(this).attr('href')).show();
+});

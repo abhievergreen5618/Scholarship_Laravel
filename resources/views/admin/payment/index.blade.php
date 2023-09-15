@@ -4,36 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="{{asset('css/tabs.css')}}"></script>
 </head>
 <body>
     
-$(document).ready(function(){
-  
-  var tabWrapper = $('#tab-block'),
-      tabMnu = tabWrapper.find('.tab-mnu  li'),
-      tabContent = tabWrapper.find('.tab-cont > .tab-pane');
-  
-  tabContent.not(':first-child').hide();
-  
-  tabMnu.each(function(i){
-    $(this).attr('data-tab','tab'+i);
-  });
-  tabContent.each(function(i){
-    $(this).attr('data-tab','tab'+i);
-  });
-  
-  tabMnu.click(function(){
-    var tabData = $(this).data('tab');
-    tabWrapper.find(tabContent).hide();
-    tabWrapper.find(tabContent).filter('[data-tab='+tabData+']').show(); 
-  });
-  
-  $('.tab-mnu > li').click(function(){
-    var before = $('.tab-mnu li.active');
-    before.removeClass('active');
-    $(this).addClass('active');
-   });
-  
-});
+<div class="tabs">
+  <ul class="tabs-nav">
+    <li><a href="#tab-1">Features</a></li>
+    <li><a href="#tab-2">Details</a></li>
+  </ul>
+  <div class="tabs-stage">
+    <div id="tab-1">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec neque nisi, dictum aliquet lectus.</p>
+    </div>
+    <div id="tab-2">
+      <p>Phasellus pharetra aliquet viverra. Donec scelerisque tincidunt diam, eu fringilla urna auctor at.</p>
+    </div>
+  </div>
+</div>
+
+
+<script src="{{asset('js/tabs.js')}}"></script>
 </body>
 </html>
