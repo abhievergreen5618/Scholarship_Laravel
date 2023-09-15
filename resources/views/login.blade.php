@@ -18,7 +18,7 @@
 		<div class="row">
 			<div class="col-md-6 offset-3">
 	
-<form action="{{ route('login') }}" method="POST">
+<form action="{{ route('start') }}" method="POST">
   @csrf
 <div class="formmm">
 	<h4 class="Login mb-2">Login</h4>
