@@ -149,43 +149,68 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            "email" => "required|email",
-            "password" => "required",
-            ],
-            [
-                "required" => "This field is required.",
-                "email.email" => "Please enter a valid email address.",
-            ]
-        ); 
+        if($request->ajax())
+        {
+            $validator = Validator::make($request->all(), [
+                "email" => "required|email",
+                "password" => "required",
+                ],
+                [
+                    "required" => "This field is required.",
+                    "email.email" => "Please enter a valid email address.",
+                ]
+            );
 
-        if ($validator->fails()) {
-            $errors = [];
-            foreach ($validator->errors()->getMessages() as $index => $error) {
-                $errors[$index] = $error[0];
+
+            if ($validator->fails()) {
+                $errors = [];
+                foreach ($validator->errors()->getMessages() as $index => $error) {
+                    $errors[$index] = $error[0];
+                }
+                return response()->json([
+                    'message'  => "!OOPs Something went wrong",
+                    'error' => $errors
+                ],422);
             }
-            return response()->json([
-                'message'  => "!OOPs Something went wrong",
-                'error' => $errors
-            ],422);
+            else
+            {
+                $credentials = $request->only('email','password');
+                $remember = $request->has('rememberme');
+                if (Auth::attempt($credentials,$remember)) {
+                    return response()->json([
+                        'message' => 'Login Successfully',
+                        'redirecturl' => Auth::user()->role == "admin" ? route("admin.dashboard") : route("start"),
+                    ],200);
+                }
+                else
+                {
+                    $error = ["password"=>"Please enter valid credentials."];
+                    return response()->json([
+                        'error' => $error,
+                        'message'  => "!OOPs Something went wrong"
+                    ],422);
+                }
+            }
         }
         else
         {
+            $request->validate($request->all(),[
+                "email" => "required|email",
+                "password" => "required",
+                ],
+                [
+                    "required" => "This field is required.",
+                    "email.email" => "Please enter a valid email address.",
+                ]
+            );
             $credentials = $request->only('email','password');
             $remember = $request->has('rememberme');
             if (Auth::attempt($credentials,$remember)) {
-                return response()->json([
-                    'message' => 'Login Successfully',
-                    'redirecturl' => Auth::user()->role == "admin" ? route("admin.dashboard") : route("start"),
-                ],200);
+                return redirect()->intended('dashboard');
             }
             else
             {
                 $error = ["password"=>"Please enter valid credentials."];
-                return response()->json([
-                    'error' => $error,
-                    'message'  => "!OOPs Something went wrong"
-                ],422);
             }
         }
     }
