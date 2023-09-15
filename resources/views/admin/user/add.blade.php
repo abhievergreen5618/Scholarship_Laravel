@@ -47,21 +47,7 @@
                                     <strong>छात्रवृत्ति का नाम</strong>
                                 </td>
                                 <td class="colon">:</td>
-                                <!-- <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
-                                        <select name="scholarshipname" id="scholarshipname"
-                                            class="dropdownlong form-select">
-                                            <option value=""> Please Select </option>
-                                            @foreach($scholarshipSelect as $scholarshipname)
-                                            <option value="{{ $scholarshipname }}">
-                                                {{ $scholarshipname }}
-                                            </option>
-                                            @endforeach
-                                      
-                                            
-                                            </select>
-                                    </span>
-                                </td> -->
+                               
 
   
 
