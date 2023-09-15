@@ -8,11 +8,12 @@ use App\Models\PaymentsDetails;
 
 class PaymentRevenue extends Controller
 {
-    //
+
     public function index()
     {
         return view('admin.payment.index');
     }
+
     public function display(Request $request)
     {
         if ($request->ajax()) {
@@ -24,7 +25,7 @@ class PaymentRevenue extends Controller
             })
             ->rawColumns(['actions']) 
             ->make(true);
+        }
     }
-}
 }
  
