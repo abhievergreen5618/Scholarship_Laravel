@@ -151,6 +151,7 @@ class LoginController extends Controller
     {
         if($request->ajax())
         {
+            
             $validator = Validator::make($request->all(), [
                 "email" => "required|email",
                 "password" => "required",
@@ -195,6 +196,7 @@ class LoginController extends Controller
         else
         
         {
+            
             $request->validate([
                 "email" => "required|email",
                 "password" => "required",

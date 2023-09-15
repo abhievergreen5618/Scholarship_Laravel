@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
@@ -20,7 +21,6 @@
 	
 <form action="{{ route('login') }}" method="POST">
   @csrf
-  <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <div class="formmm">
 	<h4 class="Login mb-2">Login</h4>
