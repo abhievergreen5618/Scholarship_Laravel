@@ -16,6 +16,6 @@
     
 <script src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
 <script src="{{asset('/js/jquery.js')}}"></script>
-
+<script src="{{asset('/js/bootstrap.min.js')}}"></script>
 </body>
 </html>
