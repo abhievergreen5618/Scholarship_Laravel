@@ -22,11 +22,13 @@ use PDF;
 
 class ScholarshipController extends Controller
 {
+
+
     public function index()
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
 
-        
+         
         $subjects = Subject::where('status','active')
         ->orderBy('name', 'asc')->get();
         $subjectSelect = $subjects->pluck('name')->toArray();

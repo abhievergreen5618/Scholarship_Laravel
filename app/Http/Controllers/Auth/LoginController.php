@@ -149,8 +149,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // if($request->ajax())
-        // {
+        if($request->ajax())
+        {
             $validator = Validator::make($request->all(), [
                 "email" => "required|email",
                 "password" => "required",
@@ -191,27 +191,27 @@ class LoginController extends Controller
                     ],422);
                 }
             }
-        // }
-        // else
-        // {
-        //     $request->validate($request->all(),[
-        //         "email" => "required|email",
-        //         "password" => "required",
-        //         ],
-        //         [
-        //             "required" => "This field is required.",
-        //             "email.email" => "Please enter a valid email address.",
-        //         ]
-        //     );
-        //     $credentials = $request->only('email','password');
-        //     $remember = $request->has('rememberme');
-        //     if (Auth::attempt($credentials,$remember)) {
-        //         return redirect()->intended('dashboard');
-        //     }
-        //     else
-        //     {
-        //         $error = ["password"=>"Please enter valid credentials."];
-        //     }
-        // }
+        }
+        else
+        {
+            $request->validate($request->all(),[
+                "email" => "required|email",
+                "password" => "required",
+                ],
+                [
+                    "required" => "This field is required.",
+                    "email.email" => "Please enter a valid email address.",
+                ]
+            );
+            $credentials = $request->only('email','password');
+            $remember = $request->has('rememberme');
+            if (Auth::attempt($credentials,$remember)) {
+                return redirect()->intended('dashboard');
+            }
+            else
+            {
+                $error = ["password"=>"Please enter valid credentials."];
+            }
+        }
     }
 }
