@@ -258,6 +258,9 @@ jQuery('#bankform').validate({
                 url: "{{ route('login') }}",
                 method: "POST",
                 data: formData,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 success: function(response) {
                     if (response.status === 'success') {
                         window.location.href = "{{ route('student.form') }}";
