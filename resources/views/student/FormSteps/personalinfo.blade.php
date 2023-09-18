@@ -22,7 +22,7 @@
                                 <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
                                     <select name="scholarshipname" id="scholarshipname" class="dropdownlong form-select">
                                         <option value=""> Please Select </option>
-                                        @foreach(json_decode($scholarshipSelect) as $scholarshipname)
+                                        @foreach($scholarship as $scholarshipname)
                                         <option value="{{ $scholarshipname }}">
                                             {{ $scholarshipname }}
                                         </option>
@@ -261,11 +261,15 @@
                                 <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                     <select name="subjects[]" id="subjects" class="form-control" multiple="multiple" data-placeholder="Select Subjects" data-dropdown-css-class="select2-purple">
                                         <option value="">--Please Select--</option>
-                                        @foreach(json_decode($subjectSelect) as $subject)
+                                        @forelse($subjects as $subject)
                                         <option value="{{ $subject }}">
                                             {{ $subject }}
                                         </option>
-                                        @endforeach
+                                        @empty
+                                        <option value="">
+                                            No Subjects
+                                        </option>
+                                        @endforelse
                                     </select>
 
                                 </span>
@@ -374,7 +378,7 @@
                         </tr>
                         <tr>
                             <td class="vtext">Details of Fee Deposited
-                            <span style="color: red">*</span><br>
+                                <span style="color: red">*</span><br>
                                 <strong>शुल्क का विवरण जमा</strong>
                             </td>
                             <td class="colon">:</td>

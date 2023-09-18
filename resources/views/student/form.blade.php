@@ -33,10 +33,7 @@
                             {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ?
                         'checked' : ''}} {{empty(auth()->user()->step2_updated_at) || 
                         !empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
-                        <label for="tab3"><i class="fas fa-hand-point-r
-                        
-                        
-                        ight"></i>Bank Details
+                        <label for="tab3"><i class="fas fa-hand-point-right"></i>Bank Details
                             @if(empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at))<i
                                 class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>

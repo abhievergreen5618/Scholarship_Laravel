@@ -26,17 +26,10 @@ class ScholarshipController extends Controller
     public function index()
     {
         $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
-
          
-        $subjects = Subject::where('status','active')
-        ->orderBy('name', 'asc')->get();
-        $subjectSelect = $subjects->pluck('name')->toArray();
-        $subjectSelect = json_encode($subjectSelect);
+        $subjects = Subject::where('status','active')->orderBy('name', 'asc')->pluck('id','name');
 
-        $scholarshipname = ScholarshipList::where('status','active')
-        ->orderBy('name','asc')->get();
-        $scholarshipSelect = $scholarshipname->pluck('name')->toArray();
-        $scholarshipSelect = json_encode($scholarshipSelect);
+        $scholarship = ScholarshipList::where('status','active')->orderBy('name','asc')->pluck('id','name');
 
         $classes = ClassModel::where('status','active')
         ->orderBy('class','asc')->get();
@@ -46,22 +39,21 @@ class ScholarshipController extends Controller
         if(!empty(Auth::user()->step2_updated_at))
         {
             $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
-
             return view('student.form')->with([
                 "step2schooldata" => $step2schooldata,
                 "states" => $states,
-                "subjectSelect" => $subjectSelect,
+                "subjects" => $subjects,
                 "classes" => $classes,
-                "scholarshipSelect" => $scholarshipSelect
+                "scholarship" => $scholarship
             ]);
         }
         else
         {
             return view('student.form')->with([
                 'states' => $states,
-                'subjectSelect' => $subjectSelect,
+                'subjects' => $subjects,
                 'classes' => $classes,
-                'scholarshipSelect' => $scholarshipSelect
+                'scholarship' => $scholarship
             ]);
         }
     }
