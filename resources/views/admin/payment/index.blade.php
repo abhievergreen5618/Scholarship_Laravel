@@ -55,7 +55,7 @@
     <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
 
     <table style="text-align:center;" id="paymenttable" class="table table-bordered table-striped">
-                                        
+                                         
                                             <tr>
 <div class="tabs">
   <ul class="tabs-nav">
