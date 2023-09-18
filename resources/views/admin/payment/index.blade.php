@@ -42,7 +42,7 @@
                                     <div class="overlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
                                         <div class="text-bold pt-2">Loading...</div>
                                     </div>
-                                    @include('admin.payment.allpayment');
+                                    @include('admin.payment.allpayment')
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="custom-tabs-five-overlay-dark" role="tabpanel" aria-labelledby="custom-tabs-five-overlay-dark-tab">
@@ -50,11 +50,11 @@
                                     <div class="overlay dark"><i class="fas fa-3x fa-sync-alt fa-spin"></i>
                                         <div class="text-bold pt-2">Loading...</div>
                                     </div>
-                                    @include('admin.payment.success');
+                                    @include('admin.payment.success')
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="custom-tabs-five-normal" role="tabpanel" aria-labelledby="custom-tabs-five-normal-tab">
-                            @include('admin.payment.failure');
+                                @include('admin.payment.failure')
                             </div>
                         </div>
                     </div>
