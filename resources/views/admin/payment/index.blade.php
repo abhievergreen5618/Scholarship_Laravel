@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+
+<link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -52,7 +54,6 @@
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-    <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
 
     <!-- <table style="text-align:center;" id="paymenttable" class="table table-bordered table-striped"> -->
                                          
