@@ -292,56 +292,76 @@
 @push("footer_extras")
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-    var options = {
-        "key": $("#payment").data("razorpaykey"), // Enter the Key ID generated from the Dashboard
-        "amount": "10000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        "currency": "INR",
-        "name": "Scholarship", //your business name
-        "description": "Test Transaction",
-        "image": "https://example.com/your_logo",
-        // Make sure this code is inside the script block or a JavaScript file.
-        "handler": function (response) {
-            if (response.hasOwnProperty("razorpay_payment_id")) {
-                $.ajax({
-                    type: 'POST',
-                    url: $("#payment").data("paymenturl"),
-                    dataType: "json",
-                    data: JSON.stringify(response), // Convert the response object to JSON format
-                    contentType: "application/json",
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function (result) {
-                        if (result.hasOwnProperty("message")) {
-                            // Handle the success response from the server here
-                            // For example, enable a tab, change button styles, etc.
-                            $("#tab6").attr('disabled', false);
-                            $("#tab6").trigger('click');
-                            $('[for="tab6"]').find("[data-icon='lock']").remove();
+var options = {
+    "key": $("#payment").data("razorpaykey"), // Enter the Key ID generated from the Dashboard
+    "amount": "10000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Scholarship", // your business name
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    // Make sure this code is inside the script block or a JavaScript file.
+    "handler": function (response) {
+        if (response.error) {
+            // Handle payment failure here
+            console.error('Payment failed:', response.error);
 
-                            $("#tab5").attr('disabled', true);
-                            $('[for="tab5"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+            // Retrieve the transaction ID from the response
+            var transactionId = response.razorpay_payment_id;
 
-                            $("#submit_information_form").removeClass("btn-secondary");
-                            $("#submit_information_form").addClass("btn-success");
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        // Handle errors, if any, during the Ajax request
-                        // You can display an error message or take appropriate action
+            // You can display an error message or take appropriate action
+            // For example, show an error notification to the user
+            alert('Payment failed. Transaction ID: ' + transactionId);
+        } else {
+            // Payment was successful, continue with your success handling
+            $.ajax({
+                type: 'POST',
+                url: $("#payment").data("paymenturl"),
+                dataType: "json",
+                data: JSON.stringify(response), // Convert the response object to JSON format
+                contentType: "application/json",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (result) {
+                    if (result.hasOwnProperty("message")) {
+                        // Handle the success response from the server here
+                        // For example, enable a tab, change button styles, etc.
+                        $("#tab6").attr('disabled', false);
+                        $("#tab6").trigger('click');
+                        $('[for="tab6"]').find("[data-icon='lock']").remove();
+
+                        $("#tab5").attr('disabled', true);
+                        $('[for="tab5"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+
+                        $("#submit_information_form").removeClass("btn-secondary");
+                        $("#submit_information_form").addClass("btn-success");
                     }
-                });
-            }
-        },
-        "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-            "name": $("#payment").data("username"), //your customer's name
-            "email": $("#payment").data("email"),
-            "contact": $("#payment").data("contact") //Provide the customer's phone number for better conversion rates
-        },
-        "theme": {
-            "color": "#3399cc"
+                },
+                error: function (xhr, status, error) {
+                    // Handle errors, if any, during the Ajax request
+                    // You can display an error message or take appropriate action
+                }
+            });
         }
-    };
+    },
+    "prefill": { // We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+        "name": $("#payment").data("username"), // your customer's name
+        "email": $("#payment").data("email"),
+        "contact": $("#payment").data("contact") // Provide the customer's phone number for better conversion rates
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+
+// Initialize the Razorpay payment button
+var rzp = new Razorpay(options);
+
+// Handle the payment button click event
+$("#paymentButton").on("click", function () {
+    rzp.open();
+});
+
     var rzp1 = new Razorpay(options);
     document.getElementById('rzp-button1').onclick = function (e) {
         rzp1.open();

@@ -44,7 +44,7 @@
                                     @include('admin.payment.success')
                             </div>
                             <div class="tab-pane fade" id="custom-tabs-five-normal" role="tabpanel" aria-labelledby="custom-tabs-five-normal-tab">
-                                @include('admin.payment.failure')
+                                    @include('admin.payment.failure')
                             </div>
                         </div>
                     </div>
