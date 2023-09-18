@@ -2,6 +2,8 @@
 
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/all.css') }}">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/tabs.css') }}">
 <section class="content-header">
     <div class="container-fluid">
@@ -113,6 +115,9 @@
     </div>
 
 </section>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/all.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/tabs.js') }}"></script>
 
 @endsection
