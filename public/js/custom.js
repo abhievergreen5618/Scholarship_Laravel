@@ -1,24 +1,18 @@
 $(document).ready(function () {
     $("#ctl00_ContentPlaceHolder1_chkboxCopyAddress").click(function (e) {
-        if($(this).is(':checked'))
-        {
+        if ($(this).is(":checked")) {
             $("#paddress").val($("#caddress").val());
-        }
-        else
-        {
+        } else {
             $("#paddress").val();
         }
     });
 
     $("[name='disqualified/suspended']").click(function (e) {
-        if($(this).is(':checked') && $(this).attr("value") == "yes")
-        {
-            $("#details").attr("disabled",false);
-        }
-        else
-        {
+        if ($(this).is(":checked") && $(this).attr("value") == "yes") {
+            $("#details").attr("disabled", false);
+        } else {
             $("#details").val("");
-            $("#details").attr("disabled",true);
+            $("#details").attr("disabled", true);
         }
     });
 
@@ -34,20 +28,21 @@ $(document).ready(function () {
                 // File size exceeds 20KB, do something (e.g., show an error message)
                 alert("File size exceeds 20KB");
                 $(this).val("");
-                $("#sign_photo_perview").attr("src","http://placehold.it/180");
+                $("#sign_photo_perview").attr("src", "http://placehold.it/180");
                 // You can show an error message to the user or handle the case accordingly
             } else {
-                 // Create a FileReader object
-                    const reader = new FileReader();
+                // Create a FileReader object
+                const reader = new FileReader();
 
-                    // Set up the FileReader's `onload` event handler
-                    reader.onload = function(event) {
-                    const profilePhotoPreview = document.getElementById('sign_photo_perview');
+                // Set up the FileReader's `onload` event handler
+                reader.onload = function (event) {
+                    const profilePhotoPreview =
+                        document.getElementById("sign_photo_perview");
                     profilePhotoPreview.src = event.target.result;
-                    };
+                };
 
-                    // Read the file as a data URL, triggering the `onload` event when done
-                    reader.readAsDataURL(file);
+                // Read the file as a data URL, triggering the `onload` event when done
+                reader.readAsDataURL(file);
             }
         }
     });
@@ -62,15 +57,20 @@ $(document).ready(function () {
             if (fileSizeKB > 20) {
                 alert("File size exceeds 20KB");
                 $(this).val("");
-                $("#profile_photo_perview").attr("src","http://placehold.it/180");
+                $("#profile_photo_perview").attr(
+                    "src",
+                    "http://placehold.it/180"
+                );
             } else {
                 // Create a FileReader object
                 const reader = new FileReader();
 
                 // Set up the FileReader's `onload` event handler
-                reader.onload = function(event) {
-                const profilePhotoPreview = document.getElementById('profile_photo_perview');
-                profilePhotoPreview.src = event.target.result;
+                reader.onload = function (event) {
+                    const profilePhotoPreview = document.getElementById(
+                        "profile_photo_perview"
+                    );
+                    profilePhotoPreview.src = event.target.result;
                 };
 
                 // Read the file as a data URL, triggering the `onload` event when done
@@ -79,46 +79,50 @@ $(document).ready(function () {
         }
     });
 
-    $("#backstep1").click(function(){
-        $("#tab1").trigger('click');
+    $("#backstep1").click(function () {
+        $("#tab1").trigger("click");
     });
-    $("#backstep2").click(function(){
-        $("#tab2").trigger('click');
+    $("#backstep2").click(function () {
+        $("#tab2").trigger("click");
     });
 
-    $("#savestep3").click(function(){
-
+    $("#savestep3").click(function () {
         toastr.options = {
             closeButton: true,
             progressBar: true,
             timeOut: 5000,
             extendedTimeOut: 2000,
             positionClass: "toast-top-right",
-            preventDuplicates: true
+            preventDuplicates: true,
         };
 
         $.ajax({
-            type: 'POST',
+            type: "POST",
             url: $(this).data("action"),
             dataType: "json",
             cache: false,
             contentType: false,
             processData: false,
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            success: function(result) {
-                if(result.hasOwnProperty("message"))
-                {
-                    $("#tab1").attr('disabled',true);
-                    $("#tab2").attr('disabled',true);
-                    $("#tab3").attr('disabled',true);
-                    $('[for="tab1"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
-                    $('[for="tab2"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
-                    $('[for="tab3"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+            success: function (result) {
+                if (result.hasOwnProperty("message")) {
+                    $("#tab1").attr("disabled", true);
+                    $("#tab2").attr("disabled", true);
+                    $("#tab3").attr("disabled", true);
+                    $('[for="tab1"]').append(
+                        `<i class="fa fa-lock" aria-hidden="true"></i>`
+                    );
+                    $('[for="tab2"]').append(
+                        `<i class="fa fa-lock" aria-hidden="true"></i>`
+                    );
+                    $('[for="tab3"]').append(
+                        `<i class="fa fa-lock" aria-hidden="true"></i>`
+                    );
 
-                    $("#tab5").attr('disabled',false);
-                    $("#tab5").trigger('click');
+                    $("#tab5").attr("disabled", false);
+                    $("#tab5").trigger("click");
                     $('[for="tab5"]').find("[data-icon='lock']").remove();
                     $("#payment_step").removeClass("btn-secondary");
                     $("#payment_step").addClass("btn-success");
@@ -126,9 +130,9 @@ $(document).ready(function () {
                     toastr.success(result.message);
                 }
             },
-            error : function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 toastr.error(xhr.responseJSON.message);
-            }
+            },
         });
     });
 });
