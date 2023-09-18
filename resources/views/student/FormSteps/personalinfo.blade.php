@@ -6,6 +6,8 @@
             <div class="tab-pane active" id="tab_1">
                 <h3><span>Step [1/6] :</span> Personal Information</span></h3>
             </div>
+            <div class="box-body table-responsive">
+            </div>
         </div>
         <button type="submit" class="btn btn-warning">Save</button>
     </form>
