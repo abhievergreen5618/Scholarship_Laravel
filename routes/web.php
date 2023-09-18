@@ -115,7 +115,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/payment','index')->name('admin.payment.index');
         Route::post('/paymentdetails', 'display')->name('admin.payment.details');
     });
-
 });
 
 
