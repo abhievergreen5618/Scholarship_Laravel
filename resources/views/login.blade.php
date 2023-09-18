@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/all.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css')}}">
 
     <title></title>
 </head>
@@ -27,31 +28,36 @@
                         <div class="formmm">
                             <h4 class="Login mb-2">Login</h4>
                             <h3 class="Login mb-4">Welcome Back!</h3>
-                            <input type="email" id="form2Example1" class="form-control my-3" name="email" placeholder="Email/Username/Mobile No" />
-                            <input type="password" id="form2Example2" class="form-control my-3" name="password" placeholder="Enter Your Password" />
-
+                            <div class="my-3">
+                                <input type="email" id="form2Example1" class="form-control" name="email" placeholder="Email/Username/Mobile No" value="{{@old('email')}}" />
+                                @error('email')
+                                <div>
+                                    <label class="error fail-alert mt-1" id="class-error">{{ $message }}</label>
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="my-3">
+                                <input type="password" id="form2Example2" class="form-control" name="password" placeholder="Enter Your Password" value="{{@old('password')}}" />
+                                @error('password')
+                                <div>
+                                    <label class="error fail-alert my-2" id="class-error">{{ $message }}</label>
+                                </div>
+                                @enderror
+                            </div>
                             <div class="row mb-4">
                                 <div class="col d-flex justify-content-center">
-                                    <!-- Checkbox -->
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
                                         <label class="form-check-label" for="form2Example31"> Remember me </label>
                                     </div>
                                 </div>
-
                                 <div class="col">
-                                    <!-- Simple link -->
                                     <a href="#!">Forgot password?</a>
                                 </div>
                             </div>
-
-                            <!-- Submit button -->
                             <div class="col-sm-auto px-1 mb-2">
                                 <button type="submit" id="login-button" class="btn btn-primary w-100">Login</button>
                             </div>
-
-
-                            <!-- Register buttons -->
                             <div class="text-center">
                                 <p class="mt-2">Dont't have an account? <a href="">Sign up</a></p>
                                 <div class="or"><span>OR</span></div>
@@ -72,7 +78,6 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
-
 </body>
 
 </html>
