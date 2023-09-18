@@ -10,7 +10,7 @@
                         border="0" cellspacing="5" cellpadding="0">
                         <tbody>
                             <tr>
-                                <td colspan="3"><b><u>Fields marked are mandatory.</u></b></td>
+                                <td colspan="3"><b><u>Fields marked <span style="color: red">*</span>are mandatory.</u></b></td>
                             </tr>
                             <tr>
                                 <td width="42%" class="vtext">Name of Scholarship
