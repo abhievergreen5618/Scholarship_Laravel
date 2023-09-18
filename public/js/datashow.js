@@ -622,6 +622,40 @@ var paymenttable = $('#paymenttable').DataTable({
 });
 
 
+var resulttable = $('#resulttable').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "ajax": {
+        "url": "showresult",
+        "type": "POST",
+        'beforeSend': function (request) {
+            request.setRequestHeader("X-CSRF-TOKEN", jQuery('meta[name="csrf-token"]').attr('content'));
+        },
+    },
+    "columnDefs": [
+        { "className": "dt-center", "targets": "_all" }
+    ],
+    "columns": [
+        {
+            "data": "roll_no",
+        },
+        {
+            "data": "obtained_marks",
+        },
+        {
+            "data": "total_marks",
+        },
+        {
+            "data": "percentage",
+        },
+        {
+            "data": "status",
+        },
+
+    ],
+});
+
+
 
 jQuery('#class-add-form').validate({
     rules:{

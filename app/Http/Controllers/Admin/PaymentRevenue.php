@@ -25,7 +25,7 @@ class PaymentRevenue extends Controller
             ->addColumn('actions', function ($row) {
                 return '<button>Edit</button>';
             })
-            ->rawColumns(['actions']) 
+            ->rawColumns(['actions'])  
             ->make(true);
         }
     }

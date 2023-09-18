@@ -8,6 +8,10 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB; 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ResultImport;
+use Illuminate\Validation\Validator;
+use App\Models\Result;
 
 class UserDetail extends Controller
 {
@@ -26,15 +30,6 @@ class UserDetail extends Controller
 
     public function display(Request $request)
     {
-        
-        // $class = User::where('class')->get();
-        // $class = collect($class);
-        // $classfilter = $class->filter( function($value,$key)
-        // {
-        //     return data_get($value , 'class');
-        // } );
-
-        // $classfilter = $classfilter->all();
 
         if ($request->ajax()) {
             $data =  DB::table('users')
@@ -143,6 +138,36 @@ class UserDetail extends Controller
         $viewdata = User::where("id",decrypt($id))->first();
         return view('admin.user.viewdata')->with('viewdata',$viewdata);
     }
+    public function result()
+    { 
+        return view('admin.user.result');
+    }
 
+    public function showresult(Request $request)
+    { 
+        if ($request->ajax()) {
+            $data = Result::orderBy('roll_no', 'asc')->get();
+            
+            return Datatables::of($data)
+                ->addColumn('actions', function ($row) {
+                    return '<button>Edit</button>';
+                })
+                ->rawColumns(['actions'])
+                ->make(true);
+        }
+    }
+    
 
+    public function uploadresult(Request $request)
+    {             
+        $request->validate([
+            'file' => 'required|file|mimes:xlsx', 
+        ]);
+            $file = $request->file('file');
+            Excel::toCollection(new ResultImport, $file);
+        
+            return redirect()->route('admin.user.showresult')->with([
+                'success' => 'User Imported Successfully'
+            ]);
+        }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ScholarshipType;
 use App\Http\Controllers\Admin\UserDetail;
 use App\Http\Controllers\Admin\FeeController;
 use App\Http\Controllers\Admin\PaymentRevenue;
+use App\Http\Controllers\Admin\ExcelImportController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -96,7 +97,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/userupdate', 'update')->name('admin.user.update');
         Route::post('/userdelete', 'destroy')->name('userdelete');
         Route::post('/user-status-update', 'status')->name('user-status-update');
+        Route::get('/userresult', 'result')->name('admin.user.result');
+        Route::any('/showresult', 'showresult')->name('admin.user.showresult');
+        Route::post('/uploadressult','uploadresult')->name('admin.user.uploadresult');
     });
+
+
 
     Route::controller(FeeController::class)->group(function () {
         Route::get('/feelist','index')->name('admin.fee.index');
