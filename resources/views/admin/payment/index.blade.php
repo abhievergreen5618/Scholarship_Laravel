@@ -107,6 +107,6 @@
     </div>
 
 </section>
-
+<script src="{{ asset('js/tabs.js') }}"></script>
 
 @endsection
