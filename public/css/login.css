@@ -1,7 +1,7 @@
 body{
 	margin:0px;
 	padding:0px;
-	box-sizing: border-box;	
+	box-sizing: border-box;
 }
 
 .formmm {
@@ -19,7 +19,9 @@ svg.svg-inline--fa.fa-phone-square-alt.fa-w-14 {
 svg.svg-inline--fa.fa-facebook-square.fa-w-14 {
     margin-right: 10px;
 }
-button.loginBtn.loginBtn--facebook {
+.loginBtn.loginBtn--facebook {
+    display: table;
+    text-align: center;
     background-color: #c71919;
     color: white;
     padding: 10px;
@@ -27,7 +29,9 @@ button.loginBtn.loginBtn--facebook {
     border: none;
     margin-top:10px!important;
 }
-button.loginBtnnn.loginBtn--facebook {
+.loginBtnnn.loginBtn--facebook {
+    display: table;
+    text-align: center;
     background-color: #089927;
     color: white;
     padding: 10px;
@@ -35,7 +39,9 @@ button.loginBtnnn.loginBtn--facebook {
     border: none;
     margin-top: 10px!important;
 }
-button.loginBtnn.loginBtn--facebook {
+.loginBtnn.loginBtn--facebook {
+    display: table;
+    text-align: center;
     background-color: #074bb1;
     color: white;
     padding: 10px;
@@ -67,7 +73,7 @@ h4.Login {
     width: 100%;
     border: none;
     margin-top: 10px!important;
-}  
+}
 }
 p.rr {
     margin-top: 8px;
@@ -110,7 +116,7 @@ hr.line {
     margin-right: 25%;
 }
 .formm {
-    
+
 margin-top: 5%;
 }
 body.colorrr {
@@ -124,7 +130,7 @@ button.btn.btn-primary.w-100 {
 
 .formm {
     margin: 0%;
-    
+
 }
 
 }

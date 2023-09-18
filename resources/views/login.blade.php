@@ -53,23 +53,14 @@
 
                             <!-- Register buttons -->
                             <div class="text-center">
-                                <p class="mt-2">Dont't have an account? <a href="#!">Sign up</a></p>
+                                <p class="mt-2">Dont't have an account? <a href="">Sign up</a></p>
                                 <div class="or"><span>OR</span></div>
                                 <hr class="line">
                                 </hr>
 
-
-
-                                <button class="loginBtn loginBtn--facebook">
-                                    <a href="{{route('')}}"><i class="fab fa-google me-2"></i>Login with google</a>
-                                </button>
-                                <button class="loginBtnn loginBtn--facebook">
-                                    <i class="fab fa-facebook-square"></i>Login with facebook
-                                </button>
-                                <button class="loginBtnnn loginBtn--facebook">
-                                    <i class="fas fa-phone-square-alt"></i>Login with mobile no
-                                </button>
-
+                                <a class="loginBtn loginBtn--facebook" href="{{route('redirectToGoogle')}}"><i class="fab fa-google me-2"></i>Login with google</a>
+                                <a class="loginBtnn loginBtn--facebook" href="{{route('redirectToFacebook')}}"><i class="fab fa-facebook-square"></i>Login with facebook</a>
+                                <a class="loginBtnnn loginBtn--facebook" href="{{route('redirectToFacebook')}}"><i class="fas fa-phone-square-alt"></i>Login with mobile no</a>
                             </div>
                         </div>
                     </form>
