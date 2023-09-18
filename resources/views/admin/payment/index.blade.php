@@ -55,7 +55,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
 
-    <!-- <table style="text-align:center;" id="paymenttable" class="table table-bordered table-striped"> -->
+    <table style="text-align:center;" id="paymenttable" class="table table-bordered table-striped">
                                          
                                             <!-- <tr>
 <div class="tabs">
@@ -84,16 +84,21 @@
     <li><a href="#tab-1">Success</a></li>
     <li><a href="#tab-2">Failure</a></li>
   </ul>
-  <div class="tabs-stage">
+  
+        <div class="tabs-stage">
+        <tr>
+    <th>
     <div id="tab-1">
         Transaction ID
        </div>
+</th>
+</tr>
     <div id="tab-2">
       
 </div>
   </div>
 </div>
-
+</table>
                                     
                                 </div>
                             </div>
