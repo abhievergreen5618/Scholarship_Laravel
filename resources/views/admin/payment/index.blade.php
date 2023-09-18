@@ -88,6 +88,7 @@
   </ul>
   
         <div class="tabs-stage">
+            <thead>
         <tr>
     <th>
     <div id="tab-1">
@@ -100,6 +101,7 @@
 </div>
   </div>
 </div>
+</thead>
 </table>
                                     
                                 </div>
