@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0
+    <link rel="stylesheet" href="{{asset('adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}">
     <link rel="stylesheet" href="{{asset('adminlte/plugins/select2/css/select2.min.css')}}">
