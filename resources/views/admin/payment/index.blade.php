@@ -56,7 +56,7 @@
 
     <table style="text-align:center;" id="paymenttable" class="table table-bordered table-striped">
                                          
-                                            <tr>
+                                            <!-- <tr>
 <div class="tabs">
   <ul class="tabs-nav">
     <li><a href="#tab-1">Success</a></li>
@@ -74,7 +74,7 @@
     <div id="tab-2">
     </div>
   </div>
-</div>
+</div> -->
 
 </table>
 
