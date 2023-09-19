@@ -147,7 +147,7 @@ class UserDetail extends Controller
     { 
         if ($request->ajax()) {
             $data = Result::orderBy('roll_no', 'asc')->get();
-            
+            dd($data);
             return Datatables::of($data)
                 ->addColumn('actions', function ($row) {
                     return '<button>Edit</button>';
@@ -169,5 +169,6 @@ class UserDetail extends Controller
             return redirect()->route('admin.user.showresult')->with([
                 'success' => 'User Imported Successfully'
             ]);
-        }
+    }
+        
 }
