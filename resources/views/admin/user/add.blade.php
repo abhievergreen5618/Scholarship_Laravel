@@ -29,7 +29,7 @@
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                <form id="class-add-form" action="{{route('admin.subject.store') }}" method="POST">
+                                <form id="class-add-form" action="{{route('admin.user.store') }}" method="POST">
                                     @csrf
                                 @isset($data)
                                     <input type="hidden" name="id" value="{{encrypt($data->id)}}">
@@ -54,9 +54,22 @@
                                     <strong>छात्रवृत्ति का नाम</strong>
                                 </td>
                                 <td class="colon">:</td>
-                               
 
-  
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
+                                        <select name="scholarshipname" id="scholarshipname"
+                                            class="dropdownlong form-select">
+                                            <option value=""> Please Select </option>
+                                            @foreach(json_decode($scholarshipSelect) as $scholarshipname)
+                                            <option value="{{ $scholarshipname }}">
+                                                {{ $scholarshipname }}
+                                            </option>
+                                            @endforeach
+                                      
+                                            
+                                            </select>
+                                    </span>
+                                </td>
 
 </tr>
                             <tr>
@@ -67,7 +80,7 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_txtName__"><input name="name" type="text"
-                                            value="{{isset(auth()->user()->name) ? auth()->user()->name : ''}}"
+                                            value="{{isset(auth()->user()->step1_updated_at) ? auth()->user()->name : ''}}"
                                             maxlength="50" id="name" class="textboxlong form-control"
                                             style="text-transform: uppercase"></span>
                                 </td>
@@ -160,7 +173,7 @@
                                             style="text-transform: uppercase">{{!empty(auth()->user()->step1_updated_at) ? auth()->user()->caddress : ''}}</textarea></span>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr> 
                                 <td class="vtext">Mobile No. <span style="color: red">*</span>
                                     <br>
                                     <strong>मोबाइल नंबर</strong>
@@ -207,7 +220,8 @@
                                 <td class="colon">:</td>
                                 <td>
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_txtEmail__"><input name="email"
-                                            type="text" value="{{auth()->user()->email}}" readonly maxlength="50"
+                                            type="text"  
+                                            value="{{!empty(auth()->user()->step1_updated_at) ? auth()->user()->email : ''}}" maxlength="50"
                                             id="email" class="textboxlong form-control" ondrop="return false;"></span>
                                 </td>
                             </tr>
@@ -359,7 +373,21 @@
                                     <strong>विषय के लिए आवेदन करना ?</strong>
                                 </td>
                                 <td class="colon">:</td>
-                                
+                                <td>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
+                                        <select name="subjects[]" id="subjects" class="form-control" multiple="multiple" data-placeholder="Select Subjects" data-dropdown-css-class="select2-purple">
+                                            <option value="">--Please Select--</option>
+                                            @foreach(json_decode($subjectSelect) as $subject)
+                                            <option value="{{ $subject }}">
+                                                {{ $subject }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+
+                                    </span>
+                                    <br>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
+                                </td>
                             </tr>
 
                             <!------------------------------------------------->
@@ -520,8 +548,11 @@
         <button type="submit" class="btn btn-warning">Save</button>
     </form>
 
-    <form id="docform" action="{{ route('educationinfosubmit') }}" method="POST">
-        @csrf
+  <!-------------------------------------------------SECOND STEP------------------------------------------>  
+
+
+  <form id="bankform" method="POST" action="{{route('admin.user.storedocument')}}">
+        @csrf 
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
         <div class="tab-content"> 
             <div class="tab-pane active" id="tab_2">
@@ -530,7 +561,7 @@
                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblPageMsg__"><span id="ctl00_ContentPlaceHolder1_lblPageMsg" style="color:Red;"></span></span>
                 </h3>
 
-                <table id="ctl00_ContentPlaceHolder1_tblInstruction" class="table Eng_hindi_form" width="100%" border="0" cellspacing="5" cellpadding="0">
+                <!-- <table id="ctl00_ContentPlaceHolder1_tblInstruction" class="table Eng_hindi_form" width="100%" border="0" cellspacing="5" cellpadding="0">
                     <tbody>
                         <tr>
                             <td colspan="6" class="tdgap" width="42%" align="left"></td>
@@ -546,7 +577,7 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
 
 
                 <table id="ctl00_ContentPlaceHolder1_tblEducationInstrucation" class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
@@ -808,11 +839,7 @@
 
                                 </td>
                             </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
+                
                             <tr>
 
                             </tr>
@@ -827,24 +854,27 @@
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_lblMsg__"><span id="ctl00_ContentPlaceHolder1_lblMsg" style="color:Red;"></span></span>
                                 </td>
                             </tr>
-                            <tr>
-                                <td align="left">
+                             <tr>
+                                <!-- <td align="left">
 
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK" id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK" id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span> -->
                                 <td colspan="6" class="tdgap" width="42%" align="left">
 
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="SAVE " id="ctl00_ContentPlaceHolder1_btnBackEdit" class="btn-primary"></span>&nbsp;&nbsp;
-                                </td>
+                                
                                 </td>
                                 <td colspan="2" align="right">
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"></span>
                                 </td>
-                            </tr>
+                            </tr> 
                             </form>
+                            </tbody>
+                                    </table>
+                        </div>   
 
-
-                            <form id="bankform" method="POST" action="{{route('bankdetails')}}">
-        @csrf
+        <form id="bankform" method="POST" action="{{route('bankdetails')}}">
+        @csrf 
+                                  
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
     <div class="typography">
         <div class="tab-content">

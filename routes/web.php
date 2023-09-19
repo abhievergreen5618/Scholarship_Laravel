@@ -91,6 +91,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/userlist','index')->name('admin.user.index');
         Route::get('/adduser','create')->name('admin.user.add');
         Route::post('/storesuser','store')->name('admin.user.store');
+        Route::post('/storesdocument','storedocument')->name('admin.user.storedocument');
         Route::post('/userdetails','display')->name('admin.user.details');
         Route::get('/useredit/{id}','edit')->name('admin.user.edit');
         Route::get('/viewdata/{id}','view')->name('admin.user.viewdata');
