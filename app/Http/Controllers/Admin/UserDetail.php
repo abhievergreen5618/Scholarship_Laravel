@@ -122,8 +122,7 @@ class UserDetail extends Controller
         $request->validate(
             [
                 "id"=>"required",
-            ]
-            );
+            ]);
             $status = User::where('id',decrypt($request['id']))->first('status');
             $status = ($status['status'] == "active") ? "inactive" : "active";
             User::where('id',decrypt($request['id']))->Update([
@@ -145,16 +144,16 @@ class UserDetail extends Controller
 
     public function showresult(Request $request)
     { 
-        if ($request->ajax()) {
+        // if ($request->ajax()) {
             $data = Result::orderBy('roll_no', 'asc')->get();
-            dd($data);
-            return Datatables::of($data)
-                ->addColumn('actions', function ($row) {
-                    return '<button>Edit</button>';
-                })
-                ->rawColumns(['actions'])
-                ->make(true);
-        }
+           return view('admin.user.showresult')->with('data',$data);
+        //     return Datatables::of($data)
+        //         ->addColumn('actions', function ($row) {
+        //             return '<button>Edit</button>';
+        //         })
+        //         ->rawColumns(['actions'])
+        //         ->make(true);
+        // }
     }
     
 
