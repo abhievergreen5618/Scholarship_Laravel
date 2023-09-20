@@ -177,22 +177,22 @@ class UserDetail extends Controller
     }
 
 
-
     public function showresult(Request $request)
-    { 
+    {
         if ($request->ajax()) {
             $data = Result::orderBy('roll_no', 'asc')->get();
-        //    return view('admin.user.showresult')->with('data',$data);
-            return Datatables::of($data)
+            
+            return datatables()->of($data)
                 ->addColumn('actions', function ($row) {
                     return '<button>Edit</button>';
                 })
                 ->rawColumns(['actions'])
                 ->make(true);
-        } 
+        }
+        
+        return view('admin.user.showresult');
     }
     
-
     public function uploadresult(Request $request)
     {             
         $request->validate([
@@ -202,7 +202,7 @@ class UserDetail extends Controller
             Excel::toCollection(new ResultImport, $file);
         
             return redirect()->route('admin.user.showresult')->with([
-                'success' => 'User Imported Successfully'
+                'success' => 'Result Imported Successfully'
             ]);
     }
 
@@ -221,8 +221,6 @@ class UserDetail extends Controller
             "physicallychallenged" => "required",
             'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
             "category" => "required",
-            // 'categorycertificate' => 'required',
-            // 'fee' => "required",
             "email" => "required|email",
         ],
         [
@@ -231,28 +229,43 @@ class UserDetail extends Controller
         ]
         );
         
+        if ($request->hasFile('physicallychallengedproof')) {
+            $image = $request->file('physicallychallengedproof');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/proofdoc'), $imageName);
+            $request['physicallychallengedproof'] = $imageName;
+        }
+
+        if ($request->hasFile('categorycertificate')) {
+            $image = $request->file('categorycertificate');
+            $certificateName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/proofdoc'), $certificateName);
+            $request['categorycertificate'] = $certificateName;
+        }
         User::create([
-            "name" => $request->name,
-            "fathername" => $request->fathername,
-            "mothername" => $request->mothername,
-            "examcentre" => $request['examcentre'],
-                "districtDropdown" =>$request['districtDropdown'],
-                "caddress" => $request['caddress'],
-                "paddress" => $request['paddress'],
-                "dob" => $request['dob'] ?? "",
-                "aadhaarno" => $request['aadhaarno'] ?? "",
-                "nationality" =>  $request['nationality'] ?? "",
-                "mobileno" => $request['mobileno'],
-                "gender" => $request['gender'] ?? "",
-                "singlegirlchild" => $request['singlegirlchild'] ?? "",
-                "subjects" => $request['subjects'],
-                "physicallychallenged" => $request['physicallychallenged'],
-                "category" => $request['category'],
-                "fee" => $request['fee'],
-                "physicallychallengedproof" => $imageName ?? "",
-                "categorycertificate" => $certificateName ??"",
-             
+            "name" => $request->input('name'),
+            "fathername" => $request->input('fathername'),
+            "mothername" => $request->input('mothername'),
+            "examcentre" => $request->input('examcentre'),
+            "districtDropdown" => $request->input('districtDropdown'),
+            "caddress" => $request->input('caddress'),
+            "paddress" => $request->input('paddress'),
+            "email" => $request->input('email'),
+            "dob" => $request->input('dob') ?? "",
+            "aadhaarno" => $request->input('aadhaarno') ?? "",
+            "nationality" => $request->input('nationality') ?? "",
+            "mobileno" => $request->input('mobileno'),
+            "gender" => $request->input('gender') ?? "",
+            "singlegirlchild" => $request->input('singlegirlchild') ?? "",
+            "subjects" => is_array($request->input('subjects')) ? implode(',', $request->input('subjects')) : $request->input('subjects'),
+            "physicallychallenged" => $request->input('physicallychallenged'),
+            "category" => $request->input('category'),
+            "fee" => $request->input('fee'),
+            "physicallychallengedproof" => $imageName ?? "",
+            "categorycertificate" => $certificateName ?? "",
+            "step1_updated_at" => now(),
         ]);
+        
         return redirect(route('admin.user.store'))->with("msg", "Student Added Successfully");
     }
 
@@ -273,9 +286,11 @@ class UserDetail extends Controller
              "required_if" => "This field is required.",
         ]
     );
-                $matchThese = ['user_id'=>decrypt($request['id']),'type'=>'school'];
-                EducationDetails::updateOrCreate($matchThese,[
-                    'user_id'=> decrypt($request['id']),
+    $latestUserId = User::latest('id')->value('id');
+
+    $matchThese = ['user_id' => $latestUserId, 'type' => 'school'];
+     EducationDetails::updateOrCreate($matchThese,[
+                    'user_id'=> $latestUserId,
                     'resultstatus'=>$request['class_status'],
                     'classes'=>$request['classes'],
                     'name_of_the_board_university'=>$request['class_board'],
@@ -289,22 +304,28 @@ class UserDetail extends Controller
                     'type'=>'school',
                  ]);
 
+                 $imageName = null;
+                 $sign_photo = null;
+                 
+                 if ($request->hasFile('profile_photo')) {
+                     $image = $request->file('profile_photo');
+                     $imageName = time() . '.' . $image->getClientOriginalExtension();
+                     $image->move(public_path('images/proofdoc'), $imageName);
+                 }
+                 
+                 if ($request->hasFile('sign_photo')) {
+                     $image = $request->file('sign_photo');
+                     $sign_photo = time() . '.' . $image->getClientOriginalExtension();
+                     $image->move(public_path('images/proofdoc'), $sign_photo);
+                 }
+                 $latestUserId = User::latest('id')->value('id');
 
-            if ($request->hasFile('profile_photo')) {
-                $image = $request->file('profile_photo');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images/proofdoc'), $imageName);
-            }
-            if ($request->hasFile('sign_photo')) {
-                $image = $request->file('sign_photo');
-                $sign_photo = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images/proofdoc'), $sign_photo);
-            }
-            User::where('id',decrypt($request['id']))->update([
-                "photo"=>$imageName,
-                "signature"=>$sign_photo,
-                "step2_updated_at" => now(),
-            ]);
+    User::where('id', $latestUserId)->update([
+        "photo" => $imageName,
+        "signature" => $sign_photo,
+        "step2_updated_at" => now(),
+    ]);
+                 
 
             return back()->with("msg", "Document Added Successfully");
         }
@@ -318,18 +339,6 @@ class UserDetail extends Controller
             "ifsccode" => "required",
             "passbook_photo" => "required",
         ]);
-        if ($validator->fails()) {
-            $errors = [];
-            foreach ($validator->errors()->getMessages() as $index => $error) {
-                $errors[$index] = $error[0];
-            }
-            return response()->json([
-                'message'  => "!OOPs Something went wrong",
-                'error' => $errors
-            ],422);
-        }
-        else
-        {
             
             
             if ($request->hasFile('passbook_photo')) {
@@ -337,16 +346,21 @@ class UserDetail extends Controller
                 $passbook_photo = time() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('images/proofdoc'), $passbook_photo);
             }
-            $matchThese = ['user_id'=>decrypt($request['id'])];
-            BankDetails::updateOrCreate($matchThese,[
-            'user_id'=> decrypt($request['id']),
+            
+           
+    $latestUserId = User::latest('id')->value('id');
+    
+    $matchThese = ['user_id' => $latestUserId];
+     BankDetails::updateOrCreate($matchThese,[
+            'user_id'=> $latestUserId,
             "accountno" => $request['accountno'],
             "cnfrmaccountno" => $request['cnfrmaccountno'],
             "holdername" => $request['holdername'],
             "ifsccode" => $request['ifsccode'],
             "passbook_photo" =>$passbook_photo,
+            "step3_updated_at" => now(),
         ]);
-    }
+    
     return back()->with("msg", "Bank Details Added Successfully");
 
     }

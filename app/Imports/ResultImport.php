@@ -5,11 +5,10 @@ namespace App\Imports;
 use App\Models\Result;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
 
-class ResultImport implements ToModel, WithHeadingRow, WithChunkReading, WithValidation
+class ResultImport implements ToModel, WithHeadingRow, WithValidation
 {
     /**
     * @param array $row
@@ -29,11 +28,7 @@ class ResultImport implements ToModel, WithHeadingRow, WithChunkReading, WithVal
             "status" => $row['status']
         ]);
     }
-    
-    public function chunkSize(): int
-    {
-        return 20;
-    }
+   
 
     public function rules(): array
     {

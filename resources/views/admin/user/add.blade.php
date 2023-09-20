@@ -29,7 +29,7 @@
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                <form id="class-add-form" action="{{route('admin.user.store') }}" method="POST">
+                                <form id="class-add-form" action="{{route('admin.user.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                 @isset($data)
                                     <input type="hidden" name="id" value="{{encrypt($data->id)}}">
@@ -551,7 +551,7 @@
   <!-------------------------------------------------SECOND STEP------------------------------------------>  
 
 
-  <form id="bankform" method="POST" action="{{route('admin.user.storedocument')}}">
+  <form id="docform" method="POST" action="{{route('admin.user.storedocument')}}" enctype="multipart/form-data">
         @csrf 
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
         <div class="tab-content"> 
@@ -870,11 +870,16 @@
                             </form>
                             </tbody>
                                     </table>
-                        </div>   
+                          
 
-        <form id="bankform" method="POST" action="{{route('bankdetails')}}">
+        <form id="bankform" method="POST" action="{{route('admin.user.storebankdata')}}" enctype="multipart/form-data">
         @csrf 
-                                  
+        @if(session('msg'))
+    <div class="alert alert-success">
+        {{ session('msg') }}
+    </div>
+@endif
+             
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
     <div class="typography">
         <div class="tab-content">
@@ -944,7 +949,7 @@
                                     <button type="submit" class="btn btn-warning">Save</button>
                                 </td>
                             </tr>
- 
+                            </div> 
 
                                 </div>
                             </div>

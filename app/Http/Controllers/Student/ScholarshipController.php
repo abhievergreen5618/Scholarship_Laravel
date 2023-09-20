@@ -114,7 +114,7 @@ class ScholarshipController extends Controller
              "required" => "This field is required.",
              "required_if" => "This field is required.",
         ]
-    );
+    ); 
 
         if ($validator->fails()) {
             $errors = [];
@@ -195,13 +195,6 @@ class ScholarshipController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            // "classes" => "classes",
-            // "class_board"=>"required",
-            // "class_passing_year"=>"required",
-            // "class_marks"=>"required",
-            // "class_max_marks"=>"required",
-            // "class_percentage"=>"required",
-            // "class_rollno"=>"required",
 
             "profile_photo" => "required",
             "sign_photo" => "required",

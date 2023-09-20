@@ -92,6 +92,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/adduser','create')->name('admin.user.add');
         Route::post('/storesuser','store')->name('admin.user.store');
         Route::post('/storesdocument','storedocument')->name('admin.user.storedocument');
+        Route::post('/storebankdata','storebankdata')->name('admin.user.storebankdata');
         Route::post('/userdetails','display')->name('admin.user.details');
         Route::get('/useredit/{id}','edit')->name('admin.user.edit');
         Route::get('/viewdata/{id}','view')->name('admin.user.viewdata');
