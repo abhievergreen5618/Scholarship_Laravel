@@ -413,6 +413,7 @@ var usertable = $('#usertable').DataTable({
 });
 
 
+
 usertable.on('click', '.delete', function () {
     $('.datatable_processing').show();
     element = $(this);

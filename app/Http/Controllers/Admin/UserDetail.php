@@ -63,14 +63,21 @@ class UserDetail extends Controller
 
         if ($request->ajax()) {
             $data =  DB::table('users')
-            ->where('role', 'student')
-                ->select(['id', 'name', 'email', 'mobileno', 'class', 'gender', 'dob', 'paddress', 'status'])->latest()->get();
+                ->where('role', 'student')
+                ->select(['id', 'name', 'email', 'mobileno', 'class', 'gender', 'dob', 'paddress', 'status'])
+                ->latest()
+                ->get();
                 return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);
+                
                     $editlink = route('admin.user.edit', ['id' => $id]);
                     $viewdatalink = route('admin.user.viewdata',['id' => $id]);
-                    $btn = "<div class='d-flex justify-content-around'><a href='$viewdatalink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fa fa-eye'></i></a><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' '><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
+                    $btn = "<div class='d-flex justify-content-around'>
+                    <a href='$viewdatalink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='View' class='btn limegreen btn-primary view'><i class='fa fa-eye'></i></a>
+                    <a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a>
+                    <a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' '><i class='fa fa-trash' aria-hidden='true'></i></a>
+                    </div>";
                     return $btn;
                 })
                 ->addColumn('gender', function ($row) {
@@ -79,6 +86,7 @@ class UserDetail extends Controller
                 ->addColumn('status', function ($row) {
                     if ($row->status == "inactive") {
                         $class = "btn btn-danger ms-2 status";
+
                         $btntext = "Inactive";
                     } else {
                         $class = "btn btn-success ms-2 status";
@@ -167,6 +175,7 @@ class UserDetail extends Controller
     public function view($id)
     { 
         $viewdata = User::where("id",decrypt($id))->first();
+        // dd($viewdata);
         return view('admin.user.viewdata')->with('viewdata',$viewdata);
     }
 

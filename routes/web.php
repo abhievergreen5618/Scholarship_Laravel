@@ -86,11 +86,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/scholarshipdelete', 'destroy')->name('scholarshiptypedelete');
         Route::post('/scholarship-status-update', 'status')->name('scholarship-status-update');
     });
-
+ 
     Route::controller(UserDetail::class)->group(function () {
         Route::get('/userlist','index')->name('admin.user.index');
         Route::get('/adduser','create')->name('admin.user.add');
-        Route::post('/storesuser','store')->name('admin.user.store');
+        Route::any('/storesuser','store')->name('admin.user.store');
         Route::post('/storesdocument','storedocument')->name('admin.user.storedocument');
         Route::post('/storebankdata','storebankdata')->name('admin.user.storebankdata');
         Route::post('/userdetails','display')->name('admin.user.details');
