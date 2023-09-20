@@ -61,11 +61,14 @@ class UserDetail extends Controller
     public function display(Request $request)
     {
 
+
         if ($request->ajax()) {
             $data =  DB::table('users')
+            ->leftJoin('education_details','users.id', '=' , 'education_details.user_id')
                 ->where('role', 'student')
-                ->select(['id', 'name', 'email', 'mobileno', 'class', 'gender', 'dob', 'paddress', 'status'])
-                ->latest()
+                ->select(['users.id', 'name', 'email', 'mobileno', 'class', 'gender', 'dob', 'paddress', 'status',
+                'education_details.classes AS class',])
+                ->latest('users.created_at')
                 ->get();
                 return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -81,7 +84,7 @@ class UserDetail extends Controller
                     return $btn;
                 })
                 ->addColumn('gender', function ($row) {
-                    return $row->gender === 'F' ? 'Female' : 'Male';;
+                    return $row->gender === 'F' ? 'Female' : 'Male';
                 })
                 ->addColumn('status', function ($row) {
                     if ($row->status == "inactive") {
@@ -172,12 +175,24 @@ class UserDetail extends Controller
 
 
 
-    public function view($id)
-    { 
-        $viewdata = User::where("id",decrypt($id))->first();
-        // dd($viewdata);
-        return view('admin.user.viewdata')->with('viewdata',$viewdata);
-    }
+    // public function view($id)
+    // { 
+    //     $viewdata = User::where("id",decrypt($id))->first();
+    //     return view('admin.user.viewdata')->with('viewdata',$viewdata);
+    // }
+public function view($id)
+{ 
+    $userId = decrypt($id);
+    
+    $viewdata = User::join('education_details', 'users.id', '=', 'education_details.user_id')
+                     ->join('bank_details', 'users.id', '=', 'bank_details.user_id')
+                     ->select('users.*', 'education_details.*', 'bank_details.*')
+                     ->where('users.id', $userId)
+                     ->first();
+    return view('admin.user.viewdata')->with('viewdata', $viewdata);
+}
+
+
 
 
     public function result()

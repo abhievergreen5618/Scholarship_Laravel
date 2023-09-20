@@ -137,18 +137,21 @@
                         <th scope="col">Exam Roll No.</th>
                     </tr>
                     <tr class="dgitem-style" style="background-color:White;">
+                    <td align="center" style="width:5%;">
+                                                1
+                                            </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus__"><span
                                     id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus">
-                                                    <td>{{ $viewdata->resultstatus }}</td></span></span>
+                                                    {{ $viewdata->resultstatus }}</span></span>
 
                         </td>
                         <td align="center" style="width:20%;">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed__"><span
                                     id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed">
-                                                    <td>{{ $viewdata->classes }}</td></span></span>
+                                                    {{ $viewdata->classes }}</span></span>
                             <br>
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmpassedDegree__"><span
@@ -160,40 +163,40 @@
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName__"><span
                                     id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName">
-                                                    <td>{{ $viewdata->name_of_the_board_university }}</td></span></span>
+                                                    {{ $viewdata->name_of_the_board_university }}</span></span>
 
                         </td>
                         <td align="center">
                             <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear__"><span
                                     id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear">
-                                                    <td>{{ $viewdata->passing_year }}</td></span></span>
+                                                    {{ $viewdata->passing_year }}</span></span>
                         </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks__"><span
                                     id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks">
-                                                    <td>{{ $viewdata->credits_marks_Obtained }}</td></span></span>
+                                                {{ $viewdata->credits_marks_Obtained }}</span></span>
 
                         </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks__"><span
                                     id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks">
-                                                    <td>{{ $viewdata->maximum_marks }}</td></span></span>
+                                                {{ $viewdata->maximum_marks }}</span></span>
 
                         </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks__"><span
                                     id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks">
-                                                    <td>{{ $viewdata->percentage_marks }}</td></span></span>
+                                                {{ $viewdata->percentage_marks }}</span></span>
 
                         </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo__"><span
                                     id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo">
-                                                    <td>{{ $viewdata->exam_roll_no }}</td></span></span>
+                                                    {{ $viewdata->exam_roll_no }}</span></span>
 
                         </td>
                     </tr>
@@ -219,8 +222,8 @@
             <br>
             <td width="48%">
                 <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualiOrSus__"><span
-                        id="ctl00_ContentPlaceHolder1_lblDisqualiOrSus">{{isset($step2graduationdata['disqualified/suspended'])
-                        ? ucFirst($step2graduationdata['disqualified/suspended']) : ''}}</span></span>
+                        id="ctl00_ContentPlaceHolder1_lblDisqualiOrSus">
+                    </span></span>
             </td>
         </tr>
         <tr>
@@ -232,8 +235,8 @@
             <td class="colon">:</td>
             <td>
                 <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualifDtls__"><span
-                        id="ctl00_ContentPlaceHolder1_lblDisqualifDtls">{{isset($step2graduationdata['disqualified/suspended_details'])
-                        ? $step2graduationdata['disqualified/suspended_details'] : ''}}</span></span>
+                        id="ctl00_ContentPlaceHolder1_lblDisqualifDtls">
+                    </span></span>
             </td>
         </tr>
 
@@ -259,8 +262,8 @@
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->accountno : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->accountno }}</td></span>
                 </td>
             </tr>
             <tr>
@@ -270,8 +273,8 @@
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->cnfrmaccountno : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->cnfrmaccountno }}</td></span>
                 </td>
             </tr>
             <tr>
@@ -280,8 +283,8 @@
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->holdername : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->holdername }}</td></span>
                 </td>
             </tr>
             <tr>
@@ -290,8 +293,8 @@
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->ifsccode : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->ifsccode }}</td></span>
                 </td>
             </tr>
             <tr>
@@ -302,8 +305,8 @@
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->passbook_photo : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->passbook_photo }}</td></span>
                 </td>
             </tr>
                         </tbody>

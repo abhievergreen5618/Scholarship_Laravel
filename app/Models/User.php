@@ -55,6 +55,10 @@ class User extends Authenticatable
         'transaction_id',
         'class',
     ];
+
+
+
+
     public function getGenderAttribute($value)
 {
     return $value === 'F' ? 'Female' : 'Male';
