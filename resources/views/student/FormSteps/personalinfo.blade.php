@@ -22,8 +22,8 @@
                                 <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
                                     <select name="scholarshipname" id="scholarshipname" class="dropdownlong form-select">
                                         <option value=""> Please Select </option>
-                                        @foreach($scholarship as $scholarshipname)
-                                        <option value="{{ $scholarshipname }}">
+                                        @foreach($scholarship as $key=>$scholarshipname)
+                                        <option value="{{ $key }}">
                                             {{ $scholarshipname }}
                                         </option>
                                         @endforeach
@@ -72,13 +72,15 @@
                                 <div class="form-group mb-3">
                                     <select id="state-dropdown" name="examcentre" class="form-control">
                                         <option value="">-- Select State --</option>
-                                        @if(!empty($states))
-                                        @foreach ($states as $state)
-                                        <option value="{{ $state->code }}">
-                                            {{ $state->name }}
+                                        @forelse($states as $key=>$state)
+                                        <option value="{{ $key }}">
+                                            {{ $state }}
                                         </option>
-                                        @endforeach
-                                        @endif
+                                        @empty
+                                        <option value="">
+                                            No option founded
+                                        </option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </td>
@@ -91,7 +93,7 @@
                             <td>
 
                                 <div class="form-group mb-3">
-                                    <select id="district-dropdown" name="districtDropdown" class="form-control">
+                                    <select id="district-dropdown" name="examdistrict" class="form-control">
                                         <option value="">-- Select District --</option>
                                     </select>
                                 </div>
@@ -117,7 +119,7 @@
                             </td>
                             <td class="colon">:</td>
                             <td>
-                                <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mobileno}} @endif" maxlength="10" id="mobileno" type="number" class="textboxlong form-control" ondrop="return false;" ondrag="return false;" onpaste="return false;" oncut="return false;" onkeydown="return AllownumberOnly(event,this);"></span>
+                                <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mobileno}} @endif" maxlength="10" id="mobileno" type="number" class="textboxlong form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></span>
                             </td>
                         </tr>
                         <tr>
@@ -261,8 +263,8 @@
                                 <span id="Anthem_ctl00_ContentPlaceHolder1_ddlSportCulturalBoth__">
                                     <select name="subjects[]" id="subjects" class="form-control" multiple="multiple" data-placeholder="Select Subjects" data-dropdown-css-class="select2-purple">
                                         <option value="">--Please Select--</option>
-                                        @forelse($subjects as $subject)
-                                        <option value="{{ $subject }}">
+                                        @forelse($subjects as $key=>$subject)
+                                        <option value="{{ $key }}">
                                             {{ $subject }}
                                         </option>
                                         @empty
@@ -305,21 +307,18 @@
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedno" value="no" @if(!empty(auth()->user()->step1_updated_at))
                                                         {{auth()->user()->physicallychallenged == "no" ? 'checked' :
-                                                            ''}} @endif>
+                                                            ''}} @else {{'checked'}} @endif>
                                                         <label class="form-check-label" for="physicallychallengedno">No</label>
                                                     </div>
-                                                    <div id="proofofdocuments" {{ !empty(auth()->
-                                                            user()->physicallychallenged == "yes") ? 'style="display:
-                                                            none;"' : ''}}>
+                                                    <div id="proofofdocuments" style="{{ (empty(auth()->user()->physicallychallenged) || (auth()->user()->physicallychallenged == 'no')) ? 'display:none;' : ''}}">
                                                         <h3 class="hedingss">upload proof of documents</h3>
-
                                                         <form action="#">
                                                             <div class="input-group mb-3">
                                                                 <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof">
                                                             </div>
                                                         </form>
 
-                                                        @if(!empty(auth()->user()->physicallychallenged == "yes"))
+                                                        @if(!empty(auth()->user()->physicallychallenged && auth()->user()->physicallychallenged == "yes"))
                                                         <div><img id="physicallychallengedproof_photo_perview" src="{{ asset('public/images/proofdoc/'.auth()->user()->physicallychallengedproof) }}" class="img-thumbnail mt-2" alt="..."></div>
                                                         @endif
                                                     </div>
@@ -359,9 +358,7 @@
                                 <br>
                                 <span id="Anthem_ctl00_ContentPlaceHolder1_lblSCBN__"></span>
 
-                                <div id="categorycertificate" {{ !empty
-                                        (in_array(auth()->user()->categorycertificate, ["OBC", "SC", "ST"])) ? 'style="display: none;"' : ''}}>
-
+                                <div id="categorycertificate" {{ !empty(in_array(auth()->user()->categorycertificate, ["OBC", "SC", "ST"])) ? 'style="display: none;"' : ''}}>
                                     <h3 class="hedingss">upload category certificate</h3>
 
                                     <form action="#">
@@ -401,67 +398,3 @@
         <button type="submit" class="btn btn-warning">Save</button>
     </form>
 </li>
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#state-dropdown').on('change', function() {
-            let stateCode = this.value;
-            console.log(stateCode);
-            $.ajax({
-                url: 'districtslist',
-                type: 'POST',
-                data: 'stateCode=' + stateCode +
-                    '&_token={{csrf_token()}}',
-                success: function(result) {
-                    $('#district-dropdown').html(result)
-                }
-            });
-        });
-
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#subjects").select2({
-            multiple: true
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('input[name="physicallychallenged"]').on('change', function() {
-            var physicallyChallenged = $(this).val();
-            if (physicallyChallenged === "yes") {
-                updateFee(physicallyChallenged);
-            } else {
-                $('#fee').html('');
-            }
-        });
-
-        $('#category').on('change', function() {
-            var category = $(this).val();
-            updateFee(category);
-        });
-
-        function updateFee(feetype) {
-            $.ajax({
-                url: 'get-fee/' + feetype,
-                method: 'GET',
-                success: function(response) {
-                    if (response.fee) {
-                        $('#fee').html('Rs.' + response.fee);
-                    }
-                },
-                error: function() {
-                    // Handle errors if needed
-                }
-            });
-        }
-
-        // Initialize the fee display when the page loads
-        var selectedOption = $('input[name="physicallychallenged"]:checked').val();
-        updateFee(selectedOption);
-    });
-</script>

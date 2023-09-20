@@ -30,6 +30,7 @@
     <script src="{{asset('/js/jquery.js')}}"></script>
     <script src="{{asset('/js/validate.min.js')}}"></script>
     <script src="{{asset('/js/formvalidate.js')}}"></script>
+    <script src="{{asset('/js/functions.js')}}"></script>
     <script src="{{asset('/js/custom.js')}}"></script>
     <script src="{{asset('adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
     <script src="{{asset('/adminlte/plugins/toastr/toastr.min.js')}}"></script>

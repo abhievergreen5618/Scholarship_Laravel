@@ -22,3 +22,18 @@ function validateFileSize() {
     // uploadFile(file);
     alert("File uploaded successfully!");
 }
+
+function updateFee(feetype) {
+  $.ajax({
+      url: 'get-fee/' + feetype,
+      method: 'GET',
+      success: function(response) {
+          if (response.fee) {
+              $('#fee').html('Rs.' + response.fee);
+          }
+      },
+      error: function() {
+          // Handle errors if needed
+      }
+  });
+}

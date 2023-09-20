@@ -101,13 +101,11 @@
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="classes" id="classes" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Class--</option>
-                                                        @if(!empty($classes))
-                                                        @foreach($classes as $class)
-                                                        <option value="{{ $class->class }}">{{ $class->class }}</option>
-                                                        @endforeach
-                                                        @else
-                                                        <option value=""disabled>No class found</option>
-                                                        @endif
+                                                        @forelse($classes as $key=>$class)
+                                                        <option value="{{ $key }}">{{ $class }}</option>
+                                                        @empty
+                                                        <option value="" disabled>No class found</option>
+                                                        @endforelse
                                                     </select></span>
 
                                             </td>

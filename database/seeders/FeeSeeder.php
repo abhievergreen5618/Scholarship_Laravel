@@ -17,10 +17,11 @@ class FeeSeeder extends Seeder
     {
         //
         $fee = [
-            ['feetype' => 'OBC','fee' => '150'],
-            ['feetype' => 'SC','fee' => '100'],
-            ['feetype' => 'ST','fee' => '70'],
-            ['feetype' => 'General','fee' => '170'],
+            ['feetype' => 'OBC','feecode'=>'obc','fee' => '800'],
+            ['feetype' => 'SC','feecode'=>'sc','fee' => '500'],
+            ['feetype' => 'ST','feecode'=>'st','fee' => '500'],
+            ['feetype' => 'General','feecode'=>'general','fee' => '1500'],
+            ['feetype' => 'Physical Challenged','feecode'=>'physicallychallenged','fee' => '200'],
         ];
         FeeDetail::insert($fee);
     }

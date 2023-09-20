@@ -25,14 +25,13 @@ class ScholarshipController extends Controller
 
     public function index()
     {
-        $states = StateModel::orderBy('name', 'asc')->orderBy('code', 'asc')->get();
+        $states = StateModel::orderBy('name', 'asc')->orderBy('code', 'asc')->pluck('name','code');
 
         $subjects = Subject::where('status', 'active')->orderBy('name', 'asc')->pluck('name', 'id');
 
         $scholarship = ScholarshipList::where('status', 'active')->orderBy('name', 'asc')->pluck('name', 'id');
 
-        $classes = ClassModel::where('status', 'active')
-            ->orderBy('class', 'asc')->get();
+        $classes = ClassModel::where('status', 'active')->orderBy('class', 'asc')->pluck('class','id');
 
 
         $step2schooldata = Auth::user()->step2_updated_at
@@ -52,11 +51,10 @@ class ScholarshipController extends Controller
     {
         $stateCode = $request->post('stateCode');
         $districts = DistrictModel::where('statecode', $stateCode)
-            ->orderBy('name', 'asc')->get();
-        echo $districts;
+            ->orderBy('name', 'asc')->pluck('name','id');
         $html = '<option value="">-- Select District --</option>';
-        foreach ($districts as $districtlist) {
-            $html .= '<option value="' . $districtlist->id . '">' . $districtlist->name . '</option>';
+        foreach ($districts as $key=>$district) {
+            $html .= '<option value="'.$key.'">'.$district.'</option>';
         }
         echo $html;
     }
@@ -78,7 +76,7 @@ class ScholarshipController extends Controller
                 "fathername" => "required",
                 "mothername" => "required",
                 "examcentre" => "required",
-                "districtDropdown" => "required",
+                "examdistrict" => "required",
                 "caddress" => "required",
                 "mobileno" => "required",
                 "paddress" => "required",
@@ -130,7 +128,7 @@ class ScholarshipController extends Controller
                 "fathername" => $request['fathername'],
                 "mothername" => $request['mothername'],
                 "examcentre" => $request['examcentre'],
-                "districtDropdown" => $request['districtDropdown'],
+                "examdistrict" => $request['examdistrict'],
                 "caddress" => $request['caddress'],
                 "paddress" => $request['paddress'],
                 "dob" => $request['dob'] ?? "",
@@ -154,13 +152,9 @@ class ScholarshipController extends Controller
     }
 
 
-    public function getFee($feetype)
+    public function getFee($feecode)
     {
-        if ($feetype === "no") {
-            return response()->json(['fee' => null]);
-        }
-
-        $fee = FeeDetail::where('feetype', $feetype)->value('fee');
+        $fee = FeeDetail::where('feecode',$feecode)->value('fee');
 
         return response()->json(['fee' => $fee]);
     }

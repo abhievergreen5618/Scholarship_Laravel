@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    $("#categorycertificate").hide();
+
     $("#ctl00_ContentPlaceHolder1_chkboxCopyAddress").click(function (e) {
         if ($(this).is(":checked")) {
             $("#paddress").val($("#caddress").val());
@@ -134,5 +136,66 @@ $(document).ready(function () {
                 toastr.error(xhr.responseJSON.message);
             },
         });
+    });
+
+    $("input[name='physicallychallenged']").change(function (e) {
+        var physicallyChallengedValue = $(this).val();
+        if (physicallyChallengedValue === "yes") {
+            updateFee("physicallychallenged");
+            $("#proofofdocuments").show();
+            $("#fee").show();
+        } else {
+            $("#proofofdocuments").hide();
+            if ($("#category :selected").val()) {
+                updateFee($("#category :selected").val());
+            }
+            else {
+                $("#fee").html();
+            }
+        }
+    });
+
+    $("select[name='category']").change(function (e) {
+        var selectedValue = $(this).val();
+
+        if (
+            selectedValue === "OBC" ||
+            selectedValue === "SC" ||
+            selectedValue === "ST"
+        ) {
+            $("#categorycertificate").show();
+        } else {
+            $("#categorycertificate").hide();
+        }
+    });
+
+    $('#state-dropdown').on('change', function () {
+        let stateCode = this.value;
+        console.log(stateCode);
+        $.ajax({
+            url: 'districtslist',
+            type: 'POST',
+            data: 'stateCode=' + stateCode,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (result) {
+                $('#district-dropdown').html(result)
+            }
+        });
+    });
+    $("#subjects").select2({
+        multiple: true
+    });
+
+    $('#category').on('change', function () {
+        if ($(this).val().length && $("#physicallychallengedno").is(":checked")) {
+            console.log("test");
+            updateFee($(this).val());
+        }
+        elseif(!$(this).val().length)
+        {
+            $("#fee").html('');
+        }
     });
 });

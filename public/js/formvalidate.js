@@ -6,7 +6,7 @@ jQuery("#frm").validate({
         fathername: "required",
         mothername: "required",
         examcentre: "required",
-        districtDropdown: "required",
+        examdistrict: "required",
         caddress: "required",
         mobileno: {
             required: true,
@@ -19,12 +19,10 @@ jQuery("#frm").validate({
             email: true,
         },
         applyingfor: "required",
-        subjects: "required",
+        "subjects[]": "required",
         category: "required",
     },
     messages: {
-        examcentre: "Select an option",
-        districtDropdown: "Select an option",
         email: {
             required: "Please enter email ID",
             email: "Please enter valid email",
@@ -35,13 +33,13 @@ jQuery("#frm").validate({
         },
     },
     errorPlacement: function (error, element) {
-        if (
-            element.attr("type") == "checkbox" ||
-            element.attr("type") == "radio"
-        ) {
-            console.log(element);
+        if (element.attr("type") == "checkbox" || element.attr("type") == "radio") {
             $(element).parent().parent().append(error);
-        } else {
+        }
+        else if (element.attr("id") == "subjects") {
+            $(element).parent().parent().append(error);
+        }
+        else {
             element.after(error);
         }
     },
@@ -93,21 +91,16 @@ jQuery("#frm").validate({
             },
             error: function (xhr, status, error) {
                 if (xhr.status == 422) {
+                    console.log(xhr.responseJSON.error);
                     $.each(xhr.responseJSON.error, (index, value) => {
                         $("#" + index + "-error").remove();
-                        $("#" + index)
-                            .parent()
-                            .append(
-                                '<label id="' +
-                                    index +
-                                    '-error" class="error" for="name">' +
-                                    value +
-                                    "</label>"
-                            );
+                        $("#" + index).parent().append('<label id="'+index +'-error" class="error" for="name">'+value+"</label>");
                         $("#" + index).focus();
                         toastr.error(xhr.responseJSON.message);
                     });
-                } else {
+                }
+                else
+                {
                     toastr.error("!OOPs Something went wrong");
                 }
             },
@@ -172,10 +165,10 @@ jQuery("#docform").validate({
                             .parent()
                             .append(
                                 '<label id="' +
-                                    index +
-                                    '-error" class="error" for="name">' +
-                                    value +
-                                    "</label>"
+                                index +
+                                '-error" class="error" for="name">' +
+                                value +
+                                "</label>"
                             );
                         $("#" + index).focus();
 
@@ -243,10 +236,10 @@ jQuery("#bankform").validate({
                             .parent()
                             .append(
                                 '<label id="' +
-                                    index +
-                                    '-error" class="error" for="name">' +
-                                    value +
-                                    "</label>"
+                                index +
+                                '-error" class="error" for="name">' +
+                                value +
+                                "</label>"
                             );
                         $("#" + index).focus();
 
@@ -282,38 +275,5 @@ $(document).ready(function () {
                 console.log(xhr.responseText);
             },
         });
-    });
-});
-
-$(document).ready(function () {
-    $("input[name='physicallychallenged']").change(function (e) {
-        var physicallyChallengedValue = $(this).val();
-        if (physicallyChallengedValue === "yes") {
-            $("#proofofdocuments").show();
-            $("#fee").show();
-            // $("#category").prop("disabled", true);
-        } else {
-            $("#proofofdocuments").hide();
-            $("#fee").hide();
-            // $("#category").prop("disabled", false);
-        }
-    });
-});
-
-$(document).ready(function () {
-    $("#categorycertificate").hide();
-
-    $("select[name='category']").change(function (e) {
-        var selectedValue = $(this).val();
-
-        if (
-            selectedValue === "OBC" ||
-            selectedValue === "SC" ||
-            selectedValue === "ST"
-        ) {
-            $("#categorycertificate").show();
-        } else {
-            $("#categorycertificate").hide();
-        }
     });
 });

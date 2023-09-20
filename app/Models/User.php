@@ -54,6 +54,7 @@ class User extends Authenticatable
         'application_number',
         'transaction_id',
         'class',
+        'examdistrict',
     ];
     public function getGenderAttribute($value)
 {
