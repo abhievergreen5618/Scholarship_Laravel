@@ -163,7 +163,7 @@
                             </td>
                             <td class="colon">:</td>
                             <td>
-                                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="{{!empty(auth()->user()->step1_updated_at) ? auth()->user()->aadhaarno : ''}}" maxlength="12" ondrop="return false;" ondrag="return false;" class="textboxlong"></span>
+                                <span id="Anthem_ctl00_ContentPlaceHolder1_txtAadhaarNo__"><input name="aadhaarno" id="aadhaarno" class="form-control" type="number" value="{{!empty(auth()->user()->step1_updated_at) ? auth()->user()->aadhaarno : ''}}" maxlength="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="textboxlong"></span>
                             </td>
                         </tr>
                         <tr>
@@ -306,25 +306,21 @@
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="physicallychallenged" id="physicallychallengedno" value="no" @if(!empty(auth()->user()->step1_updated_at))
-                                                        {{auth()->user()->physicallychallenged == "no" ? 'checked' :
-                                                            ''}} @else {{'checked'}} @endif>
+                                                        {{auth()->user()->physicallychallenged == "no" ? 'checked' : ''}} @else {{'checked'}} @endif>
                                                         <label class="form-check-label" for="physicallychallengedno">No</label>
                                                     </div>
-                                                    <div id="proofofdocuments" style="{{ (empty(auth()->user()->physicallychallenged) || (auth()->user()->physicallychallenged == 'no')) ? 'display:none;' : ''}}">
+                                                    <div id="proofofdocuments" style="{{ (empty(auth()->user()->physicallychallenged) || (auth()->user()->physicallychallenged == 'no')) ? 'display:none;' : '' }}">
                                                         <h3 class="hedingss">upload proof of documents</h3>
                                                         <form action="#">
                                                             <div class="input-group mb-3">
                                                                 <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof">
                                                             </div>
                                                         </form>
-
                                                         @if(!empty(auth()->user()->physicallychallenged && auth()->user()->physicallychallenged == "yes"))
                                                         <div><img id="physicallychallengedproof_photo_perview" src="{{ asset('public/images/proofdoc/'.auth()->user()->physicallychallengedproof) }}" class="img-thumbnail mt-2" alt="..."></div>
                                                         @endif
                                                     </div>
                                                 </td>
-
-
                                             </tr>
                                         </tbody>
                                     </table>

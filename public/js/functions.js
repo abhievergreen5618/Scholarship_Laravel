@@ -29,7 +29,7 @@ function updateFee(feetype) {
       method: 'GET',
       success: function(response) {
           if (response.fee) {
-              $('#fee').html('Rs.' + response.fee);
+              $('#fee').html('Rs. ' + response.fee);
           }
       },
       error: function() {

@@ -31,12 +31,9 @@ class ScholarshipController extends Controller
 
         $scholarship = ScholarshipList::where('status', 'active')->orderBy('name', 'asc')->pluck('name', 'id');
 
-        $classes = ClassModel::where('status', 'active')->orderBy('class', 'asc')->pluck('class','id');
+        $classes = ClassModel::where('status','active')->orderBy('id','asc')->pluck('class','id');
 
-
-        $step2schooldata = Auth::user()->step2_updated_at
-            ? EducationDetails::where(['user_id' => Auth::user()->id, 'type' => 'school'])->first()
-            : null;
+        $step2schooldata = Auth::user()->step2_updated_at ? EducationDetails::where(['user_id' => Auth::user()->id, 'type' => 'school'])->first() : null;
 
         return view('student.form')->with([
             'step2schooldata' => $step2schooldata,
@@ -45,16 +42,26 @@ class ScholarshipController extends Controller
             'classes' => $classes,
             'scholarship' => $scholarship,
         ]);
+        
     }
 
     public function getDistricts(Request $request)
     {
         $stateCode = $request->post('stateCode');
         $districts = DistrictModel::where('statecode', $stateCode)
-            ->orderBy('name', 'asc')->pluck('name','id');
+            ->orderBy('name', 'asc')->pluck('name','statecode');
         $html = '<option value="">-- Select District --</option>';
-        foreach ($districts as $key=>$district) {
-            $html .= '<option value="'.$key.'">'.$district.'</option>';
+        if ($districts->isEmpty()) {
+            $districts = StateModel::where('code', $stateCode)->pluck('name','statecode');
+            foreach ($districts as $key=>$district) {
+                $html .= '<option value="'.$key.'">'.$district.'</option>';
+            }
+        } 
+        else 
+        {
+            foreach ($districts as $key=>$district) {
+                $html .= '<option value="'.$key.'">'.$district.'</option>';
+            }
         }
         echo $html;
     }

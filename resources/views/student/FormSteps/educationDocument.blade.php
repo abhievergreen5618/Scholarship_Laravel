@@ -121,10 +121,12 @@
 
 
                                             </td>
-                                            <td align="center" style="width:10%;>
+                                            <td align="center" style="width:10%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="class_passing_year" class="form-select">
                                                         <option value="">--Select --</option>
-                                                        <option value="1976" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '1976' ? 'selected' : ''}}>1976</option>
+                                                        @for($i=date('Y');$i<=2010;$i--)
+                                                        <option value="{{$i}}" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == $i ? 'selected' : ''}}>{{$i}}</option>
+                                                        @endfor
                                                         <option value="2014" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2014' ? 'selected' : ''}}>2014</option>
                                                         <option value="2015" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2015' ? 'selected' : ''}}>2015</option>
                                                         <option value="2016" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2016' ? 'selected' : ''}}>2016</option>

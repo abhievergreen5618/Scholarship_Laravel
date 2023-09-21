@@ -146,11 +146,12 @@ $(document).ready(function () {
             $("#fee").show();
         } else {
             $("#proofofdocuments").hide();
-            if ($("#category :selected").val()) {
+            console.log($("#category :selected").val().length);
+            if ($("#category :selected").val().length) {
                 updateFee($("#category :selected").val());
             }
             else {
-                $("#fee").html();
+                $("#fee").html('');
             }
         }
     });
@@ -158,10 +159,7 @@ $(document).ready(function () {
     $("select[name='category']").change(function (e) {
         var selectedValue = $(this).val();
 
-        if (
-            selectedValue === "OBC" ||
-            selectedValue === "SC" ||
-            selectedValue === "ST"
+        if (selectedValue === "OBC" ||selectedValue === "SC" || selectedValue === "ST"
         ) {
             $("#categorycertificate").show();
         } else {
@@ -171,7 +169,6 @@ $(document).ready(function () {
 
     $('#state-dropdown').on('change', function () {
         let stateCode = this.value;
-        console.log(stateCode);
         $.ajax({
             url: 'districtslist',
             type: 'POST',
@@ -190,10 +187,9 @@ $(document).ready(function () {
 
     $('#category').on('change', function () {
         if ($(this).val().length && $("#physicallychallengedno").is(":checked")) {
-            console.log("test");
             updateFee($(this).val());
         }
-        elseif(!$(this).val().length)
+        else if(!$(this).val().length)
         {
             $("#fee").html('');
         }
