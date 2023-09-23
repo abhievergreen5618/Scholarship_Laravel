@@ -222,9 +222,9 @@ jQuery("#bankform").validate({
                     $('[for="tab4"]').find("[data-icon='lock']").remove();
                     $("#application_summary_step").removeClass("btn-secondary");
                     $("#application_summary_step").addClass("btn-success");
-                    debugger;
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-
+                    $("li.tab-content-fourth").remove();
+                    $("li.tab-content-third").after(result.html);
                     toastr.success(result.message);
                 }
             },

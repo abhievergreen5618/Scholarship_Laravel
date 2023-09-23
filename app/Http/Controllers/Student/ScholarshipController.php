@@ -19,6 +19,7 @@ use App\Models\ScholarshipList;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use PDF;
+use Illuminate\Support\Facades\View;
 
 class ScholarshipController extends Controller
 {
@@ -33,34 +34,32 @@ class ScholarshipController extends Controller
 
         $classes = ClassModel::where('status','active')->orderBy('id','asc')->pluck('class','id');
 
-        $step2schooldata = Auth::user()->step2_updated_at ? EducationDetails::where(['user_id' => Auth::user()->id, 'type' => 'school'])->first() : null;
-
         return view('student.form')->with([
-            'step2schooldata' => $step2schooldata,
             'states' => $states,
             'subjects' => $subjects,
             'classes' => $classes,
             'scholarship' => $scholarship,
         ]);
-        
+
     }
 
     public function getDistricts(Request $request)
     {
         $stateCode = $request->post('stateCode');
-        $districts = DistrictModel::where('statecode', $stateCode)
-            ->orderBy('name', 'asc')->pluck('name','statecode');
+        $districts = DistrictModel::where('statecode', $stateCode)->orderBy('name', 'asc')->pluck('name','id');
         $html = '<option value="">-- Select District --</option>';
         if ($districts->isEmpty()) {
-            $districts = StateModel::where('code', $stateCode)->pluck('name','statecode');
+            $districts = StateModel::where('code', $stateCode)->pluck('name','code');
             foreach ($districts as $key=>$district) {
-                $html .= '<option value="'.$key.'">'.$district.'</option>';
+                $selected = isset(Auth::user()->examdistrict) && $key == Auth::user()->examdistrict ? 'selected' : '';
+                $html .= '<option value="'.$key.'" '.$selected.'>'.$district.'</option>';
             }
-        } 
-        else 
+        }
+        else
         {
             foreach ($districts as $key=>$district) {
-                $html .= '<option value="'.$key.'">'.$district.'</option>';
+                $selected = isset(Auth::user()->examdistrict) && $key == Auth::user()->examdistrict ? 'selected' : '';
+                $html .= '<option value="'.$key.'" '.$selected.'>'.$district.'</option>';
             }
         }
         echo $html;
@@ -147,7 +146,6 @@ class ScholarshipController extends Controller
                 "subjects" => $request['subjects'],
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
-                "fee" => $request['fee'],
                 "physicallychallengedproof" => $imageName ?? "",
                 "categorycertificate" => $certificateName ?? "",
                 "step1_updated_at" => now(),
@@ -272,6 +270,10 @@ class ScholarshipController extends Controller
             "holdername" => "required",
             "ifsccode" => "required",
             "passbook_photo" => "required",
+        ],[
+            "required" => "This field is required.",
+            "required_if" => "This field is required.",
+            "cnfrmaccountno.same" => "The confirmation account number must match the account number field.",
         ]);
         if ($validator->fails()) {
             $errors = [];
@@ -298,8 +300,20 @@ class ScholarshipController extends Controller
                 "passbook_photo" => $passbook_photo,
                 "step3_updated_at" => now(),
             ]);
+
+            User::where('id',decrypt($request['id']))->update([
+                "step3_updated_at" => now(),
+            ]);
+
+            // Refresh the authenticated user's data
+            Auth::user()->refresh();
+
+              // Load the Blade view
+            $html = View::make('student.FormSteps.applicationsummary')->render();
+
             return response()->json([
                 'message' => "Saved Data Successfully",
+                'html' => $html
             ], 200);
         }
     }

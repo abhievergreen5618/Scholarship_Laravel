@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
         Route::post('/bankdetails','bankinfo')->name('bankdetails');
-        Route::any('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
+        Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
     });
     Route::get('get-fee/{feetype}', [ScholarshipController::class,'getFee']);

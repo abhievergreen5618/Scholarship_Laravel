@@ -37,3 +37,31 @@ function updateFee(feetype) {
       }
   });
 }
+
+  // Function to calculate and update the percentage
+function calculatePercentage() {
+    const obtainedMarks = parseFloat($('#class_marks').val());
+    const maxMarks = parseFloat($('#class_max_marks').val());
+
+    if (!isNaN(obtainedMarks) && !isNaN(maxMarks) && maxMarks !== 0) {
+        const percentage = (obtainedMarks / maxMarks) * 100;
+        $('#class_percentage').val(percentage.toFixed(2) + '%');
+    } else {
+        $('#class_percentage').val('');
+    }
+}
+
+function getdistricts(stateCode)
+{
+    $.ajax({
+        url: 'districtslist',
+        type: 'POST',
+        data: 'stateCode=' + stateCode,
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        success: function (result) {
+            $('#district-dropdown').html(result)
+        }
+    });
+}

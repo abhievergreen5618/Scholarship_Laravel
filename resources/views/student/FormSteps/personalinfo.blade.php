@@ -23,7 +23,7 @@
                                     <select name="scholarshipname" id="scholarshipname" class="dropdownlong form-select">
                                         <option value=""> Please Select </option>
                                         @foreach($scholarship as $key=>$scholarshipname)
-                                        <option value="{{ $key }}">
+                                        <option value="{{ $key }}" {{isset(auth()->user()->scholarshipname) && $key == auth()->user()->scholarshipname ? 'selected' : '' }}>
                                             {{ $scholarshipname }}
                                         </option>
                                         @endforeach
@@ -52,7 +52,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="vtext">Mother's Name <span style="color: red">*</span>
+                            <td class="vtext">Mother's Name<span style="color: red">*</span>
                                 <br>
                                 <strong>मां का नाम</strong>
                             </td>
@@ -63,7 +63,7 @@
                         </tr>
 
                         <tr id="ctl00_ContentPlaceHolder1_trExamCenter">
-                            <td class="vtext">Examination State for Entrance Test <span style="color: red">*</span><br>
+                            <td class="vtext">Examination State for Entrance Test<span style="color: red">*</span><br>
                                 <strong>प्रवेश परीक्षा के लिए परीक्षा केन्द्र</strong>
                             </td>
                             <td class="colon">:</td>
@@ -73,7 +73,7 @@
                                     <select id="state-dropdown" name="examcentre" class="form-control">
                                         <option value="">-- Select State --</option>
                                         @forelse($states as $key=>$state)
-                                        <option value="{{ $key }}">
+                                        <option value="{{ $key }}" {{isset(auth()->user()->examcentre) && $key == auth()->user()->examcentre ? 'selected' : '' }}>
                                             {{ $state }}
                                         </option>
                                         @empty
@@ -119,7 +119,7 @@
                             </td>
                             <td class="colon">:</td>
                             <td>
-                                <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="@if(!empty(auth()->user()->step1_updated_at)) {{auth()->user()->mobileno}} @endif" maxlength="10" id="mobileno" type="number" class="textboxlong form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></span>
+                                <span id="Anthem_ctl00_ContentPlaceHolder1_txtMobileNo__"><input name="mobileno" value="{{ !empty(auth()->user()->step1_updated_at) ? auth()->user()->mobileno : '' }}" maxlength="10" id="mobileno" type="number" class="textboxlong form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"></span>
                             </td>
                         </tr>
                         <tr>
@@ -264,7 +264,7 @@
                                     <select name="subjects[]" id="subjects" class="form-control" multiple="multiple" data-placeholder="Select Subjects" data-dropdown-css-class="select2-purple">
                                         <option value="">--Please Select--</option>
                                         @forelse($subjects as $key=>$subject)
-                                        <option value="{{ $key }}">
+                                        <option value="{{ $key }}" {{!empty(auth()->user()->subjects) && in_array($key,auth()->user()->subjects) ? 'selected' : ''}}>
                                             {{ $subject }}
                                         </option>
                                         @empty

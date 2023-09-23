@@ -1,9 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-<div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}"
-    data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}"
-    data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-paymenturl="{{route('savepaymentdetails')}}">
+<div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}" data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}" data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-fee="{{auth()->user()->razorpayfee}}" data-paymenturl="{{route('savepaymentdetails')}}">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10">
@@ -11,54 +9,42 @@
 
                     <!-- tabs -->
                     <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
-                        <input type="radio" name="pcss3t" id="tab1"
-                            class="{{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}tab-content-first"
-                            {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}}
-                        {{!empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab1" class="{{!empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}tab-content-first" {{empty(auth()->user()->step1_updated_at) ? 'checked' : ''}} {{!empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
                         <label for="tab1"><i class="fas fa-hand-point-right"></i>Personal Information
-                            @if(!empty(auth()->user()->step3_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i>
+                            @if(!empty(auth()->user()->step4_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i>
                             @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab2" class="tab-content-2"
-                            {{!empty(auth()->user()->step1_updated_at) && empty(auth()->user()->step2_updated_at) ?
+                        <input type="radio" name="pcss3t" id="tab2" class="tab-content-2" {{!empty(auth()->user()->step1_updated_at) && empty(auth()->user()->step2_updated_at) ?
                         'checked' : ''}} {{empty(auth()->user()->step1_updated_at) ||
-                        !empty(auth()->user()->step3_updated_at)? 'disabled' : ''}}>
+                        !empty(auth()->user()->step4_updated_at)? 'disabled' : ''}}>
                         <label for="tab2"><i class="fas fa-hand-point-right"></i>Education & Document Details
-                            @if(empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step3_updated_at)) <i
-                                class="fa fa-lock" aria-hidden="true"></i> @endif
+                            @if(empty(auth()->user()->step1_updated_at) || !empty(auth()->user()->step4_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-third"
-                            {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step3_updated_at) ?
-                        'checked' : ''}} {{empty(auth()->user()->step2_updated_at) || 
-                        !empty(auth()->user()->step3_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-third" {{!empty(auth()->user()->step2_updated_at) && empty(auth()->user()->step4_updated_at) ?
+                        'checked' : ''}} {{empty(auth()->user()->step2_updated_at) ||
+                        !empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
                         <label for="tab3"><i class="fas fa-hand-point-right"></i>Bank Details
-                            @if(empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step3_updated_at))<i
-                                class="fa fa-lock" aria-hidden="true"></i> @endif
+                            @if(empty(auth()->user()->step2_updated_at) || !empty(auth()->user()->step4_updated_at))<i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab4" class="tab-content-fourth"
-                            {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step4_updated_at) ?
+                        <input type="radio" name="pcss3t" id="tab4" class="tab-content-fourth" {{!empty(auth()->user()->step3_updated_at) && empty(auth()->user()->step4_updated_at) ?
                         'checked' : ''}} {{empty(auth()->user()->step3_updated_at) ||
                         !empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
                         <label for="tab4"><i class="fas fa-hand-point-right"></i>Application Summary
-                            @if(empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at)) <i
-                                class="fa fa-lock" aria-hidden="true"></i> @endif
+                            @if(empty(auth()->user()->step3_updated_at) || !empty(auth()->user()->step4_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab5" class="tab-content-last"
-                            {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step5_updated_at) ?
+                        <input type="radio" name="pcss3t" id="tab5" class="tab-content-last" {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step5_updated_at) ?
                         'checked' : ''}} {{empty(auth()->user()->step4_updated_at) ||
                         !empty(auth()->user()->step5_updated_at) ? 'disabled' : ''}}>
                         <label for="tab5"><i class="fas fa-hand-point-right"></i>Payment
-                            @if(empty(auth()->user()->step4_updated_at) || !empty(auth()->user()->step5_updated_at)) <i
-                                class="fa fa-lock" aria-hidden="true"></i> @endif
+                            @if(empty(auth()->user()->step4_updated_at) || !empty(auth()->user()->step5_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i> @endif
                         </label>
 
-                        <input type="radio" name="pcss3t" id="tab6" class="tabend"
-                            {{!empty(auth()->user()->step4_updated_at) && empty(auth()->user()->step4_updated_at) ?
-                        'checked' : ''}} {{empty(auth()->user()->step4_updated_at) ? 'disabled' : ''}}>
+                        <input type="radio" name="pcss3t" id="tab6" class="tabend" {{!empty(auth()->user()->step5_updated_at) && empty(auth()->user()->step6_updated_at) ?
+                        'checked' : ''}} {{empty(auth()->user()->step5_updated_at) ? 'disabled' : ''}}>
                         <label for="tab6"><i class="fas fa-hand-point-right"></i>Submit Application Form
                             @if(empty(auth()->user()->step5_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i>
                             @endif
@@ -79,65 +65,60 @@
                                             <h3><span>Step [5/5] :</span>Submit Reference Number &amp; Application Form
                                             </h3>
                                             <tr>
-                                                           
 
 
 
 
-<div class="box-body table-responsive">
-                                                <table id="" class="table Eng_hindi_form" width="50%" border="0"
-                                                    cellspacing="5" cellpadding="0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td colspan="3">
-                                                                <span id=""><span style="color:Red;"></span></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="3">
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="35%" class="vtext"><strong>Reference
-                                                                    Number</strong></td>
-                                                            <td class="colon">:</td>
-                                                            <td>
-                                                                <span
-                                                                    id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
+
+                                                <div class="box-body table-responsive">
+                                                    <table id="" class="table Eng_hindi_form" width="50%" border="0" cellspacing="5" cellpadding="0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td colspan="3">
+                                                                    <span id=""><span style="color:Red;"></span></span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="3">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="35%" class="vtext"><strong>Reference
+                                                                        Number</strong></td>
+                                                                <td class="colon">:</td>
+                                                                <td>
+                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
                                                                             ? auth()->user()->reference_number :
                                                                             ''}}</b></span></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="35%" class="vtext"><strong>Roll Number</strong>
-                                                            </td>
-                                                            <td class="colon">:</td>
-                                                            <td>
-                                                                <span
-                                                                    id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span
-                                                                        id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="35%" class="vtext"><strong>Roll Number</strong>
+                                                                </td>
+                                                                <td class="colon">:</td>
+                                                                <td>
+                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
                                                                             ? auth()->user()->roll_number :
                                                                             ''}}</b></span></span>
-                                                            </td>
-                                                        </tr>
-                                                           
-                                                       
-                                                        </tr>
-                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            @include("student.FormSteps.pdffile")
-                                                        <td colspan="3">
-                                                            <a class="btn btn-primary" style="color:white;" href="{{route('downloadpdf')}}">Download Receipt</a>
-                                                        </td>
-                                            
+                                                                </td>
+                                                            </tr>
+
+
+                                            </tr>
+
+                                            </tbody>
+                                            </table>
+                                        </div>
+                                        @include("student.FormSteps.pdffile")
+                                        <td colspan="3">
+                                            <a class="btn btn-primary" style="color:white;" href="{{route('downloadpdf')}}">Download Receipt</a>
+                                        </td>
+
                             </li>
                         </ul>
                     </div>
 
-                    
+
                     <!--/ tabs -->
                 </div>
             </div>
@@ -149,23 +130,12 @@
                         <div>
                             <h4>Steps for Registration</h4>
                             <div class="btn-group-vertical">
-                                <a href="#" class="btn btn-success btn-block py-3 border-dark"
-                                    id="personal_information_step">Personal Information</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step1_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="education_details_step">Education &amp; Document Details</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step2_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="bank_details_step">Bank Details</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step3_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="application_summary_step">Application Summary</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step4_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="payment_step">Payment</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step5_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="submit_information_form">Submit Application Form</a>
+                                <a href="#" class="btn btn-success btn-block py-3 border-dark" id="personal_information_step">Personal Information</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step1_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="education_details_step">Education &amp; Document Details</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step2_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="bank_details_step">Bank Details</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step3_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="application_summary_step">Application Summary</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step4_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="payment_step">Payment</a>
+                                <a href="#" class="btn {{!empty(auth()->user()->step5_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark" id="submit_information_form">Submit Application Form</a>
                             </div>
                         </div>
                         <div>
@@ -226,8 +196,7 @@
         <div class="row">
 
             <div class="col-md-3">
-                <a class="navbar-brand" href="#"><img src="{{asset('images/footerlogo.png')}}" alt=""
-                        class="d-inline-block align-text-top"></a>
+                <a class="navbar-brand" href="#"><img src="{{asset('images/footerlogo.png')}}" alt="" class="d-inline-block align-text-top"></a>
                 <br>
                 <h5 class="textt"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -292,78 +261,117 @@
 @push("footer_extras")
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-var options = {
-    "key": $("#payment").data("razorpaykey"), // Enter the Key ID generated from the Dashboard
-    "amount": "10000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "INR",
-    "name": "Scholarship", // your business name
-    "description": "Test Transaction",
-    "image": "https://example.com/your_logo",
-    // Make sure this code is inside the script block or a JavaScript file.
-    "handler": function (response) {
-        if (response.error) {
-            // Handle payment failure here
-            console.error('Payment failed:', response.error);
+    var options = {
+        "key": $("#payment").data("razorpaykey"), // Enter the Key ID generated from the Dashboard
+        "amount": $("#payment").data("fee"), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Scholarship", // your business name
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        // Make sure this code is inside the script block or a JavaScript file.
+        "handler": function(response) {
+            if (typeof response.razorpay_payment_id == 'undefined' || response.razorpay_payment_id < 1) {
+                // Handle payment failure here
+                console.error('Payment failed:', response.error);
 
-            // Retrieve the transaction ID from the response
-            var transactionId = response.razorpay_payment_id;
+                // Retrieve the transaction ID from the response
+                var transactionId = response.razorpay_payment_id;
 
-            // You can display an error message or take appropriate action
-            // For example, show an error notification to the user
-            alert('Payment failed. Transaction ID: ' + transactionId);
-        } else {
-            // Payment was successful, continue with your success handling
-            $.ajax({
-                type: 'POST',
-                url: $("#payment").data("paymenturl"),
-                dataType: "json",
-                data: JSON.stringify(response), // Convert the response object to JSON format
-                contentType: "application/json",
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (result) {
-                    if (result.hasOwnProperty("message")) {
-                        // Handle the success response from the server here
-                        // For example, enable a tab, change button styles, etc.
-                        $("#tab6").attr('disabled', false);
-                        $("#tab6").trigger('click');
-                        $('[for="tab6"]').find("[data-icon='lock']").remove();
+                // You can display an error message or take appropriate action
+                // For example, show an error notification to the user
+                alert('Payment failed. Transaction ID: ' + transactionId);
+            } else {
+                // Payment was successful, continue with your success handling
+                $.ajax({
+                    type: 'POST',
+                    url: $("#payment").data("paymenturl"),
+                    dataType: "json",
+                    data: JSON.stringify(response), // Convert the response object to JSON format
+                    contentType: "application/json",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(result) {
+                        if (result.hasOwnProperty("message")) {
+                            // Handle the success response from the server here
+                            // For example, enable a tab, change button styles, etc.
+                            $("#tab6").attr('disabled', false);
+                            $("#tab6").trigger('click');
+                            $('[for="tab6"]').find("[data-icon='lock']").remove();
 
-                        $("#tab5").attr('disabled', true);
-                        $('[for="tab5"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+                            $("#tab5").attr('disabled', true);
+                            $('[for="tab5"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
 
-                        $("#submit_information_form").removeClass("btn-secondary");
-                        $("#submit_information_form").addClass("btn-success");
+                            $("#submit_information_form").removeClass("btn-secondary");
+                            $("#submit_information_form").addClass("btn-success");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle errors, if any, during the Ajax request
+                        // You can display an error message or take appropriate action
                     }
-                },
-                error: function (xhr, status, error) {
-                    // Handle errors, if any, during the Ajax request
-                    // You can display an error message or take appropriate action
-                }
-            });
+                });
+            }
+        },
+        "prefill": { // We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+            "name": $("#payment").data("username"), // your customer's name
+            "email": $("#payment").data("email"),
+            "contact": $("#payment").data("contact") // Provide the customer's phone number for better conversion rates
+        },
+        "theme": {
+            "color": "#3399cc"
         }
-    },
-    "prefill": { // We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-        "name": $("#payment").data("username"), // your customer's name
-        "email": $("#payment").data("email"),
-        "contact": $("#payment").data("contact") // Provide the customer's phone number for better conversion rates
-    },
-    "theme": {
-        "color": "#3399cc"
-    }
-};
+    };
 
-// Initialize the Razorpay payment button
-var rzp = new Razorpay(options);
+    // Initialize the Razorpay payment button
+    var rzp = new Razorpay(options);
 
-// Handle the payment button click event
-$("#paymentButton").on("click", function () {
-    rzp.open();
-});
+    // Handle the payment button click event
+    $("#paymentButton").on("click", function() {
+        rzp.open();
+    });
 
     var rzp1 = new Razorpay(options);
-    document.getElementById('rzp-button1').onclick = function (e) {
+    rzp1.on('payment.failed', function(response) {
+        console.log(response);
+        // alert(response.error.code);
+        // alert(response.error.description);
+        // alert(response.error.source);
+        // alert(response.error.step);
+        // alert(response.error.reason);
+        // alert(response.error.mtadata.payment_id);
+
+        $.ajax({
+            type: 'POST',
+            url: $("#payment").data("paymenturl"),
+            dataType: "json",
+            data: JSON.stringify(response), // Convert the response object to JSON format
+            contentType: "application/json",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(result) {
+                if (result.hasOwnProperty("message")) {
+                    // Handle the success response from the server here
+                    // For example, enable a tab, change button styles, etc.
+                    $("#tab6").attr('disabled', false);
+                    $("#tab6").trigger('click');
+                    $('[for="tab6"]').find("[data-icon='lock']").remove();
+
+                    $("#tab5").attr('disabled', true);
+                    $('[for="tab5"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+
+                    $("#submit_information_form").removeClass("btn-secondary");
+                    $("#submit_information_form").addClass("btn-success");
+                }
+            },
+            error: function(xhr, status, error) {
+                // Handle errors, if any, during the Ajax request
+                // You can display an error message or take appropriate action
+            }
+        });
+    });
+    document.getElementById('rzp-button1').onclick = function(e) {
         rzp1.open();
         e.preventDefault();
     }

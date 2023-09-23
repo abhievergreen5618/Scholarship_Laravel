@@ -1,6 +1,33 @@
 $(document).ready(function () {
     $("#categorycertificate").hide();
 
+
+    if($("#state-dropdown :selected").val().length)
+    {
+        var stateCode = $("#state-dropdown :selected").val();
+        getdistricts(stateCode);
+    }
+
+    if($("#physicallychallengedyes").is(":checked"))
+    {
+        updateFee("physicallychallenged");
+    }
+    else if ($("#category :selected").val().length) {
+        updateFee($("#category :selected").val());
+    }
+
+    $('.marks-input').on('input',function(){
+        const obtainedMarks = parseFloat($('#class_marks').val());
+        const maxMarks = parseFloat($('#class_max_marks').val());
+
+        if (!isNaN(obtainedMarks) && !isNaN(maxMarks) && maxMarks !== 0) {
+            const percentage = (obtainedMarks / maxMarks) * 100;
+            $('#class_percentage').val(percentage.toFixed(2));
+        } else {
+            $('#class_percentage').val('0');
+        }
+    });
+
     $("#ctl00_ContentPlaceHolder1_chkboxCopyAddress").click(function (e) {
         if ($(this).is(":checked")) {
             $("#paddress").val($("#caddress").val());
@@ -87,6 +114,9 @@ $(document).ready(function () {
     $("#backstep2").click(function () {
         $("#tab2").trigger("click");
     });
+     $("#backstep3").click(function () {
+        $("#tab3").trigger("click");
+    });
 
     $("#savestep3").click(function () {
         toastr.options = {
@@ -128,6 +158,7 @@ $(document).ready(function () {
                     $('[for="tab5"]').find("[data-icon='lock']").remove();
                     $("#payment_step").removeClass("btn-secondary");
                     $("#payment_step").addClass("btn-success");
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
 
                     toastr.success(result.message);
                 }
@@ -146,7 +177,6 @@ $(document).ready(function () {
             $("#fee").show();
         } else {
             $("#proofofdocuments").hide();
-            console.log($("#category :selected").val().length);
             if ($("#category :selected").val().length) {
                 updateFee($("#category :selected").val());
             }
@@ -169,17 +199,7 @@ $(document).ready(function () {
 
     $('#state-dropdown').on('change', function () {
         let stateCode = this.value;
-        $.ajax({
-            url: 'districtslist',
-            type: 'POST',
-            data: 'stateCode=' + stateCode,
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-            success: function (result) {
-                $('#district-dropdown').html(result)
-            }
-        });
+        getdistricts(stateCode);
     });
     $("#subjects").select2({
         multiple: true

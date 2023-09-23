@@ -40,7 +40,6 @@ return new class extends Migration
             $table->string('category')->nullable();
             $table->string('physicallychallengedproof')->nullable();
             $table->string('categorycertificate')->nullable();
-            $table->string('fee')->nullable();
             $table->string('photo')->nullable();
             $table->string('signature')->nullable();
             $table->string('reference_number')->nullable();
@@ -57,7 +56,7 @@ return new class extends Migration
             $table->timestamp('step6_updated_at')->nullable();
             $table->string('role')->default("student")->nullable();
             $table->timestamps();
-        }); 
+        });
     }
 
     /**
