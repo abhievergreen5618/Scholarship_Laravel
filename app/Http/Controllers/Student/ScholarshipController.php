@@ -334,6 +334,22 @@ class ScholarshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function savefailurepaymentdetails(Request $request)
+    {
+        PaymentsDetails::create([
+            "razorpay_id" => $request['error']['metadata']['payment_id'],
+            "code" => $request['error']['code'],
+            "description" => $request['error']['description'],
+            "source" => $request['error']['source'],
+            "step" => $request['error']['step'],
+            "reason" => $request['error']['reason'],
+            "user_id" => Auth::id(),
+        ]);
+        return response()->json([
+            'message' => 'Payment Failed',
+        ], 200);
+    }
+
     public function savepaymentdetails(Request $request)
     {
         $currentYear = Carbon::now()->format('Y');
@@ -368,7 +384,7 @@ class ScholarshipController extends Controller
             "user_id" => Auth::id(),
         ]);
         return response()->json([
-            'message' => 'Saved successfully',
+            'message' => 'Your payment was successful.',
         ], 200);
     }
 

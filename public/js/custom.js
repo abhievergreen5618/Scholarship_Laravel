@@ -159,8 +159,11 @@ $(document).ready(function () {
                     $("#payment_step").removeClass("btn-secondary");
                     $("#payment_step").addClass("btn-success");
                     $("html, body").animate({ scrollTop: 0 }, "slow");
-
                     toastr.success(result.message);
+                }
+                else
+                {
+                    toastr.error(result.message);
                 }
             },
             error: function (xhr, status, error) {

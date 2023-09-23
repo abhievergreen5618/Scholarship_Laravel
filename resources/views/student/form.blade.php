@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-<div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}" data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}" data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-fee="{{auth()->user()->razorpayfee}}" data-paymenturl="{{route('savepaymentdetails')}}">
+<div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}" data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}" data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-fee="{{auth()->user()->razorpayfee}}" data-paymenturl="{{route('savepaymentdetails')}}" data-failurepaymenturl="{{route('savefailurepaymentdetails')}}">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10">
@@ -270,17 +270,6 @@
         "image": "https://example.com/your_logo",
         // Make sure this code is inside the script block or a JavaScript file.
         "handler": function(response) {
-            if (typeof response.razorpay_payment_id == 'undefined' || response.razorpay_payment_id < 1) {
-                // Handle payment failure here
-                console.error('Payment failed:', response.error);
-
-                // Retrieve the transaction ID from the response
-                var transactionId = response.razorpay_payment_id;
-
-                // You can display an error message or take appropriate action
-                // For example, show an error notification to the user
-                alert('Payment failed. Transaction ID: ' + transactionId);
-            } else {
                 // Payment was successful, continue with your success handling
                 $.ajax({
                     type: 'POST',
@@ -304,6 +293,7 @@
 
                             $("#submit_information_form").removeClass("btn-secondary");
                             $("#submit_information_form").addClass("btn-success");
+                            toastr.success(result.message);
                         }
                     },
                     error: function(xhr, status, error) {
@@ -311,7 +301,6 @@
                         // You can display an error message or take appropriate action
                     }
                 });
-            }
         },
         "prefill": { // We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
             "name": $("#payment").data("username"), // your customer's name
@@ -333,17 +322,9 @@
 
     var rzp1 = new Razorpay(options);
     rzp1.on('payment.failed', function(response) {
-        console.log(response);
-        // alert(response.error.code);
-        // alert(response.error.description);
-        // alert(response.error.source);
-        // alert(response.error.step);
-        // alert(response.error.reason);
-        // alert(response.error.mtadata.payment_id);
-
         $.ajax({
             type: 'POST',
-            url: $("#payment").data("paymenturl"),
+            url: $("#payment").data("failurepaymenturl"),
             dataType: "json",
             data: JSON.stringify(response), // Convert the response object to JSON format
             contentType: "application/json",
@@ -351,19 +332,6 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(result) {
-                if (result.hasOwnProperty("message")) {
-                    // Handle the success response from the server here
-                    // For example, enable a tab, change button styles, etc.
-                    $("#tab6").attr('disabled', false);
-                    $("#tab6").trigger('click');
-                    $('[for="tab6"]').find("[data-icon='lock']").remove();
-
-                    $("#tab5").attr('disabled', true);
-                    $('[for="tab5"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
-
-                    $("#submit_information_form").removeClass("btn-secondary");
-                    $("#submit_information_form").addClass("btn-success");
-                }
             },
             error: function(xhr, status, error) {
                 // Handle errors, if any, during the Ajax request

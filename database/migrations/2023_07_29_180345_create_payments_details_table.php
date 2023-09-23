@@ -15,8 +15,13 @@ return new class extends Migration
     {
         Schema::create('payments_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('razorpay_id')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->string('razorpay_id');
+            $table->string('code')->nullable();
+            $table->string('description')->nullable();
+            $table->string('source')->nullable();
+            $table->string('step')->nullable();
+            $table->string('reason')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Optional: add this if you want cascading delete
             $table->timestamps();
         });

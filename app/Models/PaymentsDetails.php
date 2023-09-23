@@ -11,6 +11,11 @@ class PaymentsDetails extends Model
 
     protected $fillable = [
         'razorpay_id',
+        'code',
+        'description',
+        'source',
+        'step',
+        'reason',
         'user_id',
     ];
 

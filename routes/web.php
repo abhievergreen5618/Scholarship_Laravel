@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/bankdetails','bankinfo')->name('bankdetails');
         Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
+        Route::post('/savefailurepaymentdetails','savefailurepaymentdetails')->name('savefailurepaymentdetails');
     });
     Route::get('get-fee/{feetype}', [ScholarshipController::class,'getFee']);
 
