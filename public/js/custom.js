@@ -118,7 +118,7 @@ $(document).ready(function () {
         $("#tab3").trigger("click");
     });
 
-    $("#savestep3").click(function () {
+    $(document).on("click","#savestep3",function () {
         toastr.options = {
             closeButton: true,
             progressBar: true,
@@ -143,6 +143,7 @@ $(document).ready(function () {
                     $("#tab1").attr("disabled", true);
                     $("#tab2").attr("disabled", true);
                     $("#tab3").attr("disabled", true);
+                    $("#tab4").attr("disabled", true);
                     $('[for="tab1"]').append(
                         `<i class="fa fa-lock" aria-hidden="true"></i>`
                     );
@@ -150,6 +151,9 @@ $(document).ready(function () {
                         `<i class="fa fa-lock" aria-hidden="true"></i>`
                     );
                     $('[for="tab3"]').append(
+                        `<i class="fa fa-lock" aria-hidden="true"></i>`
+                    );
+                    $('[for="tab4"]').append(
                         `<i class="fa fa-lock" aria-hidden="true"></i>`
                     );
 
@@ -164,6 +168,29 @@ $(document).ready(function () {
                 else
                 {
                     toastr.error(result.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                toastr.error(xhr.responseJSON.message);
+            },
+        });
+    });
+
+    $(document).on("click","#submitapplication",function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: $(this).data("action"),
+            dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (result) {
+                if (result.hasOwnProperty("message")) {
+                    toastr.success(result.message);
                 }
             },
             error: function (xhr, status, error) {
@@ -216,5 +243,30 @@ $(document).ready(function () {
         {
             $("#fee").html('');
         }
+    });
+
+    // Handle the payment button click event
+    $("#rzp-button1").on("click", function(e) {
+        e.preventDefault();
+        var dynamicOptions = getDynamicOptions(); // Get the dynamic options
+        var rzp = new Razorpay(dynamicOptions); // Initialize the Razorpay payment button with dynamic options
+        rzp.open(); // Open the payment modal
+        rzp.on('payment.failed', function(response) {
+            $.ajax({
+                type: 'POST',
+                url: $("#payment").data("failurepaymenturl"),
+                dataType: "json",
+                data: JSON.stringify(response), // Convert the response object to JSON format
+                contentType: "application/json",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(result) {},
+                error: function(xhr, status, error) {
+                    // Handle errors, if any, during the Ajax request
+                    // You can display an error message or take appropriate action
+                }
+            });
+        });
     });
 });

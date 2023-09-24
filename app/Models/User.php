@@ -118,11 +118,11 @@ class User extends Authenticatable
     protected function getExamCenterNameAttribute()
     {
         $examCenterId = $this->attributes['examdistrict'];
-        $examCenter = DistrictModel::where('statecode', $examCenterId)->first('name');
+        $examCenter = DistrictModel::where('id', $examCenterId)->first('name');
 
         if ($examCenter === null) {
             // If no record is found in DistrictModel, try StateModel
-            $examCenter = StateModel::where('code', $examCenterId)->first('name');
+            $examCenter = StateModel::where('id', $examCenterId)->first('name');
         }
 
         // Check if $examCenter is still empty and provide a default value
@@ -132,7 +132,6 @@ class User extends Authenticatable
         }
 
         return $examCenter->name;
-        ;
     }
 
     protected function getnationalitySummaryAttribute()
@@ -205,7 +204,7 @@ class User extends Authenticatable
         if($physicallychallenged != "no")
         {
             $fee = FeeDetail::where("feecode","physicallychallenged")->first('fee');
-            return $fee->fee;
+            return $fee->fee*100;
         }
         else
         {

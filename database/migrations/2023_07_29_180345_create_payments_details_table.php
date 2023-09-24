@@ -17,12 +17,21 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('razorpay_id');
-            $table->string('code')->nullable();
+            $table->string('amount');
+            $table->string('status');
+            $table->string('method');
             $table->string('description')->nullable();
-            $table->string('source')->nullable();
-            $table->string('step')->nullable();
-            $table->string('reason')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Optional: add this if you want cascading delete
+            $table->string('vpa')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('card_id')->nullable();
+            $table->string('wallet')->nullable();
+            $table->string('error_code')->nullable();
+            $table->string('error_description')->nullable();
+            $table->string('error_source')->nullable();
+            $table->string('error_step')->nullable();
+            $table->string('error_reason')->nullable();
+            $table->timestamp('payment_created_at')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

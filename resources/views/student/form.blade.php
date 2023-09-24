@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-<div class="secttionform mt-5" id="payment" data-username="{{auth()->user()->name}}" data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}" data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-fee="{{auth()->user()->razorpayfee}}" data-paymenturl="{{route('savepaymentdetails')}}" data-failurepaymenturl="{{route('savefailurepaymentdetails')}}">
+<div class="secttionform mt-5">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10">
@@ -49,77 +49,15 @@
                             @if(empty(auth()->user()->step5_updated_at)) <i class="fa fa-lock" aria-hidden="true"></i>
                             @endif
                         </label>
-
                         <ul>
                             @include("student.FormSteps.personalinfo")
                             @include("student.FormSteps.educationDocument")
                             @include("student.FormSteps.bankdetails")
                             @include("student.FormSteps.applicationsummary")
                             @include("student.FormSteps.payment")
-
-                            <li class="tab-content tabend typography">
-                                <div class="typography">
-                                    <div class="tab-content">
-
-                                        <div class="tab-pane active" id="tab_6">
-                                            <h3><span>Step [5/5] :</span>Submit Reference Number &amp; Application Form
-                                            </h3>
-                                            <tr>
-
-
-
-
-
-                                                <div class="box-body table-responsive">
-                                                    <table id="" class="table Eng_hindi_form" width="50%" border="0" cellspacing="5" cellpadding="0">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="3">
-                                                                    <span id=""><span style="color:Red;"></span></span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="3">
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td width="35%" class="vtext"><strong>Reference
-                                                                        Number</strong></td>
-                                                                <td class="colon">:</td>
-                                                                <td>
-                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
-                                                                            ? auth()->user()->reference_number :
-                                                                            ''}}</b></span></span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td width="35%" class="vtext"><strong>Roll Number</strong>
-                                                                </td>
-                                                                <td class="colon">:</td>
-                                                                <td>
-                                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_lblCoursName__"><span id="ctl00_ContentPlaceHolder1_lblCoursName"><b>{{(!empty(auth()->user()->step5_updated_at))
-                                                                            ? auth()->user()->roll_number :
-                                                                            ''}}</b></span></span>
-                                                                </td>
-                                                            </tr>
-
-
-                                            </tr>
-
-                                            </tbody>
-                                            </table>
-                                        </div>
-                                        @include("student.FormSteps.pdffile")
-                                        <td colspan="3">
-                                            <a class="btn btn-primary" style="color:white;" href="{{route('downloadpdf')}}">Download Receipt</a>
-                                        </td>
-
-                            </li>
+                            @include("student.FormSteps.finalsubmit")
                         </ul>
                     </div>
-
-
-                    <!--/ tabs -->
                 </div>
             </div>
 
@@ -148,48 +86,6 @@
         </div>
     </div>
 </div>
-
-
-<!-- <div class="col-md-2">
-                <div class="sidebar">
-                    <div class="wr-right" style="display: block">
-                        <div>
-                            <h4>Steps for Registration</h4>
-                            <div class="btn-group-vertical">
-                                <a href="#" class="btn btn-success btn-block py-3 border-dark"
-                                    id="personal_information_step">Personal Information</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step1_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="education_details_step">Education &amp; Document Details</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step2_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="bank_details_step">Bank Details</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step3_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="application_summary_step">Application Summary</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step4_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="payment_step">Payment</a>
-                                <a href="#"
-                                    class="btn {{!empty(auth()->user()->step5_updated_at) ? 'btn-success' : 'btn-secondary'}} btn-block py-3 border-dark"
-                                    id="submit_information_form">Submit Application Form</a>
-                            </div>
-                        </div>
-                        <div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
- -->
-
-
-
-
-
-
-
-
 
 <div class="secttionlstf mt-5">
     <div class="container">
@@ -260,88 +156,4 @@
 
 @push("footer_extras")
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-    var options = {
-        "key": $("#payment").data("razorpaykey"), // Enter the Key ID generated from the Dashboard
-        "amount": $("#payment").data("fee"), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        "currency": "INR",
-        "name": "Scholarship", // your business name
-        "description": "Test Transaction",
-        "image": "https://example.com/your_logo",
-        // Make sure this code is inside the script block or a JavaScript file.
-        "handler": function(response) {
-                // Payment was successful, continue with your success handling
-                $.ajax({
-                    type: 'POST',
-                    url: $("#payment").data("paymenturl"),
-                    dataType: "json",
-                    data: JSON.stringify(response), // Convert the response object to JSON format
-                    contentType: "application/json",
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function(result) {
-                        if (result.hasOwnProperty("message")) {
-                            // Handle the success response from the server here
-                            // For example, enable a tab, change button styles, etc.
-                            $("#tab6").attr('disabled', false);
-                            $("#tab6").trigger('click');
-                            $('[for="tab6"]').find("[data-icon='lock']").remove();
-
-                            $("#tab5").attr('disabled', true);
-                            $('[for="tab5"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
-
-                            $("#submit_information_form").removeClass("btn-secondary");
-                            $("#submit_information_form").addClass("btn-success");
-                            toastr.success(result.message);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle errors, if any, during the Ajax request
-                        // You can display an error message or take appropriate action
-                    }
-                });
-        },
-        "prefill": { // We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-            "name": $("#payment").data("username"), // your customer's name
-            "email": $("#payment").data("email"),
-            "contact": $("#payment").data("contact") // Provide the customer's phone number for better conversion rates
-        },
-        "theme": {
-            "color": "#3399cc"
-        }
-    };
-
-    // Initialize the Razorpay payment button
-    var rzp = new Razorpay(options);
-
-    // Handle the payment button click event
-    $("#paymentButton").on("click", function() {
-        rzp.open();
-    });
-
-    var rzp1 = new Razorpay(options);
-    rzp1.on('payment.failed', function(response) {
-        $.ajax({
-            type: 'POST',
-            url: $("#payment").data("failurepaymenturl"),
-            dataType: "json",
-            data: JSON.stringify(response), // Convert the response object to JSON format
-            contentType: "application/json",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function(result) {
-            },
-            error: function(xhr, status, error) {
-                // Handle errors, if any, during the Ajax request
-                // You can display an error message or take appropriate action
-            }
-        });
-    });
-    document.getElementById('rzp-button1').onclick = function(e) {
-        rzp1.open();
-        e.preventDefault();
-    }
-</script>
 @endpush

@@ -1,4 +1,4 @@
-<li class="tab-content tab-content-fourth typography">
+<li class="tab-content tab-content-fourth typography" id="payment" data-username="{{auth()->user()->name}}" data-email="{{auth()->user()->email}}" data-contact="{{auth()->user()->mobileno}}" data-razorpaykey="{{env('RAZORPAY_KEY')}}" data-fee="{{auth()->user()->razorpayfee}}" data-paymenturl="{{route('savepaymentdetails')}}" data-failurepaymenturl="{{route('savefailurepaymentdetails')}}">
     <div class="typography">
         <div class="tab-content">
             <div class="tab-pane active" id="tab_4">
@@ -244,17 +244,11 @@
                                 </td>
                                 <td class="colon"></td>
                             </tr>
-                            <tr>
-                                <td colspan="6" class="vtext" width="42%" align="left"></td>
-                            </tr>
                         </tbody>
                     </table>
 
                     <div id="ctl00_ContentPlaceHolder1_divforacadmicdetails" class="gridiv">
-
-
                         <div id="Anthem_ctl00_ContentPlaceHolder1_gvsubject__">
-                            <div>
                                 <table class="table" cellspacing="1" cellpadding="1" rules="all" border="1" id="ctl00_ContentPlaceHolder1_gvsubject" style="width:100%;border:1px solid #B0B0B0;border-collapse:collapse; margin:15px 0;">
                                     <tbody>
                                         <tr class="header-style">
@@ -317,26 +311,12 @@
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo__"><span id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo">
                                                         {{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->load('educationDetails')->educationDetails->exam_roll_no : ''}}
                                                     </span></span>
-
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
                         </div>
-
                     </div>
-
-
-
-
-                    <table class="table Eng_hindi_form mobile_form" width="100%" border="0" cellspacing="5" cellpadding="0">
-                        <tbody>
-                            <tr>
-                                <td colspan="3">&nbsp;</td>
-                            </tr>
-                        </tbody>
-                    </table>
 
 
 
@@ -483,8 +463,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="3" class="tdgap" width="42%" align="left">
-
-                                        <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT" id="backstep3" class="btn-primary"></span>&nbsp;&nbsp;
+                                        <span id="Anthem_ctl00_ContentPlaceHolder1_btnBackEdit__"><input type="button" name="ctl00$ContentPlaceHolder1$btnBackEdit" value="BACK &amp; EDIT" id="backstep3" class="btn-primary"></span>&nbsp;&nbsp;
                                     </td>
                                     <td colspan="3" align="right">
 

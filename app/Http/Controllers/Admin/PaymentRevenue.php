@@ -19,15 +19,12 @@ class PaymentRevenue extends Controller
     public function display(Request $request)
     {
         if ($request->ajax()) {
-            $data = PaymentsDetails::latest()->get(['id','razorpay_id']);
-           
-            return Datatables::of($data) 
-            ->addColumn('actions', function ($row) {
+            $data = PaymentsDetails::where('status','')->get(['id','user_id','razorpay_id','code','description','source','step','reason']);
+            return Datatables::of($data)
+            ->addColumn('actions', function ($row)
+            {
                 return '<button>Edit</button>';
-            })
-            ->rawColumns(['actions']) 
-            ->make(true);
+            })->rawColumns(['actions'])->make(true);
         }
     }
 }
- 

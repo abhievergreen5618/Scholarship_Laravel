@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use PDF;
 use Illuminate\Support\Facades\View;
+use Razorpay\Api\Api;
 
 class ScholarshipController extends Controller
 {
@@ -336,13 +337,26 @@ class ScholarshipController extends Controller
      */
     public function savefailurepaymentdetails(Request $request)
     {
+        $razorpay = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+        $payment = $razorpay->payment->fetch($request['error']['metadata']['payment_id']);
+
         PaymentsDetails::create([
-            "razorpay_id" => $request['error']['metadata']['payment_id'],
-            "code" => $request['error']['code'],
-            "description" => $request['error']['description'],
-            "source" => $request['error']['source'],
-            "step" => $request['error']['step'],
-            "reason" => $request['error']['reason'],
+            "razorpay_id" => $payment['id'],
+            "amount" => $payment['amount'],
+            "status" => $payment['status'],
+            "method" => $payment['method'],
+            "description" => $payment['description'],
+            "vpa" => $payment['vpa'],
+            "bank" => $payment['bank'],
+            "card_id" => $payment['card_id'],
+            "wallet" => $payment['wallet'],
+            "status" => $payment['status'],
+            "error_code" => $payment['error_code'],
+            "error_description" => $payment['error_description'],
+            "error_source" => $payment['error_source'],
+            "error_step" => $payment['error_step'],
+            "error_reason" => $payment['error_reason'],
+            "payment_created_at" => Carbon::createFromTimestamp($payment['created_at'])->toDateTimeString(),
             "user_id" => Auth::id(),
         ]);
         return response()->json([
@@ -369,6 +383,9 @@ class ScholarshipController extends Controller
         $application_number = $currentYear . $currentMonth . $nameFirstCharacter . $mobilenoDigit;
         $transaction_id = $request['razorpay_payment_id'];
 
+        $razorpay = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+
+        $payment = $razorpay->payment->fetch($transaction_id);
         // The reference number will be the auto-incrementing primary key (id)
         $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);
 
@@ -380,17 +397,39 @@ class ScholarshipController extends Controller
             "transaction_id" => $transaction_id,
         ]);
         PaymentsDetails::create([
-            "razorpay_id" => $request['razorpay_payment_id'],
+            "razorpay_id" => $payment['id'],
+            "amount" => $payment['amount'],
+            "status" => $payment['status'],
+            "method" => $payment['method'],
+            "description" => $payment['description'],
+            "vpa" => $payment['vpa'],
+            "bank" => $payment['bank'],
+            "card_id" => $payment['card_id'],
+            "wallet" => $payment['wallet'],
+            "status" => $payment['status'],
+            "error_code" => $payment['error_code'],
+            "error_description" => $payment['error_description'],
+            "error_source" => $payment['error_source'],
+            "error_step" => $payment['error_step'],
+            "error_reason" => $payment['error_reason'],
+            "payment_created_at" => Carbon::createFromTimestamp($payment['created_at'])->toDateTimeString(),
             "user_id" => Auth::id(),
         ]);
+
+        // Refresh the authenticated user's data
+        Auth::user()->refresh();
+
+        // Load the Blade view
+        $html = View::make('student.FormSteps.finalsubmit')->render();
+
         return response()->json([
             'message' => 'Your payment was successful.',
+            'html' => $html,
         ], 200);
     }
 
     public function downloadpdf(Request $request)
     {
-
         $data = [
             'title' => 'Receipt',
             'date' => date('d/m/Y')
@@ -430,5 +469,15 @@ class ScholarshipController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function submitapplication(Request $request)
+    {
+        User::where('id', Auth::id())->update([
+            "step_updated_at" => now(),
+        ]);
+        return response()->json([
+            'message' => 'Saved successfully',
+        ], 200);
     }
 }
