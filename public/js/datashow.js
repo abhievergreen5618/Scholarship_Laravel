@@ -594,11 +594,18 @@ $(document).ready(function () {
     });
 });
 
-var paymenttable = $("#paymenttable").DataTable({
+
+
+/**
+ * Failure Payment table...
+ */
+
+var paymenttable = $("#failurepaymenttable").DataTable({
     processing: true,
+    "scrollX": true,
     serverSide: true,
     ajax: {
-        url: "paymentdetails",
+        url: "failurepaymentdetails",
         type: "POST",
         beforeSend: function (request) {
             request.setRequestHeader(
@@ -610,28 +617,46 @@ var paymenttable = $("#paymenttable").DataTable({
     columnDefs: [{ payment: "dt-center", targets: "_all" }],
     columns: [
         {
-            data: "id",
-        },
-        {
-            data: "user_id",
-        },
-        {
             data: "razorpay_id",
+        }, 
+        {
+            data: "name",
         },
         {
-            data: "code",
+            data: "email",
+        },
+        {
+            data: "mobileno",
+        },
+        {
+            data: "amount",
+        }, 
+        {
+            data: "method",
         },
         {
             data: "description",
+        }, 
+        {
+            data: "error_code",
         },
         {
-            data: "source",
+            data: "error_description",
+        }, 
+        {
+            data: "error_source",
+        }, 
+        {
+            data: "error_step",
         },
         {
-            data: "step",
+            data: "error_reason",
         },
         {
-            data: "reason",
+            data: "payment_created_at",
+        },
+        {
+            data: "status",
         },
         {
             data: "action",
@@ -639,23 +664,57 @@ var paymenttable = $("#paymenttable").DataTable({
     ],
 });
 
+
 /**
- * Failure Payment table...
+ * Success Payment table...
  */
 
-jQuery("#class-add-form").validate({
-    rules: {
-        name: "required",
-        class: "required",
-        status: "required",
-        classes: "required",
+
+var paymenttable = $("#successpaymenttable").DataTable({
+    processing: true,
+    "scrollX": true,
+    serverSide: true,
+    ajax: {
+        url: "successpaymentdetails",
+        type: "POST",
+        beforeSend: function (request) {
+            request.setRequestHeader(
+                "X-CSRF-TOKEN",
+                $('meta[name="csrf-token"]').attr("content")
+            );
+        },
     },
-    messages: {
-        class: "Select an option",
-        classes: "Select an option",
-        status: "Select an option",
-    },
-    submitHandler: function (form) {
-        form.submit();
-    },
+    columnDefs: [{ payment: "dt-center", targets: "_all" }],
+    columns: [
+        {
+            data: "razorpay_id",
+        }, 
+        {
+            data: "name",
+        },
+        {
+            data: "email",
+        },
+        {
+            data: "mobileno",
+        },
+        {
+            data: "amount",
+        }, 
+        {
+            data: "method",
+        },
+        {
+            data: "description",
+        }, 
+        {
+            data: "status",
+        },
+        {
+            data: "payment_created_at",
+        },
+        {
+            data: "action",
+        },
+    ],
 });

@@ -2,7 +2,7 @@ $(document).ready(function () {
     $("#categorycertificate").hide();
 
 
-    if($("#state-dropdown :selected").val().length)
+    if($("#state-dropdown").length && $("#state-dropdown :selected").val().length)
     {
         var stateCode = $("#state-dropdown :selected").val();
         getdistricts(stateCode);
@@ -12,7 +12,7 @@ $(document).ready(function () {
     {
         updateFee("physicallychallenged");
     }
-    else if ($("#category :selected").val().length) {
+    else if($("#category").length && $("#category :selected").val().length) {
         updateFee($("#category :selected").val());
     }
 

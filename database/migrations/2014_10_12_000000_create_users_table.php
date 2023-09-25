@@ -46,6 +46,7 @@ return new class extends Migration
             $table->string('roll_number')->nullable();
             $table->string('application_number')->nullable();
             $table->string('transaction_id')->nullable();
+            $table->string('amount')->nullable();
             $table->string("class")->nullable();
             $table->string("status")->default("active");
             $table->timestamp('step1_updated_at')->nullable();

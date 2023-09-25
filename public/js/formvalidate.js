@@ -58,6 +58,17 @@ jQuery("#frm").validate({
             // Remove the physicallychallengedproof field from the FormData object
             formData.delete("physicallychallengedproof");
         }
+        if ($("#category :selected").val().length && $("#category :selected").val() != "General") {
+            formData.delete("categorycertificate");
+            // Get the image file from the input field
+            var imageFile = $("#categorycertificateproof")[0].files[0];
+            if (imageFile) {
+                formData.append("categorycertificate", imageFile);
+            }
+        } else {
+            // Remove the categorycertificate field from the FormData object
+            formData.delete("categorycertificate");
+        }
         toastr.options = {
             closeButton: true,
             progressBar: true,
@@ -250,5 +261,23 @@ jQuery("#bankform").validate({
                 }
             },
         });
+    },
+});
+
+
+jQuery("#class-add-form").validate({
+    rules: {
+        name: "required",
+        class: "required",
+        status: "required",
+        classes: "required",
+    },
+    messages: {
+        class: "Select an option",
+        classes: "Select an option",
+        status: "Select an option",
+    },
+    submitHandler: function (form) {
+        form.submit();
     },
 });

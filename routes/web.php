@@ -115,7 +115,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::controller(PaymentRevenue::class)->group(function () {
         Route::get('/payment','index')->name('admin.payment.index');
-        Route::post('/paymentdetails', 'display')->name('admin.payment.details');
+        Route::post('/failurepaymentdetails', 'displayfailure')->name('admin.payment.failure.details');
+        Route::post('/successpaymentdetails', 'displaysuccess')->name('admin.payment.success.details');
     });
 });
 

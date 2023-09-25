@@ -313,7 +313,7 @@
                                                         <h3 class="hedingss">upload proof of documents</h3>
                                                         <form action="#">
                                                             <div class="input-group mb-3">
-                                                                <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof">
+                                                                <input type="file" class="form-control" id="physicallychallengedproof" name="physicallychallengedproof" accept="image/png, image/jpg, image/jpeg">
                                                             </div>
                                                         </form>
                                                         @if(!empty(auth()->user()->physicallychallenged && auth()->user()->physicallychallenged == "yes"))
@@ -359,7 +359,7 @@
 
                                     <form action="#">
                                         <div class="input-group mb-3">
-                                            <input type="file" class="form-control" id="categorycertificate" name="categorycertificate">
+                                            <input type="file" class="form-control" id="categorycertificateproof" name="categorycertificate" accept="image/png, image/jpg, image/jpeg">
                                         </div>
                                     </form>
 

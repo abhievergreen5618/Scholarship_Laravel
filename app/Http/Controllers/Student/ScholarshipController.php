@@ -95,13 +95,14 @@ class ScholarshipController extends Controller
                 "physicallychallenged" => "required",
                 'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
                 "category" => "required",
-                // 'categorycertificate' => 'required',
+                'categorycertificate' => 'required_unless:category,General',
                 // 'fee' => "required",
                 "email" => "required|email",
             ],
             [
                 "required" => "This field is required.",
                 "required_if" => "This field is required.",
+                "required_unless" => "This field is required.",
             ]
         );
 
@@ -342,7 +343,7 @@ class ScholarshipController extends Controller
 
         PaymentsDetails::create([
             "razorpay_id" => $payment['id'],
-            "amount" => $payment['amount'],
+            "amount" => $payment['amount'] / 100,
             "status" => $payment['status'],
             "method" => $payment['method'],
             "description" => $payment['description'],
@@ -395,10 +396,11 @@ class ScholarshipController extends Controller
             "roll_number" => $rollno,
             "application_number" => $application_number,
             "transaction_id" => $transaction_id,
+            "amount" => $payment['amount'] / 100,
         ]);
         PaymentsDetails::create([
             "razorpay_id" => $payment['id'],
-            "amount" => $payment['amount'],
+            "amount" => $payment['amount'] / 100,
             "status" => $payment['status'],
             "method" => $payment['method'],
             "description" => $payment['description'],
@@ -474,7 +476,7 @@ class ScholarshipController extends Controller
     public function submitapplication(Request $request)
     {
         User::where('id', Auth::id())->update([
-            "step_updated_at" => now(),
+            "step6_updated_at" => now(),
         ]);
         return response()->json([
             'message' => 'Saved successfully',

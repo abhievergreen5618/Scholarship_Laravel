@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use PhpParser\Node\Stmt\Switch_;
 use App\Models\FeeDetail;
+use App\Models\PaymentsDetails;
 
 class User extends Authenticatable
 {
@@ -56,6 +57,7 @@ class User extends Authenticatable
         'transaction_id',
         'class',
         'examdistrict',
+        'amount',
     ];
     public function getGenderAttribute($value)
 {
@@ -105,6 +107,11 @@ class User extends Authenticatable
     public function educationDetails()
     {
         return $this->hasOne(EducationDetails::class, 'user_id', 'id');
+    }
+
+    public function paymentDetails()
+    {
+        return $this->hasMany(PaymentsDetails::class,'user_id', 'id');
     }
 
     //accessors

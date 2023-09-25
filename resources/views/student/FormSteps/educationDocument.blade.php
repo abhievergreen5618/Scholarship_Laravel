@@ -233,7 +233,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="profile_photo" id="profile_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="profile_photo" id="profile_photo" class="uploadfiles" accept="image/png, image/jpg, image/jpeg"></span>
                                                     <div><img id="profile_photo_perview" src="{{ (!empty(auth()->user()->photo)) ? asset('images/proofdoc/'.auth()->user()->photo) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>
@@ -258,7 +258,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles" accept="image/png, image/jpg, image/jpeg"></span>
                                                     <div><img id="sign_photo_perview" src="{{ (!empty(auth()->user()->signature)) ? asset('images/proofdoc/'.auth()->user()->signature) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>

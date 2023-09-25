@@ -26,15 +26,6 @@ class UserDetail extends Controller
 
     public function display(Request $request)
     {
-        
-        // $class = User::where('class')->get();
-        // $class = collect($class);
-        // $classfilter = $class->filter( function($value,$key)
-        // {
-        //     return data_get($value , 'class');
-        // } );
-
-        // $classfilter = $classfilter->all();
 
         if ($request->ajax()) {
             $data =  DB::table('users')
