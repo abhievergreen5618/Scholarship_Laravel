@@ -97,6 +97,8 @@ jQuery("#frm").validate({
                     $("#education_details_step").removeClass("btn-secondary");
                     $("#education_details_step").addClass("btn-success");
                     $("html, body").animate({ scrollTop: 0 }, "slow");
+                    $("li.tab-content-fourth").remove();
+                    $("li.tab-content-third").after(result.html);
                     toastr.success(result.message);
                 }
             },
@@ -165,6 +167,8 @@ jQuery("#docform").validate({
                     $("#bank_details_step").removeClass("btn-secondary");
                     $("#bank_details_step").addClass("btn-success");
                     $("html, body").animate({ scrollTop: 0 }, "slow");
+                    $("li.tab-content-fourth").remove();
+                    $("li.tab-content-third").after(result.html);
                     toastr.success(result.message);
                 }
             },

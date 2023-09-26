@@ -152,8 +152,16 @@ class ScholarshipController extends Controller
                 "categorycertificate" => $certificateName ?? "",
                 "step1_updated_at" => now(),
             ]);
+
+            // Refresh the authenticated user's data
+            Auth::user()->refresh();
+
+              // Load the Blade view
+            $html = View::make('student.FormSteps.applicationsummary')->render();
+
             return response()->json([
-                'message' => 'Saved successfully',
+                'message' => "Saved Data Successfully",
+                'html' => $html
             ], 200);
         }
     }
@@ -247,8 +255,15 @@ class ScholarshipController extends Controller
             ]);
 
 
+           // Refresh the authenticated user's data
+           Auth::user()->refresh();
+
+            // Load the Blade view
+            $html = View::make('student.FormSteps.applicationsummary')->render();
+
             return response()->json([
-                'message' => 'Saved successfully',
+                'message' => "Saved Data Successfully",
+                'html' => $html
             ], 200);
         }
     }

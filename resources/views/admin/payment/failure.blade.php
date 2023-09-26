@@ -4,7 +4,7 @@
             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
                     <div class="col-sm-12">
-                        <table style="text-align:center;" id="failurepaymenttable" class="table table-bordered table-striped w-100">
+                        <table style="text-align:center; width:100%;" id="failurepaymenttable" class="table table-bordered table-striped w-100">
                             <thead>
                                 <tr>
                                     <th>Transaction Id</th>
