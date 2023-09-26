@@ -369,6 +369,85 @@ $(document).ready(function () {
                 );
             },
         },
+    },
+    "columnDefs": [
+        { "Name": "dt-center", "targets": "_all" }
+    ],
+    "columns": [
+        {
+            "data": "name",
+            "defaultContent": "Not Provided"
+        },
+        {
+            "data": "email",
+            "defaultContent": "Not Provided"
+        },
+        {
+            "data": "mobileno",
+            "defaultContent": "Not Provided"
+        },
+        {
+            "data": "class",
+            "defaultContent": "Not Provided"
+        },
+        {
+            "data": "gender",
+            "defaultContent": "Not Provided"
+        },
+        {
+            "data": "dob",
+            "defaultContent": "Not Provided"
+        },
+        {
+            "data": "paddress",
+            "defaultContent": "Not Provided"
+        },
+        {
+            "data": "status",
+            "defaultContent": "Not Provided"
+        },
+        {
+            "data": "action",
+            "defaultContent": "Not Provided"
+        },
+
+    ],
+});
+
+
+
+usertable.on('click', '.delete', function () {
+    $('.datatable_processing').show();
+    element = $(this);
+    var userid = $(this).attr('data-id');
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                },
+                url: 'userdelete',
+                data: {
+                    id: userid
+                },
+                dataType: 'json',
+                success: function (data) {
+                    usertable.ajax.reload();
+                },
+                error: function (data) {
+                    // console.log(data);
+                }
+            });
+        };
         columnDefs: [{ Name: "dt-center", targets: "_all" }],
         columns: [
             {

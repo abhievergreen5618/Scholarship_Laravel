@@ -131,6 +131,12 @@
                   <p>View All Students</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('admin.user.result')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>Upload Result</p>
+                </a>
+              </li>
             </ul>
           </li>
 

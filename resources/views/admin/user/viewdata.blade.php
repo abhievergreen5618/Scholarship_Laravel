@@ -30,104 +30,90 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <form>
-                                        <table>
+                                        <table> 
                                             <tr>
                                             <div class="container text-center">
                                                 <div class="row align-items-start">
                                                     <div class="col">
                                                         <td><b> Name :</b></td>
                                                     </div>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                    ? strtoupper(auth()->user()->name) : ''}}</td>
+                                                    <td>{{ $viewdata->name }}</td>
+                                                <!-- <td>{{(!empty(auth()->user()->step2_updated_at))
+                                                    ? strtoupper(auth()->user()->name) : ''}}</td> -->
                                                 <td rowspan="2"><img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : ''}}" class="rounded float-end" style="width:150px;" alt="..."></td>
                                             </tr>
                                                 </div>
                                             </div>
                                             <tr>
                                                 <td ><b>E-mail ID :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->email : ''}}</td></tr>
+                                                    <td>{{ $viewdata->email }}</td>
+                                            </tr>
                                             <tr>
                                                 <td ><b>Mobile No :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->mobileno : ''}}</td>
+                                                    <td>{{ $viewdata->mobileno }}</td>
                                                 <td rowspan="2"><img src="{{ (!empty(auth()->user()->step2_updated_at)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : ''}}"
-                                                style="height:50px;width:150px;border-width:0px;" class="rounded float-end" style="width:150px;" alt="..."></td>
+                                                style="height:50px;width:150px;border-width:0px;" class="rounded float-end" alt="..."></td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Date of Birth :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->dob : ''}}</td>
+                                                    <td>{{ $viewdata->dob }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Name of the Course :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->scholarshipnamesummary : ''}}</td>
+                                                    <td>{{ $viewdata->scholarshipname }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Address for Correspondence:</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->caddress : ''}}</td>
+                                                    <td>{{ $viewdata->caddress }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Address Home Addres :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->paddress : ''}}</td>
+                                                    <td>{{ $viewdata->paddress }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Father's Name :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->fathername : ''}}</td>
+                                                    <td>{{ $viewdata->fathername }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Mother's Name :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->mothername : ''}}</td>
+                                                    <td>{{ $viewdata->mothername }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Examination Centre for Entrance Test :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->examCenterName : ''}}</td>
+                                                    <td>{{ $viewdata->examcentre }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Aadhaar No. :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->aadhaarno : ''}}</td>
+                                                    <td>{{ $viewdata->aadhaarno }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Nationality :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->nationalitySummary : ''}}</td>
+                                                    <td>{{ $viewdata->naionality }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Gender :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->gender : ''}}</td>
+                                                    <td>{{ $viewdata->gender }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Applying for subject ? :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->subjects : ''}}</td>
+                                                    <td>{{ $viewdata->subjects }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Are you only the single girl child of your parent? :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->singlegirlchild : ''}}</td>
+                                                
+                                                <td>{{ $viewdata->singlegirlchild }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Are you Physically Challenged? :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->physicallychallenged : ''}}</td>
+                                                    <td>{{ $viewdata->physicallychallenged }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Select your Category :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->category : ''}}</td>
+                                                    <td>{{ $viewdata->category }}</td>
                                             </tr>
                                             <tr>
                                                 <td ><b>Detail of Form Fee :</b></td>
-                                                <td>{{(!empty(auth()->user()->step2_updated_at))
-                                                ? auth()->user()->fee : ''}}</td>
+                                                    <td>{{ $viewdata->fee }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3"></td>
@@ -151,18 +137,21 @@
                         <th scope="col">Exam Roll No.</th>
                     </tr>
                     <tr class="dgitem-style" style="background-color:White;">
+                    <td align="center" style="width:5%;">
+                                                1
+                                            </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus__"><span
-                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus">{{(isset($step2schooldata['resultStatusSummary']))
-                                    ? $step2schooldata['resultStatusSummary'] : ''}}</span></span>
+                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblRStatus">
+                                                    {{ $viewdata->resultstatus }}</span></span>
 
                         </td>
                         <td align="center" style="width:20%;">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed__"><span
-                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed">{{(isset($step2schooldata['examinationPassedSummary']))
-                                    ? $step2schooldata['examinationPassedSummary'] : ''}}</span></span>
+                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmPassed">
+                                                    {{ $viewdata->classes }}</span></span>
                             <br>
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExmpassedDegree__"><span
@@ -173,147 +162,155 @@
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName__"><span
-                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName">{{(isset($step2schooldata['name_of_the_board_university']))
-                                    ? $step2schooldata['name_of_the_board_university'] :
-                                    ''}}</span></span>
+                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblUniversityName">
+                                                    {{ $viewdata->name_of_the_board_university }}</span></span>
 
                         </td>
                         <td align="center">
                             <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear__"><span
-                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear">{{(isset($step2schooldata['passing_year']))
-                                    ? $step2schooldata['passing_year'] : ''}}</span></span>
+                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblYear">
+                                                    {{ $viewdata->passing_year }}</span></span>
                         </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks__"><span
-                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks">{{(isset($step2schooldata['credits_marks_Obtained']))
-                                    ? $step2schooldata['credits_marks_Obtained'] : ''}}</span></span>
+                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditObtainMarks">
+                                                {{ $viewdata->credits_marks_Obtained }}</span></span>
 
                         </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks__"><span
-                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks">{{(isset($step2schooldata['maximum_marks']))
-                                    ? $step2schooldata['maximum_marks'] : ''}}</span></span>
+                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblMaxMarks">
+                                                {{ $viewdata->maximum_marks }}</span></span>
 
                         </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks__"><span
-                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks">{{(isset($step2schooldata['percentage_marks']))
-                                    ? $step2schooldata['percentage_marks'] : ''}}</span></span>
+                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblCreditMarks">
+                                                {{ $viewdata->percentage_marks }}</span></span>
 
                         </td>
                         <td align="center">
                             <span
                                 id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo__"><span
-                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo">{{(isset($step2schooldata['exam_roll_no']))
-                                    ? $step2schooldata['exam_roll_no'] : ''}}</span></span>
+                                    id="ctl00_ContentPlaceHolder1_gvsubject_ctl02_lblExamRollNo">
+                                                    {{ $viewdata->exam_roll_no }}</span></span>
 
                         </td>
                     </tr>
+                                                </tbody>
+                                                </table>
                     <tr>
                                                 <td colspan="3"></td>
                                             </tr>
+                                           
                                             <tr>
-                                                <td ><b>Bank Account Details :</b></td>
-                                            </tr>
-                                            <tr>
-            <td colspan="3">Were you ever disqualified/suspended by the School or any other
+            <th colspan="3"><strong>Were you ever disqualified/suspended by the School or any other
                 institution from attending classes or appearing in any exam? if yes give Details:
-                <br>
-            </td>
+                </strong><br>
+                </th>
         </tr>
         <tr>
-            <td width="48%">Yes/No
-                <br>
+            <th colspan="3" width="48%"><strong>Yes/No</strong>
+                
                 <strong>हाॅ/ नही </strong>
-            </td>
+                
+            </th>
             <td class="colon">:</td>
+            <br>
             <td width="48%">
                 <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualiOrSus__"><span
-                        id="ctl00_ContentPlaceHolder1_lblDisqualiOrSus">{{isset($step2graduationdata['disqualified/suspended'])
-                        ? ucFirst($step2graduationdata['disqualified/suspended']) : ''}}</span></span>
+                        id="ctl00_ContentPlaceHolder1_lblDisqualiOrSus">
+                    </span></span>
             </td>
         </tr>
         <tr>
-            <td>Details
+            <th><strong>Details</strong>
                 <br>
                 <strong>विवरण
                 </strong>
-            </td>
+            </th>
             <td class="colon">:</td>
             <td>
                 <span id="Anthem_ctl00_ContentPlaceHolder1_lblDisqualifDtls__"><span
-                        id="ctl00_ContentPlaceHolder1_lblDisqualifDtls">{{isset($step2graduationdata['disqualified/suspended_details'])
-                        ? $step2graduationdata['disqualified/suspended_details'] : ''}}</span></span>
+                        id="ctl00_ContentPlaceHolder1_lblDisqualifDtls">
+                    </span></span>
             </td>
         </tr>
 
+        <table>
+            <tbody>
         <tr>
             <td>&nbsp;</td>
             <td colspan="3">&nbsp;</td>
+                        </tr>
+            
         <tr>
-            <td colspan="3">Bank Account Details<br>
-            </td>
+            <th colspan="3">Bank Account Details<br>
+            </th>
             <td class="colon"></td>
         </tr>
+        <tr>
         <td colspan="3">&nbsp;</td>
-        <td>&nbsp;
+        <td>&nbsp;</td></tr>
             <tr>
-                <td class="text">Account No. <span style="color: red">*</span>
+                <th class="text">Account No. <span style="color: red">*</span>
                     <br>
-                </td>
+                </th>
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->accountno : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->accountno }}</td></span>
                 </td>
             </tr>
             <tr>
-                <td class="text">Confirm Account No. <span style="color: red">*</span>
+                <th class="text">Confirm Account No. <span style="color: red">*</span>
                     <br>
-                </td>
+                </th>
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->cnfrmaccountno : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->cnfrmaccountno }}</td></span>
                 </td>
             </tr>
             <tr>
-                <td class="vtext">Account Holder Name<span style="color: red">*</span><br>
-                </td>
+                <th class="vtext">Account Holder Name<span style="color: red">*</span><br>
+                </th>
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->holdername : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->holdername }}</td></span>
                 </td>
             </tr>
             <tr>
-                <td class="vtext">IFSC Code<span style="color: red">*</span><br>
-                </td>
+                <th class="vtext">IFSC Code<span style="color: red">*</span><br>
+                </th>
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->ifsccode : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->ifsccode }}</td></span>
                 </td>
             </tr>
             <tr>
-                <td>Upload Passbook Front Page Image
+                <th>Upload Passbook Front Page Image
                     <br>
                     <span style="color:red">*</span>
-                </td>
+                </th>
                 <td class="colon">:</td>
                 <td>
                     <span
-                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">{{(!empty(auth()->user()->step3_updated_at))
-                        ? auth()->user()->passbook_photo : ''}}</span>
+                        id="Anthem_ctl00_ContentPlaceHolder1_txtName__">
+                        <td>{{ $viewdata->passbook_photo }}</td></span>
                 </td>
             </tr>
+                        </tbody>
+                        </table>
                                   </table>
                                     </form>
                                 </div>
