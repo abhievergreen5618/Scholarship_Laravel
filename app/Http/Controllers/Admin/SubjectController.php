@@ -19,7 +19,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        return view("admin.subject.index");
+        return view("admin.subject.index"); 
     }
 
     /**
@@ -31,7 +31,7 @@ class SubjectController extends Controller
 
     public function create()
     {
-        $classes = ClassModel::where('status', 'active')->orderBy('class', 'asc')->pluck("class","id");
+        $classes = ClassModel::where('status', 'active')->orderByRaw('CAST(class AS UNSIGNED)')->pluck("class","id");
         return view("admin.subject.add")->with("classes", $classes);
     }
 

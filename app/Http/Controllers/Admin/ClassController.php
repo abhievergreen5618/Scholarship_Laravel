@@ -58,7 +58,7 @@ class ClassController extends Controller
                 ->rawColumns(['action','subjects','status'])
                 ->make(true);
         }
-    }
+    } 
     /**
      * Show the form for creating a new resource.
      *

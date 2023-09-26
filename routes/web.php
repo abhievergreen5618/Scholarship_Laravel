@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ScholarshipType;
 use App\Http\Controllers\Admin\UserDetail;
 use App\Http\Controllers\Admin\FeeController;
 use App\Http\Controllers\Admin\PaymentRevenue;
+use App\Http\Controllers\Admin\ExcelImportController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -87,18 +88,25 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/scholarshipdelete', 'destroy')->name('scholarshiptypedelete');
         Route::post('/scholarship-status-update', 'status')->name('scholarship-status-update');
     });
-
+ 
     Route::controller(UserDetail::class)->group(function () {
         Route::get('/userlist','index')->name('admin.user.index');
         Route::get('/adduser','create')->name('admin.user.add');
-        Route::post('/storesuser','store')->name('admin.user.store');
+        Route::any('/storesuser','store')->name('admin.user.store');
+        Route::post('/storesdocument','storedocument')->name('admin.user.storedocument');
+        Route::post('/storebankdata','storebankdata')->name('admin.user.storebankdata');
         Route::post('/userdetails','display')->name('admin.user.details');
         Route::get('/useredit/{id}','edit')->name('admin.user.edit');
         Route::get('/viewdata/{id}','view')->name('admin.user.viewdata');
         Route::post('/userupdate', 'update')->name('admin.user.update');
         Route::post('/userdelete', 'destroy')->name('userdelete');
         Route::post('/user-status-update', 'status')->name('user-status-update');
+        Route::get('/userresult', 'result')->name('admin.user.result');
+        Route::any('/showresult', 'showresult')->name('admin.user.showresult');
+        Route::post('/uploadressult','uploadresult')->name('admin.user.uploadresult');
     });
+
+
 
     Route::controller(FeeController::class)->group(function () {
         Route::get('/feelist','index')->name('admin.fee.index');

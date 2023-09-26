@@ -61,7 +61,7 @@
                                             class="dropdownlong form-select">
                                             <option value=""> Please Select </option>
                                             @if(!empty($scholarshipSelect))
-                                            @foreach(json_decode($scholarshipSelect) as $scholarshipname)
+                                            @foreach($scholarshipSelect as $scholarshipname)
                                             <option value="{{ $scholarshipname }}">
                                                 {{ $scholarshipname }}
                                             </option>
@@ -379,9 +379,9 @@
                                         <select name="subjects[]" id="subjects" class="form-control" multiple="multiple" data-placeholder="Select Subjects" data-dropdown-css-class="select2-purple">
                                             <option value="">--Please Select--</option>
                                             @if(!empty($subjectSelect))
-                                            @foreach(json_decode($subjectSelect) as $subject)
+                                            @foreach($subjectSelect as $subject)
                                             <option value="{{ $subject }}">
-                                                 {{ $subject }}
+                                                {{ $subject }}
                                             </option>
                                             @endforeach
                                             @endif

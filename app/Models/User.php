@@ -59,6 +59,10 @@ class User extends Authenticatable
         'examdistrict',
         'amount',
     ];
+
+
+
+
     public function getGenderAttribute($value)
 {
     return $value === 'F' ? 'Female' : 'Male';

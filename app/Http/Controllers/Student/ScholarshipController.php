@@ -196,7 +196,6 @@ class ScholarshipController extends Controller
                 // "class_max_marks"=>"required",
                 // "class_percentage"=>"required",
                 // "class_rollno"=>"required",
-
                 "profile_photo" => "required",
                 "sign_photo" => "required",
                 "disqualified/suspended" => "required",

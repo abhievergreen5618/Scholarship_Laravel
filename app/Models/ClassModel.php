@@ -19,7 +19,7 @@ class ClassModel extends Model
     public function subjects()
     {
         return $this->belongsToMany(Subject::class);
-    }
+    } 
 
 }
 
