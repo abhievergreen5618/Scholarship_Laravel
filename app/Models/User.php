@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use PhpParser\Node\Stmt\Switch_;
+use App\Models\FeeDetail;
+use App\Models\PaymentsDetails;
 
 class User extends Authenticatable
 {
@@ -54,6 +56,8 @@ class User extends Authenticatable
         'application_number',
         'transaction_id',
         'class',
+        'examdistrict',
+        'amount',
     ];
 
 
@@ -62,7 +66,7 @@ class User extends Authenticatable
     public function getGenderAttribute($value)
 {
     return $value === 'F' ? 'Female' : 'Male';
-} 
+}
 
 
     /**
@@ -82,68 +86,63 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'subjects' => 'array',
     ];
 
     protected $appends = ['ExamCenterName','scholarshipNameSummary','nationalitySummary','genderSummary'];
 
+    // Relations
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class);
+    }
+
+    public function scholarshipList()
+    {
+        return $this->belongsTo(ScholarshipList::class, 'scholarshipname', 'id');
+    }
+
+    public function bankDetails()
+    {
+        return $this->hasOne(BankDetails::class, 'user_id', 'id');
+    }
+
+    public function educationDetails()
+    {
+        return $this->hasOne(EducationDetails::class, 'user_id', 'id');
+    }
+
+    public function paymentDetails()
+    {
+        return $this->hasMany(PaymentsDetails::class,'user_id', 'id');
+    }
+
+    //accessors
+    public function getSubjectsNameAttribute()
+    {
+         // Assuming you have a Subject model with a 'name' attribute
+        $subjectNames = Subject::whereIn('id', $this->subjects)->pluck('name')->toArray();
+        return implode(', ', $subjectNames);
+    }
+
     protected function getExamCenterNameAttribute()
     {
-        $examCenterId = $this->attributes['examcentre'];
-        // $examCenterId = $this->getAttribute('examcenter');
+        $examCenterId = $this->attributes['examdistrict'];
+        $examCenter = DistrictModel::where('id', $examCenterId)->first('name');
 
-        switch ($examCenterId) {
-            case 3:
-                $examCenter = "Solan";
-                break;
-            case 17:
-                $examCenter = "SHIMLA";
-                break;
-            case 18:
-                $examCenter = "DHARAMSHALA";
-                break;
-            case 19:
-                $examCenter = "UNA";
-                break;
-            case 20:
-                $examCenter = "HAMIRPUR";
-                break;
-            case 21:
-                $examCenter = "PALAMPUR";
-                break;
-            case 24:
-                $examCenter = "MANDI";
-                break;
-            case 33:
-                $examCenter = "AMB (UNA)";
-                break;
-            case 34:
-                $examCenter = "BILASPUR";
-                break;
-            case 35:
-                $examCenter = "CHAMBA";
-                break;
-            case 36:
-                $examCenter = "KANGRA";
-                break;
-            case 37:
-                $examCenter = "KULLU";
-                break;
-            case 38:
-                $examCenter = "NAHAN";
-                break;
-            case 39:
-                $examCenter = "RAMPUR";
-                break;
-            case 40:
-                $examCenter = "SUNDER NAGAR";
-                break;
-            default:
-                // Add a default case to handle situations where examcenter_id doesn't match any case
-                $examCenter = "Unknown Exam Center";
-                break;
+        if ($examCenter === null) {
+            // If no record is found in DistrictModel, try StateModel
+            $examCenter = StateModel::where('id', $examCenterId)->first('name');
         }
 
-        return $examCenter;
+        // Check if $examCenter is still empty and provide a default value
+        if (empty($examCenter)) {
+            $defaultExamCenter = 'Default Exam Center'; // Replace with your desired default value
+            return $defaultExamCenter;
+        }
+
+        return $examCenter->name;
     }
 
     protected function getnationalitySummaryAttribute()
@@ -187,24 +186,43 @@ class User extends Authenticatable
         return $gender;
     }
 
+
+
     protected function getscholarshipNameSummaryAttribute()
     {
-        $scholarshipname = $this->attributes['scholarshipname'];
+        return $this->scholarshipList->name ?? null;
+    }
 
-        switch ($scholarshipname) {
-            case '3':
-                $scholarshipname = "open scholarships ";
-                break;
-            case '17':
-                $scholarshipname = "vidyabharti scholarship";
-                break;
-            default:
-                // Add a default case to handle situations where examcenter_id doesn't match any case
-                $scholarshipname = "Unknown scholarship";
-                break;
+    protected function getfeeAttribute()
+    {
+        $physicallychallenged = $this->attributes['physicallychallenged'];
+        if($physicallychallenged != "no")
+        {
+            $fee = FeeDetail::where("feecode","physicallychallenged")->first('fee');
+            return $fee->fee;
         }
+        else
+        {
+            $physicallychallenged = $this->attributes['category'];
+            $fee = FeeDetail::where("feecode",$physicallychallenged)->first('fee');
+            return $fee->fee;
+        }
+    }
 
-        return $scholarshipname;
+    protected function getrazorpayFeeAttribute()
+    {
+        $physicallychallenged = $this->attributes['physicallychallenged'];
+        if($physicallychallenged != "no")
+        {
+            $fee = FeeDetail::where("feecode","physicallychallenged")->first('fee');
+            return $fee->fee*100;
+        }
+        else
+        {
+            $physicallychallenged = $this->attributes['category'];
+            $fee = FeeDetail::where("feecode",$physicallychallenged)->first('fee');
+            return $fee->fee*100;
+        }
     }
 
 }

@@ -34,8 +34,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/personalinfosubmit','create')->name('personalinfosubmit');
         Route::post('/educationinfosubmit','educationInfoStore')->name('educationinfosubmit');
         Route::post('/bankdetails','bankinfo')->name('bankdetails');
-        Route::any('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
+        Route::post('/applicationsummarysubmit','applicationsummarysubmit')->name('applicationsummarysubmit');
         Route::post('/savepaymentdetails','savepaymentdetails')->name('savepaymentdetails');
+        Route::post('/savefailurepaymentdetails','savefailurepaymentdetails')->name('savefailurepaymentdetails');
+        Route::post('/submitapplication','submitapplication')->name('submitapplication');
     });
     Route::get('get-fee/{feetype}', [ScholarshipController::class,'getFee']);
 
@@ -120,10 +122,10 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::controller(PaymentRevenue::class)->group(function () {
-        Route::get('/paymentdata','index')->name('admin.payment.index');
-        Route::post('/paymentdetails', 'display')->name('admin.payment.details');
+        Route::get('/payment','index')->name('admin.payment.index');
+        Route::post('/failurepaymentdetails', 'displayfailure')->name('admin.payment.failure.details');
+        Route::post('/successpaymentdetails', 'displaysuccess')->name('admin.payment.success.details');
     });
-
 });
 
 
@@ -137,8 +139,9 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('/login','login')->name('login')->withoutMiddleware([VerifyCsrfToken::class]);
 
     Route::get('/login',function(){
-        return redirect()->to(env("WORDPRESS_URL")."/login");
-    });
+        // return redirect()->to(env("WORDPRESS_URL")."/login");
+        return redirect()->to(route('loginpage'));
+    })->name('loginurl');
     Route::get('/register',function(){
         return redirect()->to(env("WORDPRESS_URL")."/signup");
     });

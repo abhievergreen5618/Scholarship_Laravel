@@ -9,11 +9,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}">
-    
+    <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css')}}">
+
     <title>Document</title>
 </head>
 <body>
-    
+
 <script src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
 <script src="{{asset('/js/jquery.js')}}"></script>
 <script src="{{asset('/js/bootstrap.min.js')}}"></script>

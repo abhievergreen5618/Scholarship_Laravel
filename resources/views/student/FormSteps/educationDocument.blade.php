@@ -2,7 +2,7 @@
     <form id="docform" action="{{ route('educationinfosubmit') }}" method="POST">
         @csrf
         <input type="hidden" value="{{ encrypt(auth()->user()->id) }}" name="id">
-        <div class="tab-content"> 
+        <div class="tab-content">
             <div class="tab-pane active" id="tab_2">
 
                 <h3><span>Step [2/5] :</span>Education &amp; Document Details &nbsp;
@@ -81,9 +81,9 @@
                                             </td>
                                             <td align="center" style="width:12%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlRStatus__"><select name="class_status" id="class_status" class="form-select">
-                                                        <option value="P" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'P') ? 'selected' : ''}}>Passed</option>
-                                                        <option value="A" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'A') ? 'selected' : ''}}>Awaited</option>
-                                                        <option value="N" {{(isset($step2schooldata['resultstatus']) && $step2schooldata['resultstatus'] == 'N') ? 'selected' : ''}}>Not Applicable</option>
+                                                        <option value="P" {{isset(auth()->user()->load('educationDetails')->educationDetails->resultstatus) && auth()->user()->load('educationDetails')->educationDetails->resultstatus == 'P' ? 'selected' : ''}}>Passed</option>
+                                                        <option value="A" {{isset(auth()->user()->load('educationDetails')->educationDetails->resultstatus) &&  auth()->user()->load('educationDetails')->educationDetails->resultstatus == 'A' ? 'selected' : ''}}>Awaited</option>
+                                                        <option value="N" {{isset(auth()->user()->load('educationDetails')->educationDetails->resultstatus) &&  auth()->user()->load('educationDetails')->educationDetails->resultstatus == 'N' ? 'selected' : ''}}>Not Applicable</option>
 
 
                                                     </select></span>
@@ -91,7 +91,7 @@
                                             </td>
 
 
-                                            
+
                                             <!------------------------------CLASS---------------------------->
 
                                             <td align="center" style="width:12%;">
@@ -101,61 +101,44 @@
 
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl04_ddlGraduateExam__"><select name="classes" id="classes" class="dropdown1 form-select">
                                                         <option selected="selected" value="">--Select Class--</option>
-                                                        @if(!empty($classes))
-                                                        @foreach($classes as $class)
-                                                        <option value="{{ $class->class }}">{{ $class->class }}</option>
-                                                        @endforeach
-                                                        @else
-                                                        <option value=""disabled>No class found</option>
-                                                        @endif
+                                                        @forelse($classes as $key=>$class)
+                                                        <option value="{{ $key }}" {{ isset(auth()->user()->educationDetails->classes) && auth()->user()->educationDetails->classes == $key ? 'selected' : '' }}>{{ $class }}</option>
+                                                        @empty
+                                                        <option value="" disabled>No class found</option>
+                                                        @endforelse
                                                     </select></span>
 
                                             </td>
 
                                             <!---------------------------------------------------------->
-                                          
-  <td align="center">
 
+                                            <td align="center">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl03_txtNameofUniver__"><input name="class_board" type="text" maxlength="50" id="class_board" class="textbox form-control" onpaste="return false" ondrop="return false" value="{{isset($step2schooldata['name_of_the_board_university']) ? $step2schooldata['name_of_the_board_university'] : '' }}"></span>
-
-
-
-
-
                                             </td>
-                                            <td align="center" style="width:10%;>
+                                            <td align="center" style="width:10%;">
                                                 <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_ddlYear__"><select name="class_passing_year" id="class_passing_year" class="form-select">
                                                         <option value="">--Select --</option>
-                                                        <option value="1976" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '1976' ? 'selected' : ''}}>1976</option>
-                                                        <option value="2014" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2014' ? 'selected' : ''}}>2014</option>
-                                                        <option value="2015" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2015' ? 'selected' : ''}}>2015</option>
-                                                        <option value="2016" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2016' ? 'selected' : ''}}>2016</option>
-                                                        <option value="2017" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2017' ? 'selected' : ''}}>2017</option>
-                                                        <option value="2018" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2018' ? 'selected' : ''}}>2018</option>
-                                                        <option value="2019" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2019' ? 'selected' : ''}}>2019</option>
-                                                        <option value="2020" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2020' ? 'selected' : ''}}>2020</option>
-                                                        <option value="2021" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2021' ? 'selected' : ''}}>2021</option>
-                                                        <option value="2022" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2022' ? 'selected' : ''}}>2022</option>
-                                                        <option value="2023" {{isset($step2schooldata['passing_year']) && $step2schooldata['passing_year'] == '2023' ? 'selected' : ''}}>2023</option>
+                                                        @for ($i = date('Y'); $i >= 2010; $i--)
+                                                        <option value="{{ $i }}" {{ isset(auth()->user()->educationDetails->passing_year) && auth()->user()->educationDetails->passing_year == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                                        @endfor
 
                                                     </select></span>
                                             </td>
-                                            <td align="center" >
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="number" maxlength="6" id="class_marks" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:85px;" value="{{isset($step2schooldata['credits_marks_Obtained']) ? $step2schooldata['credits_marks_Obtained'] : '' }}"></span>
+                                            <td align="center">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreditMarks__"><input name="class_marks" type="number" maxlength="6" id="class_marks" class="textbox form-control marks-input" style="width:85px;" value="{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->load('educationDetails')->educationDetails->credits_marks_Obtained : ''}}"></span>
+                                            </td>
+                                            <td align="center">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="number" maxlength="6" id="class_max_marks" class="textbox form-control marks-input" style="width:85px;" value="{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->load('educationDetails')->educationDetails->maximum_marks : ''}}"></span>
+                                            </td>
+                                            <td align="center">
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="text" id="class_percentage" class="textbox form-control" readonly style="width:65px;" value="{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->load('educationDetails')->educationDetails->percentage_marks : ''}}"></span>
 
                                             </td>
                                             <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtMaxMarks__"><input name="class_max_marks" type="number" maxlength="6" id="class_max_marks" class="textbox form-control" onkeydown="return NumberOnly(event,this);" onpaste="return false" ondrop="return false" style="width:85px;" value="{{isset($step2schooldata['maximum_marks']) ? $step2schooldata['maximum_marks'] : '' }}"></span>
-                                            </td>
-                                            <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtCreMarkPercent__"><input name="class_percentage" type="number" maxlength="5" id="class_percentage" class="textbox form-control" onpaste="return false" ondrop="return false" onkeydown="return NumberOnly(event,this);" style="width:65px;" value="{{isset($step2schooldata['percentage_marks']) ? $step2schooldata['percentage_marks'] : '' }}"></span>
-
-                                            </td>
-                                            <td align="center">
-                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="number" maxlength="15" id="class_rollno" class="textbox form-control" onpaste="return false" ondrop="return false"  value="{{isset($step2schooldata['exam_roll_no']) ? $step2schooldata['exam_roll_no'] : '' }}"></span>
+                                                <span id="Anthem_ctl00_ContentPlaceHolder1_gvsubject_ctl02_txtExamRollNo__"><input name="class_rollno" type="number" maxlength="15" id="class_rollno" class="textbox form-control" value="{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->load('educationDetails')->educationDetails->exam_roll_no : ''}}"></span>
                                             </td>
 
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -193,13 +176,13 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="yes" {{isset($step2graduationdata['disqualified/suspended']) && $step2graduationdata['disqualified/suspended'] == "yes" ? 'checked' : ''}}>
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedyes" value="yes" {{isset(auth()->user()->step2_updated_at) && auth()->user()->load('educationDetails')->educationDetails['disqualified/suspended'] == "yes" ? 'checked' : ''}}>
                                                             <label class="form-check-label" for="disqualified/suspendedyes">Yes</label>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="no" {{isset($step2graduationdata['disqualified/suspended']) && $step2graduationdata['disqualified/suspended'] == "no" ? 'checked' : ''}}>
+                                                            <input class="form-check-input" type="radio" name="disqualified/suspended" id="disqualified/suspendedno" value="no" {{isset(auth()->user()->step2_updated_at) && auth()->user()->load('educationDetails')->educationDetails['disqualified/suspended'] == "no" ? 'checked' : ''}}>
                                                             <label class="form-check-label" for="disqualified/suspendedno">No</label>
                                                         </div>
                                                     </td>
@@ -217,7 +200,7 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="details" rows="2" cols="20" id="details" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;" disabled>{{isset($step2graduationdata['disqualified/suspended']) && $step2postgraduationdata['disqualified/suspended'] == "Y" ? $step2graduationdata['disqualified/suspended_details'] : ''}}</textarea></span>
+                                    <span id="Anthem_ctl00_ContentPlaceHolder1_txtDetails__"><textarea name="details" rows="2" cols="20" id="details" class="textboxmultiline form-control" ondrop="return false;" onpaste="return false;" disabled>{{(!empty(auth()->user()->step2_updated_at)) ? auth()->user()->load('educationDetails')->educationDetails['disqualified/suspended_details'] : ''}}</textarea></span>
                                 </td>
                             </tr>
                             <tr>
@@ -231,7 +214,7 @@
                                         <br>
 
                                         Filename<span style="color: red"> max 10 Characters</span> Allowed.</strong>
-                                    </td>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Upload Your Photograph
@@ -250,8 +233,8 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="profile_photo" id="profile_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
-                                                    <div><img id="profile_photo_perview" src="{{ (!empty(auth()->user()->photo)) ? asset('public/images/proofdoc/'.auth()->user()->photo) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadImg__"><input type="file" name="profile_photo" id="profile_photo" class="uploadfiles" accept="image/png, image/jpg, image/jpeg"></span>
+                                                    <div><img id="profile_photo_perview" src="{{ (!empty(auth()->user()->photo)) ? asset('images/proofdoc/'.auth()->user()->photo) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -275,8 +258,8 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles" accept="image/jpeg,image/jpg"></span>
-                                                    <div><img id="sign_photo_perview" src="{{ (!empty(auth()->user()->signature)) ? asset('public/images/proofdoc/'.auth()->user()->signature) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
+                                                    <span id="Anthem_ctl00_ContentPlaceHolder1_UploadSignature__"><input type="file" name="sign_photo" id="sign_photo" class="uploadfiles" accept="image/png, image/jpg, image/jpeg"></span>
+                                                    <div><img id="sign_photo_perview" src="{{ (!empty(auth()->user()->signature)) ? asset('images/proofdoc/'.auth()->user()->signature) : 'http://placehold.it/180'}}" class="img-thumbnail mt-2" alt="..."></div>
                                                 </td>
                                             </tr>
 
@@ -308,7 +291,6 @@
                             </tr>
                             <tr>
                                 <td align="left">
-
                                     <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK" id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
                                 <td colspan="6" class="tdgap" width="42%" align="left">
 

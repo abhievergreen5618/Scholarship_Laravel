@@ -100,7 +100,7 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->to(env("WORDPRESS_URL")."/login");
+        return redirect()->to(route("loginurl"));
     }
 
     public function create(Request $request)
@@ -201,11 +201,10 @@ class LoginController extends Controller
             "email" => "required|email",
             "password" => "required",
         ], [
-            "email.required" => "The email field is required.",
+            "required" => "This field is required.",
             "email.email" => "Please enter a valid email address.",
-            "password.required" => "The password field is required.",
         ]);
-        
+
         $credentials = $request->only('email','password');
         $remember = $request->has('rememberme');
         if (Auth::attempt($credentials,$remember)) {
@@ -213,7 +212,7 @@ class LoginController extends Controller
         }
         else
         {
-            $error = ["password"=>"Please enter valid credentials."];
+            return redirect()->back()->withErrors(["email" => "Please enter valid credentials."]);
         }
     }
 }

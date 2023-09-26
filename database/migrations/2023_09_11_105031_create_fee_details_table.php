@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('fee_details', function (Blueprint $table) {
             $table->id();
             $table->string("feetype");
+            $table->string("feecode")->nullable();
             $table->string("fee")->nullable();
             $table->string("description")->nullable();
             $table->string("status")->default("active");

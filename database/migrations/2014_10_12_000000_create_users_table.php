@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('fathername')->nullable();
             $table->string('mothername')->nullable();
             $table->string('examcentre')->nullable();
-            $table->string('districtDropdown')->nullable();
+            $table->string('examdistrict')->nullable();
             $table->string('caddress')->nullable();
             $table->string('paddress')->nullable();
             $table->string('dob')->nullable();
@@ -40,13 +40,13 @@ return new class extends Migration
             $table->string('category')->nullable();
             $table->string('physicallychallengedproof')->nullable();
             $table->string('categorycertificate')->nullable();
-            $table->string('fee')->nullable();
             $table->string('photo')->nullable();
             $table->string('signature')->nullable();
             $table->string('reference_number')->nullable();
             $table->string('roll_number')->nullable();
             $table->string('application_number')->nullable();
             $table->string('transaction_id')->nullable();
+            $table->string('amount')->nullable();
             $table->string("class")->nullable();
             $table->string("status")->default("active");
             $table->timestamp('step1_updated_at')->nullable();
@@ -57,7 +57,7 @@ return new class extends Migration
             $table->timestamp('step6_updated_at')->nullable();
             $table->string('role')->default("student")->nullable();
             $table->timestamps();
-        }); 
+        });
     }
 
     /**

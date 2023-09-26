@@ -19,65 +19,52 @@ use App\Models\ScholarshipList;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use PDF;
+use Illuminate\Support\Facades\View;
+use Razorpay\Api\Api;
 
 class ScholarshipController extends Controller
 {
 
     public function index()
     {
-        $states = StateModel::orderBy('name','asc')->orderBy('code','asc')->get();
+        $states = StateModel::orderBy('name', 'asc')->orderBy('code', 'asc')->pluck('name','code');
 
-         
-        $subjects = Subject::where('status','active')
-        ->orderBy('name', 'asc')->get();
-        $subjectSelect = $subjects->pluck('name')->toArray();
-        $subjectSelect = json_encode($subjectSelect);
+        $subjects = Subject::where('status', 'active')->orderBy('name', 'asc')->pluck('name', 'id');
 
-        $scholarshipname = ScholarshipList::where('status','active')
-        ->orderBy('name','asc')->get();
-        $scholarshipSelect = $scholarshipname->pluck('name')->toArray();
-        $scholarshipSelect = json_encode($scholarshipSelect);
+        $scholarship = ScholarshipList::where('status', 'active')->orderBy('name', 'asc')->pluck('name', 'id');
 
-        $classes = ClassModel::where('status','active')
-        ->orderBy('class','asc')->get();
+        $classes = ClassModel::where('status','active')->orderBy('id','asc')->pluck('class','id');
 
-      
+        return view('student.form')->with([
+            'states' => $states,
+            'subjects' => $subjects,
+            'classes' => $classes,
+            'scholarship' => $scholarship,
+        ]);
 
-        if(!empty(Auth::user()->step2_updated_at))
-        {
-            $step2schooldata = EducationDetails::where(['user_id' =>Auth::user()->id,'type' => 'school'])->first();
+    }
 
-            return view('student.form')->with([
-                "step2schooldata" => $step2schooldata,
-                "states" => $states,
-                "subjectSelect" => $subjectSelect,
-                "classes" => $classes,
-                "scholarshipSelect" => $scholarshipSelect
-            ]);
+    public function getDistricts(Request $request)
+    {
+        $stateCode = $request->post('stateCode');
+        $districts = DistrictModel::where('statecode', $stateCode)->orderBy('name', 'asc')->pluck('name','id');
+        $html = '<option value="">-- Select District --</option>';
+        if ($districts->isEmpty()) {
+            $districts = StateModel::where('code', $stateCode)->pluck('name','code');
+            foreach ($districts as $key=>$district) {
+                $selected = isset(Auth::user()->examdistrict) && $key == Auth::user()->examdistrict ? 'selected' : '';
+                $html .= '<option value="'.$key.'" '.$selected.'>'.$district.'</option>';
+            }
         }
         else
         {
-            return view('student.form')->with([
-                'states' => $states,
-                'subjectSelect' => $subjectSelect,
-                'classes' => $classes,
-                'scholarshipSelect' => $scholarshipSelect
-            ]);
-        }
-    }
-
-   public function getDistricts(Request $request)
-   {
-        $stateCode=$request->post('stateCode');
-        $districts=DistrictModel::where('statecode',$stateCode)
-        ->orderBy('name','asc')->get();
-        echo $districts;
-        $html='<option value="">-- Select District --</option>';
-        foreach($districts as $districtlist){
-            $html.='<option value="'.$districtlist->id.'">'.$districtlist->name.'</option>';
+            foreach ($districts as $key=>$district) {
+                $selected = isset(Auth::user()->examdistrict) && $key == Auth::user()->examdistrict ? 'selected' : '';
+                $html .= '<option value="'.$key.'" '.$selected.'>'.$district.'</option>';
+            }
         }
         echo $html;
-   }
+    }
 
 
     /**
@@ -88,33 +75,36 @@ class ScholarshipController extends Controller
     public function create(Request $request)
     {
 
-        $validator = Validator::make($request->all(), [
-            // "scholarshipname" => "required",
-            "name" => "required",
-            "fathername" => "required",
-            "mothername" => "required",
-            "examcentre" => "required",
-            "districtDropdown" =>"required",
-            "caddress" => "required",
-            "mobileno" => "required",
-            "paddress" => "required",
-            // "dob" => "required",
-            // "aadhaarno" => "required",
-            // "nationality" => "required",
-            // "singlegirlchild" => "required",
-            // "subjects" => "required",
-            "physicallychallenged" => "required",
-            'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
-            "category" => "required",
-            // 'categorycertificate' => 'required',
-            // 'fee' => "required",
-            "email" => "required|email",
-        ],
-        [
-             "required" => "This field is required.",
-             "required_if" => "This field is required.",
-        ]
-    ); 
+        $validator = Validator::make(
+            $request->all(),
+            [
+                // "scholarshipname" => "required",
+                "name" => "required",
+                "fathername" => "required",
+                "mothername" => "required",
+                "examcentre" => "required",
+                "examdistrict" => "required",
+                "caddress" => "required",
+                "mobileno" => "required",
+                "paddress" => "required",
+                // "dob" => "required",
+                // "aadhaarno" => "required",
+                // "nationality" => "required",
+                // "singlegirlchild" => "required",
+                // "subjects" => "required",
+                "physicallychallenged" => "required",
+                'physicallychallengedproof' => 'required_if:physicallychallenged,yes',
+                "category" => "required",
+                'categorycertificate' => 'required_unless:category,General',
+                // 'fee' => "required",
+                "email" => "required|email",
+            ],
+            [
+                "required" => "This field is required.",
+                "required_if" => "This field is required.",
+                "required_unless" => "This field is required.",
+            ]
+        );
 
         if ($validator->fails()) {
             $errors = [];
@@ -124,10 +114,8 @@ class ScholarshipController extends Controller
             return response()->json([
                 'message'  => "!OOPs Something went wrong",
                 'error' => $errors
-            ],422);
-        }
-        else
-        {
+            ], 422);
+        } else {
             if ($request->hasFile('physicallychallengedproof')) {
                 $image = $request->file('physicallychallengedproof');
                 $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -141,14 +129,14 @@ class ScholarshipController extends Controller
                 $image->move(public_path('images/proofdoc'), $certificateName);
                 $request['categorycertificate'] = $certificateName;
             }
-            
-            User::where('id',decrypt($request['id']))->update([
+
+            User::where('id', decrypt($request['id']))->update([
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
                 "fathername" => $request['fathername'],
                 "mothername" => $request['mothername'],
                 "examcentre" => $request['examcentre'],
-                "districtDropdown" =>$request['districtDropdown'],
+                "examdistrict" => $request['examdistrict'],
                 "caddress" => $request['caddress'],
                 "paddress" => $request['paddress'],
                 "dob" => $request['dob'] ?? "",
@@ -160,52 +148,64 @@ class ScholarshipController extends Controller
                 "subjects" => $request['subjects'],
                 "physicallychallenged" => $request['physicallychallenged'],
                 "category" => $request['category'],
-                "fee" => $request['fee'],
                 "physicallychallengedproof" => $imageName ?? "",
-                "categorycertificate" => $certificateName ??"",
+                "categorycertificate" => $certificateName ?? "",
                 "step1_updated_at" => now(),
             ]);
+
+            // Refresh the authenticated user's data
+            Auth::user()->refresh();
+
+              // Load the Blade view
+            $html = View::make('student.FormSteps.applicationsummary')->render();
+
             return response()->json([
-                'message' => 'Saved successfully',
-            ],200);
+                'message' => "Saved Data Successfully",
+                'html' => $html
+            ], 200);
         }
     }
 
 
-    public function getFee($feetype)
-{
-    if ($feetype === "no") {
-        return response()->json(['fee' => null]);
+    public function getFee($feecode)
+    {
+        $fee = FeeDetail::where('feecode',$feecode)->value('fee');
+
+        return response()->json(['fee' => $fee]);
     }
 
-    $fee = FeeDetail::where('feetype', $feetype)->value('fee');
-    
-    return response()->json(['fee' => $fee]);
-}
 
-    
 
 
     /**Store education data */
-    public function educationInfoStore(Request $request){
+    public function educationInfoStore(Request $request)
+    {
 
         $classmarks = $request['class_marks'];
         $maximummarks = $request['class_max_marks'];
-        $percentage = $classmarks/$maximummarks*100 ;
+        $percentage = $classmarks / $maximummarks * 100;
 
 
-        $validator = Validator::make($request->all(), [
-
-            "profile_photo" => "required",
-            "sign_photo" => "required",
-            "disqualified/suspended" => "required",
-            'details' => 'required_if:disqualified/suspended,yes',
-        ],
-        [
-             "required" => "This field is required.",
-             "required_if" => "This field is required.",
-        ]
-    );
+        $validator = Validator::make(
+            $request->all(),
+            [
+                // "classes" => "classes",
+                // "class_board"=>"required",
+                // "class_passing_year"=>"required",
+                // "class_marks"=>"required",
+                // "class_max_marks"=>"required",
+                // "class_percentage"=>"required",
+                // "class_rollno"=>"required",
+                "profile_photo" => "required",
+                "sign_photo" => "required",
+                "disqualified/suspended" => "required",
+                'details' => 'required_if:disqualified/suspended,yes',
+            ],
+            [
+                "required" => "This field is required.",
+                "required_if" => "This field is required.",
+            ]
+        );
 
 
         if ($validator->fails()) {
@@ -216,27 +216,25 @@ class ScholarshipController extends Controller
             return response()->json([
                 'message'  => "!OOPs Something went wrong",
                 'error' => $errors
-            ],422);
-        }
-        else
-        {
+            ], 422);
+        } else {
 
 
-                $matchThese = ['user_id'=>decrypt($request['id']),'type'=>'school'];
-                EducationDetails::updateOrCreate($matchThese,[
-                    'user_id'=> decrypt($request['id']),
-                    'resultstatus'=>$request['class_status'],
-                    'classes'=>$request['classes'],
-                    'name_of_the_board_university'=>$request['class_board'],
-                    'passing_year'=>$request['class_passing_year'],
-                    'credits_marks_Obtained'=>$classmarks,
-                    'maximum_marks'=>$maximummarks,
-                    'percentage_marks'=>$percentage,
-                    'exam_roll_no'=>$request['class_rollno'],
-                    'disqualified/suspended'=>$request['disqualified/suspended'],
-                    'disqualified/suspended_details'=>$request['details'] ?? "",
-                    'type'=>'school',
-                 ]);
+            $matchThese = ['user_id' => decrypt($request['id']), 'type' => 'school'];
+            EducationDetails::updateOrCreate($matchThese, [
+                'user_id' => decrypt($request['id']),
+                'resultstatus' => $request['class_status'],
+                'classes' => $request['classes'],
+                'name_of_the_board_university' => $request['class_board'],
+                'passing_year' => $request['class_passing_year'],
+                'credits_marks_Obtained' => $classmarks,
+                'maximum_marks' => $maximummarks,
+                'percentage_marks' => $percentage,
+                'exam_roll_no' => $request['class_rollno'],
+                'disqualified/suspended' => $request['disqualified/suspended'],
+                'disqualified/suspended_details' => $request['details'] ?? "",
+                'type' => 'school',
+            ]);
 
 
             if ($request->hasFile('profile_photo')) {
@@ -249,16 +247,23 @@ class ScholarshipController extends Controller
                 $sign_photo = time() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('images/proofdoc'), $sign_photo);
             }
-            User::where('id',decrypt($request['id']))->update([
-                "photo"=>$imageName,
-                "signature"=>$sign_photo,
+            User::where('id', decrypt($request['id']))->update([
+                "photo" => $imageName,
+                "signature" => $sign_photo,
                 "step2_updated_at" => now(),
             ]);
 
 
+           // Refresh the authenticated user's data
+           Auth::user()->refresh();
+
+            // Load the Blade view
+            $html = View::make('student.FormSteps.applicationsummary')->render();
+
             return response()->json([
-                'message' => 'Saved successfully',
-            ],200);
+                'message' => "Saved Data Successfully",
+                'html' => $html
+            ], 200);
         }
     }
 
@@ -275,12 +280,16 @@ class ScholarshipController extends Controller
 
     public function bankinfo(Request $request)
     {
-        $validator=Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             "accountno" => "required",
             "cnfrmaccountno" => "required_with:accountno|same:accountno",
             "holdername" => "required",
             "ifsccode" => "required",
             "passbook_photo" => "required",
+        ],[
+            "required" => "This field is required.",
+            "required_if" => "This field is required.",
+            "cnfrmaccountno.same" => "The confirmation account number must match the account number field.",
         ]);
         if ($validator->fails()) {
             $errors = [];
@@ -290,39 +299,49 @@ class ScholarshipController extends Controller
             return response()->json([
                 'message'  => "!OOPs Something went wrong",
                 'error' => $errors
-            ],422);
-        }
-        else
-        {
+            ], 422);
+        } else {
             if ($request->hasFile('passbook_photo')) {
                 $image = $request->file('passbook_photo');
                 $passbook_photo = time() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('images/proofdoc'), $passbook_photo);
             }
-            $matchThese = ['user_id'=>decrypt($request['id'])];
-            BankDetails::updateOrCreate($matchThese,[
-            'user_id'=> decrypt($request['id']),
-            "accountno" => $request['accountno'],
-            "cnfrmaccountno" => $request['cnfrmaccountno'],
-            "holdername" => $request['holdername'],
-            "ifsccode" => $request['ifsccode'],
-            "passbook_photo" =>$passbook_photo,
-            "step3_updated_at" => now(),
-        ]);
-        return response()->json ([
-            'message' => "Saved Data Successfully",
-        ],200);
-    }
+            $matchThese = ['user_id' => decrypt($request['id'])];
+            BankDetails::updateOrCreate($matchThese, [
+                'user_id' => decrypt($request['id']),
+                "accountno" => $request['accountno'],
+                "cnfrmaccountno" => $request['cnfrmaccountno'],
+                "holdername" => $request['holdername'],
+                "ifsccode" => $request['ifsccode'],
+                "passbook_photo" => $passbook_photo,
+                "step3_updated_at" => now(),
+            ]);
+
+            User::where('id',decrypt($request['id']))->update([
+                "step3_updated_at" => now(),
+            ]);
+
+            // Refresh the authenticated user's data
+            Auth::user()->refresh();
+
+              // Load the Blade view
+            $html = View::make('student.FormSteps.applicationsummary')->render();
+
+            return response()->json([
+                'message' => "Saved Data Successfully",
+                'html' => $html
+            ], 200);
+        }
     }
 
     public function applicationsummarysubmit(Request $request)
     {
-        User::where('id',Auth::id())->update([
+        User::where('id', Auth::id())->update([
             "step4_updated_at" => now(),
         ]);
         return response()->json([
             'message' => 'Saved successfully',
-        ],200);
+        ], 200);
     }
 
     /**
@@ -331,6 +350,35 @@ class ScholarshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function savefailurepaymentdetails(Request $request)
+    {
+        $razorpay = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+        $payment = $razorpay->payment->fetch($request['error']['metadata']['payment_id']);
+
+        PaymentsDetails::create([
+            "razorpay_id" => $payment['id'],
+            "amount" => $payment['amount'] / 100,
+            "status" => $payment['status'],
+            "method" => $payment['method'],
+            "description" => $payment['description'],
+            "vpa" => $payment['vpa'],
+            "bank" => $payment['bank'],
+            "card_id" => $payment['card_id'],
+            "wallet" => $payment['wallet'],
+            "status" => $payment['status'],
+            "error_code" => $payment['error_code'],
+            "error_description" => $payment['error_description'],
+            "error_source" => $payment['error_source'],
+            "error_step" => $payment['error_step'],
+            "error_reason" => $payment['error_reason'],
+            "payment_created_at" => Carbon::createFromTimestamp($payment['created_at'])->toDateTimeString(),
+            "user_id" => Auth::id(),
+        ]);
+        return response()->json([
+            'message' => 'Payment Failed',
+        ], 200);
+    }
+
     public function savepaymentdetails(Request $request)
     {
         $currentYear = Carbon::now()->format('Y');
@@ -346,39 +394,65 @@ class ScholarshipController extends Controller
         $lastNumberCounter = 0;
 
         // Generate Roll Number Application Number and Transaction ID
-        $rollno =  $currentYear . $currentMonth .$currentDate. $mobilenoDigit;
-        $application_number = $currentYear . $currentMonth .$nameFirstCharacter. $mobilenoDigit;
+        $rollno =  $currentYear . $currentMonth . $currentDate . $mobilenoDigit;
+        $application_number = $currentYear . $currentMonth . $nameFirstCharacter . $mobilenoDigit;
         $transaction_id = $request['razorpay_payment_id'];
 
+        $razorpay = new Api(env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+
+        $payment = $razorpay->payment->fetch($transaction_id);
         // The reference number will be the auto-incrementing primary key (id)
         $referenceNumber = 'REF-' . str_pad(Auth::id(), 6, '0', STR_PAD_LEFT);
 
-        User::where('id',Auth::id())->update([
+        User::where('id', Auth::id())->update([
             "step5_updated_at" => now(),
             "reference_number" => $referenceNumber,
             "roll_number" => $rollno,
             "application_number" => $application_number,
             "transaction_id" => $transaction_id,
+            "amount" => $payment['amount'] / 100,
         ]);
         PaymentsDetails::create([
-            "razorpay_id" => $request['razorpay_payment_id'],
+            "razorpay_id" => $payment['id'],
+            "amount" => $payment['amount'] / 100,
+            "status" => $payment['status'],
+            "method" => $payment['method'],
+            "description" => $payment['description'],
+            "vpa" => $payment['vpa'],
+            "bank" => $payment['bank'],
+            "card_id" => $payment['card_id'],
+            "wallet" => $payment['wallet'],
+            "status" => $payment['status'],
+            "error_code" => $payment['error_code'],
+            "error_description" => $payment['error_description'],
+            "error_source" => $payment['error_source'],
+            "error_step" => $payment['error_step'],
+            "error_reason" => $payment['error_reason'],
+            "payment_created_at" => Carbon::createFromTimestamp($payment['created_at'])->toDateTimeString(),
             "user_id" => Auth::id(),
         ]);
+
+        // Refresh the authenticated user's data
+        Auth::user()->refresh();
+
+        // Load the Blade view
+        $html = View::make('student.FormSteps.finalsubmit')->render();
+
         return response()->json([
-            'message' => 'Saved successfully',
-        ],200);
+            'message' => 'Your payment was successful.',
+            'html' => $html,
+        ], 200);
     }
 
     public function downloadpdf(Request $request)
     {
-
-	    $data = [
-	            'title' => 'Receipt',
-	            'date' => date('d/m/Y')
-	    ];
-	    $pdf = PDF::loadView('student.FormSteps.pdffile',$data);
-	    return $pdf->download('mypdf.pdf');
-	}
+        $data = [
+            'title' => 'Receipt',
+            'date' => date('d/m/Y')
+        ];
+        $pdf = PDF::loadView('student.FormSteps.pdffile', $data);
+        return $pdf->download('mypdf.pdf');
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -411,5 +485,15 @@ class ScholarshipController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function submitapplication(Request $request)
+    {
+        User::where('id', Auth::id())->update([
+            "step6_updated_at" => now(),
+        ]);
+        return response()->json([
+            'message' => 'Saved successfully',
+        ], 200);
     }
 }

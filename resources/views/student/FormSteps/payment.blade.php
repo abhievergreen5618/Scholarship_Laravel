@@ -16,66 +16,22 @@
                                 </td>
                                 <td class="colon">:</td>
                                 <td>
-
                                     <div id="Anthem_ctl00_ContentPlaceHolder1_rdPaymentOption__">
                                         <table id="ctl00_ContentPlaceHolder1_rdPaymentOption" class="radio" border="0">
                                             <tbody>
                                                 <tr>
-                                                    <td> <button id="rzp-button1">Pay</button>
-
-
+                                                    <td>
+                                                        <button id="rzp-button1">Pay</button>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-
-
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-
-
-
-
-
-                    <div id="Anthem_ctl00_ContentPlaceHolder1_pnlOnlinePayment__" style="display: none;">
-                    </div>
-
-
-                    <div id="Anthem_ctl00_ContentPlaceHolder1_pnlChallan__" style="display: none;"></div>
                 </div>
-
-                <div class="box-body  table-responsive">
-                    <div class="gridiv">
-
-
-                        <div id="Anthem_ctl00_ContentPlaceHolder1_gvChallDtls__">
-                            <div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <table class="table Eng_hindi_form" width="100%" border="0" cellspacing="5" cellpadding="0">
-                    <tbody>
-                        <tr>
-                            <td align="left">
-
-                                <span id="Anthem_ctl00_ContentPlaceHolder1_btnBack__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnBack" value="BACK" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$btnBack','',true,'','','',true,null,null,null,true,true);return false;" id="ctl00_ContentPlaceHolder1_btnBack" class="btn-primary"></span>
-                            </td>
-                            <td colspan="2" align="right">
-
-                                <span id="Anthem_ctl00_ContentPlaceHolder1_btnSaveNext__"><input type="submit" name="ctl00$ContentPlaceHolder1$btnSaveNext" value="NEXT" onclick="javascript:Anthem_FireCallBackEvent(this,event,'ctl00$ContentPlaceHolder1$btnSaveNext','',true,'','','',true,null,null,null,true,true);return false;" id="ctl00_ContentPlaceHolder1_btnSaveNext" class="btn-primary"></span>
-                            </td>
-                            
-                        </tr>
-                    </tbody>
-                </table>
-
             </div>
         </div>
     </div>

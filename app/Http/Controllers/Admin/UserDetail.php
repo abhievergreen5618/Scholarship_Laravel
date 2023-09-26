@@ -61,15 +61,8 @@ class UserDetail extends Controller
     public function display(Request $request)
     {
 
-
         if ($request->ajax()) {
-            $data =  DB::table('users')
-            ->leftJoin('education_details','users.id', '=' , 'education_details.user_id')
-                ->where('role', 'student')
-                ->select(['users.id', 'name', 'email', 'mobileno', 'class', 'gender', 'dob', 'paddress', 'status',
-                'education_details.classes AS class',])
-                ->latest('users.created_at')
-                ->get();
+            $data =  User::where('role', 'student')->latest();
                 return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $id = encrypt($row->id);

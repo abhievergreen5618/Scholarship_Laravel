@@ -1,24 +1,47 @@
 $(document).ready(function () {
-    $("#ctl00_ContentPlaceHolder1_chkboxCopyAddress").click(function (e) {
-        if($(this).is(':checked'))
-        {
-            $("#paddress").val($("#caddress").val());
+    $("#categorycertificate").hide();
+
+
+    if($("#state-dropdown").length && $("#state-dropdown :selected").val().length)
+    {
+        var stateCode = $("#state-dropdown :selected").val();
+        getdistricts(stateCode);
+    }
+
+    if($("#physicallychallengedyes").is(":checked"))
+    {
+        updateFee("physicallychallenged");
+    }
+    else if($("#category").length && $("#category :selected").val().length) {
+        updateFee($("#category :selected").val());
+    }
+
+    $('.marks-input').on('input',function(){
+        const obtainedMarks = parseFloat($('#class_marks').val());
+        const maxMarks = parseFloat($('#class_max_marks').val());
+
+        if (!isNaN(obtainedMarks) && !isNaN(maxMarks) && maxMarks !== 0) {
+            const percentage = (obtainedMarks / maxMarks) * 100;
+            $('#class_percentage').val(percentage.toFixed(2));
+        } else {
+            $('#class_percentage').val('0');
         }
-        else
-        {
+    });
+
+    $("#ctl00_ContentPlaceHolder1_chkboxCopyAddress").click(function (e) {
+        if ($(this).is(":checked")) {
+            $("#paddress").val($("#caddress").val());
+        } else {
             $("#paddress").val();
         }
     });
 
     $("[name='disqualified/suspended']").click(function (e) {
-        if($(this).is(':checked') && $(this).attr("value") == "yes")
-        {
-            $("#details").attr("disabled",false);
-        }
-        else
-        {
+        if ($(this).is(":checked") && $(this).attr("value") == "yes") {
+            $("#details").attr("disabled", false);
+        } else {
             $("#details").val("");
-            $("#details").attr("disabled",true);
+            $("#details").attr("disabled", true);
         }
     });
 
@@ -34,20 +57,21 @@ $(document).ready(function () {
                 // File size exceeds 20KB, do something (e.g., show an error message)
                 alert("File size exceeds 20KB");
                 $(this).val("");
-                $("#sign_photo_perview").attr("src","http://placehold.it/180");
+                $("#sign_photo_perview").attr("src", "http://placehold.it/180");
                 // You can show an error message to the user or handle the case accordingly
             } else {
-                 // Create a FileReader object
-                    const reader = new FileReader();
+                // Create a FileReader object
+                const reader = new FileReader();
 
-                    // Set up the FileReader's `onload` event handler
-                    reader.onload = function(event) {
-                    const profilePhotoPreview = document.getElementById('sign_photo_perview');
+                // Set up the FileReader's `onload` event handler
+                reader.onload = function (event) {
+                    const profilePhotoPreview =
+                        document.getElementById("sign_photo_perview");
                     profilePhotoPreview.src = event.target.result;
-                    };
+                };
 
-                    // Read the file as a data URL, triggering the `onload` event when done
-                    reader.readAsDataURL(file);
+                // Read the file as a data URL, triggering the `onload` event when done
+                reader.readAsDataURL(file);
             }
         }
     });
@@ -62,15 +86,20 @@ $(document).ready(function () {
             if (fileSizeKB > 20) {
                 alert("File size exceeds 20KB");
                 $(this).val("");
-                $("#profile_photo_perview").attr("src","http://placehold.it/180");
+                $("#profile_photo_perview").attr(
+                    "src",
+                    "http://placehold.it/180"
+                );
             } else {
                 // Create a FileReader object
                 const reader = new FileReader();
 
                 // Set up the FileReader's `onload` event handler
-                reader.onload = function(event) {
-                const profilePhotoPreview = document.getElementById('profile_photo_perview');
-                profilePhotoPreview.src = event.target.result;
+                reader.onload = function (event) {
+                    const profilePhotoPreview = document.getElementById(
+                        "profile_photo_perview"
+                    );
+                    profilePhotoPreview.src = event.target.result;
                 };
 
                 // Read the file as a data URL, triggering the `onload` event when done
@@ -79,56 +108,165 @@ $(document).ready(function () {
         }
     });
 
-    $("#backstep1").click(function(){
-        $("#tab1").trigger('click');
+    $("#backstep1").click(function () {
+        $("#tab1").trigger("click");
     });
-    $("#backstep2").click(function(){
-        $("#tab2").trigger('click');
+    $("#backstep2").click(function () {
+        $("#tab2").trigger("click");
+    });
+     $("#backstep3").click(function () {
+        $("#tab3").trigger("click");
     });
 
-    $("#savestep3").click(function(){
-
+    $(document).on("click","#savestep3",function () {
         toastr.options = {
             closeButton: true,
             progressBar: true,
             timeOut: 5000,
             extendedTimeOut: 2000,
             positionClass: "toast-top-right",
-            preventDuplicates: true
+            preventDuplicates: true,
         };
 
         $.ajax({
-            type: 'POST',
+            type: "POST",
             url: $(this).data("action"),
             dataType: "json",
             cache: false,
             contentType: false,
             processData: false,
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            success: function(result) {
-                if(result.hasOwnProperty("message"))
-                {
-                    $("#tab1").attr('disabled',true);
-                    $("#tab2").attr('disabled',true);
-                    $("#tab3").attr('disabled',true);
-                    $('[for="tab1"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
-                    $('[for="tab2"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
-                    $('[for="tab3"]').append(`<i class="fa fa-lock" aria-hidden="true"></i>`);
+            success: function (result) {
+                if (result.hasOwnProperty("message")) {
+                    $("#tab1").attr("disabled", true);
+                    $("#tab2").attr("disabled", true);
+                    $("#tab3").attr("disabled", true);
+                    $("#tab4").attr("disabled", true);
+                    $('[for="tab1"]').append(
+                        `<i class="fa fa-lock" aria-hidden="true"></i>`
+                    );
+                    $('[for="tab2"]').append(
+                        `<i class="fa fa-lock" aria-hidden="true"></i>`
+                    );
+                    $('[for="tab3"]').append(
+                        `<i class="fa fa-lock" aria-hidden="true"></i>`
+                    );
+                    $('[for="tab4"]').append(
+                        `<i class="fa fa-lock" aria-hidden="true"></i>`
+                    );
 
-                    $("#tab5").attr('disabled',false);
-                    $("#tab5").trigger('click');
+                    $("#tab5").attr("disabled", false);
+                    $("#tab5").trigger("click");
                     $('[for="tab5"]').find("[data-icon='lock']").remove();
                     $("#payment_step").removeClass("btn-secondary");
                     $("#payment_step").addClass("btn-success");
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    toastr.success(result.message);
+                }
+                else
+                {
+                    toastr.error(result.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                toastr.error(xhr.responseJSON.message);
+            },
+        });
+    });
 
+    $(document).on("click","#submitapplication",function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: $(this).data("action"),
+            dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (result) {
+                if (result.hasOwnProperty("message")) {
                     toastr.success(result.message);
                 }
             },
-            error : function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 toastr.error(xhr.responseJSON.message);
+            },
+        });
+    });
+
+    $("input[name='physicallychallenged']").change(function (e) {
+        var physicallyChallengedValue = $(this).val();
+        if (physicallyChallengedValue === "yes") {
+            updateFee("physicallychallenged");
+            $("#proofofdocuments").show();
+            $("#fee").show();
+        } else {
+            $("#proofofdocuments").hide();
+            if ($("#category :selected").val().length) {
+                updateFee($("#category :selected").val());
             }
+            else {
+                $("#fee").html('');
+            }
+        }
+    });
+
+    $("select[name='category']").change(function (e) {
+        var selectedValue = $(this).val();
+
+        if (selectedValue === "OBC" ||selectedValue === "SC" || selectedValue === "ST"
+        ) {
+            $("#categorycertificate").show();
+        } else {
+            $("#categorycertificate").hide();
+        }
+    });
+
+    $('#state-dropdown').on('change', function () {
+        let stateCode = this.value;
+        getdistricts(stateCode);
+    });
+    $("#subjects").select2({
+        multiple: true
+    });
+
+    $('#category').on('change', function () {
+        if ($(this).val().length && $("#physicallychallengedno").is(":checked")) {
+            updateFee($(this).val());
+        }
+        else if(!$(this).val().length)
+        {
+            $("#fee").html('');
+        }
+    });
+
+    // Handle the payment button click event
+    $("#rzp-button1").on("click", function(e) {
+        e.preventDefault();
+        var dynamicOptions = getDynamicOptions(); // Get the dynamic options
+        var rzp = new Razorpay(dynamicOptions); // Initialize the Razorpay payment button with dynamic options
+        rzp.open(); // Open the payment modal
+        rzp.on('payment.failed', function(response) {
+            $.ajax({
+                type: 'POST',
+                url: $("#payment").data("failurepaymenturl"),
+                dataType: "json",
+                data: JSON.stringify(response), // Convert the response object to JSON format
+                contentType: "application/json",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(result) {},
+                error: function(xhr, status, error) {
+                    // Handle errors, if any, during the Ajax request
+                    // You can display an error message or take appropriate action
+                }
+            });
         });
     });
 });
