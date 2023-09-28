@@ -369,207 +369,282 @@ $(document).ready(function () {
                 );
             },
         },
-    },
-    "columnDefs": [
-        { "Name": "dt-center", "targets": "_all" }
-    ],
-    "columns": [
-        {
-            "data": "name",
-            "defaultContent": "Not Provided"
-        },
-        {
-            "data": "email",
-            "defaultContent": "Not Provided"
-        },
-        {
-            "data": "mobileno",
-            "defaultContent": "Not Provided"
-        },
-        {
-            "data": "class",
-            "defaultContent": "Not Provided"
-        },
-        {
-            "data": "gender",
-            "defaultContent": "Not Provided"
-        },
-        {
-            "data": "dob",
-            "defaultContent": "Not Provided"
-        },
-        {
-            "data": "paddress",
-            "defaultContent": "Not Provided"
-        },
-        {
-            "data": "status",
-            "defaultContent": "Not Provided"
-        },
-        {
-            "data": "action",
-            "defaultContent": "Not Provided"
-        },
+        "columnDefs": [
+            { "Name": "dt-center", "targets": "_all" }
+        ],
+        "columns": [
+            {
+                "data": "name",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "email",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "mobileno",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "class",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "gender",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "dob",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "paddress",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "status",
+                "defaultContent": "Not Provided"
+            },
+            {
+                "data": "action",
+                "defaultContent": "Not Provided"
+            },
 
-    ],
-});
-
-
-
-usertable.on('click', '.delete', function () {
-    $('.datatable_processing').show();
-    element = $(this);
-    var userid = $(this).attr('data-id');
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.value) {
-            $.ajax({
-                type: "POST",
-                headers: {
-                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                },
-                url: 'userdelete',
-                data: {
-                    id: userid
-                },
-                dataType: 'json',
-                success: function (data) {
-                    usertable.ajax.reload();
-                },
-                error: function (data) {
-                    // console.log(data);
-                }
-            });
-        };
-        columnDefs: [{ Name: "dt-center", targets: "_all" }],
-        columns: [
-            {
-                data: "name",
-                defaultContent: "Not Provided",
-            },
-            {
-                data: "email",
-                defaultContent: "Not Provided",
-            },
-            {
-                data: "mobileno",
-                defaultContent: "Not Provided",
-            },
-            {
-                data: "class",
-                defaultContent: "Not Provided",
-            },
-            {
-                data: "gender",
-                defaultContent: "Not Provided",
-            },
-            {
-                data: "dob",
-                defaultContent: "Not Provided",
-            },
-            {
-                data: "paddress",
-                defaultContent: "Not Provided",
-            },
-            {
-                data: "status",
-                defaultContent: "Not Provided",
-            },
-            {
-                data: "action",
-                defaultContent: "Not Provided",
-            },
         ],
     });
 
-    usertable.on("click", ".delete", function () {
-        $(".datatable_processing").show();
+
+
+    usertable.on('click', '.delete', function () {
+        $('.datatable_processing').show();
         element = $(this);
-        var userid = $(this).attr("data-id");
+        var userid = $(this).attr('data-id');
         Swal.fire({
-            title: "Are you sure?",
+            title: 'Are you sure?',
             text: "You won't be able to revert this!",
-            type: "warning",
+            type: 'warning',
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
                 $.ajax({
                     type: "POST",
                     headers: {
-                        "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
-                            "content"
-                        ),
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "userdelete",
+                    url: 'userdelete',
                     data: {
-                        id: userid,
+                        id: userid
                     },
-                    dataType: "json",
+                    dataType: 'json',
                     success: function (data) {
                         usertable.ajax.reload();
                     },
                     error: function (data) {
                         // console.log(data);
-                    },
+                    }
                 });
-            }
+            };
+    });
+
+        usertable.on("click", ".delete", function () {
+            $(".datatable_processing").show();
+            element = $(this);
+            var userid = $(this).attr("data-id");
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        type: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                                "content"
+                            ),
+                        },
+                        url: "userdelete",
+                        data: {
+                            id: userid,
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            usertable.ajax.reload();
+                        },
+                        error: function (data) {
+                            // console.log(data);
+                        },
+                    });
+                }
+            });
+        });
+
+        usertable.on("click", ".status", function () {
+            $(".datatables_processing").show();
+            element = $(this);
+            var userid = $(this).attr("data-id");
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes!",
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        type: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                                "content"
+                            ),
+                        },
+                        url: "user-status-update",
+                        data: {
+                            id: userid,
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            usertable.ajax.reload();
+                        },
+                        error: function (data) {
+                            // console.log(data);
+                        },
+                    });
+                }
+            });
+        });
+
+        //-------------------------------------FEE DETAIL----------------------------------------------
+
+        var feetable = $("#feetable").DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "feedetails",
+                type: "POST",
+                beforeSend: function (request) {
+                    request.setRequestHeader(
+                        "X-CSRF-TOKEN",
+                        jQuery('meta[name="csrf-token"]').attr("content")
+                    );
+                },
+            },
+            columnDefs: [{ Fee: "dt-center", targets: "_all" }],
+            columns: [
+                {
+                    data: "feetype",
+                },
+                {
+                    data: "fee",
+                },
+                {
+                    data: "description",
+                },
+                {
+                    data: "status",
+                },
+                {
+                    data: "action",
+                },
+            ],
+        });
+
+        feetable.on("click", ".delete", function () {
+            $(".datatable_processing").show();
+            element = $(this);
+            var userid = $(this).attr("data-id");
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        type: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                                "content"
+                            ),
+                        },
+                        url: "feedelete",
+                        data: {
+                            id: userid,
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            feetable.ajax.reload();
+                        },
+                        error: function (data) {
+                            // console.log(data);
+                        },
+                    });
+                }
+            });
+        });
+
+        feetable.on("click", ".status", function () {
+            $(".datatables_processing").show();
+            element = $(this);
+            var userid = $(this).attr("data-id");
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes!",
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        type: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                                "content"
+                            ),
+                        },
+                        url: "fee-status-update",
+                        data: {
+                            id: userid,
+                        },
+                        dataType: "json",
+                        success: function (data) {
+                            feetable.ajax.reload();
+                        },
+                        error: function (data) {
+                            // console.log(data);
+                        },
+                    });
+                }
+            });
         });
     });
 
-    usertable.on("click", ".status", function () {
-        $(".datatables_processing").show();
-        element = $(this);
-        var userid = $(this).attr("data-id");
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes!",
-        }).then((result) => {
-            if (result.value) {
-                $.ajax({
-                    type: "POST",
-                    headers: {
-                        "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
-                            "content"
-                        ),
-                    },
-                    url: "user-status-update",
-                    data: {
-                        id: userid,
-                    },
-                    dataType: "json",
-                    success: function (data) {
-                        usertable.ajax.reload();
-                    },
-                    error: function (data) {
-                        // console.log(data);
-                    },
-                });
-            }
-        });
-    });
 
-    //-------------------------------------FEE DETAIL----------------------------------------------
 
-    var feetable = $("#feetable").DataTable({
+    /**
+     * Failure Payment table...
+     */
+
+    var paymenttable = $("#failurepaymenttable").DataTable({
         processing: true,
+        "scrollX": true,
         serverSide: true,
         ajax: {
-            url: "feedetails",
+            url: "failurepaymentdetails",
             type: "POST",
             beforeSend: function (request) {
                 request.setRequestHeader(
@@ -578,16 +653,46 @@ usertable.on('click', '.delete', function () {
                 );
             },
         },
-        columnDefs: [{ Fee: "dt-center", targets: "_all" }],
+        columnDefs: [{ payment: "dt-center", targets: "_all" }],
         columns: [
             {
-                data: "feetype",
+                data: "razorpay_id",
             },
             {
-                data: "fee",
+                data: "name",
+            },
+            {
+                data: "email",
+            },
+            {
+                data: "mobileno",
+            },
+            {
+                data: "amount",
+            },
+            {
+                data: "method",
             },
             {
                 data: "description",
+            },
+            {
+                data: "error_code",
+            },
+            {
+                data: "error_description",
+            },
+            {
+                data: "error_source",
+            },
+            {
+                data: "error_step",
+            },
+            {
+                data: "error_reason",
+            },
+            {
+                data: "payment_created_at",
             },
             {
                 data: "status",
@@ -598,202 +703,58 @@ usertable.on('click', '.delete', function () {
         ],
     });
 
-    feetable.on("click", ".delete", function () {
-        $(".datatable_processing").show();
-        element = $(this);
-        var userid = $(this).attr("data-id");
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-            if (result.value) {
-                $.ajax({
-                    type: "POST",
-                    headers: {
-                        "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
-                            "content"
-                        ),
-                    },
-                    url: "feedelete",
-                    data: {
-                        id: userid,
-                    },
-                    dataType: "json",
-                    success: function (data) {
-                        feetable.ajax.reload();
-                    },
-                    error: function (data) {
-                        // console.log(data);
-                    },
-                });
-            }
-        });
+
+    /**
+     * Success Payment table...
+     */
+
+
+    var paymenttable = $("#successpaymenttable").DataTable({
+        processing: true,
+        "scrollX": true,
+        serverSide: true,
+        ajax: {
+            url: "successpaymentdetails",
+            type: "POST",
+            beforeSend: function (request) {
+                request.setRequestHeader(
+                    "X-CSRF-TOKEN",
+                    $('meta[name="csrf-token"]').attr("content")
+                );
+            },
+        },
+        columnDefs: [{ payment: "dt-center", targets: "_all" }],
+        columns: [
+            {
+                data: "razorpay_id",
+            },
+            {
+                data: "name",
+            },
+            {
+                data: "email",
+            },
+            {
+                data: "mobileno",
+            },
+            {
+                data: "amount",
+            },
+            {
+                data: "method",
+            },
+            {
+                data: "description",
+            },
+            {
+                data: "status",
+            },
+            {
+                data: "payment_created_at",
+            },
+            {
+                data: "action",
+            },
+        ],
     });
-
-    feetable.on("click", ".status", function () {
-        $(".datatables_processing").show();
-        element = $(this);
-        var userid = $(this).attr("data-id");
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes!",
-        }).then((result) => {
-            if (result.value) {
-                $.ajax({
-                    type: "POST",
-                    headers: {
-                        "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
-                            "content"
-                        ),
-                    },
-                    url: "fee-status-update",
-                    data: {
-                        id: userid,
-                    },
-                    dataType: "json",
-                    success: function (data) {
-                        feetable.ajax.reload();
-                    },
-                    error: function (data) {
-                        // console.log(data);
-                    },
-                });
-            }
-        });
-    });
-});
-
-
-
-/**
- * Failure Payment table...
- */
-
-var paymenttable = $("#failurepaymenttable").DataTable({
-    processing: true,
-    "scrollX": true,
-    serverSide: true,
-    ajax: {
-        url: "failurepaymentdetails",
-        type: "POST",
-        beforeSend: function (request) {
-            request.setRequestHeader(
-                "X-CSRF-TOKEN",
-                jQuery('meta[name="csrf-token"]').attr("content")
-            );
-        },
-    },
-    columnDefs: [{ payment: "dt-center", targets: "_all" }],
-    columns: [
-        {
-            data: "razorpay_id",
-        }, 
-        {
-            data: "name",
-        },
-        {
-            data: "email",
-        },
-        {
-            data: "mobileno",
-        },
-        {
-            data: "amount",
-        }, 
-        {
-            data: "method",
-        },
-        {
-            data: "description",
-        }, 
-        {
-            data: "error_code",
-        },
-        {
-            data: "error_description",
-        }, 
-        {
-            data: "error_source",
-        }, 
-        {
-            data: "error_step",
-        },
-        {
-            data: "error_reason",
-        },
-        {
-            data: "payment_created_at",
-        },
-        {
-            data: "status",
-        },
-        {
-            data: "action",
-        },
-    ],
-});
-
-
-/**
- * Success Payment table...
- */
-
-
-var paymenttable = $("#successpaymenttable").DataTable({
-    processing: true,
-    "scrollX": true,
-    serverSide: true,
-    ajax: {
-        url: "successpaymentdetails",
-        type: "POST",
-        beforeSend: function (request) {
-            request.setRequestHeader(
-                "X-CSRF-TOKEN",
-                $('meta[name="csrf-token"]').attr("content")
-            );
-        },
-    },
-    columnDefs: [{ payment: "dt-center", targets: "_all" }],
-    columns: [
-        {
-            data: "razorpay_id",
-        }, 
-        {
-            data: "name",
-        },
-        {
-            data: "email",
-        },
-        {
-            data: "mobileno",
-        },
-        {
-            data: "amount",
-        }, 
-        {
-            data: "method",
-        },
-        {
-            data: "description",
-        }, 
-        {
-            data: "status",
-        },
-        {
-            data: "payment_created_at",
-        },
-        {
-            data: "action",
-        },
-    ],
 });
