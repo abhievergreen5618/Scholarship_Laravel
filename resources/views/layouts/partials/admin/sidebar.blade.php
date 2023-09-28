@@ -33,7 +33,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="{{route('admin.dashboard')}}" class="nav-link active">
+            <a href="{{route('admin.dashboard')}}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -112,7 +112,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="fa fa-user"></i>
+            <i class="nav-icon fa fa-user"></i>
               <p>
               Students
                 <i class="right fas fa-angle-left"></i>
@@ -142,7 +142,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-book" style="width: 28px; height: 17px; font-size: 25px;"></i>
+              <i class="nav-icon fa fa-book"></i>
               <p>
                 Fees
                 <i class="right fas fa-angle-left"></i>
@@ -165,7 +165,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-book" style="width: 28px; height: 17px; font-size: 25px;"></i>
+              <i class="nav-icon fa fa-book"></i>
               <p>
                 Revenue
                 <i class="right fas fa-angle-left"></i>
@@ -176,6 +176,29 @@
                 <a href="{{route('admin.payment.index')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>Payment</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-calendar"></i>
+              <p>
+                Session
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.session.add')}}" class="nav-link active">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Add Session</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.session.index')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>View All Session</p>
                 </a>
               </li>
             </ul>

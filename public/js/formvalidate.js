@@ -285,3 +285,12 @@ jQuery("#class-add-form").validate({
         form.submit();
     },
 });
+
+
+jQuery("#session-add-form").validate({
+    rules: {
+        name: "required",
+        description: "required",
+        status: "required",
+    },
+});

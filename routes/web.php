@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\FeeController;
 use App\Http\Controllers\Admin\PaymentRevenue;
 use App\Http\Controllers\Admin\ExcelImportController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\Admin\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +126,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/payment','index')->name('admin.payment.index');
         Route::post('/failurepaymentdetails', 'displayfailure')->name('admin.payment.failure.details');
         Route::post('/successpaymentdetails', 'displaysuccess')->name('admin.payment.success.details');
+    });
+    Route::controller(SessionController::class)->group(function () {
+        Route::get('/sessionlist','index')->name('admin.session.index');
+        Route::get('/addsession','create')->name('admin.session.add');
+        Route::post('/sessioncreate','store')->name('admin.session.store');
     });
 });
 

@@ -4,38 +4,25 @@
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">{{ __('Add Class') }}</h3>
+            <h3 class="card-title">{{ __('Add Session') }}</h3>
         </div>
         <!-- /.card-header -->
-        <form id="class-add-form" action="{{ isset($data) ? route('admin.class.update') : route('admin.class.store') }}" method="POST">
+        <form id="class-add-form" action="{{ isset($data) ? route('admin.session.update') : route('admin.session.store') }}" method="POST">
             @csrf
-
             @isset($data)
             <input type="hidden" name="id" value="{{ encrypt($data->id) }}">
             @endisset
 
             <div class="card-body">
                 <div>
-                    <div class="form-group">
-                        <label>Name</label>
-                        <select class="form-control @error('class') {{ 'is-invalid' }} @enderror" id="class" name="class">
-                            <option value="">Select Class</option>
-                            <!-- @for($i=1;$i<=12;$i++) @php if(!isset($data) || $data['class'] !=$i) { $valueExists=DB::table('class_models')->where('class', $i)->exists();
-                                if(!$valueExists) {
-                                echo "<option value='$i'>$i</option>";
-                                }
-                                }
-                                @endphp
-                                @endfor -->
-
-                        </select>
-
-                        @error('class')
+                    <div class="form-group mb-2">
+                        <label for="name">{{ __('Session Name') }}</label>
+                        <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name" name="name" placeholder="Name" value="{{@old('name',$data->name)}}">
+                        @error('name')
                         <div>
                             <label class="error fail-alert  mt-1" id="class-error">{{ $message }}</label>
                         </div>
                         @enderror
-
                     </div>
                     <div class="form-group mb-2">
                         <label for="exampleInputEmail1">{{ __('Description') }}</label>
@@ -65,3 +52,4 @@
         </form>
     </div>
 </div>
+@endsection
