@@ -69,6 +69,7 @@
   <script src="{{asset('/js/validate.min.js')}}"></script>
   <script src="{{asset('/js/formvalidate.js')}}"></script>
   <script src="{{asset('js/datashow.js')}}"></script>
+  <script src="{{asset('js/function.js')}}"></script>
   <script src="{{asset('js/custom.js')}}"></script>
   @stack("footer_extras")
 </body>
