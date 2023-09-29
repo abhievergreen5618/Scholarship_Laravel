@@ -31,14 +31,17 @@ $(document).ready(function () {
     // Initialize a variable to keep track of whether #reservation has been selected
     var reservationSelected = false;
 
-    // Set initial restrictions on page load if a date range is already selected
-    var initialStartDate = $('#reservation').data('daterangepicker').startDate.format('MM/DD/YYYY');
-    var initialEndDate = $('#reservation').data('daterangepicker').endDate.format('MM/DD/YYYY');
-    updateReservationDateRestrictions(initialStartDate, initialEndDate);
+    if ($('#reservation').length) {
+        // Set initial restrictions on page load if a date range is already selected
+        var initialStartDate = $('#reservation').data('daterangepicker').startDate.format('MM/DD/YYYY');
+        var initialEndDate = $('#reservation').data('daterangepicker').endDate.format('MM/DD/YYYY');
+        updateReservationDateRestrictions(initialStartDate, initialEndDate);
 
-    if ($('#reservation').val() !== '') {
-        reservationSelected = true;
+        if ($('#reservation').val() !== '') {
+            reservationSelected = true;
+        }
     }
+
 
     // Disable the #reservationdate input initially
     $('#reservationdate').prop('disabled', true);
