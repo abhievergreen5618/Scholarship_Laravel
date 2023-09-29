@@ -13,6 +13,36 @@
  ************************************************/
 
 $(document).ready(function () {
+
+    $(".alert").delay(8000)
+        .slideUp(200, function () {
+            $(this).alert("close");
+        });
+
+    $('#reservation').daterangepicker({
+        autoUpdateInput: false
+    });
+
+    $('#reservationdate').datetimepicker({
+        format: 'L',
+        useCurrent: false, // Disable auto-updating
+    });
+
+    // Initialize a variable to keep track of whether #reservation has been selected
+    var reservationSelected = false;
+
+    // Set initial restrictions on page load if a date range is already selected
+    var initialStartDate = $('#reservation').data('daterangepicker').startDate.format('MM/DD/YYYY');
+    var initialEndDate = $('#reservation').data('daterangepicker').endDate.format('MM/DD/YYYY');
+    updateReservationDateRestrictions(initialStartDate, initialEndDate);
+
+    if ($('#reservation').val() !== '') {
+        reservationSelected = true;
+    }
+
+    // Disable the #reservationdate input initially
+    $('#reservationdate').prop('disabled', true);
+
     // Hide the element with ID "categorycertificate"
     $("#categorycertificate").hide();
 
@@ -33,7 +63,7 @@ $(document).ready(function () {
     } else if ($("#category").length && $("#category :selected").val().length) {
         updateFee($("#category :selected").val());
     }
-    
+
 
     // Calculate and display percentage when inputs with class "marks-input" change
     $('.marks-input').on('input', function () {
@@ -272,7 +302,7 @@ $(document).ready(function () {
     var url = window.location;
 
     // for sidebar menu entirely but not cover treeview
-    $('ul.nav-sidebar a').filter(function() {
+    $('ul.nav-sidebar a').filter(function () {
         if (this.href) {
             return this.href == url || url.href.indexOf(this.href) == 0;
         }
@@ -280,11 +310,42 @@ $(document).ready(function () {
 
     // for the treeview
     $("ul.nav-treeview a").removeClass("active");
-  
-    $("ul.nav-treeview a").each(function(){
+
+    $("ul.nav-treeview a").each(function () {
         if (this.href && this.href == url) {
             $(this).addClass('active');
             $(this).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active')
         }
-    })
+    });
+
+    // Add an event listener for when the date range changes in #reservation
+    $('#reservation').on('apply.daterangepicker', function (ev, picker) {
+        // Get the selected start and end dates
+        var startDate = picker.startDate.format('MM/DD/YYYY');
+        var endDate = picker.endDate.format('MM/DD/YYYY');
+
+        // Update the value of #reservation input
+        $(this).val(startDate + ' - ' + endDate);
+
+        // Update #reservationdate restrictions
+        updateReservationDateRestrictions(startDate, endDate);
+
+        // Set the reservationSelected variable to true
+        reservationSelected = true;
+    });
+
+    // Add a click event to the #reservationdate input
+    $('#reservationdate').on('click', function () {
+        // Check if #reservation has been selected
+        if (!reservationSelected) {
+            alert('Please select session duration first.');
+            return;
+        }
+
+        $(this).datetimepicker('show');
+    });
+
+
+
+
 });

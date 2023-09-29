@@ -131,6 +131,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/sessionlist','index')->name('admin.session.index');
         Route::get('/addsession','create')->name('admin.session.add');
         Route::post('/sessioncreate','store')->name('admin.session.store');
+        Route::post('/sessiondetails','display')->name('admin.session.details');
+        Route::get('/sessionedit/{id}','edit')->name('admin.session.edit');
+        Route::post('/sessionupdate','update')->name('admin.session.update');
+        Route::post('/sessiondelete','destroy')->name('sessiondelete');
+        Route::post('/session-status-update','status')->name('session-status-update');
     });
 });
 

@@ -1,16 +1,18 @@
-@if (session()->has('msg'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert"
-        @isset($style) {{ $style }} @endisset>
-        <p class="m-0">{{ session()->get('msg') }}</p>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+@if(session()->has('msg'))
+<div id="toast-container" class="toast-top-right alert">
+    <div class="toast toast-success" aria-live="polite">
+        <div class="toast-message">{{ session()->get('msg') }}</div>
     </div>
+</div>
 @endif
-{{-- for display error alert --}}
-@if (session()->has('error'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" @isset($style) {{ $style }} @endisset>
-        <p class="m-0">{{ session()->get('error') }}</p>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+@if(session()->has('error'))
+<div id="toast-container" class="toast-top-right alert">
+    <div class="toast toast-error" aria-live="assertive">
+        <div class="toast-message">{{ session()->get('error') }}</div>
     </div>
+</div>
 @endif
+
+
 
 

@@ -93,8 +93,11 @@ class ClassController extends Controller
             [
                 "description"=>'required',
                 "status"=>'required',
+            ],
+            [
+                "required" => "This field is required.",
             ]
-            );
+        );
        try{
         ClassModel::create([
             "class" => $request->class,
@@ -149,6 +152,9 @@ class ClassController extends Controller
             [
                 "description"=>'required',
                 "status"=>'required',
+            ],
+            [
+                "required" => "This field is required.",
             ]
             );
 

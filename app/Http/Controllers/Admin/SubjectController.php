@@ -80,6 +80,9 @@ class SubjectController extends Controller
                 "name" => 'required',
                 "classes"=>'required',
                 "status"=>'required',
+            ],
+            [
+                "required" => "This field is required.",
             ]
         );
         $subject = Subject::create([
@@ -142,8 +145,11 @@ class SubjectController extends Controller
             [
                 "classes"=>'required',
                 "status"=>'required',
+            ],
+            [
+                "required" => "This field is required.",
             ]
-            );
+        );
 
         Subject::where("id",decrypt($request['id']))->update([
             "classes" => $request->classes,

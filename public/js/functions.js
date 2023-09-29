@@ -124,3 +124,11 @@ function getDynamicOptions() {
     };
     return dynamicOptions;
 }
+
+
+ // Function to update #reservationdate restrictions
+ function updateReservationDateRestrictions(startDate, endDate) {
+    // Set the minimum and maximum dates for #reservationdate
+    $('#reservationdate').datetimepicker('minDate', startDate);
+    $('#reservationdate').datetimepicker('maxDate', endDate);
+}

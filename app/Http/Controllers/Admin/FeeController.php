@@ -71,6 +71,9 @@ class FeeController extends Controller
                 "fee"=>'required',
                 "description"=>'required',
                 "status"=>'required',
+            ],
+            [
+                "required" => "This field is required.",
             ]
             );
 
@@ -99,6 +102,9 @@ class FeeController extends Controller
                 "fee"=>'required',
                 "description"=>'required',
                 "status"=>'required',
+            ],
+            [
+                "required" => "This field is required.",
             ]
             );
 

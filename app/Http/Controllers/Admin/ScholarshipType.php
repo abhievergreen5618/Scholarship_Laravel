@@ -23,12 +23,15 @@ class ScholarshipType extends Controller
     public function store(Request $request)
     {
         $request->validate(
-            [
-                "name"=>'required',
-                "description"=>'required',
-                "status"=>'required',
-            ]
-            );
+        [
+            "name"=>'required',
+            "description"=>'required',
+            "status"=>'required',
+        ],
+        [
+            "required" => "This field is required.",
+        ]
+        );
         ScholarshipList::create([
             "name" => $request->name,
             "description" => $request->description,
@@ -78,11 +81,14 @@ class ScholarshipType extends Controller
     public function update(Request $request)
     {
         $request->validate(
-            [
-                "description"=>'required',
-                "status"=>'required',
-            ]
-            );
+        [
+            "description"=>'required',
+            "status"=>'required',
+        ],
+        [
+            "required" => "This field is required.",
+        ]
+        );
         ScholarshipList::where("id",decrypt($request['id']))->update([
             "description" => $request->description,
             "status" => $request->status,

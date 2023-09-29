@@ -7,7 +7,7 @@
             <h3 class="card-title">{{ __('Add Session') }}</h3>
         </div>
         <!-- /.card-header -->
-        <form id="class-add-form" action="{{ isset($data) ? route('admin.session.update') : route('admin.session.store') }}" method="POST">
+        <form id="session-add-form" action="{{ isset($data) ? route('admin.session.update') : route('admin.session.store') }}" method="POST">
             @csrf
             @isset($data)
             <input type="hidden" name="id" value="{{ encrypt($data->id) }}">
@@ -24,9 +24,45 @@
                         </div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label>Session Duration</label>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control float-right @error('session_duration') {{ 'is-invalid' }} @enderror" id="reservation" autocomplete="off" name="session_duration" value="{{@old('session_duration',$data->session_duration)}}">
+                        </div>
+                        @error('session_duration')
+                        <div>
+                            <label class="error fail-alert  mt-1" id="class-error">{{ $message }}</label>
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Exam Date</label>
+                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="exam_date" autocomplete="off"  id="exam_date" value="{{@old('exam_date',$data->exam_date)}}" />
+                        </div>
+                        @error('exam_date')
+                        <div>
+                            <label class="error fail-alert  mt-1" id="class-error">{{ $message }}</label>
+                        </div>
+                        @enderror
+                    </div>
                     <div class="form-group mb-2">
                         <label for="exampleInputEmail1">{{ __('Description') }}</label>
                         <textarea class="form-control @error('description') {{ 'is-invalid' }} @enderror" id="description" name="description" rows="3" placeholder="Enter ...">{{@old('name',$data->description)}}</textarea>
+                        @error('description')
+                        <div>
+                            <label class="error fail-alert  mt-1" id="class-error">{{ $message }}</label>
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="">{{ __('Status') }}</label>

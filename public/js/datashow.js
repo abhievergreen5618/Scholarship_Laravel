@@ -1,9 +1,4 @@
 $(document).ready(function () {
-    $(".alert")
-        .delay(8000)
-        .slideUp(200, function () {
-            $(this).alert("close");
-        });
     //employee-list with the DataTables
     var classtable = $("#classtable").DataTable({
         processing: true,
@@ -279,7 +274,7 @@ $(document).ready(function () {
     });
 
     scholarshiptable.on("click", ".delete", function () {
-        $(".datatable_processing").show();
+        $(".dataTables_processing").show();
         element = $(this);
         var userid = $(this).attr("data-id");
         Swal.fire({
@@ -416,7 +411,7 @@ $(document).ready(function () {
 
 
     usertable.on('click', '.delete', function () {
-        $('.datatable_processing').show();
+        $('.dataTables_processing').show();
         element = $(this);
         var userid = $(this).attr('data-id');
         Swal.fire({
@@ -450,7 +445,7 @@ $(document).ready(function () {
     });
 
         usertable.on("click", ".delete", function () {
-            $(".datatable_processing").show();
+            $(".dataTables_processing").show();
             element = $(this);
             var userid = $(this).attr("data-id");
             Swal.fire({
@@ -559,7 +554,7 @@ $(document).ready(function () {
         });
 
         feetable.on("click", ".delete", function () {
-            $(".datatable_processing").show();
+            $(".dataTables_processing").show();
             element = $(this);
             var userid = $(this).attr("data-id");
             Swal.fire({
@@ -596,7 +591,7 @@ $(document).ready(function () {
         });
 
         feetable.on("click", ".status", function () {
-            $(".datatables_processing").show();
+            $(".dataTables_processing").show();
             element = $(this);
             var userid = $(this).attr("data-id");
             Swal.fire({
@@ -756,5 +751,117 @@ $(document).ready(function () {
                 data: "action",
             },
         ],
+    });
+
+    //sessiontable 
+
+    var sessiontable = $("#sessiontable").DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: "sessiondetails",
+            type: "POST",
+            beforeSend: function (request) {
+                request.setRequestHeader(
+                    "X-CSRF-TOKEN",
+                    jQuery('meta[name="csrf-token"]').attr("content")
+                );
+            },
+        },
+        columnDefs: [{ Fee: "dt-center", targets: "_all" }],
+        columns: [
+            {
+                data: "name",
+            },
+            {
+                data: "session_duration",
+            },
+            {
+                data: "description",
+            },
+            {
+                data: "exam_date",
+            },
+            {
+                data: "status",
+            },
+            {
+                data: "action",
+            },
+        ],
+    });
+
+    sessiontable.on("click", ".delete", function () {
+        $(".dataTables_processing").show();
+        element = $(this);
+        var userid = $(this).attr("data-id");
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                    url: "sessiondelete",
+                    data: {
+                        id: userid,
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        sessiontable.ajax.reload();
+                    },
+                    error: function (data) {
+                        // console.log(data);
+                    },
+                });
+            }
+        });
+    });
+
+    sessiontable.on("click", ".status", function () {
+        $(".dataTables_processing").show();
+        element = $(this);
+        var userid = $(this).attr("data-id");
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes!",
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                    url: "session-status-update",
+                    data: {
+                        id: userid,
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        sessiontable.ajax.reload();
+                    },
+                    error: function (data) {
+                        // console.log(data);
+                    },
+                });
+            }
+        });
     });
 });

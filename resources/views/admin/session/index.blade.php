@@ -29,12 +29,13 @@
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table style="text-align:center;" id="classtable" class="table table-bordered table-striped">
+                                    <table style="text-align:center;" id="sessiontable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Class</th>
+                                                <th>Name</th>
+                                                <th>Session Duration</th>
                                                 <th>Description</th>
-                                                <th>Subjects</th>
+                                                <th>Exam Date</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

@@ -270,6 +270,8 @@ jQuery("#bankform").validate({
 
 
 jQuery("#class-add-form").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
     rules: {
         name: "required",
         class: "required",
@@ -281,6 +283,13 @@ jQuery("#class-add-form").validate({
         classes: "Select an option",
         status: "Select an option",
     },
+    errorPlacement: function (error, element) {
+      if (element.attr("type") == "checkbox" || element.attr("type") == "radio") {
+        $(element).parent().parent().append(error);
+      } else {
+        element.after(error);
+      }
+    },
     submitHandler: function (form) {
         form.submit();
     },
@@ -288,9 +297,23 @@ jQuery("#class-add-form").validate({
 
 
 jQuery("#session-add-form").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
     rules: {
         name: "required",
         description: "required",
+        session_start_end: "required",
         status: "required",
     },
+    errorPlacement: function (error, element) {
+      if (element.attr("type") == "checkbox" || element.attr("type") == "radio") {
+        $(element).parent().parent().append(error);
+      } 
+      else if (element.attr("id") == "reservation") {
+        $(element).parent().parent().append(error);
+      }
+      else {
+        element.after(error);
+      }
+    }
 });
