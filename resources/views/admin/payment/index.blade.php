@@ -38,13 +38,13 @@
                     <div class="card-body">
                         <div class="tab-content" id="custom-tabs-five-tabContent">
                             <div class="tab-pane fade active show" id="all-payments" role="tabpanel" aria-labelledby="all-payments-tab">
-                                    @include('admin.payment.allpayment')
+                                @include('admin.payment.allpayment')
                             </div>
                             <div class="tab-pane fade" id="success-payments" role="tabpanel" aria-labelledby="success-payments-tab">
-                                    @include('admin.payment.success')
+                                @include('admin.payment.success')
                             </div>
                             <div class="tab-pane fade" id="failure-payments" role="tabpanel" aria-labelledby="failure-payments-tab">
-                                    @include('admin.payment.failure')
+                                @include('admin.payment.failure')
                             </div>
                         </div>
                     </div>
@@ -56,3 +56,51 @@
 </section>
 
 @endsection
+
+@push('footer_extras')
+<script>
+    var sessiondropdown = $("#sessiondropdown").select2();
+
+    var session = "all";
+
+    //revenuetable 
+    var revenuetable = $("#revenuetable").DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: "revenuepaymentdetails",
+            type: "POST",
+            beforeSend: function(request) {
+                request.setRequestHeader(
+                    "X-CSRF-TOKEN",
+                    jQuery('meta[name="csrf-token"]').attr("content")
+                );
+            },
+            "data": function(d) {
+                return $.extend({}, d, {
+                    "session": session,
+                });
+            }
+        },
+        columnDefs: [{
+            Fee: "dt-center",
+            targets: "_all"
+        }],
+        columns: [{
+                data: "razorpay_id",
+            },
+            {
+                data: "payment_created_at",
+            },
+            {
+                data: "amount",
+            },
+        ],
+    });
+
+    sessiondropdown.on('select2:select', function (e) {
+        session = e.params.data.id;
+        revenuetable.ajax.reload();
+    });
+</script>
+@endpush

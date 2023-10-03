@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('scholarship_sessions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('session_duration');
+            $table->string('session_duration_start');
+            $table->string('session_duration_end');
             $table->string('exam_date')->nullable();
             $table->string('description')->nullable();
             $table->string('status')->default('active');

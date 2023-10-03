@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PaymentsDetails;
+use App\Models\ScholarshipSession;
 use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB;
@@ -12,10 +13,11 @@ use Illuminate\Support\Facades\DB;
 class PaymentRevenue extends Controller
 {
 
-    public function index(PaymentsDetails $payment)
+    public function index(PaymentsDetails $payment,ScholarshipSession $session)
     {
+        $sessions = $session->sessionList();
         $totalincome = $payment->totalIncome();
-        return view('admin.payment.index')->with(["totalincome"=>$totalincome]);
+        return view('admin.payment.index')->with(["totalincome"=>$totalincome,"sessions"=>$sessions]);
     }
 
     public function displayfailure(Request $request,PaymentsDetails $payment)
@@ -77,6 +79,19 @@ class PaymentRevenue extends Controller
                 return $btn;
             })
             ->rawColumns(['name','email','mobileno','status','action'])->make(true);
+        }
+    }    
+
+    public function displayrevenue(Request $request,PaymentsDetails $payment)
+    {
+        if ($request->ajax()) {
+            $data = ($request->session == "all") ? $payment->successfulPayment() : $payment->sessionPayments($request->session);
+            return Datatables::of($data)
+            ->addColumn('amount', function ($row)
+            {
+                return '<span class="text-green"><strong>+ '.$row->amount.'</strong></span>';
+            })
+            ->rawColumns(['amount'])->make(true);
         }
     }
 }

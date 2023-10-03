@@ -442,7 +442,7 @@ $(document).ready(function () {
                     }
                 });
             };
-    });
+        });
 
         usertable.on("click", ".delete", function () {
             $(".dataTables_processing").show();
@@ -648,7 +648,6 @@ $(document).ready(function () {
                 );
             },
         },
-        columnDefs: [{ payment: "dt-center", targets: "_all" }],
         columns: [
             {
                 data: "razorpay_id",
@@ -718,7 +717,6 @@ $(document).ready(function () {
                 );
             },
         },
-        columnDefs: [{ payment: "dt-center", targets: "_all" }],
         columns: [
             {
                 data: "razorpay_id",

@@ -17,16 +17,22 @@ $(document).ready(function () {
     $(".alert").delay(8000)
         .slideUp(200, function () {
             $(this).alert("close");
+    });
+
+    if($('#reservation').length)
+    {
+        $('#reservation').daterangepicker({
+            autoUpdateInput: false
         });
+    }
 
-    $('#reservation').daterangepicker({
-        autoUpdateInput: false
-    });
-
-    $('#reservationdate').datetimepicker({
-        format: 'L',
-        useCurrent: false, // Disable auto-updating
-    });
+    if($('#reservationdate').length)
+    {
+        $('#reservationdate').datetimepicker({
+            format: 'L',
+            useCurrent: false, // Disable auto-updating
+        });
+    }
 
     // Initialize a variable to keep track of whether #reservation has been selected
     var reservationSelected = false;
@@ -53,6 +59,7 @@ $(document).ready(function () {
     $("#class").select2({
         tags: true
     });
+    
 
     // Check if an element with ID "state-dropdown" exists and has a selected value
     if ($("#state-dropdown").length && $("#state-dropdown :selected").val().length) {

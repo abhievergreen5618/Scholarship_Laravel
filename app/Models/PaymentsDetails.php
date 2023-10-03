@@ -48,4 +48,10 @@ class PaymentsDetails extends Model
     {
         return PaymentsDetails::where('status', 'authorized')->sum('amount');
     }
+
+    public function sessionPayments($session)
+    {
+        $session = ScholarshipSession::where('id',$session)->first(["session_duration_start","session_duration_end"]);
+        return PaymentsDetails::where('status', 'authorized')->whereBetween('payment_created_at',[$session['session_duration_start'],$session['session_duration_end']])->get();
+    }
 }

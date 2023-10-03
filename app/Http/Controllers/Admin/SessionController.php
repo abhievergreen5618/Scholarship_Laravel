@@ -9,6 +9,10 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use App\Helpers\DateHelper;
+use App\Rules\UniqueDateRange;
+
+
 
 class SessionController extends Controller
 {
@@ -40,18 +44,23 @@ class SessionController extends Controller
      */
     public function store(Request $request, ScholarshipSession $session)
     {
-        try {
-            $request->validate([
+
+        $request->validate(
+            [
                 "name" => "required",
-                "session_duration" => "required",
-                "description" => "required",
+                "session_duration" => ['required', new UniqueDateRange],
                 "status" => "required",
-            ], [
+            ], 
+            [
                 "required" => "The field is required.",
+                'session_duration.unique_date_range' => 'The session duration conflicts with an existing record.',
             ]);
 
+        try {
+            $sessionduration = splitDateRange($request->input('session_duration'));
             $session->name = $request->input('name');
-            $session->session_duration = $request->input('session_duration');
+            $session->session_duration_start = $sessionduration['startDate'];
+            $session->session_duration_end = $sessionduration['endDate'];
             $session->exam_date = $request->input('exam_date', null); // Use null as default if not provided
             $session->description = $request->input('description', null); // Use null as default if not provided
             $session->status = $request->input('status');
@@ -104,14 +113,15 @@ class SessionController extends Controller
                 [
                     "id" => "required",
                     "name" => "required",
-                    "session_duration" => "required",
-                    "description" => "required",
+                    "session_duration" => "required|date_range",
                     "status" => "required",
                 ],
                 [
                     "required" => "The field is required.",
                 ]
             );
+
+            $sessionduration = splitDateRange($request->input('session_duration'));
 
             // Retrieve the session by ID
             $session = ScholarshipSession::find(decrypt($request->input('id')));
@@ -121,7 +131,8 @@ class SessionController extends Controller
             }
 
             $session->name = $request->input('name');
-            $session->session_duration = $request->input('session_duration');
+            $session->session_duration_start = $sessionduration['startDate'];
+            $session->session_duration_end = $sessionduration['endDate'];
             $session->exam_date = $request->input('exam_date', null); // Use null as default if not provided
             $session->description = $request->input('description', null); // Use null as default if not provided
             $session->status = $request->input('status');
@@ -183,6 +194,9 @@ class SessionController extends Controller
         if ($request->ajax()) {
             $data = $session->getSession();
             return Datatables::of($data)
+            ->addColumn('session_duration', function ($row) {
+                return $row->session_duration_start." - ".$row->session_duration_end;
+            })
                 ->addColumn('status', function ($row) {
                     if ($row->status == "inactive") {
                         $class = "btn btn-danger ms-2 status";

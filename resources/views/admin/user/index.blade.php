@@ -17,10 +17,6 @@
     </div>
 </section>
 
-<div class="card-header" style="background-color:#007bff; color:white; margin:10px;">
-    <h3 class="card-title">Filter</h3>  
-</div>
-
 <section class="content">
     <div class="container-fluid">
         <div class="row">

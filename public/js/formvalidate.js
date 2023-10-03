@@ -301,8 +301,7 @@ jQuery("#session-add-form").validate({
     validClass: "valid success-alert",
     rules: {
         name: "required",
-        description: "required",
-        session_start_end: "required",
+        session_duration: "required",
         status: "required",
     },
     errorPlacement: function (error, element) {
