@@ -137,6 +137,12 @@
                   <p>Upload Result</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('admin.user.admitcard')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>Admit Card</p>
+                </a>
+              </li>
             </ul>
           </li>
 

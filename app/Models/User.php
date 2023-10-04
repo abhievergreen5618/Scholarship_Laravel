@@ -58,6 +58,7 @@ class User extends Authenticatable
         'class',
         'examdistrict',
         'amount',
+        'session',
     ];
 
 
@@ -223,6 +224,19 @@ class User extends Authenticatable
             $fee = FeeDetail::where("feecode",$physicallychallenged)->first('fee');
             return $fee->fee*100;
         }
+    }
+
+    public function sessionStudents($session)
+    {
+
+        return User::where('role','student')
+            ->where('session',$session)
+            ->get();
+    } 
+
+    public function students()
+    {
+        return User::where('role', 'student')->latest()->get();
     }
 
 }

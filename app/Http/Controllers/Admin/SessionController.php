@@ -108,18 +108,18 @@ class SessionController extends Controller
      */
     public function update(Request $request, ScholarshipSession $session)
     {
+        $request->validate(
+            [
+                "id" => "required",
+                "name" => "required",
+                "session_duration" => "required",
+                "status" => "required",
+            ],
+            [
+                "required" => "The field is required.",
+            ]
+        );
         try {
-            $request->validate(
-                [
-                    "id" => "required",
-                    "name" => "required",
-                    "session_duration" => "required|date_range",
-                    "status" => "required",
-                ],
-                [
-                    "required" => "The field is required.",
-                ]
-            );
 
             $sessionduration = splitDateRange($request->input('session_duration'));
 

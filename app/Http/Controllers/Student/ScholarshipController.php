@@ -16,6 +16,7 @@ use App\Models\DistrictModel;
 use App\Models\BankDetails;
 use App\Models\FeeDetail;
 use App\Models\ScholarshipList;
+use App\Models\ScholarshipSession;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use PDF;
@@ -25,7 +26,7 @@ use Razorpay\Api\Api;
 class ScholarshipController extends Controller
 {
 
-    public function index()
+    public function index(ScholarshipSession $session)
     {
         $states = StateModel::orderBy('name', 'asc')->orderBy('code', 'asc')->pluck('name','code');
 
@@ -35,11 +36,14 @@ class ScholarshipController extends Controller
 
         $classes = ClassModel::where('status','active')->orderBy('id','asc')->pluck('class','id');
 
+        $sessions = $session->sessionnameList();
+
         return view('student.form')->with([
             'states' => $states,
             'subjects' => $subjects,
             'classes' => $classes,
             'scholarship' => $scholarship,
+            'sessions' => $sessions,
         ]);
 
     }
@@ -131,6 +135,7 @@ class ScholarshipController extends Controller
             }
 
             User::where('id', decrypt($request['id']))->update([
+                "session" => $request['session'] ?? "",
                 "scholarshipname" => $request['scholarshipname'] ?? "",
                 "name" => $request['name'] ?? "",
                 "fathername" => $request['fathername'],

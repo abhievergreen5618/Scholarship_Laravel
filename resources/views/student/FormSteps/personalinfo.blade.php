@@ -13,6 +13,25 @@
                             <td colspan="3"><b><u>Fields marked <span style="color: red">*</span>are mandatory.</u></b></td>
                         </tr>
                         <tr>
+                            <td width="42%" class="vtext">Session
+                                <br>
+                                <strong>सत्र</strong>
+                            </td>
+                            <td class="colon">:</td>
+                            <td>
+                                <span id="Anthem_ctl00_ContentPlaceHolder1_ddlExamCenter__">
+                                    <select name="session" id="session" class="dropdownlong form-select">
+                                        <option value=""> Please Select </option>
+                                        @foreach($sessions as $key=>$session)
+                                            <option value="{{ $key }}" {{isset(auth()->user()->session) && $key == auth()->user()->session ? 'selected' : '' }}>
+                                                {{ $session }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
                             <td width="42%" class="vtext">Name of Scholarship
                                 <br>
                                 <strong>छात्रवृत्ति का नाम</strong>

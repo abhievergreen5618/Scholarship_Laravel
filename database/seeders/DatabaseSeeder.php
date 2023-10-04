@@ -12,6 +12,7 @@ use Database\Seeders\DistrictSeeder;
 use Database\Seeders\ClassSeeders;
 use Database\Seeders\FeeSeeder;
 use Database\Seeders\ScholarshipTypeSeeder;
+use Database\Seeders\SessionSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
             FeeSeeder::class,
             ScholarshipTypeSeeder::class,
             SubjectsSeeder::class,
+            SessionSeeder::class,
         ]);
     }
 }

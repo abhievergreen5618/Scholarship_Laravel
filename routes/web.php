@@ -105,6 +105,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/userresult', 'result')->name('admin.user.result');
         Route::any('/showresult', 'showresult')->name('admin.user.showresult');
         Route::post('/uploadressult','uploadresult')->name('admin.user.uploadresult');
+        Route::get('/admitcard','admitcard')->name('admin.user.admitcard');
     });
 
 

@@ -86,7 +86,8 @@
             Fee: "dt-center",
             targets: "_all"
         }],
-        columns: [{
+        columns: [
+            {
                 data: "razorpay_id",
             },
             {

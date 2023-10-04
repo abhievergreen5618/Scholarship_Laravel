@@ -25,12 +25,27 @@ class ScholarshipSession extends Model
 
     public function sessionList()
     {
-        $sessions = ScholarshipSession::all();
+        $sessions = ScholarshipSession::where('status','active')->get();
         if (!$sessions->isEmpty()) {
             $data = [];
             foreach($sessions as $session)
             {
-                $data[$session->id] = $session->session_duration_start." - ".$session->session_duration_end;
+                $data[$session->id] = $session->name." (".$session->session_duration_start." - ".$session->session_duration_end.") ";
+            }
+            return $data;
+        } else {
+            return [];
+        }   
+    }
+
+    public function sessionnameList()
+    {
+        $sessions = ScholarshipSession::where('status','active')->get();
+        if (!$sessions->isEmpty()) {
+            $data = [];
+            foreach($sessions as $session)
+            {
+                $data[$session->id] = $session->name;
             }
             return $data;
         } else {
@@ -52,6 +67,21 @@ class ScholarshipSession extends Model
             return $examDate;
         }
     }
+
+    public function getSessionDurationAttribute()
+    {
+        $sessionduration = $this->attributes['session_duration_start']." - ".$this->session_duration_end;
+
+        // Check if exam_date is not provided or is null
+        if ($sessionduration === null) {
+            return "N/A";
+        }
+        else
+        {
+            return $sessionduration;
+        }
+    }
+
     public function getdescriptionAttribute()
     {
         // Replace 'exam_date' with the actual attribute name

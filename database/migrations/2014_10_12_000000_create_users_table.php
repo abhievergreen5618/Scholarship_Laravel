@@ -48,6 +48,7 @@ return new class extends Migration
             $table->string('transaction_id')->nullable();
             $table->string('amount')->nullable();
             $table->string("class")->nullable();
+            $table->string("session")->nullable();
             $table->string("status")->default("active");
             $table->timestamp('step1_updated_at')->nullable();
             $table->timestamp('step2_updated_at')->nullable();

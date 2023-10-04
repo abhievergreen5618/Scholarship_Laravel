@@ -14,7 +14,6 @@
                             </select>
                         </div>
                     </div>
-                    <!-- /.form-group -->
                 </div>
                 <div class="col-lg-3 text-center">
                     <h3>Total Revenue</h3>
