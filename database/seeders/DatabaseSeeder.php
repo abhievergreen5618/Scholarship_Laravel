@@ -13,6 +13,7 @@ use Database\Seeders\ClassSeeders;
 use Database\Seeders\FeeSeeder;
 use Database\Seeders\ScholarshipTypeSeeder;
 use Database\Seeders\SessionSeeder;
+use Database\Seeders\OptionsSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
             ScholarshipTypeSeeder::class,
             SubjectsSeeder::class,
             SessionSeeder::class,
+            OptionsSeeder::class,
         ]);
     }
 }

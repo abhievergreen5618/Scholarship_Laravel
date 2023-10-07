@@ -239,4 +239,9 @@ class User extends Authenticatable
         return User::where('role', 'student')->latest()->get();
     }
 
+    public function getUserClass($userid)
+    {
+        return EducationDetails::where('user_id',$userid)->value('classes');
+    }
+
 }

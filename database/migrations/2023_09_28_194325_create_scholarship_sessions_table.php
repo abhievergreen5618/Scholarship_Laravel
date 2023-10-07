@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('session_duration_end');
             $table->string('exam_date')->nullable();
             $table->string('description')->nullable();
+            $table->string('current')->default('inactive');
+            $table->string('admitcard')->default('inactive');
             $table->string('status')->default('active');
             $table->timestamps();
         });

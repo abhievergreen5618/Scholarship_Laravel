@@ -36,6 +36,7 @@
                                                 <th>Session Duration</th>
                                                 <th>Description</th>
                                                 <th>Exam Date</th>
+                                                <th>Current</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>

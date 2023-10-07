@@ -585,6 +585,11 @@ var paymenttable = $("#successpaymenttable").DataTable({
 //sessiontable 
 
 var sessiontable = $("#sessiontable").DataTable({
+    "preDrawCallback": function (settings) {
+        setTimeout(function () {
+            admitCardButton();
+        }, 1000);
+    },
     processing: true,
     serverSide: true,
     ajax: {
@@ -610,6 +615,9 @@ var sessiontable = $("#sessiontable").DataTable({
         },
         {
             data: "exam_date",
+        },
+        {
+            data: "current",
         },
         {
             data: "status",
@@ -688,6 +696,47 @@ sessiontable.on("click", ".status", function () {
                 },
                 error: function (data) {
                     // console.log(data);
+                },
+            });
+        }
+    });
+});
+
+
+sessiontable.on("click", ".current", function () {
+    $(".dataTables_processing").show();
+    element = $(this);
+    var userid = $(this).attr("data-id");
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You will be able to revert this!!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes!",
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
+                        "content"
+                    ),
+                },
+                url: "current-session-update",
+                data: {
+                    id: userid,
+                },
+                dataType: "json",
+                success: function (data) {
+                    $(".dataTables_processing").hide();
+                    toastr.success(data.msg);
+                    sessiontable.ajax.reload();
+                },
+                error: function (data) {
+                    $(".dataTables_processing").hide();
+                    toastr.error(xhr.responseJSON.msg);
                 },
             });
         }

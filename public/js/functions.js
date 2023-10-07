@@ -132,3 +132,57 @@ function getDynamicOptions() {
     $('#reservationdate').datetimepicker('minDate', startDate);
     $('#reservationdate').datetimepicker('maxDate', endDate);
 }
+
+
+
+function admitCardButton() {
+    $("input[data-bootstrap-switch]").each(function() {
+       $("input[data-bootstrap-switch]").each(function() {
+        $(this).bootstrapSwitch({
+        'state':$(this).prop('checked'),
+        'onSwitchChange': function(event, state){
+        element = $(this);
+        var userid = $(this).attr("data-req-id");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You will be able to revert this!!",
+            icon: 'warning', // Use 'icon' instead of 'type'
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.value) {
+                $(".dataTables_processing").show();
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: 'admitcardupdate',
+                    data: {
+                        id: userid,
+                        state : state
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        $(".dataTables_processing").hide();
+                        toastr.success(data.msg);
+                        sessiontable.ajax.reload();
+                    },
+                    error: function (xhr) {
+                        $(".dataTables_processing").hide();
+                        toastr.error(xhr.responseJSON.msg);
+                    }
+                });
+            }
+            else
+            {
+                $(this).bootstrapSwitch('state',!state, true);
+            }
+        });
+        },
+        })
+    });
+    });
+}

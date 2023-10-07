@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Helpers\DateHelper;
 use App\Rules\UniqueDateRange;
+use App\Jobs\AdmitCardEmailToUsers;
+use Illuminate\Support\Facades\Artisan;
+
 
 
 
@@ -50,11 +53,12 @@ class SessionController extends Controller
                 "name" => "required",
                 "session_duration" => ['required', new UniqueDateRange],
                 "status" => "required",
-            ], 
+            ],
             [
                 "required" => "The field is required.",
                 'session_duration.unique_date_range' => 'The session duration conflicts with an existing record.',
-            ]);
+            ]
+        );
 
         try {
             $sessionduration = splitDateRange($request->input('session_duration'));
@@ -159,13 +163,13 @@ class SessionController extends Controller
                     "id" => "required",
                 ]
             );
-            ScholarshipSession::where("id",decrypt($request['id']))->delete();
+            ScholarshipSession::where("id", decrypt($request['id']))->delete();
         } catch (Exception $e) {
             Log::error($e->getMessage());
             // Log the exception for debugging: Log::error($e->getMessage());
             return response()->json(array("msg" => "Something Went Wrong."), 500);
         }
-        return response()->json(array('msg' => "Deleted Successfully"),200);
+        return response()->json(array('msg' => "Deleted Successfully"), 200);
     }
 
     public function status(Request $request)
@@ -194,9 +198,9 @@ class SessionController extends Controller
         if ($request->ajax()) {
             $data = $session->getSession();
             return Datatables::of($data)
-            ->addColumn('session_duration', function ($row) {
-                return $row->session_duration_start." - ".$row->session_duration_end;
-            })
+                ->addColumn('session_duration', function ($row) {
+                    return $row->session_duration_start . " - " . $row->session_duration_end;
+                })
                 ->addColumn('status', function ($row) {
                     if ($row->status == "inactive") {
                         $class = "btn btn-danger ms-2 status";
@@ -215,7 +219,73 @@ class SessionController extends Controller
                     $btn = "<div class='d-flex justify-content-around'><a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a><a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' '><i class='fa fa-trash' aria-hidden='true'></i></a></div>";
                     return $btn;
                 })
-                ->rawColumns(['status', 'action'])->make(true);
+                ->addColumn('current', function ($row) {
+                    $id = encrypt($row->id);
+                    $checked = ($row->current == "active") ? "checked" : "";
+                    if($row->current == "active")
+                    {
+                        $admitcardchecked = ($row->admitcard == "active") ? "checked" : "";
+                        $admitcard = "<div>Admit Card <input type='checkbox' name='my-checkbox' $admitcardchecked data-bootstrap-switch data-off-color='danger' data-on-color='success' data-req-id='$id'></div>";
+                    }
+                    else
+                    {
+                        $admitcard = "";
+                    }
+                    $btn = "<div class='icheck-primary d-inline'><input type='checkbox' class='current' data-id='$id' $checked></div>$admitcard";
+                    return $btn;
+                })
+                ->rawColumns(['status', 'action', 'current'])->make(true);
+        }
+    }
+
+    public function admitcardupdate(Request $request,ScholarshipSession $session)
+    {
+        if($request->ajax())
+        {
+            try
+            {
+                $request->validate([
+                    "id" => "required",
+                    "state" => "required",
+                ]);
+                $session->admitcardupdate($request->all());
+                if($request->state == "true")
+                {
+                    dispatch(new AdmitCardEmailToUsers());
+                }
+            }
+            catch (Exception $e) {
+                $message = $e->getMessage();
+                $line = $e->getLine();
+                $file = $e->getFile();
+
+                Log::error("Error in file $file at line $line: $message");
+                return response()->json(array("msg" => "Something Went Wrong."), 500);
+            }
+            return response()->json(array("msg" => "Status Updated Successfully"), 200);
+        }
+    }
+
+    public function currentsessionupdate(Request $request,ScholarshipSession $session)
+    {
+        if($request->ajax())
+        {
+            try
+            {
+                $request->validate([
+                    "id" => "required",
+                ]);
+                $session->currentsessionupdate($request->id);
+            }
+            catch (Exception $e) {
+                $message = $e->getMessage();
+                $line = $e->getLine();
+                $file = $e->getFile();
+
+                Log::error("Error in file $file at line $line: $message");
+                return response()->json(array("msg" => "Something Went Wrong."), 500);
+            }
+            return response()->json(array("msg" => "Status Updated Successfully"), 200);
         }
     }
 }

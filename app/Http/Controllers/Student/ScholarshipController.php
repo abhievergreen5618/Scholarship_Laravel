@@ -36,7 +36,7 @@ class ScholarshipController extends Controller
 
         $classes = ClassModel::where('status','active')->orderBy('id','asc')->pluck('class','id');
 
-        $sessions = $session->sessionnameList();
+        $sessions = $session->latestSessionNameList();
 
         return view('student.form')->with([
             'states' => $states,

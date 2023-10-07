@@ -8,7 +8,6 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
@@ -133,14 +132,14 @@
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.user.result')}}" class="nav-link">
-                  <i class="fas fa-list nav-icon"></i>
+                  <i class="fa fa-upload nav-icon"></i>
                   <p>Upload Result</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('admin.user.admitcard')}}" class="nav-link">
-                  <i class="fas fa-list nav-icon"></i>
-                  <p>Admit Card</p>
+                <a href="{{route('admin.emailtemplate.index')}}" class="nav-link">
+                  <i class="fa fa-file nav-icon"></i>
+                  <p>Email Templates</p>
                 </a>
               </li>
             </ul>
@@ -211,7 +210,5 @@
           </li>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
   </aside>

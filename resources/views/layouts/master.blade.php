@@ -65,11 +65,13 @@
   <script src="{{asset('adminlte/plugins/daterangepicker/daterangepicker.js')}}"></script>
   <script src="{{asset('adminlte/plugins/toastr/toastr.min.js')}}"></script>
   <script src="{{asset('adminlte/plugins/toastr/toastr.js.map')}}"></script>
+  <script src="{{asset('adminlte/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}"></script>
   <script src="{{asset('/js/sweetalert.min.js')}}"></script>
+  <script src="{{asset('/js/ckeditor/ckeditor.js')}}"></script>
+  <script src="{{asset('js/functions.js')}}"></script>
   <script src="{{asset('/js/validate.min.js')}}"></script>
   <script src="{{asset('/js/formvalidate.js')}}"></script>
   <script src="{{asset('js/datashow.js')}}"></script>
-  <script src="{{asset('js/functions.js')}}"></script>
   <script src="{{asset('js/custom.js')}}"></script>
   @stack("footer_extras")
 </body>

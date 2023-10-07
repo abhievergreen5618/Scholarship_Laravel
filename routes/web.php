@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClassController;
+use App\Http\Controllers\Admin\EmailTemplateController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ScholarshipType;
 use App\Http\Controllers\Admin\UserDetail;
@@ -105,7 +106,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/userresult', 'result')->name('admin.user.result');
         Route::any('/showresult', 'showresult')->name('admin.user.showresult');
         Route::post('/uploadressult','uploadresult')->name('admin.user.uploadresult');
-        Route::get('/admitcard','admitcard')->name('admin.user.admitcard');
+        Route::get('/admitcard/{id}','admitcarddownload')->name('admin.user.admitcard');
     });
 
 
@@ -129,6 +130,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/failurepaymentdetails', 'displayfailure')->name('admin.payment.failure.details');
         Route::post('/successpaymentdetails', 'displaysuccess')->name('admin.payment.success.details');
     });
+
+    Route::controller(EmailTemplateController::class)->group(function () {
+        Route::get('/emailtemplate','index')->name('admin.emailtemplate.index');
+        Route::post('/emailtemplatestore','store')->name('admin.emailtemplate.store');
+    });
+
     Route::controller(SessionController::class)->group(function () {
         Route::get('/sessionlist','index')->name('admin.session.index');
         Route::get('/addsession','create')->name('admin.session.add');
@@ -136,8 +143,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/sessiondetails','display')->name('admin.session.details');
         Route::get('/sessionedit/{id}','edit')->name('admin.session.edit');
         Route::post('/sessionupdate','update')->name('admin.session.update');
-        Route::post('/sessiondelete','destroy')->name('sessiondelete');
-        Route::post('/session-status-update','status')->name('session-status-update');
+        Route::post('/sessiondelete','destroy')->name('admin.session.delete');
+        Route::post('/session-status-update','status')->name('admin.session.status.update');
+        Route::post('/admitcardupdate','admitcardupdate')->name('admin.session.admitcard.update');
+        Route::post('/current-session-update','currentsessionupdate')->name('admin.session.current.update');
     });
 });
 

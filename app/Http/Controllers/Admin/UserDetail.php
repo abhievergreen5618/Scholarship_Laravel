@@ -58,24 +58,39 @@ class UserDetail extends Controller
         ]);
     }
 
-    public function display(Request $request, User $user)
+    public function display(Request $request, User $user,ScholarshipSession $session)
     {
         if ($request->ajax()) {
             $data = ($request->session == "all") ? $user->students() : $user->sessionStudents($request->session);
             return Datatables::of($data)->addIndexColumn()
-                ->addColumn('action', function ($row) {
+                ->addColumn('action', function ($row) use ($session) {
                     $id = encrypt($row->id);
                     $editlink = route('admin.user.edit', ['id' => $id]);
                     $viewdatalink = route('admin.user.viewdata', ['id' => $id]);
+                    // Check if admit card generation is enabled for the current session
+                    if($session->isAdmitCardGenerationEnabledForCurrentSession())
+                    {
+                        $admitcardlink = route('admin.user.admitcard', ['id' => $id]);
+                        $admitCard = "<a href='$admitcardlink' class='btn limegreen btn-primary edit ml-2' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Admit Card' target='_blank'><i class='fa fa-id-card'></i></a>";
+                    }
+                    else
+                    {
+                        $admitCard = "";
+                    }
+
                     $btn = "<div class='d-flex justify-content-around'>
-                    <a href='$viewdatalink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='View' class='btn limegreen btn-primary view'><i class='fa fa-eye'></i></a>
-                    <a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary  edit'><i class='fas fa-edit'></i></a>
-                    <a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger  '  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete' '><i class='fa fa-trash' aria-hidden='true'></i></a>
+                    <a href='$viewdatalink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='View' class='btn limegreen btn-primary view ml-2'><i class='fa fa-eye'></i></a>
+                    $admitCard
+                    <a href='$editlink' data-id='$id' data-bs-toggle='tooltip' data-bs-placement='top' title='Edit' class='btn limegreen btn-primary edit ml-2'><i class='fas fa-edit'></i></a>
+                    <a href='javascript:void(0)' data-id='$id' class='delete btn red-btn btn-danger ml-2'  data-bs-toggle='tooltip' data-bs-placement='top' title='Delete'><i class='fa fa-trash' aria-hidden='true'></i></a>
                     </div>";
                     return $btn;
                 })
                 ->addColumn('gender', function ($row) {
                     return $row->gender === 'F' ? 'Female' : 'Male';
+                })
+                ->addColumn('class', function ($row) use ($user) {
+                    return $user->getUserClass($row->id);
                 })
                 ->addColumn('session', function ($row) {
                     return ScholarshipSession::where('id', $row->session)->value('name');
@@ -384,8 +399,9 @@ class UserDetail extends Controller
         return back()->with("msg", "Bank Details Added Successfully");
     }
 
-    public function admitcard()
+    public function admitcarddownload($id)
     {
-        return view("");
+        // dd(decrypt($id));
+        return view("admin.user.admitcard");
     }
 }
