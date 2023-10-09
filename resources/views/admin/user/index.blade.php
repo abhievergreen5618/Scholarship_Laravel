@@ -41,10 +41,24 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Class</label>
+                                        <div class="select2-purple">
+                                            <select class="select2" id="classdropdown" data-placeholder="Select Class" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                                <option value="">Select Class</option>
+                                                @foreach($classes as $key => $class)
+                                                <option value="{{$key}}">{{$class}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-sm-12">
                                     <table style="text-align:center;" id="usertable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Roll No</th>
                                                 <th>Name</th>
                                                 <th>Email-ID</th>
                                                 <th>Mobile No.</th>
@@ -82,12 +96,17 @@
 <script>
     var sessiondropdown = $("#sessiondropdown").select2();
 
+    var classdropdown = $("#classdropdown").select2();
+
     var session = "all";
+
+    var selectedclass = "all";
 
     //-------------------------------------USER DETAIL----------------------------------------------
 
     var usertable = $("#usertable").DataTable({
         processing: true,
+        "scrollX": true,
         serverSide: true,
         ajax: {
             url: "userdetails",
@@ -101,6 +120,7 @@
             "data": function(d) {
                 return $.extend({}, d, {
                     "session": session,
+                    "class": selectedclass
                 });
             }
         },
@@ -108,7 +128,12 @@
             "Name": "dt-center",
             "targets": "_all"
         }],
-        "columns": [{
+        "columns": [
+            {
+                "data": "roll_number",
+                "defaultContent": "Not Provided"
+            },
+            {
                 "data": "name",
                 "defaultContent": "Not Provided"
             },
@@ -228,6 +253,10 @@
 
     sessiondropdown.on('select2:select', function(e) {
         session = e.params.data.id;
+        usertable.ajax.reload();
+    });
+    classdropdown.on('select2:select', function(e) {
+        selectedclass = e.params.data.id;
         usertable.ajax.reload();
     });
 </script>

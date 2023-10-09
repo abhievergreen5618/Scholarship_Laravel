@@ -21,6 +21,11 @@ class ClassModel extends Model
         return $this->belongsToMany(Subject::class);
     } 
 
+    public function classesList()
+    {
+        return ClassModel::orderBy('id','asc')->pluck('class','id');
+    }
+
 }
 
 

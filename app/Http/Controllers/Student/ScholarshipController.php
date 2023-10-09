@@ -55,6 +55,8 @@ class ScholarshipController extends Controller
         $html = '<option value="">-- Select District --</option>';
         if ($districts->isEmpty()) {
             $districts = StateModel::where('code', $stateCode)->pluck('name','code');
+            
+
             foreach ($districts as $key=>$district) {
                 $selected = isset(Auth::user()->examdistrict) && $key == Auth::user()->examdistrict ? 'selected' : '';
                 $html .= '<option value="'.$key.'" '.$selected.'>'.$district.'</option>';
@@ -78,7 +80,6 @@ class ScholarshipController extends Controller
      */
     public function create(Request $request)
     {
-
         $validator = Validator::make(
             $request->all(),
             [

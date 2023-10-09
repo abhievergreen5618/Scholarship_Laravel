@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\PaymentRevenue;
 use App\Http\Controllers\Admin\ExcelImportController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Admin\SessionController;
+use App\Http\Controllers\Admin\StateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -134,6 +135,13 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(EmailTemplateController::class)->group(function () {
         Route::get('/emailtemplate','index')->name('admin.emailtemplate.index');
         Route::post('/emailtemplatestore','store')->name('admin.emailtemplate.store');
+    });
+
+    Route::controller(StateController::class)->group(function () {
+        Route::get('/states','index')->name('admin.states');
+        Route::get('/addstate','create')->name('admin.state.add');
+        Route::post('/statesstore','store')->name('admin.state.store');
+        Route::get('/stateedit/{id}','edit')->name('admin.state.edit');
     });
 
     Route::controller(SessionController::class)->group(function () {

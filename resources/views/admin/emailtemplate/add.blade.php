@@ -55,6 +55,10 @@
                                             <input type="text" class="form-control" value="[exam_date]" disabled>
                                         </div>
                                         <div class="form-group">
+                                            <label>Exam Time</label>
+                                            <input type="text" class="form-control" value="[exam_time]" disabled>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Exam Center</label>
                                             <input type="text" class="form-control" value="[exam_center]" disabled>
                                         </div>

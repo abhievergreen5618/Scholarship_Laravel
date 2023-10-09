@@ -39,9 +39,8 @@ class AdmitCard extends Mailable
         $this->body= str_replace('[father_name]',$userdetails->fathername,$this->body);
         $this->body= str_replace('[student_address]',$userdetails->caddress,$this->body);
         $this->body= str_replace('[student_dob]',$userdetails->dob,$this->body);
-
-        // $this->body= str_replace('[exam_date]',$examdetails->exam_date,$this->body);
-        // $this->body= str_replace('[exam_center]',$examdetails->exam_center,$this->body);
+        $this->body= str_replace('[exam_date]',$examdetails->exam_date,$this->body);
+        $this->body= str_replace('[exam_center]',$userdetails->examcentre,$this->body);
         // $this->body= str_replace('[exam_venue]',$examdetails->exam_venue,$this->body);
         // $this->body= str_replace('[admit_card_link]',$admitcardlink,$this->body);
     }

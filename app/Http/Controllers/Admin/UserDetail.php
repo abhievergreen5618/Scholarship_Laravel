@@ -24,10 +24,11 @@ class UserDetail extends Controller
 {
     //
 
-    public function index(ScholarshipSession $session)
+    public function index(ScholarshipSession $session,ClassModel $class)
     {
         $sessions = $session->sessionnameList();
-        return view('admin.user.index')->with(["sessions" => $sessions]);
+        $classes = $class->classesList();
+        return view('admin.user.index')->with(["sessions" => $sessions,"classes"=>$classes]);
     }
 
     public function create()
@@ -61,7 +62,22 @@ class UserDetail extends Controller
     public function display(Request $request, User $user,ScholarshipSession $session)
     {
         if ($request->ajax()) {
-            $data = ($request->session == "all") ? $user->students() : $user->sessionStudents($request->session);
+            if($request->session != "all" && $request->class != "all")
+            {
+                $data = $user->sessionAndClassStudents($request->session,$request->class);
+            }
+            elseif($request->session != "all" && $request->class == "all")
+            {
+                $data = $user->sessionStudents($request->session);
+            }
+            elseif($request->session == "all" && $request->class != "all")
+            {
+                $data = $user->classStudents($request->class);
+            }
+            else
+            {
+                $data = $user->students();
+            }
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('action', function ($row) use ($session) {
                     $id = encrypt($row->id);

@@ -228,7 +228,6 @@ class User extends Authenticatable
 
     public function sessionStudents($session)
     {
-
         return User::where('role','student')
             ->where('session',$session)
             ->get();
@@ -242,6 +241,18 @@ class User extends Authenticatable
     public function getUserClass($userid)
     {
         return EducationDetails::where('user_id',$userid)->value('classes');
+    } 
+    
+    public function sessionAndClassStudents($session,$class)
+    {
+        return User::whereHas('educationDetails', function ($query) use ($class) {
+            $query->where('classes', $class);
+        })->where(['role'=>'student','session'=>$session])->get();
+    } 
+    public function classStudents($class)
+    {
+        return User::whereHas('educationDetails', function ($query) use ($class) {
+            $query->where('classes', $class);
+        })->where('role', 'student')->get();
     }
-
 }

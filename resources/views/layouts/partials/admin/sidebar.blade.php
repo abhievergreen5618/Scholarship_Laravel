@@ -147,7 +147,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-book"></i>
+              <i class="fas fa-rupee-sign nav-icon"></i>
               <p>
                 Fees
                 <i class="right fas fa-angle-left"></i>
@@ -204,6 +204,29 @@
                 <a href="{{route('admin.session.index')}}" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>View All Session</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                States
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.state.add')}}" class="nav-link active">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Add State</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.states')}}" class="nav-link">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>View All states</p>
                 </a>
               </li>
             </ul>

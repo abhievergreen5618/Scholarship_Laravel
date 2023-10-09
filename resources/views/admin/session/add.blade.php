@@ -47,7 +47,7 @@
                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="exam_date" autocomplete="off"  id="exam_date" value="{{@old('exam_date',$data->exam_date)}}" />
+                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="exam_date" autocomplete="off" id="exam_date" value="{{@old('exam_date',$data->exam_date)}}" />
                         </div>
                         @error('exam_date')
                         <div>
