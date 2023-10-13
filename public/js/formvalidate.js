@@ -316,3 +316,20 @@ jQuery("#session-add-form").validate({
       }
     }
 });
+
+jQuery("#state-add-form").validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+    rules: {
+        name: "required",
+        status: "required",
+    },
+    errorPlacement: function (error, element) {
+      if (element.attr("type") == "checkbox" || element.attr("type") == "radio") {
+        $(element).parent().parent().append(error);
+      }
+      else {
+        element.after(error);
+      }
+    }
+});

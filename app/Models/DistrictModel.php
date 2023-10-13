@@ -10,6 +10,26 @@ class DistrictModel extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'statecode'
+        'name', 
+        'statecode',
+        'description',
+        'examdate',
+        'examstarttime',
+        'examendtime',
     ];
+
+    public function getDistricts()
+    {
+        return DistrictModel::all();
+    }
+
+    public function getDistrictsList($statecode)
+    {
+        return DistrictModel::where('statecode',$statecode)->pluck('name','id');
+    }
+
+    public function getDistrictNameByID($id)
+    {
+        return DistrictModel::where('id',$id)->value('name');
+    }
 }

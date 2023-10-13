@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClassController;
+use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\EmailTemplateController;
 use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ScholarshipType;
@@ -16,6 +17,7 @@ use App\Http\Controllers\Admin\ExcelImportController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Admin\SessionController;
 use App\Http\Controllers\Admin\StateController;
+use App\Http\Controllers\Admin\VenueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -138,11 +140,40 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::controller(StateController::class)->group(function () {
-        Route::get('/states','index')->name('admin.states');
+        Route::get('/states','index')->name('admin.state.index');
         Route::get('/addstate','create')->name('admin.state.add');
         Route::post('/statesstore','store')->name('admin.state.store');
         Route::get('/stateedit/{id}','edit')->name('admin.state.edit');
+        Route::post('/statedetails','display')->name('admin.state.details');
+        Route::post('/stateupdate','update')->name('admin.state.update');
+        Route::post('/statedelete','destroy')->name('admin.state.delete');
+        Route::post('/state-status-update','status')->name('admin.state.status.update');
+        Route::post('/stateexam','setexamdatetime')->name('admin.state.exam.update');
     });
+
+    Route::controller(DistrictController::class)->group(function () {
+        Route::get('/districts','index')->name('admin.district.index');
+        Route::get('/adddistrict','create')->name('admin.district.add');
+        Route::post('/districtstore','store')->name('admin.district.store');
+        Route::get('/districtedit/{id}','edit')->name('admin.district.edit');
+        Route::post('/districtdetails','display')->name('admin.district.details');
+        Route::post('/districtupdate','update')->name('admin.district.update');
+        Route::post('/districtdelete','destroy')->name('admin.district.delete');
+        Route::post('/district-status-update','status')->name('admin.district.status.update');
+    });
+
+    
+    Route::controller(VenueController::class)->group(function () {
+        Route::get('/venues','index')->name('admin.venue.index');
+        Route::get('/addvenue','create')->name('admin.venue.add');
+        Route::post('/venuestore','store')->name('admin.venue.store');
+        Route::get('/venueedit/{id}','edit')->name('admin.venue.edit');
+        Route::post('/venuedetails','display')->name('admin.venue.details');
+        Route::post('/venueupdate','update')->name('admin.venue.update');
+        Route::post('/venuedelete','destroy')->name('admin.venue.delete');
+        Route::post('/venue-status-update','status')->name('admin.venue.status.update');
+    });
+
 
     Route::controller(SessionController::class)->group(function () {
         Route::get('/sessionlist','index')->name('admin.session.index');

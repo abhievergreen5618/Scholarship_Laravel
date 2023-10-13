@@ -355,7 +355,25 @@ $(document).ready(function () {
         $(this).datetimepicker('show');
     });
 
+    // Add a click event to the #reservationdate input
+    $(document).on('click','#starttimepicker',function () {
+        $('#reservationdate').datetimepicker('hide');
+        $('#endtimepicker').datetimepicker('hide');
+        $(this).datetimepicker('show');
+    });
+
+     // Add a click event to the #reservationdate input
+     $(document).on('click','#endtimepicker',function () {
+        $('#reservationdate').datetimepicker('hide');
+        $('#starttimepicker').datetimepicker('hide');
+        $(this).datetimepicker('show');
+    });
 
 
-
+    // Add a click event to the #reservationdate input
+    $(document).on('click','#reservationdate', function () {
+        $('#starttimepicker').datetimepicker('hide');
+        $('#endtimepicker').datetimepicker('hide');
+        $(this).datetimepicker('show');
+    });
 });

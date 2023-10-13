@@ -17,6 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('statecode', 2);
+            $table->string('description')->nullable();
+            $table->date('examdate')->nullable();
+            $table->time('examstarttime')->nullable();
+            $table->time('examendtime')->nullable();
+            $table->string('status')->default("active");
             $table->timestamps();
         });
     }

@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('state_models', function (Blueprint $table) {
+        Schema::create('exam_venue', function (Blueprint $table) {
             $table->id();
+            $table->string('statecode');
+            $table->unsignedBigInteger('district');
             $table->string('name');
-            $table->string('code', 2)->unique();
-            $table->string('description')->nullable();
-            $table->date('examdate')->nullable();
-            $table->time('examstarttime')->nullable();
-            $table->time('examendtime')->nullable();
+            $table->string('address');
             $table->string('status')->default("active");
             $table->timestamps();
         });
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('state_models');
+        Schema::dropIfExists('exam_venue');
     }
 };

@@ -4,20 +4,34 @@
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">{{ __('Add Subjects') }}</h3>
+            <h3 class="card-title">{{ __('Add District') }}</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form id="state-add-form" action="{{ isset($data) ? route('admin.state.update') : route('admin.state.store') }}" method="POST">
+        <form id="district-add-form" action="{{ isset($data) ? route('admin.district.update') : route('admin.district.store') }}" method="POST">
             @csrf
             @isset($data)
             <input type="hidden" name="id" value="{{encrypt($data->id)}}">
             @endisset
             <div class="card-body">
                 <div>
+                    <div class="form-group">
+                        <label>State</label>
+                        <select class="form-control @error('state') {{ 'is-invalid' }} @enderror" id="state" name="state">
+                            <option value="">Select State</option>
+                            @foreach($states as $key => $state)
+                            <option value="{{ $key }}" @isset($data) {{($key==$data->statecode) ? 'selected' : '' }} @endisset>{{ $state }}</option>
+                            @endforeach
+                        </select>
+                        @error('state')
+                        <div>
+                            <label class="error fail-alert mt-1" id="state-error">{{ $message }}</label>
+                        </div>
+                        @enderror
+                    </div>
                     <div class="form-group mb-2">
-                        <label for="name">{{ __('State Name') }}</label>
-                        <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name" name="name" placeholder="State Name" value="{{@old('name',$data->name)}}">
+                        <label for="name">{{ __('District Name') }}</label>
+                        <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name" name="name" placeholder="District Name" value="{{@old('name',$data->name)}}">
                     </div>
                     @error('name')
                     <div>
@@ -40,7 +54,7 @@
                         </div>
                         @error('status')
                         <div>
-                            <label class="error fail-alert  mt-1" >{{ $message }}</label>
+                            <label class="error fail-alert  mt-1">{{ $message }}</label>
                         </div>
                         @enderror
                     </div>
@@ -54,13 +68,3 @@
 </div>
 
 @endsection
-
-
-@push("footer_extras")
-<script>
-    $("#class").select2({
-        multiple: true
-    });
-</script>
-
-@endpush

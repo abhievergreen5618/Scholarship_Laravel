@@ -52,7 +52,7 @@ class ScholarshipController extends Controller
     {
         $stateCode = $request->post('stateCode');
         $districts = DistrictModel::where('statecode', $stateCode)->orderBy('name', 'asc')->pluck('name','id');
-        $html = '<option value="">-- Select District --</option>';
+        $html = '<option value="">Select District</option>';
         if ($districts->isEmpty()) {
             $districts = StateModel::where('code', $stateCode)->pluck('name','code');
             

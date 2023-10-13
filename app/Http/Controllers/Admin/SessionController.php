@@ -5,14 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ScholarshipSession;
 use Exception;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use App\Helpers\DateHelper;
 use App\Rules\UniqueDateRange;
 use App\Jobs\AdmitCardEmailToUsers;
-use Illuminate\Support\Facades\Artisan;
 
 
 
@@ -47,7 +44,6 @@ class SessionController extends Controller
      */
     public function store(Request $request, ScholarshipSession $session)
     {
-
         $request->validate(
             [
                 "name" => "required",
