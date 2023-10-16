@@ -862,97 +862,8 @@ statetable.on("click", ".admitcardtimedate", function () {
     var examdate = $(this).attr("data-examdate");
     var examstarttime = $(this).attr("data-examstarttime");
     var examendtime = $(this).attr("data-examendtime");
-    Swal.fire({
-        title: 'Set Exam Date And Time',
-        html: `
-            <div class="bootstrap-datepicker">
-                <div class="form-group">
-                    <label>Exam Date</label>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
-                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" value="${examdate}"/>
-                    </div>
-                </div>
-            </div>
-            <div class="bootstrap-timepicker">
-                <div class="form-group">
-                    <label>Exam Start Time</label>
-                    <div class="input-group date" id="starttimepicker" data-target-input="nearest">
-                        <div class="input-group-append" data-target="#starttimepicker" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="far fa-clock"></i></div>
-                        </div>
-                        <input type="text" class="form-control datetimepicker-input" data-target="#starttimepicker" value="${examstarttime}"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Exam End Time</label>
-                    <div class="input-group date" id="endtimepicker" data-target-input="nearest">
-                        <div class="input-group-append" data-target="#endtimepicker" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="far fa-clock"></i></div>
-                        </div>
-                        <input type="text" class="form-control datetimepicker-input" data-target="#endtimepicker" value="${examendtime}"/>
-                    </div>
-                </div>
-            </div>
-        `,
-        didOpen: function () {
-            // Initialize the date and time pickers
-            $('#reservationdate').datetimepicker({
-                format: 'L'
-            });
-            $('#starttimepicker').datetimepicker({
-                format: 'LT'
-            });
-            $('#endtimepicker').datetimepicker({
-                format: 'LT'
-            });
-        },
-        showCancelButton: true,
-        confirmButtonText: 'Submit',
-        preConfirm: () => {
-            const selectedDate = $('#reservationdate').data('datetimepicker').date();
-            const selectedStartTime = $('#starttimepicker').data('datetimepicker').date();
-            const selectedEndTime = $('#endtimepicker').data('datetimepicker').date();
-    
-            if (!selectedDate || !selectedStartTime || !selectedEndTime) {
-                Swal.showValidationMessage(`Please select a valid date and time.`);
-            }
-    
-            return {
-                date: selectedDate.format('L'),
-                startTime: selectedStartTime.format('LT'),
-                endTime: selectedEndTime.format('LT')
-            };
-        }
-    }).then((result) => {
-        if (result.value) {
-            $.ajax({
-                type: "POST",
-                headers: {
-                    "X-CSRF-TOKEN": jQuery('meta[name="csrf-token"]').attr(
-                        "content"
-                    ),
-                },
-                url: "stateexam",
-                data: {
-                    examdate : result.value.date,
-                    examstarttime : result.value.startTime,
-                    examendtime : result.value.endTime,
-                    id : stateid
-                },
-                dataType: "json",
-                success: function (data) {
-                    statetable.ajax.reload();
-                    toastr.success(data.msg);
-                },
-                error: function (data) {
-                    toastr.error(data.responseJSON.msg);
-                },
-            });
-        }
-    });    
+    var url = $(this).attr("data-url");
+    setExamDate(stateid,examdate,examstarttime,examendtime,url,"state"); 
 });
 
 
@@ -1065,6 +976,18 @@ districttable.on("click", ".delete", function () {
             });
         }
     });
+});
+
+
+districttable.on("click", ".admitcardtimedate", function () {
+    $(".dataTables_processing").show();
+    element = $(this);
+    var districtid = $(this).attr("data-id");
+    var examdate = $(this).attr("data-examdate");
+    var examstarttime = $(this).attr("data-examstarttime");
+    var examendtime = $(this).attr("data-examendtime");
+    var url = $(this).attr("data-url");
+    setExamDate(districtid,examdate,examstarttime,examendtime,url,"district"); 
 });
 
 

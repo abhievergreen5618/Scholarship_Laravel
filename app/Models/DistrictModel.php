@@ -16,6 +16,7 @@ class DistrictModel extends Model
         'examdate',
         'examstarttime',
         'examendtime',
+        'status',
     ];
 
     public function getDistricts()

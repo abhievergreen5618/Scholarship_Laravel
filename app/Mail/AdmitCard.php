@@ -14,11 +14,6 @@ class AdmitCard extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $userdetails;
-    public $subjects;
-    public $examdetails;
-    public $type;
-    public $admitcardlink;
     public $body;
 
     /**
@@ -26,23 +21,9 @@ class AdmitCard extends Mailable
      *
      * @return void
      */
-    public function __construct($userdetails,$subjects,$examdetails,$admitcardlink)
+    public function __construct($body)
     {
-        $options = new Option();
-        $this->userdetails = $userdetails;
-        $this->subjects=$subjects;
-        $this->examdetails=$examdetails;
-        $this->admitcardlink=$admitcardlink;
-        $this->body= $options->get_option('admitcardtemplate');     
-        $this->body= str_replace('[student_name]',$userdetails->name,$this->body);
-        $this->body= str_replace('[mother_name]',$userdetails->mothername,$this->body);
-        $this->body= str_replace('[father_name]',$userdetails->fathername,$this->body);
-        $this->body= str_replace('[student_address]',$userdetails->caddress,$this->body);
-        $this->body= str_replace('[student_dob]',$userdetails->dob,$this->body);
-        $this->body= str_replace('[exam_date]',$examdetails->exam_date,$this->body);
-        $this->body= str_replace('[exam_center]',$userdetails->examcentre,$this->body);
-        // $this->body= str_replace('[exam_venue]',$examdetails->exam_venue,$this->body);
-        // $this->body= str_replace('[admit_card_link]',$admitcardlink,$this->body);
+        $this->body = $body; 
     }
 
     /**

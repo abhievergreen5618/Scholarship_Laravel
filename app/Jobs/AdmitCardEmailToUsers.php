@@ -10,6 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdmitCard;
+use App\Models\Option;
 use App\Models\User;
 
 class AdmitCardEmailToUsers implements ShouldQueue
@@ -21,9 +22,14 @@ class AdmitCardEmailToUsers implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+
+    protected $id;
+    protected $columnname;
+
+    public function __construct($id, $columnname)
     {
-        
+        $this->id = $id;
+        $this->columnname = $columnname;
     }
 
     /**
@@ -31,15 +37,30 @@ class AdmitCardEmailToUsers implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(Option $option)
     {
-        $students = User::where([
+        $students = User::with(['educationDetails', 'subjects'])->where([
             'role' => 'student',
-            'status'=>'active',
-        ])->get();
+            'status' => 'active',
+        ]);
+
+        $students->where($this->columnname, $this->id);
+        $students = $students->get();
         
         foreach ($students as $student) {
-            Mail::to($student->email)->send(new AdmitCard($student,$student,$student,$student));
+            $body = "";
+            $admitcardlink = route('admin.user.admitcard',["id"=>encrypt($student->id)]);
+            $body = $option->get_option('admitcardtemplate');
+            $body = str_replace('[student_name]', $student->name, $body);
+            $body = str_replace('[mother_name]', $student->mothername, $body);
+            $body = str_replace('[father_name]', $student->fathername, $body);
+            $body = str_replace('[student_address]', $student->caddress, $body);
+            $body = str_replace('[student_dob]', $student->dob, $body);
+            $body = str_replace('[exam_date]', $student->exam_date, $body);
+            $body = str_replace('[exam_center]', $student->examcentre, $body);
+            $body= str_replace('[exam_venue]',$student->exam_venue,$body);
+            $body= str_replace('[admit_card_link]',$admitcardlink,$body);
+            Mail::to($student->email)->send(new AdmitCard($body));
         }
     }
 }

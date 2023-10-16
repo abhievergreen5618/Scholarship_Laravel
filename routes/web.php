@@ -160,6 +160,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/districtupdate','update')->name('admin.district.update');
         Route::post('/districtdelete','destroy')->name('admin.district.delete');
         Route::post('/district-status-update','status')->name('admin.district.status.update');
+        Route::post('/districtexam','setexamdatetime')->name('admin.district.exam.update');
     });
 
     

@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Option;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AdmitCard;
 
 class DashboardController extends Controller
 {
@@ -12,8 +16,33 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Option $option)
     {
+        // $students = User::with(['educationDetails', 'subjects'])->where([
+        //     'role' => 'student',
+        //     'status' => 'active',
+        // ]);
+
+        // // $students->where($this->columnname, $this->id);
+        // $students->where("examdistrict",2);
+
+        // $students = $students->get();
+        // foreach ($students as $student) {
+        //     $body = "";
+        //     $admitcardlink = route('admin.user.admitcard',["id"=>encrypt($student->id)]);
+        //     $body = $option->get_option('admitcardtemplate');
+        //     $body = str_replace('[student_name]', $student->name, $body);
+        //     $body = str_replace('[mother_name]', $student->mothername, $body);
+        //     $body = str_replace('[father_name]', $student->fathername, $body);
+        //     $body = str_replace('[student_address]', $student->caddress, $body);
+        //     $body = str_replace('[student_dob]', $student->dob, $body);
+        //     $body = str_replace('[exam_date]', $student->exam_date, $body);
+        //     $body = str_replace('[exam_center]', $student->examcentre, $body);
+        //     $body= str_replace('[exam_venue]',$student->exam_venue,$body);
+        //     $body= str_replace('[admit_card_link]',$admitcardlink,$body);
+        //     dd($student->exam_date);
+        //     Mail::to($student->email)->send(new AdmitCard($body));
+        // }
         return view('admin.dashboard');
     }
 

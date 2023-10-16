@@ -130,11 +130,11 @@ class User extends Authenticatable
     protected function getExamCenterNameAttribute()
     {
         $examCenterId = $this->attributes['examdistrict'];
-        $examCenter = DistrictModel::where('id', $examCenterId)->first('name');
+        $examCenter = DistrictModel::where('id', $examCenterId)->value('name');
 
         if ($examCenter === null) {
             // If no record is found in DistrictModel, try StateModel
-            $examCenter = StateModel::where('id', $examCenterId)->first('name');
+            $examCenter = StateModel::where('id', $examCenterId)->orWhere('code',$examCenterId)->value('name');
         }
 
         // Check if $examCenter is still empty and provide a default value
@@ -143,7 +143,27 @@ class User extends Authenticatable
             return $defaultExamCenter;
         }
 
-        return $examCenter->name;
+        return $examCenter;
+    }    
+    
+    protected function getExamDateAttribute()
+    {
+        $examCenterId = $this->attributes['examdistrict'];
+        $examdate = DistrictModel::where('id', $examCenterId)->value('examdate');
+
+        if ($examdate === null) {
+            $examCenterId = $this->attributes['examcentre'];
+            // If no record is found in DistrictModel, try StateModel
+            $examdate = StateModel::where('id', $examCenterId)->orWhere('code',$examCenterId)->value('examdate');
+        }
+
+        // Check if $examCenter is still empty and provide a default value
+        if (empty($examdate)) {
+            $examdate = 'Not Set'; // Replace with your desired default value
+            return $examdate;
+        }
+
+        return $examdate;
     }
 
     protected function getnationalitySummaryAttribute()

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('mothername')->nullable();
             $table->string('examcentre')->nullable();
             $table->string('examdistrict')->nullable();
+            $table->string('examvenue')->nullable();
             $table->string('caddress')->nullable();
             $table->string('paddress')->nullable();
             $table->string('dob')->nullable();

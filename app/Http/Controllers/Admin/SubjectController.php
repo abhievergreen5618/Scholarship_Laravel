@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Subject;
 use App\Models\ClassModel;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Validation\Validator;
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class SubjectController extends Controller
 {
@@ -151,13 +152,27 @@ class SubjectController extends Controller
             ]
         );
 
-        Subject::where("id",decrypt($request['id']))->update([
-            "classes" => $request->classes,
-            "description" => $request->description,
-            "status" => $request->status,
-        ]);
-        return redirect(route('admin.subjects.index'))->with("msg", "Subject Updated Successfully");
+        try {
+            // Retrieve the session by ID
+            $subject = Subject::find(decrypt($request->input('id')));
 
+            if (!$subject) {
+                return redirect()->back()->with("error", "Subject not found.");
+            }
+
+            $subject->classes =  $request->classes;
+            $subject->description = $request->description;
+            $subject->status = $request->status;
+            $subject->save();
+
+            $subject->classes()->sync($request->classes);
+
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            // Log the exception for debugging: Log::error($e->getMessage());
+            return redirect()->back()->with("error", "Something Went Wrong.");
+        }
+        return redirect(route('admin.subjects.index'))->with("msg", "Subject Updated Successfully");
     }
 
     /**

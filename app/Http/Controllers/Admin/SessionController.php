@@ -245,10 +245,6 @@ class SessionController extends Controller
                     "state" => "required",
                 ]);
                 $session->admitcardupdate($request->all());
-                if($request->state == "true")
-                {
-                    dispatch(new AdmitCardEmailToUsers());
-                }
             }
             catch (Exception $e) {
                 $message = $e->getMessage();

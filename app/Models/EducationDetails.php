@@ -24,7 +24,7 @@ class EducationDetails extends Model
     ];
 
         // Define the list of attributes that should be appended to the model
-        protected $appends = ['resultStatusSummary','examinationPassedSummary'];
+        protected $appends = ['resultStatusSummary'];
 
         // Method to get the modified result status summary attribute
         public function getResultStatusSummaryAttribute()
@@ -48,43 +48,4 @@ class EducationDetails extends Model
 
             return $resultStatus;
     }
-
-
-    // protected function getexaminationPassedSummaryAttribute()
-    // {
-
-    //     $examination_passed = $this->attributes['examination_passed'];
-    //     switch ($examination_passed) {
-    //         case 18:
-    //             $examination_passed = "B.A";
-    //             break;
-    //         case 19:
-    //             $examination_passed = "B.Com";
-    //             break;
-    //         case 20:
-    //             $examination_passed = "B.Sc";
-    //             break;
-    //         case 21:
-    //             $examination_passed = "Other";
-    //             break;
-    //         case 22:
-    //             $examination_passed = "M.A";
-    //             break;
-    //         case 23:
-    //             $examination_passed = "M.Sc";
-    //             break;
-    //         case 24:
-    //             $examination_passed = "M.Com";
-    //             break;
-    //         case 25:
-    //             $examination_passed = "Other";
-    //             break;
-    //         default:
-    //             // Add a default case to handle situations where examcenter_id doesn't match any case
-    //             $examination_passed = $examination_passed;
-    //             break;
-    //     }
-
-    //     return $examination_passed;
-    // }
 }

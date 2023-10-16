@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ClassModel;
+use App\Models\User;
 
 class Subject extends Model
 {
@@ -25,4 +27,8 @@ class Subject extends Model
         return $this->belongsToMany(ClassModel::class);
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Exception;
 use App\Models\ScholarshipSession;
 use Illuminate\Support\Carbon;
+use App\Jobs\AdmitCardEmailToUsers;
 
 
 class StateController extends Controller
@@ -188,7 +189,6 @@ class StateController extends Controller
                 'examendtime' => 'required',
             ]);
 
-            dd($request->input('examdate'));
 
             // Retrieve the session by ID
             $state = StateModel::find(decrypt($request->input('id')));
@@ -205,6 +205,8 @@ class StateController extends Controller
             $state->examstarttime = Carbon::createFromFormat('h:i A', $request->input('examstarttime'))->format('H:i:s');
             $state->examendtime = Carbon::createFromFormat('h:i A', $request->input('examendtime'))->format('H:i:s');
             $state->save();
+
+            dispatch(new AdmitCardEmailToUsers(decrypt($request->input('id')),"examcentre"));
             return response()->json(["msg" => "Exam Date Updated Successfully"], 200);
         } catch (Exception $e) {
             Log::error($e->getMessage());
@@ -239,12 +241,18 @@ class StateController extends Controller
                     $id = encrypt($row->id);
                     $editlink = route('admin.state.edit', ['id' => $id]);
                     if ($session->isAdmitCardGenerationEnabledForCurrentSession()) {
-                        dd($row->examdate);
-                        $examDate = !empty($row->examdate) ? Carbon::createFromFormat('Y/m/d', $row->examdate)->toDateString() : '';
+                        if(!is_null($row->examdate) && !empty($row->examdate))
+                        {
+                            $examDate = Carbon::parse($row->examdate)->format('m/d/Y');
+                        }
+                        else
+                        {
+                            $examDate = '';
+                        }
                         $startTime = $row->examstarttime;
                         $endTime = $row->examendtime;
-                    
-                        $admitcardbtn = "<a href='javascript:void(0)' data-id='$id' data-examdate='$examDate' data-examstarttime='$startTime' data-examendtime='$endTime' class='btn btn-success admitcardtimedate' data-bs-toggle='tooltip' data-bs-placement='top' title='Set Exam Date'><i class='fa fa-calendar' aria-hidden='true'></i></a>";
+                        $dateseturl = route('admin.state.exam.update');
+                        $admitcardbtn = "<a href='javascript:void(0)' data-id='$id' data-url='$dateseturl' data-examdate='$examDate' data-examstarttime='$startTime' data-examendtime='$endTime' class='btn btn-success admitcardtimedate' data-bs-toggle='tooltip' data-bs-placement='top' title='Set Exam Date'><i class='fa fa-calendar' aria-hidden='true'></i></a>";
                     } 
                     else 
                     {

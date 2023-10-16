@@ -28,13 +28,13 @@ class ScholarshipController extends Controller
 
     public function index(ScholarshipSession $session)
     {
-        $states = StateModel::orderBy('name', 'asc')->orderBy('code', 'asc')->pluck('name','code');
+        $states = StateModel::orderBy('name', 'asc')->orderBy('code', 'asc')->pluck('name', 'code');
 
         $subjects = Subject::where('status', 'active')->orderBy('name', 'asc')->pluck('name', 'id');
 
         $scholarship = ScholarshipList::where('status', 'active')->orderBy('name', 'asc')->pluck('name', 'id');
 
-        $classes = ClassModel::where('status','active')->orderBy('id','asc')->pluck('class','id');
+        $classes = ClassModel::where('status', 'active')->orderBy('id', 'asc')->pluck('class', 'id');
 
         $sessions = $session->latestSessionNameList();
 
@@ -45,28 +45,25 @@ class ScholarshipController extends Controller
             'scholarship' => $scholarship,
             'sessions' => $sessions,
         ]);
-
     }
 
     public function getDistricts(Request $request)
     {
         $stateCode = $request->post('stateCode');
-        $districts = DistrictModel::where('statecode', $stateCode)->orderBy('name', 'asc')->pluck('name','id');
+        $districts = DistrictModel::where('statecode', $stateCode)->orderBy('name', 'asc')->pluck('name', 'id');
         $html = '<option value="">Select District</option>';
         if ($districts->isEmpty()) {
-            $districts = StateModel::where('code', $stateCode)->pluck('name','code');
-            
+            $districts = StateModel::where('code', $stateCode)->pluck('name', 'code');
 
-            foreach ($districts as $key=>$district) {
+
+            foreach ($districts as $key => $district) {
                 $selected = isset(Auth::user()->examdistrict) && $key == Auth::user()->examdistrict ? 'selected' : '';
-                $html .= '<option value="'.$key.'" '.$selected.'>'.$district.'</option>';
+                $html .= '<option value="' . $key . '" ' . $selected . '>' . $district . '</option>';
             }
-        }
-        else
-        {
-            foreach ($districts as $key=>$district) {
+        } else {
+            foreach ($districts as $key => $district) {
                 $selected = isset(Auth::user()->examdistrict) && $key == Auth::user()->examdistrict ? 'selected' : '';
-                $html .= '<option value="'.$key.'" '.$selected.'>'.$district.'</option>';
+                $html .= '<option value="' . $key . '" ' . $selected . '>' . $district . '</option>';
             }
         }
         echo $html;
@@ -135,34 +132,39 @@ class ScholarshipController extends Controller
                 $request['categorycertificate'] = $certificateName;
             }
 
-            User::where('id', decrypt($request['id']))->update([
-                "session" => $request['session'] ?? "",
-                "scholarshipname" => $request['scholarshipname'] ?? "",
-                "name" => $request['name'] ?? "",
-                "fathername" => $request['fathername'],
-                "mothername" => $request['mothername'],
-                "examcentre" => $request['examcentre'],
-                "examdistrict" => $request['examdistrict'],
-                "caddress" => $request['caddress'],
-                "paddress" => $request['paddress'],
-                "dob" => $request['dob'] ?? "",
-                "aadhaarno" => $request['aadhaarno'] ?? "",
-                "nationality" =>  $request['nationality'] ?? "",
-                "mobileno" => $request['mobileno'],
-                "gender" => $request['gender'] ?? "",
-                "singlegirlchild" => $request['singlegirlchild'] ?? "",
-                "subjects" => $request['subjects'],
-                "physicallychallenged" => $request['physicallychallenged'],
-                "category" => $request['category'],
-                "physicallychallengedproof" => $imageName ?? "",
-                "categorycertificate" => $certificateName ?? "",
+            $user = User::find(decrypt($request['id']));
+
+            $user->update([
+                "session" => $request->input('session', $user->session),
+                "scholarshipname" => $request->input('scholarshipname', $user->scholarshipname),
+                "name" => $request->input('name', $user->name),
+                "fathername" => $request->input('fathername', $user->fathername),
+                "mothername" => $request->input('mothername', $user->mothername),
+                "examcentre" => $request->input('examcentre', $user->examcentre),
+                "examdistrict" => $request->input('examdistrict', $user->examdistrict),
+                "caddress" => $request->input('caddress', $user->caddress),
+                "paddress" => $request->input('paddress', $user->paddress),
+                "dob" => $request->input('dob', $user->dob),
+                "aadhaarno" => $request->input('aadhaarno', $user->aadhaarno),
+                "nationality" => $request->input('nationality', $user->nationality),
+                "mobileno" => $request->input('mobileno', $user->mobileno),
+                "gender" => $request->input('gender', $user->gender),
+                "singlegirlchild" => $request->input('singlegirlchild', $user->singlegirlchild),
+                "physicallychallenged" => $request->input('physicallychallenged', $user->physicallychallenged),
+                "category" => $request->input('category', $user->category),
+                "physicallychallengedproof" => $imageName ?? $user->physicallychallengedproof,
+                "categorycertificate" => $certificateName ?? $user->categorycertificate,
                 "step1_updated_at" => now(),
             ]);
+
+            // Update the subjects using the sync method
+            $user->subjects()->sync($request->input('subjects', []));
+
 
             // Refresh the authenticated user's data
             Auth::user()->refresh();
 
-              // Load the Blade view
+            // Load the Blade view
             $html = View::make('student.FormSteps.applicationsummary')->render();
 
             return response()->json([
@@ -175,7 +177,7 @@ class ScholarshipController extends Controller
 
     public function getFee($feecode)
     {
-        $fee = FeeDetail::where('feecode',$feecode)->value('fee');
+        $fee = FeeDetail::where('feecode', $feecode)->value('fee');
 
         return response()->json(['fee' => $fee]);
     }
@@ -260,8 +262,8 @@ class ScholarshipController extends Controller
             ]);
 
 
-           // Refresh the authenticated user's data
-           Auth::user()->refresh();
+            // Refresh the authenticated user's data
+            Auth::user()->refresh();
 
             // Load the Blade view
             $html = View::make('student.FormSteps.applicationsummary')->render();
@@ -292,7 +294,7 @@ class ScholarshipController extends Controller
             "holdername" => "required",
             "ifsccode" => "required",
             "passbook_photo" => "required",
-        ],[
+        ], [
             "required" => "This field is required.",
             "required_if" => "This field is required.",
             "cnfrmaccountno.same" => "The confirmation account number must match the account number field.",
@@ -323,14 +325,14 @@ class ScholarshipController extends Controller
                 "step3_updated_at" => now(),
             ]);
 
-            User::where('id',decrypt($request['id']))->update([
+            User::where('id', decrypt($request['id']))->update([
                 "step3_updated_at" => now(),
             ]);
 
             // Refresh the authenticated user's data
             Auth::user()->refresh();
 
-              // Load the Blade view
+            // Load the Blade view
             $html = View::make('student.FormSteps.applicationsummary')->render();
 
             return response()->json([
